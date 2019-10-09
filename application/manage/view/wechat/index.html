@@ -1,0 +1,60 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="sys-content">
+		<div class="page-bang">
+			<div class="add-content page-appID">
+				<form data-model="form-submit">
+				<dl class="add-block-li">
+                    <dt>微信账号类型：</dt>
+                    <dd>
+                        服务号
+                    </dd>
+                </dl>
+                <dl class="add-block-li">
+                    <dt>微信URL：</dt>
+                    <dd>{:urlDiy('/index/wechat/index')}?token={:lock_url($config['brand_prefix'])}</dd>
+                </dl>
+                <dl class="add-block-li">
+                    <dt>微信Token：</dt>
+                    <dd>weixintoken</dd>
+                </dl>
+                <dl class="add-block-li">
+                    <dt>微信AppID：</dt>
+                    <dd>
+                        <input type="text" name="wechat[appid]" value="{$wechat['appid']}" datatype="*">
+                        <i class="shuoming">微信公众平台中获取</i>
+                    </dd>
+                </dl>
+                <dl class="add-block-li">
+                    <dt>微信AppSecret：</dt>
+                    <dd>
+                        <input type="password" name="wechat[appsecret]" value="{$wechat['appsecret']}" datatype="*">
+                        <i class="shuoming">微信公众平台中获取</i>
+                    </dd>
+                </dl>
+                <dl class="add-block-li">
+                    <dt>EncodingKey：</dt>
+                    <dd>
+                        <input type="text" name="wechat[keycode]" value="{$wechat['keycode']}" datatype="*">
+                        <i class="shuoming">微信公众平台中获取</i>
+                    </dd>
+                </dl>
+		        <div class="submit-btn">
+		            <button class="btn btn-info">保存设置</button>
+		        </div>
+		        </form>
+			</div>
+		</div>
+    </div>
+</div>

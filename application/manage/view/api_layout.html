@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$config['sitename']}</title>
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/rest.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/common.css">
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/do.js"></script>
+<script type="text/javascript" src="/static/js/package.js" data-path="/static/js/" data-root="/{$Request.controller}/"  data-src="/static/admin/js/common"></script>
+</head>
+<body>
+{__CONTENT__}
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+</script>
+</body>
+</html>

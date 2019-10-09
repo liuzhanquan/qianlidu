@@ -1,0 +1,31 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="goods-list">
+	{foreach $list as $vo}
+	<div class="goods-item">
+		<a href="{:url('detail',['id'=>$vo['id']])}" class="flex-row">
+			<div class="flex-grow-0 imgs"><img src="{$vo['photo']}"></div>
+			<div class="flex-grow-1 infos">
+				<h3>{$vo['title']}（{$vo['unit']}）</h3>
+				<p>订货价：￥ {$vo['agent']}元</p>
+				<p>所属品牌：{$config['brand_name']}</p>
+			</div>
+		</a>
+	</div>
+	{/foreach}
+	<div class="pages">{$page}</div>
+</div>
+<script type="text/javascript">
+var title = '我的订货价';
+$("title").html(title);
+function submitForm(){
+    var form = document.getElementById("my_form");//获取form表单对象
+    form.submit();//form表单提交
+}
+</script>
+<!--{#include 'footer.html'}-->

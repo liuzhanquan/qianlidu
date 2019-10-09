@@ -1,0 +1,86 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+.lise-item li{border-bottom: 1px solid  #efefef;padding: 10px 0;}
+.lise-item li:last-child{border-bottom: 0;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 25%;"><a href="{:url('recharge_down')}">全部</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 25%;"><a href="{:url('recharge_down',['type'=>'1'])}">待充值</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 25%;"><a href="{:url('recharge_down',['type'=>'2'])}">已充值</a></li>
+		<li {if condition="$type eq 3"}class="active"{/if} style="width: 25%;"><a href="{:url('recharge_down',['type'=>'3'])}">已拒绝</a></li>
+	</ul>
+</div>
+<div class="agent-scanout">
+	<form>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">申请时间：</dt>
+			<dd class="flex-grow-1"><input type="date" name="start" value="{$start}" class="input"></dd>
+			<dd class="flex-grow-0" style="padding: 0 5px;">--</dd>
+			<dd class="flex-grow-1"><input type="date" name="end" value="{$end}" class="input"></dd>
+		</dl>
+		<!--<dl class="flex-row">
+			<dt class="flex-grow-0">关&nbsp;&nbsp;键&nbsp;&nbsp;词：</dt>
+			<dd class="flex-grow-1"><input type="text" class="input" name="key"></dd>
+		</dl>-->
+		<div class="logNum">
+			<button class="btn btn-ok" style="width: 100%;left: 0;">搜索</button>
+		</div>
+	</form>
+</div>
+<div class="line-bottom"></div>
+<div class="agentlink-list">
+	<div class="lise-item">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关的充值申请记录~</p>
+		</div>
+		{else /}
+		<ul class="recharge_down">
+			{foreach $list as $vo}
+			<li>
+				<div class="clearfix">
+					<div class="avatar"><img src="{:getUser($vo['uid'],'avatar')}"></div>
+					<div class="info">
+						<p>申请金额：{$vo['money']}</p>
+						<p>申请时间：{$vo['timestamp']}</p>
+						{if condition="$vo['status'] eq 0"}
+						<p>备注：{$vo['remark']}</p>
+						{/if}
+						{if condition="$vo['status'] gt 0"}
+						<p>状态：
+						{if condition="$vo['status'] eq 1" /}
+						已同意
+						{elseif condition="$vo['status'] eq 2" /}
+						已拒绝
+						{/if}
+						</p>
+						{/if}
+					</div>
+				</div>
+				{if condition="$vo['status'] eq 0"}
+				<div class="option clearfix">
+					<a href="{$vo['image']}" class="fl">查看转账凭证</a>
+					<div class="fr option-btn">
+						<a href="{:url('do_down',['id'=>$vo['id']])}">拒绝</a>
+						<a href="{:url('do_down',['id'=>$vo['id'],'type'=>'1'])}" class="agre">同意</a>
+					</div>
+				</div>
+				{/if}
+			</li>
+			<div class="line-bottom"></div>
+			{/foreach}
+		</ul>
+		<div class="pages">{$page}</div>
+		{/empty}
+	</div>	
+</div>
+<script type="text/javascript">
+var title = '下级充值';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

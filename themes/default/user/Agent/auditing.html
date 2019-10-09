@@ -1,0 +1,102 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<form data-model="form-submit">
+	<div class="sub-title">代理信息</div>
+	<div class="agent-info">
+		<dl class="add-block-li">
+	        <dt>头像：</dt>
+	        <dd><div class="user_img " title="点击查看大图" style="cursor:pointer"><img src="{:getUser($info['uid'],'avatar')}"></div></dd>
+	    </dl>
+	    <form data-model="form-submit">
+	    <dl class="add-block-li">
+	        <dt>申请人：</dt>
+	        <dd>{:getUser($info['uid'],'auth_name')}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>微信号：</dt>
+	        <dd>{:getUser($info['uid'],'wechat')}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>手机号：</dt>
+	        <dd>{:getUser($info['uid'],'phone')}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>地区：</dt>
+	        <dd>{:getCity(getUser($info['uid'],'province'))} {:getCity(getUser($info['uid'],'city'))} {:getCity(getUser($info['uid'],'area'))}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>收货地址：</dt>
+	        <dd>{:getUser($info['uid'],'address')}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>申请时间：</dt>
+	        <dd>{$info['timestamp']}</dd>
+	    </dl>
+	    
+	    {php}$card_img = getUser($info['uid'],'card_img');{/php}
+	    <dl class="add-block-li">
+	        <dt>身份证正反面：</dt>
+	        <dd>{empty name="card_img"} {else /} <img src="{$card_img}"> {/empty}</dd>
+	    </dl>
+	    
+	    {php}$money_img = getUser($info['uid'],'money_img');{/php}
+	    <dl class="add-block-li">
+	        <dt>打款截图：</dt>
+	        <dd>{empty name="money_img"} {else /} <img src="{$money_img}"> {/empty}</dd>
+	    </dl>
+	</div>
+	<div class="sub-title">申请代理级别</div>
+	<div class="agent-info">
+		<dl class="add-block-li">
+	        <dt>申请品牌：</dt>
+	        <dd>{$config['brand_name']}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>申请级别：</dt>
+	        <dd>{$info['level_name']}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>申请金额：</dt>
+	        <dd>{$agentLevel['money']}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>扣除金额：</dt>
+	        {php}$agentLevelMoney = $agentLevel['money'] / ($agentLevel['rebate'] / 10) * ($userLevel['rebate'] / 10);{/php}
+	        <dd>{$agentLevelMoney}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>利润额：</dt>
+	        <dd>{$agentLevel['money'] - $agentLevelMoney}</dd>
+	    </dl>
+	</div>
+	<div class="sub-title">审核</div>
+	<div class="agent-info">
+		<dl class="add-block-li">
+	        <dt></dt>
+	        <dd>
+	            <label class="radio-inline"><input type="radio" name="status" value="1" style="margin-top: 0" checked="">审核通过</label>
+	            <label class="radio-inline"><input type="radio" name="status" value="2" style="margin-top: 0">审核未通过</label>
+	        </dd>
+	    </dl>
+	    <dl class="add-block-li" style="padding: 0;">
+	        <dt>备注：</dt>
+	    </dl>
+	    <div class="order-guestbook" style="width: 100%;">
+		    <textarea class="input" rows="3" placeholder="审核建议，审核不通过时必填，申请人可见！" name="remark" style="border:1px solid #efefef;padding: 5px 0;"></textarea>
+		</div>
+	</div>
+	<div class="agent-list-panel">
+		<div class="panel-btn">
+			<input type="hidden" name="id" value="{$info['id']}">
+			<button class="submit-btn">提交</button>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+var title = '查看审核';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

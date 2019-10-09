@@ -1,0 +1,46 @@
+<div class="wxback"><a href="{:url('index')}"><i class="glyphicon glyphicon-chevron-left"></i> 代理资料管理</a></div>
+<div class="wxBox" data-model="table-bind">
+	<div class="container-fluid" data-table>
+		{foreach $list as $vo}
+		<div class="c-pipeline__card">
+	        <div class="o-media">
+	          	<div class="o-media__img u-mr-small">
+	            	<div class="c-avatar c-avatar--small">
+	              		<img class="c-avatar__img" src="{$vo['avatar']}" alt="{$vo['auth_name']}">
+	            	</div>
+	          	</div>
+	          	<div class="o-media__body">
+	            	<h5 class="c-pipeline__card-title">{$vo['auth_name']}</h5>
+	            	<p class="c-pipeline__card-subtitle">
+	            		<span class="c-badge c-badge--small c-badge--info">{$vo['level_name'] ? $vo['level_name'] : '未设置'} </span>
+	            		{if condition="$vo['status'] eq 0"}
+	            		<span class="c-badge c-badge--small c-badge--danger">待审核</span>
+	            		{elseif condition="$vo['status'] eq 1" /}
+	            		<span class="c-badge c-badge--small c-badge--success">正常</span>
+	            		{elseif condition="$vo['status'] eq 2" /}
+	            		<span class="c-badge c-badge--small c-badge--danger">待二次审核</span>
+	            		{elseif condition="$vo['status'] eq 3" /}
+	            		<span class="c-badge c-badge--small c-badge--info">已冻结</span>
+	            		{/if}
+	            	</p>
+	          	</div>
+	        </div>
+	        <div class="c-pipeline__card-footer">
+	          	<a href="{:url('douser',['id'=>$vo['uid']])}" class="c-badge c-badge--small c-badge--info">查看</a>
+				{if condition="$vo['status'] eq 0"}
+				<a href="{:url('auditing',['id'=>$vo['uid']])}" class="c-badge c-badge--small c-badge--danger">审核</a>
+				{elseif condition="$vo['status'] eq 2" /}
+				<a href="{:url('auditing',['id'=>$vo['uid']])}" class="c-badge c-badge--small c-badge--danger">审核</a>
+				{elseif condition="$vo['status'] eq 1" /}
+				<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该代理吗？" data-url="{:url('status')}" data-val="3" data-id="{$vo['uid']}" class="c-badge c-badge--small c-badge--danger">冻结</a>
+				{elseif condition="$vo['status'] eq 3" /}
+				<a href="javascript:void(0)" data-confirm data-tips="您确认要启用吗？" data-url="{:url('status')}" data-val="1" data-id="{$vo['uid']}" class="c-badge c-badge--small c-badge--danger">启用</a><br>
+				{/if}
+	          	<a href="{:url('option',['id'=>$vo['uid']])}" class="c-badge c-badge--small c-badge--success">充值</a>
+	          	<a href="{:url('option_s',['id'=>$vo['uid']])}" class="c-badge c-badge--small c-badge--danger">扣款</a>
+	        </div>
+	  	</div>
+	  	{/foreach}
+	  	<div class="pages">{$page}</div>
+  	</div>
+</div>

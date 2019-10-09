@@ -1,0 +1,74 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>登录账号：</dt>
+	            <dd>
+	            	{empty name="$info"}
+	            	<input type="text" style="width: 270px" name="username" class="form-controls" datatype="*" value="{$info['username']}">
+	            	<i>最多10个英文、数字字符</i>
+	            	{else /}
+	            	<input type="text" style="width: 270px;background: #efefef;" name="username" class="form-controls" value="{$info['username']}" readonly="">
+	            	{/empty}
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>姓名：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="{$info['name']}">
+	            	<i>最多10个字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>手机号：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px;background: #efefef;" readonly="" class="form-controls" datatype="m" value="{$info['phone']}">
+	            	<i>11位手机号码</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>设置密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" name="password" class="form-controls" datatype="*6-20">
+	            	<i>6-20位英文、数字或字符,不修改请留空</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>确认密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" class="form-controls" datatype="*6-20" recheck="password">
+	            	<i>6-20位英文、数字或字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>绑定微信登陆账户：</dt>
+	            <dd>
+	            	<img src="{$qrcode}" width="120">
+	            	<i>请使用微信扫一扫进行相关联绑定微信</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>

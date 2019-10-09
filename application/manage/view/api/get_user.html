@@ -1,0 +1,68 @@
+<div class="layout-ajax">
+	<div class="page-content-w1">
+		<div class="page-search" style="padding-top:28px;margin-bottom:10px !important;">
+			<form method="get">
+			<table style="text-align: left;width:100%;">
+			<tr>
+				<td>
+					<span class="btSearch">
+						<input type="button" class="btn btn-info btn-ok" onclick="choose('0', '总部','0')" value="选择总部" id="btnChooseTop">
+					</span>
+					<span class="tips">提示：不选择上级代理，代表上级是总部</span>
+				</td>
+				<td width="550">
+	                <span>关键词：</span>
+	                <span><input type="text" id="txtKeyword" name="key" style="width:400px;" maxlength="50" placeholder="授权编号、授权名称、手机号" value="{$key}"></span>
+				</td>
+				<td>
+					<span class="btSearch ">
+						<button class="btn btn-info btn-ok">搜索</button>
+					</span>
+				</td>
+			</tr>
+			</table>
+			</form>
+		</div>
+		<div class="page-list2 mb-20 right-content">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="text-center">授权名称</th>
+						<th class="text-center">手机号</th>
+						<th class="text-center">授权级别</th>
+						<th class="text-center">身份证</th>
+						<th class="text-center">地区</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach $list as $vo}
+					<tr>
+						<td>{$vo['auth_name']}</td>
+						<td>{$vo['phone']}</td>
+						<td>{$vo['level_name']}</td>
+						<td>{$vo['idcard']}</td>
+						<td>{:getCity($vo['province'])},{:getCity($vo['city'])},{:getCity($vo['area'])}</td>
+						<td>
+							<button type="button" onclick="choose('{$vo['uid']}', '{$vo['auth_name']}({$config['brand_prefix']}{$vo['auth_number']})')" class="btn btn-sm btn-info btn-ok">选择</button>
+						</td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<div class="pages-mun">
+				<div id="Pager">{$page}</div>
+				<!-- <div>共<label id="dataCount">8</label>条数据</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function choose(id,txt,s){
+	var returnData = Array();
+    returnData['id'] = id;
+    returnData['txt'] = txt;
+    returnData['brand'] = s;
+	window.parent.call_back(returnData);
+}
+</script>

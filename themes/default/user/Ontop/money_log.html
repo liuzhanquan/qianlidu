@@ -1,0 +1,47 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 25%;"><a href="{:url('money_log')}">近一周</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 25%;"><a href="{:url('money_log',['type'=>'1'])}">近一个月</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 25%;"><a href="{:url('money_log',['type'=>'2'])}">近半年</a></li>
+		<li {if condition="$type eq 3"}class="active"{/if} style="width: 25%;"><a href="{:url('money_log',['type'=>'3'])}">近一年</a></li>
+	</ul>
+</div>
+<div class="line-bottom"></div>
+<div class="log-list">
+	{empty name="list"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>没有相关的记录~</p>
+	</div>
+	{else /}
+	<ul>
+		{foreach $list as $vo}
+		<li>
+			<div class="top clearfix">
+				<span class="t fl">{$vo['remark']}</span>
+				<span class="fr">
+					{if condition="$vo['type'] lt 5"}
+					<em class="org">+ {$vo['money']}</em>
+					{else /}
+					<em class="red">- {$vo['money']}</em>
+					{/if}
+				</span>
+			</div>
+			<div class="bottom clearfix">
+				<span class="fl">{$vo['timestamp']}</span>
+				<span class="fr"></span>
+			</div>
+		</li>
+		{/foreach}
+	</ul>
+	{/empty}
+</div>
+<script type="text/javascript">
+var title = '收支明细';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

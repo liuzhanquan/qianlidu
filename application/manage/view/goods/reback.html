@@ -1,0 +1,15 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="alert alert-default">提示：为保证数据安全性，退货时间超过30天的记录不能删除，查看时间不限制，默认显示最近一个月的记录。</div>
+</div>

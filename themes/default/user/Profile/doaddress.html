@@ -1,0 +1,86 @@
+<!--{#include 'header.html'}-->
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<style type="text/css">
+body{background: #fff;}
+.list-item label{min-width: 90px;}
+.list-item .input{max-width: 200px;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent-list-panel">
+	<form data-model="form-submit">
+		<div class="list-item clearfix">
+			<label>收货人</label>
+			<div class="item-txt">
+				<input type="text" datatype="*" name="name" value="{$info['name']}" class="input" placeholder="收货人姓名">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>手机号码</label>
+			<div class="item-txt">
+				<input type="text" datatype="m" name="phone" value="{$info['phone']}" class="input" placeholder="联系手机号码">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>地区</label>
+			<div class="item-txt input">
+				<div class="row-flex">
+					<div class="col-flex-33">
+						<select class="input" name="province" id="ddlProvince" style="width: 100%;">
+							<option value="-1">省份</option>
+							{foreach $region as $vo}
+							<option value="{$vo['id']}" {if condition="$info['province'] eq $vo['id']"}selected{/if}>{$vo['name']}</option>
+							{/foreach}
+						</select>
+					</div>
+					<div class="col-flex-33">
+						<select class="input" name="city" id="ddlCity" style="width: 100%;">
+							<option value="-1">城市</option>
+						</select>
+					</div>
+					<div class="col-flex-33">
+						<select class="input" name="area" id="ddlArea" style="width: 100%;">
+							<option value="-1">区域</option>
+						</select>
+					</div>
+				</div>
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>详细地址</label>
+			<div class="item-txt">
+				<textarea class="input" rows="5" name="address" placeholder="请输入您的详细地址" style="width: 200px;">{$info['address']}</textarea>
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>设为默认地址</label>
+			<div class="item-txt" style="float: right;">
+				<input type="checkbox" name="is_true" value="1" {if condition="$info['is_true'] eq 1"}checked{/if}>
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="panel-btn">
+			<input type="hidden" name="id" value="{$info['id']}">
+			<button class="submit-btn">保存</button>
+			<a href="{:url('address')}">取消</a>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+var title = '收货地址';
+$("title").html(title);
+GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$info['city']}", "-1");
+setTimeout(function () {
+	GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "{$info['area']}", "-1");
+},1000);
+
+</script>
+<!--{#include 'footer.html'}-->

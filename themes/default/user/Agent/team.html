@@ -1,0 +1,33 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<div class="agent-panel">
+		<div class="agent-brand_list">
+			<div class="brand_list">
+				<h3>品牌：{$config['brand_name']}</h3>
+				<ul>
+					{foreach $list as $vo}
+					{php}$num = db('user')->where(['parent_id'=>$user['uid'],'level_id'=>$vo['id']])->count();{/php}
+					{if condition="$num gt 0"}
+					<li>
+						<a href="{:url('level_user',['id'=>$vo['id']])}">{$vo['name']}<em>{$num}</em><i class="iconfont">&#xe619;</i></a>
+					</li>
+					{else /}
+					<li><a href="javascript:;">{$vo['name']}<em>0</em><i class="iconfont">&#xe619;</i></a></li>
+					{/if}
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var title = '我的团队';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

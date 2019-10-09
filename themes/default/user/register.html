@@ -1,0 +1,237 @@
+<!--{#include 'header.html'}-->
+{switch name="type"}
+	{case value='level'}
+	<div class="loginBox">
+		<h3>选择注册代理级别</h3>
+		<div class="loginFrom">
+			<form method="get" action="{:url('register',['type'=>'goods'])}">
+				<ul class="level">
+					{foreach $level as $k=>$vo}
+					<li><label><input type="radio" {if condition="$k eq 0"}checked{/if} name="level" value="{:lock_url($vo['id'])}" data-model="form-check">{$vo['name']}</label></li>
+					{/foreach}
+				</ul>
+				<div class="submit-btn">
+					<button class="btn btn-success">下一步</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	{/case}
+	{case value='goods'}
+	<div class="loginBox">
+		<h3>首单折后金额大于{$use_level['order_money']}产品 <br><span>当前级别可享受 <font color="red">{$use_level['rebate']}</font> 折</span></h3>
+		<div class="commodity_box">
+			<div class="commodity_list">
+				<ul class="commodity_list_term">
+					{foreach $goods as $vo}
+					<li class="selects">
+						<em aem="0" cart_id="{$vo['id']}" price="{$vo['price']}" num="1" class=""></em>
+						<a href="javascript:;"><img src="{$vo['photo']}"></a>
+						<div class="div_center">
+							<h4><a href="javascript:;">{$vo['title']}（{$vo['unit']}）</a></h4>
+							<p class="now_value">
+								<i style="margin: 0;color: #999;font-weight: normal;">零售价：</i>
+								<i>￥</i><b class="qu_su">{$vo['price']}</b>
+							</p>
+						</div>
+						<div class="div_right clearfix">
+							<i onclick="reducew(this)">-</i>
+							<span class="zi">1</span>
+							<input type="hidden" value="{$vo['id']}">
+							<i onclick="ty_plusw(this)" style="float: right;">+</i>
+						</div>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+		<div style="height: 80px;"></div>
+		<div class="settle_box clearfix">
+			<dl class="all_check selects">
+		    	<dt><span id="all_pitch_on" class="" value="aaa"></span><p>&nbsp;全选</p></dt>
+		    </dl>
+		    <dl class="total_amount" style="display: block;">
+		    	<dt>合计：<p id="total_price">¥<b>0.00</b></p></dt>
+		    </dl>
+		    <input type="hidden" name="gcs" id="gcs">
+		    <button class="settle_btn" id="confirm_cart" style="display: block;" disabled="disabled">确认</button>
+		</div>
+		<script type="text/javascript">
+		var cartUrl = "{:urls('register',['type'=>'savegoods'])}";
+		</script>
+	</div>
+	{/case}
+	{case value='profile'}
+	<div class="loginBox">
+		<h3>完善代理授权资料</h3>
+		<div class="loginFrom">
+			<form data-model="form-submit">
+				<dl class="clearfix">
+					<dt>授权名称</dt>
+					<dd><input type="text" name="auth_name" class="input" datatype="*" placeholder="授权真实姓名">
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>手机号码</dt>
+					<dd><input type="text" name="phone" id="phone" class="input" datatype="m" placeholder="请填写正确的手机号码">
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>微信号</dt>
+					<dd><input type="text" name="wechat" class="input" datatype="*" placeholder="请填写微信号">
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<!-- <dl class="clearfix">
+					<dt>手机验证码</dt>
+					<dd><input type="text" name="phone" class="input" placeholder="请填写手机验证码">
+						<button type="button" class="code">获取验证码</button>
+						<div class="tip-alert" style="right: 85px;"></div>
+					</dd>
+				</dl> -->
+				<dl class="clearfix">
+					<dt>身份证号</dt>
+					<dd><input type="text" name="idcard" class="input" datatype="*" placeholder="请填写15-18位身份证号码">
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>所在地区</dt>
+					<dd>
+						<div class="row-flex">
+							<div class="col-flex-33">
+								<select class="input" name="province" id="ddlProvince" style="width: 100%;">
+									<option value="-1">省份</option>
+									{foreach $region as $vo}
+									<option value="{$vo['id']}">{$vo['name']}</option>
+									{/foreach}
+								</select>
+							</div>
+							<div class="col-flex-33">
+								<select class="input" name="city" id="ddlCity" style="width: 100%;">
+									<option value="-1">城市</option>
+								</select>
+							</div>
+							<div class="col-flex-33">
+								<select class="input" name="area" id="ddlArea" style="width: 100%;">
+									<option value="-1">区域</option>
+								</select>
+							</div>
+						</div>
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>收货地址</dt>
+					<dd><input type="text" name="address" class="input" datatype="*" placeholder="请填写收货地址">
+						<div class="tip-alert"></div>
+					</dd>
+				</dl>
+				<dl class="clearfix">
+					<dt>充值金额</dt>
+					<dd>￥{:number_format($levelInfo['money'],2)}</dd>
+				</dl>
+				{if condition="$levelInfo['is_card'] eq 1"}
+				<dl class="clearfix">
+					<dt>身份证正面</dt>
+					<dd>
+						<div class="upload-panel">
+							<a href="javascript:;" data-model="form-upload" data-target="#card_img" data-preview="#card_img_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+							<input type="hidden" name="card_img" value="" id="card_img" datatype="*" nullmsg="请上传身份证正反面">
+							<div class="tip-alert" style="top: 30px;"></div>
+						</div>
+						<div class="upload-prview">
+							<img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="card_img_2">
+						</div>
+					</dd>
+				</dl>
+				{/if}
+				<dl class="clearfix" style="border-bottom: 0;">
+					<dt>货款凭证</dt>
+					<dd>
+						<div class="upload-panel">
+							<a href="javascript:;" data-model="form-upload" data-target="#image" data-preview="#image_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+							<input type="hidden" name="money_img" value="" id="image" datatype="*" nullmsg="请上传打款凭证">
+							<div class="tip-alert" style="top: 30px;"></div>
+						</div>
+						<div class="upload-prview">
+							<img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="image_2">
+						</div>
+					</dd>
+				</dl>
+				<div class="submit-btn">
+					<button class="btn btn-success">提交审核</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+	<script type="text/javascript">
+		GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "-1", "-1");
+		GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "-1", "-1");
+	</script>
+	{/case}
+	{case value='money'}
+	<div class="loginBox">
+		<h3>上传打款凭证</h3>
+		<div class="wallet-item" style="width: 100%;margin: 0 auto;">
+			<ul>
+				<li><em>开户行：</em>{$bank['name']}</li>
+				<li><em>银行卡号：</em>{$bank['num']}</li>
+				<li><em>持卡人：</em>{$bank['user']}</li>
+				<li><em>开户网点：</em>{$bank['address']}</li>
+			</ul>
+		</div>
+		<form data-model="form-submit">
+		<div class="agent-list-panel">
+			<div class="list-item clearfix">
+				<label>支付凭证</label>
+				<div class="item-txt">
+					<div class="upload-panel">
+						<a href="javascript:;" data-model="form-upload" data-target="#image" data-preview="#image_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+						<input type="hidden" name="money_img" value="" id="image" datatype="*" nullmsg="请上传打款凭证">
+						<div class="tip-alert" style="top: 30px;"></div>
+					</div>
+					<div class="upload-prview">
+						<img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="image_2">
+					</div>
+				</div>
+			</div>
+			<div class="panel-btn">
+				<input type="hidden" name="id" value="{$authInfo['id']}">
+				<button class="submit-btn">提交审核</button>
+			</div>
+		</div>
+		</form>
+	</div>
+	{/case}
+{/switch}
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/{$Request.module}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$jssdk['appId'];}', // 必填，公众号的唯一标识
+    timestamp: {$jssdk['timestamp'];}, // 必填，生成签名的时间戳
+    nonceStr: '{$jssdk['nonceStr'];}', // 必填，生成签名的随机串
+    signature: '{$jssdk['signature'];}',// 必填，签名
+    jsApiList: ['checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice'
+    ] // 必填，需要使用的JS接口列表
+});
+wx.ready(function(){
+	wx.hideAllNonBaseMenuItem();
+});
+</script>
+<script type="text/javascript" src="/static/default/js/cart.js"></script>

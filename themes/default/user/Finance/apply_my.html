@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" > 
+<meta name = "format-detection" content="telephone = no" />
+<title>申请结算</title>
+<link rel="stylesheet" type="text/css" href="/static/default/css/home.css">
+<link rel="stylesheet" href="/static/money/css/swiper-4.3.5.min.css">
+<link rel="stylesheet" href="/static/money/css/normalize.css">
+<link rel="stylesheet" href="/static/money/css/style.css">
+<script type="text/javascript" src="/static/money/js/flexible.js"></script>
+</head>
+<body>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+	<h3>申请结算</h3>
+</div>
+<div class="top" style="height: 7rem;">
+	<div class="container">
+		<a href="{:url('apply_my',['mon'=>($mon-1)])}" class="left"><img src="/static/money/img/left.png"></a>
+		<div class="center">
+			<img class="img" src="/static/money/img/quan.png">
+			<div class="content">
+				<h1>￥{:bqwhits($totalMoney)}</h1>
+				<p>
+					{$mon}月可结算金额
+				</p>
+			</div>
+		</div>
+		{php}if($mon >= (date('m') - 1)){ $mons = $mon;}else{ $mons = $mon + 1;}{/php}
+		<a href="{:url('apply_my',['mon'=>$mons])}" class="left"><img src="/static/money/img/right.png"></a>
+	</div>
+</div>
+<div class="">
+	<div class="list_box">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有可结算奖金~</p>
+		</div>
+		{else /}
+		{foreach $list as $vo}
+		<div class="settle-item">
+			<h3>上级结算人：{:getUser($vo['top_parent'])}</h3>
+			<p>截止时间：{:date('Y-m-d',strtotime($vo['last_time']))}</p>
+			{if condition="$vo['status'] eq 0"}
+			<a href="">申请结算</a>
+			{elseif condition="$vo['status'] eq 2"}
+			<a href="javascript:;" class="other">结算部分</a>
+			{elseif condition="$vo['status'] eq 3"}
+			<a href="javascript:;" class="other">待审核</a>
+			{elseif condition="$vo['status'] eq 1"}
+			<a href="javascript:;" class="down">已结算</a>
+			{/if}
+		</div>
+		{/foreach}
+		{/empty}
+	</div>
+</div>
+<script type="text/javascript" src="/static/money/js/jquery.js"></script>
+<script type="text/javascript" src="/static/money/js/swiper-4.3.5.min.js"></script>
+<script>
+var swiper = new Swiper('#swiper1', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
+</body>
+</html>

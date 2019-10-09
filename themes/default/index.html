@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$config['sitename']}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+<link rel="stylesheet" type="text/css" href="/static/default/css/home.css">
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/do.js"></script>
+<script type="text/javascript" src="/static/js/package.js" data-path="/static/js/" data-root="/{$Request.controller}/"  data-src="/static/admin/js/common"></script>
+<style type="text/css">
+html,body{background: url(/static/default/images/loginBg.png) no-repeat;background-size: cover;}
+</style>
+</head>
+<body>
+<div class="loginAvatar">
+	<div class="avatar_img"><a href="{:url('/user/index')}"><img src="{$user['avatar']}"></a></div>
+	<p>点击头像使用当前微信登陆</p>
+</div>
+<div class="loginPhone">
+	<a href="javascript:;" class="phoneBtn" id="phoneBtn">手机号码登陆</a>
+	<div class="phoneLogin" id="phoneLogin" style="display: none;">
+		<h3><span>手机号码登陆</span></h3>
+		<div class="phoneForm">
+			<form data-model="form-submit">
+				<div class="form-group">
+					<label class=""><i class="iconfont">&#xe65f;</i></label>
+					<input type="text" class="form-control" name="phone" value="{$user['phone']}" placeholder="请输入手机号码">
+				</div>
+				<div class="form-group">
+					<label class=""><i class="iconfont">&#xe6ac;</i></label>
+					<input type="text" class="form-control" name="" placeholder="请输入密码" datatype="*">
+				</div>
+				<div class="form-group-btn">
+					<button class="btn">登录</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+$(function(){
+	$("#phoneBtn").click(function(){
+		$(this).hide();
+		$("#phoneLogin").show();
+	});
+})
+</script>
+</body>
+</html>

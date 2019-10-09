@@ -1,0 +1,47 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}">返回主页</a>
+	<span><a href="{:url('backlog')}">查看退货记录 <i class="iconfont">&#xe9c2;</i></a></span>
+</div>
+<div class="agent-scanout">
+	<form>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">单号：</dt>
+			<dd class="flex-grow-1"><input type="text" name="" class="input"></dd>
+			<dd class="flex-grow-0"><a href="javascript:;" class="btn">重建</a></dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">备注：</dt>
+			<dd class="flex-grow-1"><input type="text" name="" class="input"></dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">代理：</dt>
+			<dd class="flex-grow-1"><input type="text" name="" class="input"></dd>
+			<dd class="flex-grow-0"><a href="javascript:;" class="btn">选择</a></dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">扫码方式：</dt>
+			<dd class="flex-grow-1">
+				<label class="radio-inline"><input type="radio" name="type" value="1" checked="">单码扫描</label>
+				<label class="radio-inline"><input type="radio" name="type" value="2">流水号区间</label>
+			</dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">物流码：</dt>
+			<dd class="flex-grow-1"><input type="text" name="" class="input"></dd>
+			<dd class="flex-grow-0"><a href="javascript:;" class="btn">出货</a></dd>
+		</dl>
+		<div class="submit-btn clearfix">
+			<button class="btns">单个扫描</button>
+			<button class="btns">连续扫描</button>
+		</div>
+	</form>
+	<div class="sub-title">状态监控</div>
+</div>
+<script type="text/javascript">
+var title = '退货扫描';
+$("title").html(title);
+</script>

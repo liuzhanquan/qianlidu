@@ -1,0 +1,272 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="tab-title" style="margin-top: 28px;">
+        <ul class="tab-title_con">
+            <li {if condition="$id eq 1"}class="on"{/if}><a href="{:url('detail')}">利润额</a></li>
+            <li {if condition="$id eq 2"}class="on"{/if}><a href="{:url('detail',['id'=>'2'])}">平级奖金</a></li>
+            <li {if condition="$id eq 3"}class="on"{/if}><a href="{:url('detail',['id'=>'3'])}">销售奖金</a></li>
+            <li {if condition="$id eq 4"}class="on"{/if}><a href="{:url('detail',['id'=>'4'])}">销售业绩</a></li>
+            <li {if condition="$id eq 5"}class="on"{/if}><a href="{:url('detail',['id'=>'5'])}">操作记录</a></li>
+        </ul>
+    </div>
+    <div class="right-content" data-model="table-bind">
+    	{switch name="$id"}
+    		{case value="1"}
+    		<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center" width="20%">获得代理</th>
+						<th class="text-center">金额</th>
+						<th class="text-center">获得时间</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="$list"}
+						<tr>
+							<td colspan="4" class="text-center">没有更多数据啦</td>
+						</tr>
+					{else /}
+						{foreach $list as $vo}
+						<tr>
+							<td style="vertical-align: top;">
+								<div class="page-wexin-info">
+		                            <div class="goods-list" style="min-height: 0;">
+		                                <p>{:getUser($vo['agent_id'])}</p>
+		                            </div>
+		                            <div class="info f-c" style="display: none;">
+		                                <div class="left f-c">
+		                                    <img src="{:getUser($vo['agent_id'],'avatar')}" class="user_img" alt="头像">
+		                                </div>
+		                                <div class="right f-c">
+		                                	<p>{:getUser($vo['agent_id'])}</p>
+		                                	<p>{:getUser($vo['agent_id'],'phone')}</p>
+		                                	<!-- 查询授权品牌 -->
+		                                </div>
+		                            </div>
+		                        </div>
+							</td>
+							<td class="text-center">{$vo['money']}</td>
+							<td class="text-center">{$vo['timestamp']}</td>
+							<td class="text-center">
+								<a href="javascript:;" data-model="dialogs-open" data-width="450px" data-height="400px" data-url="{:url('api/detail',['type'=>'1','id'=>$vo['id']])}" data-title="利润额修改">修改</a>
+								<em>|</em>
+								<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="agent_profit">删除</a>
+						</tr>
+						{/foreach}
+					{/empty}
+				</tbody>
+			</table>
+    		{/case}
+    		{case value="2"}
+    		<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center" width="20%">获得代理</th>
+						<th class="text-center">金额</th>
+						<th class="text-center">说明</th>
+						<th class="text-center">获得时间</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="$list"}
+						<tr>
+							<td colspan="4" class="text-center">没有更多数据啦</td>
+						</tr>
+					{else /}
+						{foreach $list as $vo}
+						<tr>
+							<td style="vertical-align: top;">
+								<div class="page-wexin-info">
+		                            <div class="goods-list" style="min-height: 0;">
+		                                <p>{:getUser($vo['agent_id'])}</p>
+		                            </div>
+		                            <div class="info f-c" style="display: none;">
+		                                <div class="left f-c">
+		                                    <img src="{:getUser($vo['agent_id'],'avatar')}" class="user_img" alt="头像">
+		                                </div>
+		                                <div class="right f-c">
+		                                	<p>{:getUser($vo['agent_id'])}</p>
+		                                	<p>{:getUser($vo['agent_id'],'phone')}</p>
+		                                	<!-- 查询授权品牌 -->
+		                                </div>
+		                            </div>
+		                        </div>
+							</td>
+							<td class="text-center">{$vo['money']}</td>
+							<td class="text-center">{if condition="$vo['form_type'] eq 1"}推荐{elseif condition="$vo['type'] eq 2"}充值{/if}{$vo['remark']}</td>
+							<td class="text-center">{$vo['timestamp']}</td>
+							<td class="text-center">
+								{if condition="$vo['is_end'] eq 0"}
+								<a href="javascript:;" data-model="dialogs-open" data-width="450px" data-height="400px" data-url="{:url('api/detail',['type'=>'2','id'=>$vo['id']])}" data-title="平级奖金修改">修改</a>
+								<em>|</em>
+								<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="agent_log">删除</a>
+								{else /}
+								已结算
+								{/if}
+							</td>
+						</tr>
+						{/foreach}
+
+					{/empty}
+				</tbody>
+			</table>
+    		{/case}
+    		{case value="3"}
+    		<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center" width="20%">获得代理</th>
+						<th class="text-center">金额</th>
+						<th class="text-center">获得时间</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="$list"}
+						<tr>
+							<td colspan="4" class="text-center">没有更多数据啦</td>
+						</tr>
+					{else /}
+						{foreach $list as $vo}
+						<tr>
+							<td style="vertical-align: top;">
+								<div class="page-wexin-info">
+		                            <div class="goods-list" style="min-height: 0;">
+		                                <p>{:getUser($vo['agent_id'])}</p>
+		                            </div>
+		                            <div class="info f-c" style="display: none;">
+		                                <div class="left f-c">
+		                                    <img src="{:getUser($vo['agent_id'],'avatar')}" class="user_img" alt="头像">
+		                                </div>
+		                                <div class="right f-c">
+		                                	<p>{:getUser($vo['agent_id'])}</p>
+		                                	<p>{:getUser($vo['agent_id'],'phone')}</p>
+		                                	<!-- 查询授权品牌 -->
+		                                </div>
+		                            </div>
+		                        </div>
+							</td>
+							<td class="text-center">{$vo['money']}</td>
+							<td class="text-center">{$vo['timestamp']}</td>
+							<td class="text-center">
+								{if condition="$vo['is_end'] eq 0"}
+								<a href="javascript:;" data-model="dialogs-open" data-width="450px" data-height="400px" data-url="{:url('api/detail',['type'=>'3','id'=>$vo['id']])}" data-title="销售奖金修改">修改</a>
+								<em>|</em>
+								<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="agent_sales">删除</a>
+								{else /}
+								已结算
+								{/if}
+							</td>
+						</tr>
+						{/foreach}
+
+					{/empty}
+				</tbody>
+			</table>
+    		{/case}
+    		{case value="4"}
+    		<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center" width="20%">获得代理</th>
+						<th class="text-center">金额</th>
+						<th class="text-center">类型</th>
+						<th class="text-center">获得时间</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="$list"}
+						<tr>
+							<td colspan="4" class="text-center">没有更多数据啦</td>
+						</tr>
+					{else /}
+						{foreach $list as $vo}
+						<tr>
+							<td style="vertical-align: top;">
+								<div class="page-wexin-info">
+		                            <div class="goods-list" style="min-height: 0;">
+		                                <p>{:getUser($vo['agent_id'])}</p>
+		                            </div>
+		                            <div class="info f-c" style="display: none;">
+		                                <div class="left f-c">
+		                                    <img src="{:getUser($vo['agent_id'],'avatar')}" class="user_img" alt="头像">
+		                                </div>
+		                                <div class="right f-c">
+		                                	<p>{:getUser($vo['agent_id'])}</p>
+		                                	<p>{:getUser($vo['agent_id'],'phone')}</p>
+		                                	<!-- 查询授权品牌 -->
+		                                </div>
+		                            </div>
+		                        </div>
+							</td>
+							<td class="text-center">{$vo['money']}</td>
+							<td class="text-center">{if condition="$vo['type'] eq 1"}充值业绩{else /}平级销售业绩{/if}</td>
+							<td class="text-center">{$vo['timestamp']}</td>
+							<td class="text-center">
+								<a href="javascript:;" data-model="dialogs-open" data-width="450px" data-height="400px" data-url="{:url('api/detail',['type'=>'4','id'=>$vo['id']])}" data-title="销售业绩修改">修改</a>
+								<em>|</em>
+								<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="performance">删除</a>
+							</td>
+						</tr>
+						{/foreach}
+
+					{/empty}
+				</tbody>
+			</table>
+    		{/case}
+    		{case value="5"}
+    		<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center">金额</th>
+						<th class="text-center">类型</th>
+						<th class="text-center">备注</th>
+						<th class="text-center">时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					{empty name="$list"}
+						<tr>
+							<td colspan="4" class="text-center">没有更多数据啦</td>
+						</tr>
+					{else /}
+						{foreach $list as $vo}
+						<tr>
+							<td class="text-center">{$vo['money']}</td>
+							<td class="text-center">
+								{if condition="$vo['type'] eq 1"}增加
+								{elseif condition="$vo['type'] eq 2"}减少
+								{/if}
+								{if condition="$vo['do_type'] eq 1"}利润额
+								{elseif condition="$vo['do_type'] eq 2"}平级奖金
+								{elseif condition="$vo['do_type'] eq 3"}销售奖金
+								{elseif condition="$vo['do_type'] eq 4"}销售业绩
+								{/if}
+							</td>
+							<td class="text-center">{$vo['remark']}</td>
+							<td class="text-center">{$vo['timestamp']}</td>
+						</tr>
+						{/foreach}
+
+					{/empty}
+				</tbody>
+			</table>
+    		{/case}
+    	{/switch}
+    	<div class="pages">{$page}</div>
+    </div>
+</div>

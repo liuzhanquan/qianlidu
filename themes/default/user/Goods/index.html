@@ -1,0 +1,25 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #efefef;}
+</style>
+
+<script type="text/javascript">
+</script>
+
+<button id="index">index数据</button>
+
+<script type="text/javascript">
+    var result = {};
+    var num = 1;
+    
+    $('#index').click(function(){
+        result['page'] = num;
+        result['limit'] = 5;
+        $.post('{:url("good")}',result,function(data){
+            console.log(data);
+            num++;
+        },'json');
+
+    });
+</script>
+<!--{#include 'footer.html'}-->

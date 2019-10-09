@@ -1,0 +1,34 @@
+{notempty name="list"}
+{foreach $list as $vo}
+<ul>
+	<li>
+		<span onclick="getSon(this,{$vo['uid']});getInfo({$vo['uid']});" data-open="1">
+			{if condition="$vo['son'] eq 1"}<i class="icon-close"></i>{/if} 
+			{$vo['auth_name']}({$vo['level_name']}，{$config['brand_prefix']}{$vo['auth_number']})
+		</span>
+	</li>
+</ul>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript">
+function getSon(obj,uid){
+	var open = $(obj).attr('data-open');
+	if(open == 1){
+		$.get("{:url('ajax_user')}",{uid:uid},function(html){
+			$(obj).parent().append(html);
+			$(obj).attr('data-open','0');
+			$(obj).find('i').removeClass('icon-close').addClass('icon-open');
+		},'JSON');
+	}else if(open == 0){
+		$(obj).attr('data-open','1');
+		$(obj).parent().find('ul').remove();
+			$(obj).find('i').removeClass('icon-open').addClass('icon-close');
+	}
+}
+function getInfo(uid){
+	$.get("{:url('ajax_info')}",{uid:uid},function(html){
+		$("#userInfo").html(html);
+	},"JSON");
+}
+</script>
+{/foreach}
+{/notempty}

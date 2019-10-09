@@ -1,0 +1,59 @@
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="layout-ajax">
+	<div class="page-content-w1">
+		<div class="page-list2 mb-20 right-content" data-model="table-bind">
+		<div class="alert alert-default">每个省份或市区只能设置一个总裁，如果设定新的总裁，之前设置过的将会自动被替换</div>
+			<table class="table table-hover" data-table>
+				<thead>
+					<tr>
+						<th class="text-center">授权名称</th>
+						<th class="text-center">手机号</th>
+						<th class="text-center">授权级别</th>
+						<th class="text-center">身份证</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach $list as $vo}
+					<tr>
+						<td>{:getUser($vo['agent_id'],'auth_name')}</td>
+						<td>{:getUser($vo['agent_id'],'phone')}</td>
+						<td>{:getUser($vo['agent_id'],'level_name')}</td>
+						<td>{:getUser($vo['agent_id'],'idcard')}</td>
+						<td>
+							{if condition="$vo['is_reward'] eq 1"}
+							已设置 <em>-</em><a href="javascript:void(0)" data-del data-table="agent_city_canel" data-id="{$vo['id']}">取消</a>
+							{else /}
+							<button type="button" onclick="choose('{$vo['id']}')" class="btn btn-sm btn-info btn-ok">设置</button>
+							<button type="button" data-del data-table="agent_city_del" data-id="{$vo['id']}" class="btn btn-sm btn-info btn-ok">删除</button>
+							{/if}
+						</td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<div class="pages-mun">
+				<div id="Pager">{$page}</div>
+				<!-- <div>共<label id="dataCount">8</label>条数据</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var areaId = {$id};
+function choose(id){
+	Do.ready('dialog',function(){
+		$.post('',{id:id,area_id:areaId},function(res){
+			if(res.code == 1){
+				layer.msg(res.msg,{icon:1},function(){
+					parent.layer.closeAll('iframe'); // 关闭窗口
+				});
+			}else{
+				layer.alert('设置失败');
+			}
+		},"JSON");
+	});
+}
+</script>

@@ -1,0 +1,21 @@
+<div class="layout-panel home-panel">
+<a href="{:url('domenu')}" class="btn btn-success">添加菜单</a>
+<table class="table table-diy">
+	<thead>
+	<tr>
+		<th>菜单名称</th>
+		<th>操作</th>
+	</tr>
+	</thead>
+	<tbody>
+	{foreach $list as $vo}
+	<tr>
+		<td align="left"><p>{$vo['cname']}</p></td>
+		<td><a href="{:url('domenu',['id'=>$vo['id']])}" class="btn btn-info">编辑</a>
+			<a href="{:url('menudel',['id'=>$vo['id']])}" class="btn btn-success">删除</a>
+		</td>
+	</tr>
+	{/foreach}
+	</tbody>
+</table>
+</div>

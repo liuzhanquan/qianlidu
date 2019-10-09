@@ -1,0 +1,126 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+	<h3>代理升级</h3>
+</div>
+<div class="loginBox">
+	<h3>确认授权资料</h3>
+	<div class="loginFrom">
+		<form data-model="form-submit">
+			<dl class="clearfix">
+				<dt>授权名称</dt>
+				<dd><input type="text" name="auth_name" value="{$user['auth_name']}" readonly="" class="input" datatype="*" placeholder="授权真实姓名">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>手机号码</dt>
+				<dd><input type="text" name="phone" value="{$user['phone']}" readonly="" class="input" datatype="m" placeholder="请填写正确的手机号码">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>微信号</dt>
+				<dd><input type="text" name="wechat" value="{$user['wechat']}" readonly="" class="input" datatype="*" placeholder="请填写微信号">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<!-- <dl class="clearfix">
+				<dt>手机验证码</dt>
+				<dd><input type="text" name="phone" class="input" placeholder="请填写手机验证码">
+					<button type="button" class="code">获取验证码</button>
+					<div class="tip-alert" style="right: 85px;"></div>
+				</dd>
+			</dl> -->
+			<dl class="clearfix">
+				<dt>身份证号</dt>
+				<dd><input type="text" name="idcard" value="{$user['idcard']}" readonly="" class="input" datatype="*" placeholder="请填写15-18位身份证号码">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>所在地区</dt>
+				<dd>
+					<div class="row-flex">
+						<div class="col-flex-33">
+							<select class="input" name="province" id="ddlProvince" style="width: 100%;" disabled="">
+								<option value="-1">省份</option>
+								{foreach $region as $vo}
+								<option value="{$vo['id']}" {if condition="$user['province'] eq $vo['id']"}selected{/if}>{$vo['name']}</option>
+								{/foreach}
+							</select>
+						</div>
+						<div class="col-flex-33">
+							<select class="input" name="city" id="ddlCity" style="width: 100%;" disabled="">
+								<option value="-1">城市</option>
+							</select>
+						</div>
+						<div class="col-flex-33">
+							<select class="input" name="area" id="ddlArea" style="width: 100%;" disabled="">
+								<option value="-1">区域</option>
+							</select>
+						</div>
+					</div>
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>收货地址</dt>
+				<dd><input type="text" name="address" class="input" value="{$user['address']}" readonly="" datatype="*" placeholder="请填写收货地址">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>身份证正面</dt>
+				<dd>
+					<div class="upload-panel">
+						<a href="javascript:;" data-model="form-upload" data-target="#card_img" data-preview="#card_img_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+						<input type="hidden" name="card_img" value="{$user['card_img']}" id="card_img" datatype="*" nullmsg="请上传身份证正反面">
+						<div class="tip-alert" style="top: 30px;"></div>
+					</div>
+					<div class="upload-prview">
+						<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$user['card_img'] ? $user['card_img'] : ''}" id="card_img_2">
+					</div>
+				</dd>
+			</dl>
+			<div class="submit-btn">
+				<input type="hidden" name="id" value="{$user['uid']}">
+				<button class="btn btn-success">提交审核</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+	<script type="text/javascript">
+		GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$user['city']}", "-1");
+		setTimeout(function () {
+			GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "{$user['area']}", "-1");
+		},2000);
+	</script>
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/{$Request.module}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$jssdk['appId'];}', // 必填，公众号的唯一标识
+    timestamp: {$jssdk['timestamp'];}, // 必填，生成签名的时间戳
+    nonceStr: '{$jssdk['nonceStr'];}', // 必填，生成签名的随机串
+    signature: '{$jssdk['signature'];}',// 必填，签名
+    jsApiList: ['checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice'
+    ] // 必填，需要使用的JS接口列表
+});
+wx.ready(function(){
+	wx.hideAllNonBaseMenuItem();
+});
+</script>
+<script type="text/javascript" src="/static/default/js/cart.js"></script>

@@ -1,0 +1,30 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+	<h3>推荐市代省代</h3>
+</div>
+<div class="loginBox">
+	{empty name="level"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe60f;</i></div>
+		<p>您已经是最高代理级别啦~</p>
+	</div>
+	{else /}
+	<h3>选择推荐代理级别</h3>
+	<div class="loginFrom">
+		<form data-model="form-submit">
+			<ul class="level">
+				{foreach $level as $k=>$vo}
+				<li><label><input type="radio" {if condition="$k eq 0"}checked{/if} name="level" value="{:lock_url($vo['id'])}" data-model="form-check">{$vo['name']}</label></li>
+				{/foreach}
+			</ul>
+			<div class="submit-btn">
+				<button class="btn btn-success" style="background: #4b8efd;">生成推广码</button>
+			</div>
+		</form>
+	</div>
+	{/empty}
+</div>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+</script>

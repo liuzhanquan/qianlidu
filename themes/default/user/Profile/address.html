@@ -1,0 +1,42 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="user-address AddressList" data-model="table-bind">
+	{empty name="list"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>您还没有添加收货地址~</p>
+		<a href="{:url('doaddress')}" class="btn">新增地址</a>
+	</div>
+	{else /}
+	<ul data-table>
+		{foreach $list as $vo}
+		<li objid="7" class="addressRow">
+			<div class="user_info">
+				<span>{$vo['name']}</span>
+				<span class="phone">{$vo['phone']}</span>
+			</div>
+			<div class="address_info">{:getCity($vo['province'])},{:getCity($vo['city'])},{:getCity($vo['area'])}&nbsp;{$vo['address']}</div>
+			<div class="option_info clearfix">
+				<div class="is_default"></div>
+				<div class="option_btn">
+					<a href="{:url('doaddress',['id'=>$vo['id']])}" class="editBtn open-popup"><i class="iconfont icon-bianji">&#xe602;</i>编辑</a>
+					<a href="javascript:;" class="delBtn" data-del data-id="{$vo['id']}" data-table="address"><i class="iconfont icon-shanchu2">&#xe61c;</i>删除</a>
+				</div>
+			</div>
+		</li>
+		{/foreach}
+	</ul>
+	{/empty}
+</div>
+<div class="address-btn">
+	<a href="{:url('doaddress')}"><i class="iconfont">&#xe6c0;</i>新增地址</a>
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+var title = '收货地址';
+$("title").html(title);
+</script>

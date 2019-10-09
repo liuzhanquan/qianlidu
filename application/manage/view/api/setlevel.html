@@ -1,0 +1,54 @@
+<style type="text/css">
+.sys-content{padding: 20px 20px 0px 20px;}
+.sys-content dl dt{min-width: auto;}
+.layout-ajax.sys-content .submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="layout-ajax sys-content">
+	<form data-model="form-submit">
+		<div class="re-title"><span>代理信息</span></div>
+		<div class="re-content">
+			<p>授权名称：<em>{$info['auth_name']} ({$info['phone']})</em></p>
+			<p>当前级别：<em>{$info['level_name']}</em></p>
+			<p>现有货款：<em>{$info['money']}</em></p>
+		</div>
+		<div class="re-title"><span>级别处理</span></div>
+		<dl>
+			<dt><i>*</i>选择级别：</dt>
+			<dd>
+				<select data-model="form-select" id="select" name="level_id" style="width: 200px;">
+					{foreach $level as $vo}
+					<option value="{$vo['id']}" {if condition="$vo['id'] eq $info['level_id']"}selected{/if}>{$vo['name']}</option>
+					{/foreach}
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><i>*</i>货款处理：</dt>
+	        <dd>
+	            <label class="radio-inline"><input type="radio" name="type" value="1" style="margin-top: 0" checked="">保留不变</label>
+	            <label class="radio-inline"><input type="radio" name="type" value="2" style="margin-top: 0">根据新级别自动转化</label>
+	        </dd>
+		</dl>
+		<div id="moneyTips"></div>
+        <div class="submit-btn">
+        	<input type="hidden" value="{$info['uid']}" name="uid">
+            <button class="btn btn-info">确定</button>
+        </div>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#select").change(function(){
+		var val = $(this).val();
+		$.get("{:url('getlevel')}",{id:val},function(res){
+			if(res.code == '1'){
+				var txt = "选择<code>根据金额自动转化</code>后账户货款由原来的￥{:bqwhits($info['money'])}更变成";
+				var money = {$info['money']} / {$noelevel['rebate']} * res.data.rebate;
+				$("#moneyTips").html(txt+"￥ "+money.toFixed(2));
+			}else{
+				alert('级别选择错误');
+			}
+		},'JSON');
+	})
+});
+</script>

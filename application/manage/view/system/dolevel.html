@@ -1,0 +1,169 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  <li><a href="javascript:;">系统设置</a></li>
+  		  <li><a href="{:url('level')}">代理级别管理</a></li>
+  		  <li>{if condition="$id gt 0"}查看修改{else /}添加代理级别{/if}</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>品牌名称：</dt>
+	            <dd>
+	            	<select name="brand_id" class="select" data-model="form-select" style="width: 262px!important" datatype="*" {notempty name="$info"}disabled=""{/notempty}>
+	                    {foreach $brand as $vo}
+	                    <option value="{$vo['id']}" {$info['brand_id']==$vo['id'] ? 'selected' : ''}>{$vo['name']}</option>
+	                    {/foreach}
+	                </select>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>代理级别：</dt>
+	            <dd>
+	            	{empty name="$info"}
+	            	<input type="text" style="width: 100px;background: #f0f0f0;" value="{$max}" readonly="" name="level_num" class="form-controls" datatype="n">
+	            	{else /}
+	            	<input type="text" style="width: 100px;background: #f0f0f0;" value="{$info['level_num']}" class="form-controls" readonly="">
+	            	{/empty}
+	            	<i>1-10，系统自动按顺序分配</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>级别名称：</dt>
+	            <dd>
+	            	<input type="text" style="width: 150px" name="name" class="form-controls" datatype="*" value="{$info['name']}">
+	            	<i>最多允许8个汉字或16个字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>级别申请金额：</dt>
+	            <dd>
+	            	<input type="text" style="width: 150px" name="money" class="form-controls" datatype="*" value="{$info['money']}">
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>发展：</dt>
+	            <dd>
+	            	<select name="ddlDevelop" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    <option value="1" {$info['ddlDevelop']==1 ? 'selected' : ''}>可发展同级和下级</option>
+	                    <option value="2" {$info['ddlDevelop']==2 ? 'selected' : ''}>只可发展下级</option>
+	                    <option value="3" {$info['ddlDevelop']==3 ? 'selected' : ''}>可发展同级和上级</option>
+	                    <option value="4" {$info['ddlDevelop']==4 ? 'selected' : ''}>不限制</option>
+	                    <option value="5" {$info['ddlDevelop']==5 ? 'selected' : ''}>不可以</option>
+	                </select>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>发货：</dt>
+	            <dd>
+	            	<select name="ddlDelivery" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    <option value="1" {$info['ddlDelivery']==1 ? 'selected' : ''}>只能给直属代理发货</option>
+	                    <option value="2" {$info['ddlDelivery']==2 ? 'selected' : ''}>不可以</option>
+	                </select>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>授权审核：</dt>
+	            <dd>
+	            	<select name="ddlCheck" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    <option value="1" {$info['ddlCheck']==1 ? 'selected' : ''}>可审核所有下属代理</option>
+	                    <option value="2" {$info['ddlCheck']==2 ? 'selected' : ''}>只能审核直属代理</option>
+	                    <option value="3" {$info['ddlCheck']==3 ? 'selected' : ''}>不可以</option>
+	                </select>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>升级审核：</dt>
+	            <dd>
+	            	<select name="ddlUpLevelCheckType" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    <option value="1" {$info['ddlUpLevelCheckType']==1 ? 'selected' : ''}>可审核所有下属代理</option>
+	                    <option value="2" {$info['ddlUpLevelCheckType']==2 ? 'selected' : ''}>只能审核直属代理</option>
+	                    <option value="3" {$info['ddlUpLevelCheckType']==3 ? 'selected' : ''}>不可以</option>
+	                </select>
+	                <span class="layers_tips_blue" data-model="form-webtips" data-content="升级审核是指下级代理发起的升级申请审核" data-placement="right">
+	                    <em class="newtips"></em>
+	                </span>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>查看：</dt>
+	            <dd>
+	            	<select name="ddlSee" class="select" data-model="form-select" style="width: 262px!important" datatyp="*">
+	                    <option value="">请选择</option>
+	                    <option value="1" {$info['ddlSee']==1 ? 'selected' : ''}>可查看所有下属代理</option>
+	                    <option value="2" {$info['ddlSee']==2 ? 'selected' : ''}>只能查看直属代理</option>
+	                    <option value="3" {$info['ddlSee']==3 ? 'selected' : ''}>不可以</option>
+	                </select>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>订单审核设置：</dt>
+	            <dd>
+	            	<label class="checkbox-inline"><input type="checkbox" name="IsCheckOrder" value="1" {$info['IsCheckOrder']==1 ? 'checked' : ''}>可审核下级或平级订单</label>
+	            	<label class="checkbox-inline"><input type="checkbox" name="IsCancelCheckedOrder" value="1" {$info['IsCancelCheckedOrder']==1 ? 'checked' : ''}>审核后可取消订单</label>
+	                <span class="layers_tips_blue" data-model="form-webtips" data-content="可审核下级或平级订单：勾选后代理可在代理后台审核下级或平级提交的订单，审核后可进行发货；<br>审核后可取消订单：勾选后代理在代理后台可取消审核过的订单，<br>订单取消后仍会计算平级返利或团队业绩，请谨慎勾选该权限。" data-placement="right">
+	                    <em class="newtips"></em>
+	                </span>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>代理审核设置：</dt>
+	            <dd>
+	            	{php}$review = isset($info['IsOpenReview']) ? $info['IsOpenReview'] : '0';{/php}
+	            	<label class="radio-inline"><input type="radio" name="IsOpenReview" value="0" {if condition="$review eq 0"}checked{/if}>单次审核（默认）</label>
+	            	<label class="radio-inline"><input type="radio" name="IsOpenReview" value="1" {if condition="$review eq 1"}checked{/if}>二次审核</label>
+	                <span class="layers_tips_blue" data-model="form-webtips" data-content="单次审核：新代理或现有代理申请成为当前品牌级别时，只需要审核一次即可；<br>二次审核：新代理或现有代理申请成为当前品牌级别时，<br>将先由上家进行审核，审核通过之后将提交至总部进行二次审核，并以总部的审核结果为准。" data-placement="right">
+	                    <em class="newtips"></em>
+	                </span>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>授权期限：</dt>
+	            <dd>
+	            	<input type="text" style="width: 50px" name="txtMounth" class="form-controls" datatype="n" value="{$info['txtMounth']}">
+	            	<em>月</em>
+	            	<i> 授权的有效时间</i>
+	                <span class="layers_tips_blue" data-model="form-webtips" data-content="1、此处授权期限的优先级高于【系统管理>授权品牌管理】<br> 2、若未填则以【系统管理>授权品牌管理】中的设置为准" data-placement="right">
+	                    <em class="newtips"></em>
+	                </span>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>授权书模板：</dt>
+	            <dd>
+	            	<div class="upload-panel">
+	            		<a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传图片</a>
+	            	</div>
+	            	<input type="hidden" name="tplimg" value="{$info['tplimg']}" id="images">
+	                <span class="layers_tips_blue" data-model="form-webtips" data-content="1、此处授权书的优先级高于【系统管理>授权品牌管理】<br> 2、若未设置则以【系统管理>授权品牌管理】中的授权书为准" data-placement="right">
+	                    <em class="newtips"></em>
+	                </span>
+		            <div class="help-block">(推荐尺寸为640px*1008px，大小不超过500k，支持jpg、png、gif、jpeg格式)</div>
+	            	<div class="upload-prview">
+	            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$info['tplimg']}" id="uploadImage_2">
+	            	</div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #efefef;}
+</style>
+<div class="page-header">
+    <a class="header f-c" href="{:url('profile/index')}">
+        <div class="left">
+            <img src="{$user['avatar']}" alt="">
+        </div>
+        <div class="right">
+            <p class="welcome">{$user['auth_name']}</p>
+            <p class="user">手机号：{$user['phone']}</p>
+            <p class="name">微信号：{$user['wechat']}</p>
+        </div>
+        <div class="levelName">
+        	<i class="iconfont">&#xe653;</i>
+        	{$userLevel['name']}
+        	{if condition="$userLevel['parent_id'] gt 0"}
+        	({php}$pname = db('agent_level')->where('id',$userLevel['parent_id'])->value('name');{/php}{$pname})
+        	{/if}
+        </div>
+    </a>
+</div>
+{foreach $menu['range'] as $vo}
+{if condition="$vo['pid'] eq 53"}
+<div class="diy-topmenu">
+	<ul class="dp-f clearfix">
+		{php}
+		$topIds = implode(',',$vo['cid']);
+		$menuSub = db('diy_nav')->where('id','in',$topIds)->select();
+		{/php}
+		{foreach $menuSub as $sv}
+		<li class="item-Show" data-id="{$sv['id']}" style="display:block;">
+	        <a href="{:url($sv['url'])}" class="headmenu10">
+	            <p class="color_fff">{:getData($sv['url'],$user['uid'])}</p>
+	            <p class="one">{$sv['name']}</p>
+	            <s class="line"></s>
+	        </a>
+	    </li>
+	    {/foreach}
+	</ul>
+</div>
+{else /}
+<div class="diy-menu">
+	<ul class="page-custom-activityNav f-c bottom_line clearfix">
+        <h3>{php}echo db('diy_nav')->where('id',$vo['pid'])->value('name');{/php}</h3>
+		{php}
+		$menuIds = implode(',',$vo['cid']);
+		$menuSubs = db('diy_nav')->where('id','in',$menuIds)->select();
+		{/php}
+		{foreach $menuSubs as $sv}
+        <li class="item-Show" data-id="{$sv['id']}" style="display:block;">
+            <a href="{:url($sv['url'])}">
+	            <s class="{$sv['icon']}"></s>
+	            <p>{$sv['name']}</p>
+            </a>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+{/if}
+{/foreach}
+<script type="text/javascript">
+var title = '{$menu['title']}';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

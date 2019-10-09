@@ -1,0 +1,56 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="commodity_box">
+	<div class="commodity_list">
+		<ul class="commodity_list_term">
+			{foreach $list as $vo}
+			<li class="selects">
+				<em aem="0" cart_id="{$vo['id']}" price="{$vo['agent']}" num="1" class=""></em>
+				<a href="{:url('detail',['id'=>$vo['id']])}"><img src="{$vo['photo']}"></a>
+				<div class="div_center">
+					<h4><a href="{:url('detail',['id'=>$vo['id']])}">{$vo['title']}（{$vo['unit']}）</a></h4>
+					<p class="now_value">
+						<i style="margin: 0;color: #999;font-weight: normal;">订货价：</i>
+						<i>￥</i><b class="qu_su">{:number_format($vo['agent'],'2','.','')}</b>
+					</p>
+				</div>
+				<div class="div_right clearfix">
+					<i onclick="reducew(this)">-</i>
+					<span class="zi">1</span>
+					<input type="hidden" value="{$vo['id']}">
+					<i onclick="ty_plusw(this)" style="float: right;">+</i>
+				</div>
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+</div>
+<div class="settle_box clearfix">
+	<dl class="all_check selects">
+    	<dt><span id="all_pitch_on" class="" value="aaa"></span><p>&nbsp;全选</p></dt>
+    </dl>
+    <dl class="total_amount" style="display: block;">
+    	<dt>合计：<p id="total_price">¥<b>0.00</b></p></dt>
+    </dl>
+    <input type="hidden" name="gcs" id="gcs">
+    <button class="settle_btn" id="confirm_cart" style="display: block;" disabled="disabled">确认</button>
+    <a class="settle_btn" href="javascript:void(0);" id="confirm_cart1" onclick="big_cart_remove()" style="display: none;">删除</a>
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+var cartUrl = "{:urls('to_order')}";
+Do.ready('common',function(){ base.frame(); });
+var title = '产品下单';
+$("title").html(title);
+function submitForm(){
+    var form = document.getElementById("my_form");//获取form表单对象
+    form.submit();//form表单提交
+}
+</script>
+<script type="text/javascript" src="/static/default/js/cart.js"></script>

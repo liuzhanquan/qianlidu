@@ -1,0 +1,36 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent-list-panel">
+	<form data-model="form-submit">
+		<div class="list-item clearfix">
+			<label>账号：</label>
+			<div class="item-txt">{$user['phone']}</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>{empty name="$user['password']"}设置{else /}修改{/empty}密码：</label>
+			<div class="item-txt">
+				<input type="password" datatype="*" name="password" class="input" placeholder="请输入密码">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>确认密码：</label>
+			<div class="item-txt">
+				<input type="password" datatype="*" recheck="password" class="input" placeholder="请确认密码">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="item-btn"><button class="submit-btn">确认</button></div>
+	</form>
+</div>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+var title = '设置密码';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

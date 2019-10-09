@@ -1,0 +1,84 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+.lise-item li{border-bottom: 1px solid  #efefef;padding: 10px 0;}
+.lise-item li:last-child{border-bottom: 0;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+	<span><a href="{:url('recharge')}">返回充值 <i class="iconfont">&#xe9c2;</i></a></span>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 25%;"><a href="{:url('rechargelog')}">全部</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 25%;"><a href="{:url('rechargelog',['type'=>'1'])}">待充值</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 25%;"><a href="{:url('rechargelog',['type'=>'2'])}">已充值</a></li>
+		<li {if condition="$type eq 3"}class="active"{/if} style="width: 25%;"><a href="{:url('rechargelog',['type'=>'3'])}">已拒绝</a></li>
+	</ul>
+</div>
+<div class="agent-scanout">
+	<form>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">申请时间：</dt>
+			<dd class="flex-grow-1"><input type="date" name="start" value="{$start}" class="input"></dd>
+			<dd class="flex-grow-0" style="padding: 0 5px;">--</dd>
+			<dd class="flex-grow-1"><input type="date" name="end" value="{$end}" class="input"></dd>
+		</dl>
+		<!--<dl class="flex-row">
+			<dt class="flex-grow-0">关&nbsp;&nbsp;键&nbsp;&nbsp;词：</dt>
+			<dd class="flex-grow-1"><input type="text" class="input" name="key"></dd>
+		</dl>-->
+		<div class="logNum">
+			<span>
+				{if condition="$type eq 0"}
+				申请总额：
+				{elseif condition="$type eq 1" /}
+				待充值总额：
+				{elseif condition="$type eq 2" /}
+				已充值总额：
+				{elseif condition="$type eq 3" /}
+				拒绝总额：
+				{/if}
+				<em>{:number_format($money,'2')}</em></span>
+			<button class="btn btn-ok">搜索</button>
+		</div>
+	</form>
+</div>
+<div class="line-bottom"></div>
+<div class="agentlink-list">
+	<div class="lise-item">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关的充值申请记录~</p>
+		</div>
+		{else /}
+		<ul>
+			{foreach $list as $vo}
+			<li>
+				<a href="javascript:;">
+					<p>申请金额：{$vo['money']}</p>
+					<p>申请时间：{$vo['timestamp']}</p>
+					<p>状态：
+					{if condition="$vo['status'] eq 0"}
+					待充值
+					{elseif condition="$vo['status'] eq 1" /}
+					已充值
+					{elseif condition="$vo['status'] eq 2" /}
+					<font color="red">已拒绝</font>,原因：{$vo['remark']}
+					{/if}
+					</p>
+					<i class="iconfont" style="top: 20px;">&#xe619;</i>
+				</a>
+			</li>
+			{/foreach}
+		</ul>
+		<div class="pages">{$page}</div>
+		{/empty}
+	</div>	
+</div>
+<script type="text/javascript">
+var title = '充值申请记录';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

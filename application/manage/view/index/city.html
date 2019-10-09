@@ -1,0 +1,29 @@
+<div class="right-panel">
+	<div class="right-content" data-model="table-bind">
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th><span style="padding-left: 10px;">名称</span></th>
+					<th class="text-center" width="15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="2">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td class="text-left">{$vo['name']}</td>
+					<td>
+						<a href="{:url('city',['id'=>$vo['id']])}">查看下级</a><em>-</em>
+						<a href="{:url('docity',['id'=>$vo['id']])}">添加下级</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+	</div>
+</div>

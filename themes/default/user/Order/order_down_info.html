@@ -1,0 +1,54 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #efefef;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="order-number clearfix">
+	<span>订单号：{$info['order_id']}</span>
+	<span class="status">
+		{if condition="$info['status'] eq 0"}
+		<font color="red">待付款</font>
+		{elseif condition="$info['status'] eq 1" /}
+		<font color="red">待发货</font>
+		{elseif condition="$info['status'] eq 2" /}
+		<font color="green">已发货</font>
+		{elseif condition="$info['status'] eq 3" /}
+		<font color="red">已收货</font>
+		{elseif condition="$info['status'] eq 4" /}
+		<font color="red">已取消</font>
+		{/if}
+	</span>
+</div>
+<div class="goods-order" style="background: #fff;padding-top: 5px;">
+	{foreach $list as $vo}
+	{php}$goods = db('goods')->find($vo['goods_id']);{/php}
+	<div class="order-item flex-row">
+		<div class="flex-grow-0 imgs"><img src="{$goods['photo']}"></div>
+		<div class="flex-grow-1 infos">
+			<h3>{$goods['title']}</h3>
+			<p>￥{$vo['price']} x {$vo['num']}</p>
+		</div>
+	</div>
+	{/foreach}
+	<div class="total-money">
+		订单金额：￥{$info['price']}
+	</div>
+</div>
+{php}$address = unserialize($info['address']);{/php}
+<div class="address-order">
+	<ul>
+		<li><em>收货人：</em>{$address['name']}</li>
+		<li><em>手机号：</em>{$address['phone']}</li>
+		<li><em>收货地址：</em>{:getCity($address['province'])},{:getCity($address['city'])},{:getCity($address['area'])}{$address['address']}</li>
+		<li><em>下单时间：</em>{$info['timestamp']}</li>
+	</ul>
+</div>
+<!-- <div class="order-subbtn">
+	<a href="" class="cancel">取消订单</a>
+</div> -->
+<script type="text/javascript">
+var title = '订单详情';
+$("title").html(title);
+</script>

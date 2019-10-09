@@ -1,0 +1,33 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if}><a href="{:url('myagent')}">代理团队</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if}><a href="{:url('myagent',['type'=>'1'])}">代理查询</a></li>
+	</ul>
+	<div class="agent-panel">
+		{if condition="$type eq 0"}
+		<div class="agent-brand_list">
+			<div class="brand_list">
+				<h3>品牌：信xxx <span><em>1</em>/ 1</span></h3>
+				<ul>
+					<li>银牌</li>
+					<li>银牌</li>
+				</ul>
+			</div>
+		</div>
+		{elseif condition="$type eq 1" /}
+
+		{/if}
+	</div>
+</div>
+<script type="text/javascript">
+var title = '直属团队';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

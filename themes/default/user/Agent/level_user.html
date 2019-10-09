@@ -1,0 +1,52 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+	<h3>{$info['name']}</h3>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	{if condition="$userLevel['ddlSee'] eq 3"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>啊哦，你没有此功能权限~</p>
+	</div>
+	{else /}
+	{empty name="list"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>该代理还没有直属下级哦~</p>
+	</div>
+	{else /}
+	<div class="agent-parent">
+		{foreach $list as $vo}
+		<div class="son-item">
+			<a href="{:url('view_user')}?id={$vo['uid']}" class="flex-row">
+				<div class="flex-grow-0 avatar"><img src="{:getUser($vo['uid'],'avatar')}"></div>
+				<div class="flex-grow-1 infos">
+					<h3>{:getUser($vo['uid'])}</h3>
+					<p>{:getUser($vo['uid'],'phone')}</p>
+					<p>申请时间：{$vo['timestamp']}</p>
+				</div>
+				<i class="iconfont">&#xe619;</i>
+			</a>
+			<div class="son-bar clearfix">
+				<p class="fl">下级代理：<em>
+					{php}$num = db('user')->where(['parent_id'=>$vo['uid']])->count();{/php}
+					{$num}
+				</em></p>
+				<p class="fr"><a href="{:url('user_down',['id'=>$vo['uid']])}">直属下级 ></a></p>
+			</div>
+		</div>
+		{/foreach}
+		<div class="pages">{$page}</div>
+	</div>
+	{/empty}
+	{/if}
+</div>
+<script type="text/javascript">
+var title = '代理审核';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

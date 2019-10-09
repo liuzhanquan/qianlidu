@@ -1,0 +1,115 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('dolevel')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加代理级别</a>
+		</div>
+		<div class="tips-alert">
+			<h3>重要提示： </h3>
+			<p>1、代理级别一经启用，请不要随意修改！每个品牌最多添加10个代理级别 </p>
+			<p>2、授权书和授权期限的优先级为：代理级别管理列表>授权品牌管理列表，若代理级别管理列表中未设置，则以授权品牌管理列表为准 </p>
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center" width="10%">品牌名称</th>
+					<th class="text-center" width="10%">代理级别</th>
+					<th class="text-center" width="10%">级别名称</th>
+					<th class="text-center">代理权限</th>
+					<th class="text-center" width="20%">授权书</th>
+					<th class="text-center" width="10%">授权期限</th>
+					<th class="text-center" width="15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="7">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td>{$vo['brand_name']}</td>
+					<td>{$vo['level_num']}</td>
+					<td>{$vo['name']}</td>
+					<td>
+						<p>发展：
+							{if condition="$vo['ddlDevelop'] eq 1"}
+							可发展同级和下级
+							{elseif condition="$vo['ddlDevelop'] eq 2" /}
+							只可发展下级
+							{elseif condition="$vo['ddlDevelop'] eq 3" /}
+							可发展同级和上级
+							{elseif condition="$vo['ddlDevelop'] eq 4" /}
+							不限制
+							{elseif condition="$vo['ddlDevelop'] eq 5" /}
+							不可以
+							{/if}
+						</p>
+						<p>发货：
+							{if condition="$vo['ddlDelivery'] eq 1"}
+							只能给直属代理发货
+							{else /}
+							不可以
+							{/if}
+						</p>
+						<p>授权审核：
+							{if condition="$vo['ddlCheck'] eq 1"}
+							可审核所有下属代理
+							{elseif condition="$vo['ddlCheck'] eq 2" /}
+							只能审核直属代理
+							{else /}
+							不可以
+							{/if}
+						</p>
+						<p>升级审核：
+							{if condition="$vo['ddlUpLevelCheckType'] eq 1"}
+							可审核所有下属代理
+							{elseif condition="$vo['ddlUpLevelCheckType'] eq 2" /}
+							只能审核直属代理
+							{else /}
+							不可以
+							{/if}
+						</p>
+						<p>查看：
+							{if condition="$vo['ddlSee'] eq 1"}
+							可查看所有下属代理
+							{elseif condition="$vo['ddlSee'] eq 2" /}
+							只能查看直属代理
+							{else /}
+							不可以
+							{/if}
+						</p>
+					</td>
+					<td>
+						{empty name="$vo['tplimg']"}
+						-
+						{else /}
+						<img src="{$vo['tplimg']}" width="120">
+						{/empty}
+					</td>
+					<td>{$vo['txtMounth']}(月)</td>
+					<td>
+						<a href="{:url('dolevel',['id'=>$vo['id']])}">查看修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="level">删除</a><br>
+						<a href="{:url('settpl',['id'=>$vo['id']])}">设置授权书</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="page">{$page}</div>
+	</div>
+</div>

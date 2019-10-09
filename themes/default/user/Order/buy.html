@@ -1,0 +1,54 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<form method="post" data-model="form-submit">
+	<div class="cart-address">
+			<input type="hidden" name="address_id" value="{$address['id']}">
+			<a href="{:url('choose')}?id={$id}">
+			{empty name="address"}
+			<p style="padding: 10px 0;">请选择收货地址</p>
+			{else /}
+			<h3>{$address['name']}<span>{$address['phone']}</span></h3>
+			<p><i class="iconfont">&#xe60e;</i>{:getCity($address['province'])},{:getCity($address['city'])},{:getCity($address['area'])}&nbsp;{$address['address']}</p>
+			{/empty}
+			<div class="add-link"><i class="iconfont">&#xe619;</i></div>
+		</a>
+	</div>
+	<div class="line-bottom"></div>
+	<div class="goods-order">
+		{foreach $order as $vo}
+		<div class="order-item flex-row">
+			<div class="flex-grow-0 imgs"><img src="{$vo['goods']['photo']}"></div>
+			<div class="flex-grow-1 infos">
+				<h3>{$vo['goods']['title']}</h3>
+				<p>￥{$vo['price']} x {$vo['num']} <span>小计：￥{$vo['plan_money']}</span></p>
+			</div>
+		</div>
+		{/foreach}
+	</div>
+	<div class="total-money">
+		合计：￥{:number_format($totalMoney,'2')}
+	</div>
+	<div class="line-bottom"></div>
+	<div class="order-guestbook">
+		<textarea class="input" placeholder="订单留言" rows="3"></textarea>
+	</div>
+	<div class="pay-settle_box clearfix">
+		<div class="pay-totalMoney">总额：<em id="totalMoney">￥{:number_format($totalMoney,'2')}</em></div>
+		<div class="pay-btn">
+			<input type="hidden" name="order" value="{$id}">
+			<button class="btn" type="submit">提交订单</button>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+var title = '确认订单';
+$("title").html(title);
+</script>

@@ -1,0 +1,26 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+	<h3>【{$info['name']}】区域总裁</h3>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<div class="agent-parent">
+		{foreach $list as $vo}
+		<div class="son-item">
+			<a href="{:url('agent/view_user')}?id={$vo['agent_id']}" class="flex-row">
+				<div class="flex-grow-0 avatar"><img src="{:getUser($vo['agent_id'],'avatar')}"></div>
+				<div class="flex-grow-1 infos">
+					<h3>{:getUser($vo['agent_id'])}</h3>
+					<p>{:getUser($vo['agent_id'],'phone')}</p>
+					<p>申请时间：{:getUser($vo['agent_id'],'timestamp')}</p>
+				</div>
+				<i class="iconfont">&#xe619;</i>
+			</a>
+		</div>
+		{/foreach}
+		<div class="pages">{$page}</div>
+	</div>
+</div>

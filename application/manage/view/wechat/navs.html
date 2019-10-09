@@ -1,0 +1,73 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="alert alert-default">配置公众号的菜单，可创建最多 3 个一级菜单，每个一级菜单下可创建最多 5 个二级菜单。编辑中的菜单不会马上被用户看到，请放心调试。 </div>
+	<div class="navs-tips clearfix">
+		<p class="fl"><em class="newtips blue"></em>编辑中的菜单不能直接在用户手机上生效，你需要进行发布，发布后24小时内所有的用户都将更新到新的菜单。</p>
+		<p class="fr"><a class="btn btn-primary" href="javascript:;" onclick="creatMenu();">同步微信内容</a></p>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn" style="margin-bottom: 30px;">
+			<a href="javascript:;" data-model="dialogs-open" data-width="500px" data-height="500px" data-url="{:url('donavs')}" data-title="添加菜单" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加菜单</a>
+		</div>
+		<table class="table table-diy" data-table>
+			<thead>
+				<tr>
+					<th style="padding: 8px 10px;">导航名称</th>
+					<th width="10%" class="text-center">事件类型</th>
+					<th width="15%" class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach $list as $vo}
+				<tr>
+					<td><p>{$vo['cname']}</p></td>
+					<td class="text-center">
+						{if condition="$vo['type'] eq 'click'"}
+						<label class="label label-info">事件推送</label>
+						{elseif condition="$vo['type'] eq 'view'" /}
+						<label class="label label-success">链接跳转</label>
+						{/if}
+					</td>
+					<td class="text-center">
+						<a href="javascript:;" data-model="dialogs-open" data-width="500px" data-height="500px" data-url="{:url('donavs',['id'=>$vo['id']])}" data-title="编辑菜单">编辑</a><em>-</em>
+						<a href="javascript:;" data-del data-id="{$vo['id']}" data-table="navs">删除</a>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+function creatMenu(){
+	dialogs.confirm({
+		content:'发布后24小时内所有的用户都将更新到新的公众号菜单，确定操作吗?',
+		callback:function(result){
+			dialogs.loading({content:'生成中，请稍等'});
+			$.post("{:url('creatmenu')}",{},function(res){
+				dialogs.hide();
+				if(res.code == '1'){
+					msgbox.success({
+		                content : res.msg
+		            });
+				}else{
+					msgbox.error({
+		                content : res.msg
+		            });
+				}
+			},'JSON');
+		}
+	});
+}
+</script>

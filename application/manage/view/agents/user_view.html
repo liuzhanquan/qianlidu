@@ -1,0 +1,93 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>查看</li>
+		</ol>
+	</div>
+	<div class="agent-level"><h3>代理信息</h3></div>
+	<dl class="add-block-li">
+		<dt>头像：</dt>
+		<dd><div class="user_img " title="点击查看大图" style="cursor:pointer"><img src="{$info['user_all']['avatar']}"></div></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>授权名称：</dt>
+		<dd>{$info['name']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>微信昵称：</dt>
+		<dd>{$info['user_all']['nickname']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>OpenId：</dt>
+		<dd>{$info['user_all']['openid']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>手机号：</dt>
+		<dd>{$info['user_all']['phone']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>身份证号：</dt>
+		<dd>{$info['card_num']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>商家：</dt>
+		<dd>{if condition="$info['business'] eq 1"}
+			<span class="color_red">是</span>
+			{else/}
+			<span class="color_red">否</span>
+			{/if}
+		</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>创建时间：</dt>
+		<dd>{$info['add_time']|date="Y-m-d H:i:s",###}</dd>
+	</dl>
+	<!-- <dl class="add-block-li">
+		<dt>资料状态：</dt>
+		<dd>
+			{if condition="$info['status'] eq 0"}
+			<span class="color_red">待审核</span>
+			{elseif condition="$info['status'] eq 1" /}
+			<span class="color_green">正常</span>
+			{elseif condition="$info['status'] eq 2" /}
+			<span class="color_red">已禁用</span>
+			{/if}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>打款截图：</dt>
+		<dd>{empty name="$info['money_img']"} {else /} <img src="{$info['money_img']}"> {/empty}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>身份证照片：</dt>
+		<dd>{empty name="$info['card_img']"} {else /} <img src="{$info['card_img']}"> {/empty}</dd>
+	</dl> -->
+	<div class="agent-level"><h3>授权信息</h3></div>
+	<div class="agent-info nobor">
+		<!-- <dl class="add-block-li">
+			<dt>代理级别：</dt>
+			<dd>{$info['level']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>授权编号：</dt>
+			<dd>{$config['brand_prefix']}{$info['id']}</dd>
+		</dl> -->
+		<dl class="add-block-li">
+			<dt>授权期限时间：</dt>
+			<dd>
+				{if condition="$info['status'] eq 1"}
+				<em>{:date('Y年m月d日',$info['start_time'])}</em> <em class="ml-10 mr-10">~</em>	 <em>{:date('Y年m月d日',$info['stop_time'])}</em>
+				{else /}
+				<span class="color_red">尚未授权</span>
+				{/if}
+			</dd>
+		</dl>
+	</div>
+</div>

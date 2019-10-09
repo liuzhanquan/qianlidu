@@ -1,0 +1,64 @@
+<style type="text/css">
+.sys-content{padding: 20px 30px 0px 30px;}
+.sys-content dl dt{min-width: auto;}
+.layout-ajax.sys-content .submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="layout-ajax sys-content">
+	<form data-model="form-submit" class="form form-diy">
+		<div class="form-group">
+			<label class="labels"><i>*</i>上级菜单</label>
+			<select class="form-control" data-model="form-select" name="parent" datatype="*" {notempty name="$info"}disabled=""{/notempty}>
+				<option value="0">顶级栏目</option>
+				{foreach $list as $k=>$vo}
+				<option value="{$vo['id']}" {if condition="$vo['id'] eq $info['parent']"}selected{/if}>{$vo['cname']}</option>
+				{/foreach}
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="labels"><i>*</i>菜单名称</label>
+			<input type="text" name="name" value="{$info['name']}" placeholder="" datatype="*" class="form-control">
+		</div>
+		<div class="form-group">
+			<label class="labels"><i>*</i>菜单类型</label>
+			<div class="radio form-control">
+				{php}$type = isset($info['type']) ? $info['type'] : 'click';{/php}
+				<label class="radio-inline"><input name="type" value="click" {if condition="$type eq 'click'"}checked=""{/if} type="radio" onclick="typeClick('click');">事件推送</label>
+                <label class="radio-inline"><input name="type" value="view" {if condition="$type eq 'view'"}checked=""{/if} type="radio" onclick="typeClick('view');">链接跳转</label>
+            </div>
+		</div>
+		<div id="clickContent"></div>
+		<div class="submit-btn">
+			<input type="hidden" name="id" value="{$info['id']}">
+			<button class="btn btn-info">确定</button>
+		</div>
+	</form>
+</div>
+<div class="none" id="click">
+	<div class="form-group">
+		<label class="labels"><i>*</i>推送内容</label>
+		<textarea class="form-control" rows="5" datatype="*" name="content">{$info['content']}</textarea>
+	</div>
+</div>
+<div class="none" id="view">
+	<div class="form-group">
+		<label class="labels"><i>*</i>菜单链接</label>
+		<select class="form-control" name="content" datatype="*">
+			<option value="">请选择</option>
+			{foreach $sysLink as $k=>$vo}
+			<option value="{$vo}" {if condition="$vo eq $info['content']"}selected{/if}>{$k}</option>
+			{/foreach}
+		</select>
+	</div>
+</div>
+<script type="text/javascript">
+function typeClick(type){
+	var viewContent = $("#view").html();
+	var clickContent = $("#click").html();
+	if(type == 'click'){
+		$("#clickContent").html(clickContent);
+	}else if(type == 'view'){
+		$("#clickContent").html(viewContent);
+	}
+}
+typeClick("{$info['type'] ? $info['type'] : 'click'}");
+</script>

@@ -1,0 +1,99 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent-list-panel">
+	<form data-model="form-submit">
+		<div class="list-item clearfix">
+			<label>账号类型：</label>
+			<div class="item-txt">
+				<select class="input-select" name="type" id="type">
+					<option value="1" {if condition="$account['type'] eq 1"}selected{/if}>支付宝</option>
+					<option value="2" {if condition="$account['type'] eq 2"}selected{/if}>银行卡</option>
+				</select>
+			</div>
+		</div>
+		<div id="typeText"></div>
+		<div class="list-item clearfix">
+			<label>手机号码：</label>
+			<div class="item-txt">
+				<input type="text" datatype="m" value="{$user['phone']}" name="phone" value="{$account['phone']}" class="input" placeholder="请输入您的联系手机号码">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="list-item clearfix">
+			<label>备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：</label>
+			<div class="item-txt">
+				<input type="text" datatype="*1-50" name="mark" value="{$account['mark']}" class="input" placeholder="限50个字符以内">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="panel-btn">
+			<input type="hidden" name="id" value="{$account['id']}">
+			<button class="submit-btn">保存</button>
+			<a href="{:url('bank')}">取消</a>
+		</div>
+	</form>
+</div>
+<div class="none" id="alipayTxt">
+	<div class="list-item clearfix">
+		<label>收款账号：</label>
+		<div class="item-txt">
+			<input type="text" datatype="*" name="account" value="{$account['account']}" class="input" placeholder="请输入支付宝账号">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>收款姓名：</label>
+		<div class="item-txt">
+			<input type="text" datatype="*" name="name"  value="{$account['name']}" class="input" placeholder="请输入账号姓名">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+</div>
+<div class="none" id="bankTxt">
+	<div class="list-item clearfix">
+		<label>开&nbsp;&nbsp;户&nbsp;&nbsp;行：</label>
+		<div class="item-txt">
+			<input type="text" datatype="*" name="bank_name" value="{$account['bank_name']}" class="input" placeholder="请输入开户行名称">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>银行卡号：</label>
+		<div class="item-txt">
+			<input type="text" datatype="*" name="bank_id" value="{$account['bank_id']}" class="input" placeholder="请输入银行卡号">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>持&nbsp;&nbsp;卡&nbsp;&nbsp;人：</label>
+		<div class="item-txt">
+			<input type="text" datatype="*" name="name" value="{$account['name']}" class="input" placeholder="请输入持卡人姓名">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+var title = {empty name="account"}'添加收款账户'{else /}'编辑收款账户'{/empty};
+$("title").html(title);
+$(function(){
+	$("#type").change(function(){
+		var ids = $(this).val();
+		if(ids == 1){
+			// 支付宝
+			var html = $("#alipayTxt").html();
+		}else if(ids == 2){
+			// 银行卡
+			var html = $("#bankTxt").html();
+		}
+		$("#typeText").html(html);
+	});
+	$("#type").change();
+});
+</script>
+<!--{#include 'footer.html'}-->

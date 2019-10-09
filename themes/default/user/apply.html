@@ -1,0 +1,172 @@
+<!--{#include 'header.html'}-->
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<style type="text/css">
+body{background: #fff;}
+</style>
+<form data-model="form-submit">
+<div class="apply-header">
+	{if condition="$info['uid'] eq 0"}
+	<p>上级代理人：总部</p>
+	{else /}
+	<p>上级代理人：{$parent['auth_name']}</p>
+	<p>手机号：{$parent['phone']}</p>
+	{/if}
+</div>
+<div class="apply-title">你申请的代理级别为：</div>
+<div class="apply-brand">
+	{php}$Levels = db('agent_level')->where('id',$info['level_id'])->find();{/php}
+	<div class="brand-list clearfix">
+		<div class="brandLogo"><img src="{$config['brand_logo']}"></div>
+		<div class="brandTxt">
+			<p>品牌名称：{$config['brand_name']}</p>
+			<p>代理级别：{$Levels['name']}</p>
+			<input type="hidden" value="{$Levels['id']}" name="level_id">
+			<input type="hidden" value="{$Levels['name']}" name="level_name">
+		</div>
+	</div>
+</div>
+<div class="apply-title">请填写一下信息，完成申请</div>
+<div class="apply-form">
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i></i>头像照片：</label></div>
+		<div class="col-flex-75 clearfix">
+			<div class="apply-img fl" data-model="form-upload" data-target="#avatar" data-preview="#avatar_img"><img src="{$authUser['avatar']}" id="avatar_img"></div>
+			<input type="hidden" value="{$authUser['avatar']}" name="avatar" id="avatar">
+			<div class="apply-txt fl">(默认微信头像，点击更换)</div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>授&nbsp;权&nbsp;名：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="auth_name" placeholder="你的姓名，最多8个汉字或16个英文字母" datatype="*1-16">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>微&nbsp;信&nbsp;号：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="wechat" placeholder="4-20个字母、数字、下划线" datatype="*4-20">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<!--<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>淘&nbsp;宝&nbsp;ID：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="taobao" placeholder="4-20个字母、数字、下划线" datatype="*4-20">
+			<div class="tip-alert"></div>
+		</div>
+	</div>-->
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>手&nbsp;机&nbsp;号：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="phone" placeholder="11位手机号码" datatype="m">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>身份证号：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="idcard" placeholder="身份证号码" datatype="*1-20">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</label></div>
+		<div class="col-flex-75">
+			<div class="row-flex">
+				<div class="col-flex-33">
+					<select class="input" name="province" id="ddlProvince" style="width: 100%;">
+						<option value="-1">省份</option>
+						{foreach $region as $vo}
+						<option value="{$vo['id']}">{$vo['name']}</option>
+						{/foreach}
+					</select>
+				</div>
+				<div class="col-flex-33">
+					<select class="input" name="city" id="ddlCity" style="width: 100%;">
+						<option value="-1">城市</option>
+					</select>
+				</div>
+				<div class="col-flex-33">
+					<select class="input" name="area" id="ddlArea" style="width: 100%;">
+						<option value="-1">区域</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>收货地址：</label></div>
+		<div class="col-flex-75">
+			<input type="text" class="input" name="address" placeholder="不需要添加省份、城市、区域" datatype="*">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label><i>*</i>打款凭证：</label></div>
+		<div class="col-flex-75">
+			<div class="upload-panel">
+				<a href="javascript:;" data-model="form-upload" data-target="#image" data-preview="#image_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+				<input type="hidden" name="money_img" value="" id="image" datatype="*" nullmsg="请上传打款凭证">
+				<div class="tip-alert" style="top: 30px;"></div>
+			</div>
+			<div class="upload-prview">
+				<img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="image_2">
+			</div>
+		</div>
+	</div>
+	<input type="hidden" value="{$info['uid']}" name="uid">
+	<input type="hidden" value="{$info['id']}" name="id">
+	<input type="hidden" value="{$info['uid'] == 1 ? $parent['auth_name'] : '总部'}" name="parent_name">
+	<div class="submit-btn"><button class="btn">提交</button></div>
+</div>
+</form>
+<div style="height: 60px;"></div>
+<div class="endTime">
+	当前邀请有效剩余时间：<em id="lblCountdown"></em>
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/index/";
+var webControl = "{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+timer({$endTime});
+var title = '代理申请';
+$("title").html(title);
+var intervalCount = parseInt(0);//倒计时总秒数量
+var newInterval = parseInt(0);
+function timer(intDiff) {
+    intervalCount = 1;
+    newInterval = 0;
+    var interval = window.setInterval(function () {
+        if (newInterval == 1) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        var day = 0,
+            hour = 0,
+            hour2 = 0,
+            minute = 0,
+            second = 0;//时间默认值
+        if (intDiff > 0) {
+            day = Math.floor(intDiff / (60 * 60 * 24));
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            hour2 = Math.floor(intDiff / (60 * 60));
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+        }
+        if (hour2 <= 9) hour2 = '0' + hour2;
+        if (minute <= 9) minute = '0' + minute;
+        if (second <= 9) second = '0' + second;
+
+        if (intDiff <= 0) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        $('#lblCountdown').html(hour2 + ':' + minute + ':' + second);
+
+        intDiff--;
+    }, 1000);
+}
+GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "-1", "-1");
+GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "-1", "-1");
+</script>

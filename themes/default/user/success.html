@@ -1,0 +1,15 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="user-empty agent-list-panel">
+	<i class="iconfont">&#xe637;</i>
+	<h3>{:isset($_GET['title']) ? $_GET['title'] : '恭喜你，提交成功！'}</h3>
+	<p style="margin-top: 15px;">请耐心等待系统审核</p>
+	<p style="margin-top: 15px;">审核通过后即可</p>
+	<div class="item-btn"><a href="{:url('/user/index')}" class="btn">前往代理后台</a></div>
+</div>
+<script type="text/javascript">
+var title = '代理后台';
+$("title").html(title);
+</script>

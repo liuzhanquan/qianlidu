@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" > 
+<meta name = "format-detection" content="telephone = no" />
+<title>我的业绩</title>
+<link rel="stylesheet" type="text/css" href="/static/default/css/home.css">
+<link rel="stylesheet" href="/static/money/css/swiper-4.3.5.min.css">
+<link rel="stylesheet" href="/static/money/css/normalize.css">
+<link rel="stylesheet" href="/static/money/css/style.css">
+<script type="text/javascript" src="/static/money/js/flexible.js"></script>
+</head>
+<body>
+<div class="top">
+	<div class="container">
+		<a href="{:url('teammoney',['mon'=>($mon-1)])}" class="left"><img src="/static/money/img/left.png"></a>
+		<div class="center">
+			<img class="img" src="/static/money/img/quan.png">
+			<div class="content">
+				<h1>￥{:bqwhits($data['all'])}</h1>
+				<p>
+					{php}if($mon >= date('m')){ echo '本月收入'; }else{ echo $mon.'月收入'; }{/php}
+				</p>
+			</div>
+		</div>
+		{php}if($mon >= date('m')){ $mons = $mon;}else{ $mons = $mon +1;}{/php}
+		<a href="{:url('teammoney',['mon'=>$mons])}" class="left"><img src="/static/money/img/right.png"></a>
+	</div>
+	<div class="swiper-container" id="swiper1">
+		<div class="swiper-wrapper">
+		    <div class="swiper-slide container">
+		    	<div>
+		    		<a href="{:url('teammoney',['mon'=>$mon,'type'=>1])}">
+		    		<h1>{:bqwhits($data['lirun'])}</h1>
+		    		<p>利润额</p></a>
+		    	</div>
+		    	<b></b>
+		    	<div>
+		    		<a href="{:url('teammoney',['mon'=>$mon,'type'=>2])}">
+		    		<h1>{:bqwhits($data['pinji'])}</h1>
+		    		<p>平级奖金</p></a>
+		    	</div>
+		    	<b></b>
+		    	<div>
+		    		<a href="{:url('teammoney',['mon'=>$mon,'type'=>3])}">
+			    		<h1>{:bqwhits($data['yeji_money'])}</h1>
+		    		<p>销售奖金</p></a>
+		    	</div>
+		    	<b></b>
+		    	<div>
+		    		<a href="{:url('teammoney',['mon'=>$mon,'type'=>4])}">
+			    		<h1>{:bqwhits($data['yeji'])}</h1>
+			    		<p>销售业绩</p>
+			    	</a>
+		    	</div>
+		    </div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div> 
+</div>
+<div class="">
+	{if condition="$type eq 1"}
+	<div class="list_box">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关记录~</p>
+		</div>
+		{else /}
+		{foreach $list as $vo}
+		<div class="list cl-a">
+			<img class="img fl" src="{:getUser($vo['form_id'],'avatar')}">
+			<h1 class="name fl">{:getUser($vo['form_id'])}</h1>
+			<p class="names fl">{:getUser($vo['form_id'],'level_name')}</p>
+			<div class="price fr">￥{$vo['money']}</div>
+			<div class="time">{:date('Y-m-d H:i',strtotime($vo['timestamp']))}</div>
+		</div>
+		{/foreach}
+		{/empty}
+	</div>
+	<div class="pages">{$page}</div>
+	{elseif condition="$type eq 2" /}
+	<div class="list_box">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关记录~</p>
+		</div>
+		{else /}
+		{foreach $list as $vo}
+		<div class="list cl-a">
+			<img class="img fl" src="{:getUser($vo['form_id'],'avatar')}">
+			<h1 class="name fl">{:getUser($vo['form_id'])}</h1>
+			<p class="names fl">{:getUser($vo['form_id'],'level_name')}</p>
+			<div class="price fr">￥{$vo['money']}</div>
+			<div class="time">{:date('Y-m-d H:i',strtotime($vo['timestamp']))}</div>
+		</div>
+		{/foreach}
+		{/empty}
+	</div>
+	<div class="pages">{$page}</div>
+	{elseif condition="$type eq 3" /}
+	<div class="list_box">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关记录~</p>
+		</div>
+		{else /}
+		{foreach $list as $vo}
+		<div class="list cl-a" style="min-height: 45px;">
+			<h1 class="name fl">达成业绩 ￥{$vo['all_money']}</h1>
+			<div class="price fr">￥{$vo['money']}</div>
+			<div class="time">{:date('Y-m-d H:i',strtotime($vo['timestamp']))}</div>
+		</div>
+		{/foreach}
+		{/empty}
+	</div>
+	<div class="pages">{$page}</div>
+	{elseif condition="$type eq 4" /}
+	<div class="list_box">
+		{empty name="list"}
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>没有相关记录~</p>
+		</div>
+		{else /}
+		{foreach $list as $vo}
+		<div class="list cl-a">
+			<img class="img fl" src="{:getUser($vo['form_id'],'avatar')}">
+			<h1 class="name fl">{:getUser($vo['form_id'])}</h1>
+			<p class="names fl">{:getUser($vo['form_id'],'level_name')}</p>
+			<div class="price fr">￥{$vo['money']}</div>
+			<div class="time">{:date('Y-m-d H:i',strtotime($vo['timestamp']))}</div>
+		</div>
+		{/foreach}
+		{/empty}
+	</div>
+	<div class="pages">{$page}</div>
+	{/if}
+</div>
+
+<script type="text/javascript" src="/static/money/js/jquery.js"></script>
+<script type="text/javascript" src="/static/money/js/swiper-4.3.5.min.js"></script>
+<script>
+var swiper = new Swiper('#swiper1', {
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
+</body>
+</html>

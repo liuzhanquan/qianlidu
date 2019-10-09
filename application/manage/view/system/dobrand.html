@@ -1,0 +1,85 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  <li><a href="javascript:;">系统设置</a></li>
+  		  <li><a href="{:url('brand')}">授权品牌管理</a></li>
+  		  <li>{if condition="$id gt 0"}修改品牌{else /}添加品牌{/if}</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>品牌名称：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="name" class="form-controls" datatype="*1-20" value="{$info['name']}">
+	            	<i>最多20个字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>品牌logo：</dt>
+	            <dd>
+	            	<div class="upload-panel">
+	            		<a href="javascript:;" data-model="form-upload" data-target="#logo" data-preview="#logo_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传图片</a>
+	            	</div>
+	            	<input type="hidden" name="logo" value="{$info['logo']}" id="logo">
+		            <div class="help-block">(推荐尺寸为100px*100px，大小不超过200k，支持jpg、png、gif、jpeg格式)</div>
+	            	<div class="upload-prview">
+	            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$info['logo']}" id="logo_2">
+	            	</div>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>流水号开始值：</dt>
+	            <dd>
+	            	{empty name="$info"}
+	            	<input type="text" style="width: 100px;" value="{$info['number']}" name="number" class="form-controls" datatype="n">
+	            	{else /}
+	            	<input type="text" style="width: 100px;background: #f0f0f0;" value="{$info['number']}" class="form-controls" readonly="">
+	            	{/empty}
+	            	<i>最多7位数，空位可以补0，使用后不可修改</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>授权代码前缀：</dt>
+	            <dd>
+	            	{empty name="$info"}
+	            	<input type="text" style="width: 100px;" value="{$info['prefix']}" name="prefix" class="form-controls" datatype="*1-5">
+	            	{else /}
+	            	<input type="text" style="width: 100px;background: #f0f0f0;" value="{$info['prefix']}" class="form-controls" readonly="">
+	            	{/empty}
+	            	<i>最多5个英文字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>授权期限：</dt>
+	            <dd>
+	            	<input type="text" style="width: 50px" name="month" class="form-controls" datatype="n" value="{$info['month']}">
+	            	<em>月</em>
+	            	<i> 授权的有效时间</i>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>授权书模板：</dt>
+	            <dd>
+	            	<div class="upload-panel">
+	            		<a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传图片</a>
+	            	</div>
+	            	<input type="hidden" name="tplimg" value="{$info['tplimg']}" id="images">
+		            <div class="help-block">(推荐尺寸为640px*1008px，大小不超过500k，支持jpg、png、gif、jpeg格式)</div>
+	            	<div class="upload-prview">
+	            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$info['tplimg']}" id="uploadImage_2">
+	            	</div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>

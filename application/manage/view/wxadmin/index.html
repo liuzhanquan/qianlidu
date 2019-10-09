@@ -1,0 +1,39 @@
+<div class="wxBox">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-xl-3">
+				<div class="c-card">
+					<a href="{:url('agent')}">
+					<span class="c-icon c-icon--info u-mb-small"><i class="glyphicon glyphicon-user"></i></span>
+					<h1>{$money['num']}</h1>
+					<h3 class="c-text--subtitle">代理加盟总数</h3>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-3">
+				<div class="c-card">
+					<a href="{:url('recharge')}">
+					<span class="c-icon c-icon--success u-mb-small"><i class="glyphicon glyphicon-credit-card"></i></span>
+					<h1>￥{:bqwhits($money['recharge'])}</h1>
+					<h3 class="c-text--subtitle">总部充值总额</h3>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-3">
+				<div class="c-card">
+					<span class="c-icon c-icon--warning u-mb-small"><i class="glyphicon glyphicon-tasks"></i></span>
+					<h1>￥{$money['recharge']}</h1>
+					<h3 class="c-text--subtitle">代理支出总额</h3>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-3">
+				<div class="c-card">
+					<span class="c-icon c-icon--danger u-mb-small"><i class="glyphicon glyphicon-tags"></i></span>
+					<h1>￥{:bqwhits($money['user_money'])}</h1>
+					<h3 class="c-text--subtitle">代理货款余额</h3>
+				</div>
+			</div>
+			<!--  -->
+		</div>
+	</div>
+</div>

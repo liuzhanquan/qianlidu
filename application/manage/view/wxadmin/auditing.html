@@ -1,0 +1,33 @@
+<style type="text/css">
+.sys-content{padding: 0px 20px 0px 20px;}
+.sys-content dl dt{min-width: auto;}
+.submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="wxback"><a href="javascript:history.back(-1)"><i class="glyphicon glyphicon-chevron-left"></i> 代理审核</a></div>
+<div class="wxBox">
+	<div class="container">
+		<form data-model="form-submit">
+			<div class="re-title"><span>代理信息</span></div>
+			<div class="re-content">
+				<p>授权名称：<em>{$info['auth_name']}</em></p>
+				<p>手机号码：<em>{$info['phone']}</em></p>
+				<p>身份证：<em>{$info['idcard']}</em></p>
+			</div>
+			<div class="re-title"><span>审核处理</span></div>
+			<dl class="add-block-li">
+		        <dd>
+		            <label class="radio-inline"><input type="radio" name="status" value="1" style="margin-top: 0" checked="">审核通过</label>
+		            <label class="radio-inline"><input type="radio" name="status" value="2" style="margin-top: 0">拒绝审核</label>
+		        </dd>
+		    </dl>
+			<dl class="add-block-li" style="display: block;">
+		        <dt style="text-align: left;display: block;">备注：</dt>
+		        <dd style="display: block;"><textarea class="form-control" rows="2" placeholder="审核建议，审核不通过时必填，申请人可见！" name="remark"></textarea></dd>
+		    </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['uid']}" name="id">
+	            <button class="btn btn-info">确定</button>
+	        </div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		  <li>回收站</li>
+		</ol>
+	</div>
+	<!--  -->
+	<div class="right-content" data-model="table-bind">
+		<div class="option-search clearfix">
+			<form method="get">
+				<div class="search-item">
+					<label>关键词：</label>
+					<input type="text" class="form-control" name="key" value="" placeholder="产品编号、产品名称">
+				</div>
+				<div class="search-item">
+					<button class="btn btn-info btn-ok">搜索</button>
+					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+				</div>
+			</form>
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center">产品标题</th>
+					<th class="text-center">产品名称</th>
+					<th class="text-center" width="130px">产品图片</th>
+					<th class="text-center">旅游时间</th>
+					<th class="text-center">活动推广时间</th>
+					<th class="text-center">产品状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="7">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td>{$vo['title']}</td>
+					<td>{$vo['title_list']}</td>
+					<td><img src="{$vo['photo']}" height="30"></td>
+					<td>{$vo['start_time']|date='Y-m-d H:i:s',###} - {$vo['stop_time']|date='Y-m-d H:i:s',###}</td>
+					<td>{$vo['show_time']|date='Y-m-d H:i:s',###} - {$vo['hide_time']|date='Y-m-d H:i:s',###}</td>
+					<td>
+						{if condition="$vo['status'] eq 0"}
+						已下架
+						{else /}
+						已上架
+						{/if}
+					</td>
+					<td>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="reback" data-tips="还原之后，产品将进入已下架列表，确定要还原吗？">还原</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="goods" data-tips="确定要彻底删除该产品吗？">彻底删除</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="page">{$page}</div>
+		<!--  -->
+	</div>
+	<!--  -->
+</div>

@@ -1,0 +1,109 @@
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+
+    <div class="tab-title" style="margin-top: 28px;">
+        <ul class="tab-title_con">
+            <li {if condition="$id eq 1"}class="on"{/if}><a href="{:url('index')}">全部代理</a></li>
+            <li {if condition="$id eq 2"}class="on"{/if}><a href="{:url('index',['id'=>'2'])}">待审核</a></li>
+            <li {if condition="$id eq 3"}class="on"{/if}><a href="{:url('index',['id'=>'3'])}">已冻结</a></li>
+        </ul>
+    </div>
+    <div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('addagent')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加代理申请链接</a>
+		</div>
+    	<div class="option-search clearfix">
+    		<form method="get">
+				<div class="search-item">
+					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
+						<option value="1" {if condition="$data['selkey'] eq 1"}selected{/if}>手机号</option>
+						<option value="2" {if condition="$data['selkey'] eq 2"}selected{/if}>授权名称</option>
+						<option value="3" {if condition="$data['selkey'] eq 3"}selected{/if}>身份证</option>
+					</select>
+					<input type="text" class="form-control" name="key" value="{$data['key']}" style="width: 200px;">
+				</div>
+				<div class="search-item">
+					<button class="btn btn-info btn-ok">搜索</button>
+					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+				</div>
+    		</form>
+    	</div>
+    	<!--  -->
+    	<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center" width="20%">卡号</th>
+					<th class="text-center">类型</th>
+					<!-- <th class="text-center">代理级别</th> -->
+					<th class="text-center">实体卡/虚拟卡</th>
+					<th class="text-center">是否绑定代理商</th>
+					<th class="text-center"> 期限时间 </th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			{empty name="$list"}
+				<tr>
+					<td colspan="7" class="text-center">没有更多数据啦</td>
+				</tr>
+			{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td class="text-center">{$vo['card_num']}</td>
+					<td class="text-center">{$vo['card_type']}</td>
+					<td class="text-center">{$vo['card_state']}</td>
+					<td class="text-center">{$vo['user_all']['phone'] ? $vo['user_all']['phone'] : '未设置'}</td>
+					<td class="text-center">{$vo['business'] ? '是' : '否'}</td>
+					<td class="text-center">{$vo['start_time'] ? date('Y-m-d H:i:s',$vo['start_time']):''}
+						<br>
+					{$vo['stop_time'] ? date('Y-m-d H:i:s',$vo['stop_time']) : '未设置'}</td>
+					<td class="text-center">{if condition="$vo['status'] eq 0"}待审核{elseif condition="$vo['status'] eq 1" /}正常{elseif condition="$vo['status'] eq 2" /}待二次审核{elseif condition="$vo['status'] eq 3" /}已冻结{/if}</td>
+					<td class="text-center">
+						<a href="{:url('douser',['id'=>$vo['id'],'type'=>'view'])}">查看</a><em>-</em>
+						{if condition="$vo['status'] eq 0"}
+						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('auditing',['id'=>$vo['id']])}">审核</a><br>
+						{elseif condition="$vo['status'] eq 2" /}
+						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('auditing',['id'=>$vo['id']])}">审核</a><br>
+						{elseif condition="$vo['status'] eq 1" /}
+						<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该代理吗？" data-url="{:url('status')}" data-val="3" data-id="{$vo['id']}">冻结</a><br>
+						{elseif condition="$vo['status'] eq 3" /}
+						<a href="javascript:void(0)" data-confirm data-tips="您确认要启用吗？" data-url="{:url('status')}" data-val="1" data-id="{$vo['id']}">启用</a><br>
+						{/if}
+						<!-- <a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('option',['id'=>$vo['id']])}" data-title="增加代理款项">充值</a><em>-</em>
+						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('option_s',['id'=>$vo['id']])}">扣款</a><br> -->
+
+						<a href="{:url('douser',['id'=>$vo['id'],'type'=>'edit'])}">修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-table="user" data-id="{$vo['id']}" >删除</a><br>
+					</td>
+				</tr>
+				{/foreach}
+			{/empty}
+			<tbody>
+    	</table>
+		<div class="page">{$page}</div>
+    </div>
+    <!--  -->
+</div>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($data['city']) ? $data['city'] : '-1';{/php}
+	{php} $areaId = isset($data['area']) ? $data['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "{$areaId}", "-1");
+    },1000);
+	
+});
+</script>

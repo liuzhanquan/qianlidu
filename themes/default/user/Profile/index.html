@@ -1,0 +1,52 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent-list-panel">
+	<div class="list-item clearfix">
+		<label>头像：</label>
+		<div class="item-txt"><img src="{$user['avatar']}" class="item-img"></div>
+	</div>
+	<div class="list-item clearfix">
+		<label>授权名：</label>
+		<div class="item-txt">{$user['auth_name']}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>微信号：</label>
+		<div class="item-txt">{$user['wechat']}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>微信昵称：</label>
+		<div class="item-txt">{$user['nickname']}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>手机号：</label>
+		<div class="item-txt">{$user['phone']}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>登陆密码：</label>
+		<div class="item-txt">{empty name="$user['password']"}未设置{else /}已设置{/empty}</div>
+		<div class="item-pos"><a href="{:url('setpasw')}">{empty name="$user['password']"}设置{else /}修改{/empty}密码</a></div>
+	</div>
+	<div class="list-item clearfix">
+		<label>身份证：</label>
+		<div class="item-txt">{$user['idcard']}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>地区：</label>
+		<div class="item-txt">{:getCity($user['province'])} {:getCity($user['city'])} {:getCity($user['area'])}</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>创建时间：</label>
+		<div class="item-txt">{$user['reg_time']}</div>
+	</div>
+	<!-- <div class="item-btn"><a href="" class="btn">修改资料</a></div> -->
+</div>
+<script type="text/javascript">
+var title = '个人资料';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

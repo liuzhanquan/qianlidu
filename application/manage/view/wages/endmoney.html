@@ -1,0 +1,68 @@
+<style type="text/css">
+.sys-content{padding: 20px 20px 0px 20px;}
+.sys-content dl dt{min-width: auto;}
+.layout-ajax.sys-content .submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="layout-ajax sys-content">
+	<form data-model="form-submit">
+		<div class="re-title"><span>结算代理</span></div>
+		<div class="re-content">
+			<p>授权名称：<em>{$info['auth_name']}</em></p>
+			<p>可结算余额：<em>{$info['money']}</em></p>
+		</div>
+		<div class="re-title"><span>收款账号</span></div>
+		{empty name="account"}
+		无
+		{else /}
+		{if condition="$account['type'] eq 1"}
+		<div class="re-content">
+			<p>账号类型：<em>支付宝</em></p>
+			<p>收款账号：<em>{$account['account']}</em></p>
+			<p>姓名：<em>{$account['name']}</em></p>
+			<p>手机号码：<em>{$account['phone']}</em></p>
+			<p>备注：<em>{$account['mark']}</em></p>
+		</div>
+		{elseif condition="$account['type'] eq 2" /}
+		<div class="re-content">
+			<p>账号类型：<em>银行卡</em></p>
+			<p>开户行：<em>{$account['bank_name']}</em></p>
+			<p>银行卡号：<em>{$account['bank_id']}</em></p>
+			<p>持卡人：<em>{$account['bank_name']}</em></p>
+			<p>手机号码：<em>{$account['phone']}</em></p>
+			<p>备注：<em>{$account['mark']}</em></p>
+		</div>
+		{/if}
+		{/empty}
+		<div class="re-title"><span>余额结算</span></div>
+		{if condition="$info['end_money'] egt $info['money']"}
+		<p>已结算完成</p>
+		{else /}
+		<dl>
+			<dt><i>*</i>结算余额：</dt>
+			<dd><input type="text" class="form-controls" name="money" value="{$info['money'] - $info['end_money']}" datatype="*"></dd>
+		</dl>
+		<dl>
+			<dt><i>*</i>商家留言：</dt>
+			<dd>
+				<dd><input type="text" class="form-controls" name="remark" value="" pattern="必填，限50字内。可以备注充值原因，充值原因将以微信通知的方式发送给申请代理" datatype="*">
+			</dd>
+		</dl>
+        <dl>
+			<dt><i>*</i>打款凭证：</dt>
+            <dd>
+                <div class="upload-panel">
+                    <a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传打款凭证</a>
+                </div>
+                <input type="hidden" name="photo" id="images" datatype="*" nullmsg="请上传打款凭证">
+                <!-- <div class="upload-prview">
+                    <img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="uploadImage_2">
+                </div> -->
+            </dd>
+        </dl>
+		{/if}
+        <div class="submit-btn">
+        	<input type="hidden" value="{$info['id']}" name="id">
+            <button class="btn btn-info">确定</button>
+        </div>
+	</form>
+</div>

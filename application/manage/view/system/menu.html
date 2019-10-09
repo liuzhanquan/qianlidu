@@ -1,0 +1,69 @@
+<style type="text/css">
+.table td{padding: 15px 10px !important;}
+</style>
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  <li><a href="javascript:;">系统设置</a></li>
+  		  <li><a href="{:url('system/index')}">基础设置</a></li>
+  		  <li>菜单栏目管理</li>
+		</ol>
+	</div>
+    <div class="tab-title" style="margin-top: 28px;">
+        <ul class="tab-title_con">
+            <li><a href="{:url('index')}">基础设置</a></li>
+            <li><a href="{:url('index',['id'=>'2'])}">代理设置</a></li>
+            <li><a href="{:url('index',['id'=>'3'])}">订单设置</a></li>
+            <li><a href="{:url('sethome')}">代理后台首页设置</a></li>
+			<li class="on"><a href="javascript:;">菜单栏目管理</a></li>
+        </ul>
+    </div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn" style="margin-bottom: 15px;">
+			<a href="{:url('domenu')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加导航</a>
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th><span style="padding-left: 10px;">菜单名称</span></th>
+					<th class="text-center" width="15%">菜单图标</th>
+					<th class="text-center" width="15%">代理权限</th>
+					<th class="text-center" width="15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="7">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td class="text-left">{$vo['cname']}</td>
+					<td class="page-customSet-activityNav">
+						{if condition="$vo['icon_type'] eq 2"}
+						-
+						{elseif condition="$vo['icon_type'] eq 0" /}
+						<s class="{$vo['icon']}"></s>
+						{elseif condition="$vo['icon_type'] eq 1" /}
+						<img src="{$vo['icon']}" height="30">
+						{/if}
+					</td>
+					<td>
+						{empty name="$vo['agent']"}
+						未设置
+						{else /}
+						已设置
+						{/empty}
+					</td>
+					<td>
+						<a href="{:url('domenu',['id'=>$vo['id']])}">查看修改</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+	</div>
+</div>

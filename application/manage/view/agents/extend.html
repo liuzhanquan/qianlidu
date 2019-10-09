@@ -1,0 +1,65 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('doextend')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加扩展代理</a>
+		</div>
+		<div class="tips-alert">
+			<h3>重要提示： </h3>
+			<p>1、代理级别一经启用，请不要随意修改！每个品牌最多添加10个代理级别 </p>
+			<p>2、授权书和授权期限的优先级为：代理级别管理列表>授权品牌管理列表，若代理级别管理列表中未设置，则以授权品牌管理列表为准 </p>
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center" width="10%">代理级别</th>
+					<th class="text-center" width="10%">级别名称</th>
+					<th class="text-center" width="10%">关联代理</th>
+					<th class="text-center" width="20%">授权书</th>
+					<th class="text-center" width="10%">授权期限</th>
+					<th class="text-center" width="15%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="6">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td>{$vo['level_num']}</td>
+					<td>{$vo['name']}</td>
+					<td>{php}$pname=db('agent_level')->where('id',$vo['parent_id'])->value('name');{/php}{$pname}</td>
+					<td>
+						{empty name="$vo['tplimg']"}
+						-
+						{else /}
+						<img src="{$vo['tplimg']}" width="100">
+						{/empty}
+					</td>
+					<td>{$vo['txtMounth']}(月)</td>
+					<td>
+						<a href="{:url('doextend',['id'=>$vo['id']])}">查看修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="level">删除</a><br>
+						<a href="{:url('settpl',['id'=>$vo['id']])}">设置授权书</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="page">{$page}</div>
+	</div>
+</div>

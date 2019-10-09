@@ -1,0 +1,102 @@
+{foreach $ontopNav as $vo}
+<div class="app-field clearfix trun_on{$vo['id']} item-Show ontop" elerelation=".turn_right{$vo['id']}" data-id="{$vo['id']}" btn-elerelation=".show_item{$vo['id']}" 
+{php}
+    if(!empty($vo['sonid'])){
+        echo 'style="display: block;"';
+    }else{
+        echo 'style="display: none;"';
+    }
+{/php}
+>
+    <div class="control-group">
+        <div class="page_kongjia_wx_index">
+            <div class="page-header" style="margin-bottom: 0;">
+                <div class="info f-c app-field select" style="background-color: #4b8efd">
+                    <ul class="dp-f">
+                        {foreach $vo['son'] as $k=>$v2}
+                            {empty name="$vo['sonid']"}
+                            {if condition="$k <= 2"}
+                                <li class="item-Show" data-id="{$v2['id']}">
+                                    <a href="##" class="headmenu{$v2['id']}">
+                                        <p class="color_fff">188</p>
+                                        <p class="one">{$v2['name']}</p>
+                                        <s class="line"></s>
+                                    </a>
+                                </li>
+                            {/if}
+                            {else /}
+                                <li class="item-Show" data-id="{$v2['id']}"  {php} if(in_array($v2['id'],$vo['sonid'])){ echo 'style="display:block;"'; }else{ echo 'style="display:none;"';}{/php}>
+                                    <a href="##" class="headmenu{$v2['id']}">
+                                        <p class="color_fff">188</p>
+                                        <p class="one">{$v2['name']}</p>
+                                        <s class="line"></s>
+                                    </a>
+                                </li>
+                            {/empty}
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="actions-wrap">
+            <span class="action edit_{$vo['id']}">编辑</span><span class="action del_action dele_{$vo['id']}">隐藏</span>
+        </div>
+    </div>
+</div>
+{/foreach}
+<div class="app-fields control-groups ui-sortable">
+    {foreach $nomalNav as $vo}
+    <div class="app-field clearfix mt-10 trun_on{$vo['id']} item-Show" elerelation=".turn_right{$vo['id']}" btn-elerelation=".show_item{$vo['id']}" data-id="{$vo['id']}"
+    {php}
+        if(!empty($vo['sonid'])){
+            echo 'style="display: block;"';
+        }else{
+            echo 'style="display: none;"';
+        }
+    {/php}
+    >
+        <div class="control-group">
+            <ul class="page-custom-activityNav f-c bottom_line">
+                <h3>{$vo['name']}</h3>
+                {empty name="$vo['sonid']"}
+                {foreach $vo['son'] as $v2}
+                <li class="item-Show" data-id="{$v2['id']}">
+                    <a href="">
+                        {if condition="$v2['icon_type'] eq 0"}
+                        <s class="{$v2['icon']}"></s>
+                        {elseif condition="$v2['icon_type'] eq 1" /}
+                        <img src="{$v2['icon']}">
+                        {/if}
+                        <p>{$v2['name']}</p>
+                    </a>
+                </li>
+                {/foreach}
+                {else /}
+                {foreach $vo['son'] as $v2}
+                    <li class="item-Show" data-id="{$v2['id']}" {php} if(in_array($v2['id'],$vo['sonid'])){ echo 'style="display:block;"'; }else{ echo 'style="display:none;"';}{/php}>
+                        <a href="">
+                            {if condition="$v2['icon_type'] eq 0"}
+                            <s class="{$v2['icon']}"></s>
+                            {elseif condition="$v2['icon_type'] eq 1" /}
+                            <img src="{$v2['icon']}">
+                            {elseif condition="$v2['icon_type'] eq 2" /}
+                            -
+                            {/if}
+                            <p>{$v2['name']}</p>
+                        </a>
+                    </li>
+                {/foreach}
+                {/empty}
+            </ul>
+        </div>
+        <div class="actions">
+            <div class="actions-wrap">
+                <span class="action edit_{$vo['id']}">编辑</span><span class="action del_action dele_{$vo['id']}">隐藏</span>
+            </div>
+        </div>
+    </div>
+    {/foreach}
+    <div id="location"></div>
+</div>

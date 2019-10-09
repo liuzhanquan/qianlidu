@@ -1,0 +1,110 @@
+<!--{#include 'header.html'}-->
+<script type="text/javascript">
+var title = '邀请记录';
+$("title").html(title);
+var intervalCount = parseInt(0);//倒计时总秒数量
+var newInterval = parseInt(0);
+function timer(intDiff,id) {
+    intervalCount = 1;
+    newInterval = 0;
+    var interval = window.setInterval(function () {
+        if (newInterval == 1) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        var day = 0,
+            hour = 0,
+            hour2 = 0,
+            minute = 0,
+            second = 0;//时间默认值
+        if (intDiff > 0) {
+            day = Math.floor(intDiff / (60 * 60 * 24));
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            hour2 = Math.floor(intDiff / (60 * 60));
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+        }
+        if (hour2 <= 9) hour2 = '0' + hour2;
+        if (minute <= 9) minute = '0' + minute;
+        if (second <= 9) second = '0' + second;
+
+        if (intDiff <= 0) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        $('#lblCountdown_'+id).html(hour2 + ':' + minute + ':' + second);
+
+        intDiff--;
+    }, 1000);
+}
+</script>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-count">
+	<div class="count-num">
+		<h3>{$returnData['userNum']}</h3>
+		<p>记录总数</p>
+	</div>
+	<div class="count-link clearfix">
+		<div class="fl link-text">
+			<h3>{$returnData['open_num']}</h3>
+			<p>打开总次数</p>
+		</div>
+		<div class="fl link-text">
+			<h3>{$returnData['apply_num']}</h3>
+			<p>申请总次数</p>
+		</div>
+	</div>
+</div>
+<div class="agentlink-list">
+	<ul class="title clearfix">
+		<li {if condition="$id eq 0"}class="active"{/if}><a href="{:url('linklog')}">未过期</a></li>
+		<li {if condition="$id eq 1"}class="active"{/if}><a href="{:url('linklog',['id'=>'1'])}">已过期</a></li>
+	</ul>
+	<div class="lise-item">
+		{empty name="list"}
+		<p class="empty">当前没有邀请记录</p>
+		{else /}
+		<ul>
+			{if condition="$id eq 0"}
+			{foreach $list as $vo}
+			<li>
+				<a href="{:url('showLink')}?id={$vo['id']}">
+					<p>邀请生成时间：{$vo['timestamp']}</p>
+					<p>打开次数：{$vo['open_num']}</p>
+					<p>申请次数：{$vo['apply_num']}</p>
+					<p>邀请信息：</p>
+					<p>
+						{php}echo db('agent_level')->where('id',$vo['level_id'])->value('name');{/php}
+					</p>
+					{php}$endTime = strtotime($vo['end_time']) - time();{/php}
+					{if condition="$endTime gt 0"}
+					<div class="linkendTime">剩余有效期：<em id="lblCountdown_{$vo['id']}"></em></div>
+					<script type="text/javascript"> timer("{$endTime}","{$vo['id']}"); </script>
+					{/if}
+					<i class="iconfont">&#xe619;</i>
+				</a>
+			</li>
+			<div class="line-bottom"></div>
+			{/foreach}
+			{elseif condition="$id eq 1"}
+			{foreach $list as $vo}
+			<li>
+				<p>邀请生成时间：{$vo['timestamp']}</p>
+				<p>打开次数：{$vo['open_num']}</p>
+				<p>申请次数：{$vo['apply_num']}</p>
+				<p>邀请信息：</p>
+				<p>
+					{php}echo db('agent_level')->where('id',$vo['level_id'])->value('name');{/php}
+				</p>
+			</li>
+			<div class="line-bottom"></div>
+			{/foreach}
+			{/if}
+		</ul>
+		<div class="pages">{$page}</div>
+		{/empty}
+	</div>
+</div>
+<!--{#include 'footer.html'}-->

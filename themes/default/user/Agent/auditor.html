@@ -1,0 +1,47 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 33.3%;"><a href="{:url('auditor')}">直属代理审核</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 33.3%;"><a href="{:url('auditor',['type'=>'1'])}">非直属代理审核</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 33.3%;"><a href="{:url('auditor',['type'=>'2'])}">审核不通过记录</a></li>
+	</ul>
+	<div class="other-title">
+		<ul class="clearfix">
+			<li {if condition="$id eq 1"}class="active"{/if}><a href="?id=1">授权申请 ( {$data['shouquan']} ) </a></li>
+			<li {if condition="$id eq 2"}class="active"{/if}><a href="?id=2">升级申请 ( {$data['update']} ) </a></li>
+		</ul>
+	</div>
+	{empty name="list"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>暂时没有直属代理申请需要审核！</p>
+		<a href="{:url('team')}" class="btn">查看已审核代理</a>
+	</div>
+	{else /}
+	<div class="agent-parent">
+		{foreach $list as $vo}
+		<div class="son-item">
+			<a href="{:url('auditing')}?id={$vo['id']}" class="flex-row">
+				<div class="flex-grow-0 avatar"><img src="{:getUser($vo['uid'],'avatar')}"></div>
+				<div class="flex-grow-1 infos">
+					<h3>{:getUser($vo['uid'])}</h3>
+					<p>{:getUser($vo['uid'],'phone')}</p>
+					<p>申请时间：{$vo['timestamp']}</p>
+				</div>
+				<i class="iconfont">&#xe619;</i>
+			</a>
+		</div>
+		{/foreach}
+		<div class="pages">{$page}</div>
+	</div>
+	{/empty}
+</div>
+<script type="text/javascript">
+var title = '代理审核';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

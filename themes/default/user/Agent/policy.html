@@ -1,0 +1,136 @@
+<!--{#include 'header.html'}-->
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 25%;"><a href="{:url('policy')}">推荐奖励</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 25%;"><a href="{:url('policy',['type'=>'1'])}">升级政策</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 25%;"><a href="{:url('policy',['type'=>'2'])}">平级奖励</a></li>
+		<li {if condition="$type eq 3"}class="active"{/if} style="width: 25%;"><a href="{:url('policy',['type'=>'3'])}">业绩奖励</a></li>
+	</ul>
+</div>
+<div class="agent-panel reward-panel">
+	{if condition="$type eq 0"}
+
+	{if condition="$recommendList['id'] gt 0"}
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="text-center">推荐直属</th>
+				<th class="text-center">奖励</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="text-center">
+					{php}$levelName2 = db('agent_level')->find($recommendList['id']);{/php}
+					{$levelName2['name']}
+				</td>
+				<td class="text-center">
+					{$recommendList['money']} %
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	{else /}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>没有相关奖励政策~</p>
+	</div>
+	{/if}
+
+	{elseif condition="$type eq 1" /}
+	{empty name="teamList"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>没有相关奖励政策~</p>
+	</div>
+	{else /}
+	{if condition="$upgradeList['num'] gt 0"}
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="text-center">直推直属同级达</th>
+				<th class="text-center">升至等级</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="text-center">{$upgradeList['num']} 人</td>
+				<td class="text-center">
+					{php}$levelName = db('agent_level')->find($upgradeList['level']);{/php}
+					{$levelName['name']}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	{/if}
+	{/empty}
+	{elseif condition="$type eq 2" /}
+
+	{if condition="$sameList['level'] gt 0"}
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="text-center">推荐直属</th>
+				<th class="text-center">一代奖励</th>
+				<th class="text-center">二代奖励</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="text-center">
+					{php}$levelName3 = db('agent_level')->find($sameList['level']);{/php}
+					{$levelName3['name']}
+				</td>
+				<td class="text-center">
+					{$sameList['one']} %
+				</td>
+				<td class="text-center">
+					{$sameList['two']} %
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	{else /}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>没有相关奖励政策~</p>
+	</div>
+	{/if}
+
+	{elseif condition="$type eq 3" /}
+	{empty name="teamList"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>没有相关奖励政策~</p>
+	</div>
+	{else /}
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th class="text-center">月度业绩</th>
+				<th class="text-center">奖励返点</th>
+			</tr>
+		</thead>
+		<tbody>
+			{foreach $teamList as $vo}
+			<tr>
+				<td class="text-center">{$vo['start_money']}~{$vo['end_money']}</td>
+				<td class="text-center">{$vo['ratio']} %</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	{/empty}
+	{/if}
+</div>
+<script type="text/javascript">
+var title = '代理政策';
+$("title").html(title);
+</script>

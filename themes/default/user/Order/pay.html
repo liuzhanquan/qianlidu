@@ -1,0 +1,44 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:;">共{$order['num']}件商品</a>
+	<span>需支付：<em>￥{$order['price']}</em></span>
+</div>
+<div class="order-money">
+	<ul>
+		<li>货款余额：<i>￥{$user['money']}</i><div class="right newtips" data-model="form-m_msg" data-content="系统会有限扣除货款余额，当货款月不足时，才可扣除返利余额"></div></li>
+	</ul>
+</div>
+<div class="line-bottom"></div>
+<div class="order-money">
+	<ul>
+		<li>还需支付：<em>￥{if condition="$order['price'] gt $user['money']"} {:number_format($order['price'] - $user['money'],'2')} {else /} 0.00 {/if}</em></li>
+	</ul>
+</div>
+<div class="line-bottom"></div>
+<form method="post" data-model="form-submit">
+<div class="agent-list-panel">
+	<div class="panel-btn">
+		<input type="hidden" name="id" value="{$order['id']}">
+		<button class="submit-btn" {if condition="$order['price'] gt $user['money']"} disabled="" {/if}>确认支付</button>
+	</div>
+</div>
+</form>
+<script type="text/javascript">
+var title = '确认支付';
+$("title").html(title);
+Do.ready('common',function(){ base.frame(); });
+{if condition="$order['price'] gt $user['money']"}
+$(function(){
+	Do.ready('dialog_m',function(){
+		layer.open({
+		    content: '货款余额不足，需要充值，快去充值吧~'
+		    ,btn: ['去充值', '取消']
+		    ,yes: function(index){
+		    	window.location.href = "{:url('finance/recharge')}";
+		    }
+		 });
+	});
+});
+{/if}
+</script>
+<!--{#include 'footer.html'}-->

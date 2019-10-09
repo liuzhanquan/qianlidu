@@ -1,0 +1,60 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="alert alert-default">
+		提示：请先下载未发货订单数据Excel表，根据模板填写相对应订单发货信息，出于性能考虑，每次批量发货不能超过500条<br>
+		<code>特别注意：由于文档中快递单号一般超过10位数的数字将会自动转类似这样的格式8.01472E+17;为能正常导入，请在每一个快递单号后面添加一个英文字母；如：801472414632586657a</code>
+	</div>
+	<div class="sys-content right-content">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th colspan="2"><span style="padding-left: 10px;">快递公司对应编码</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				{foreach $express as $k=>$v}
+				<tr>
+					<td class="text-left">{$k}</td>
+					<td class="text-left">
+						<div style="position: relative;">
+						<code>{$v}</code> 
+						<a href="javascript:;" data-model="form-copy" data-txt="{$v}">复制</a>
+						</div>
+					</td>
+				</tr>
+				{/foreach}
+			</tbody>
+		</table>
+		<div class="option-btn" style="margin-bottom: 50px;">
+			<a href="{:url('expcsv')}" target="_blank" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>下载未发货订单数据</a>
+		</div>
+    	<form method="get" data-model="form-submit">
+    	<!-- <form method="get" action="{:url('import_get')}" target="_blank"> -->
+	    	<dl>
+	            <dt><i>*</i>CSV订单文件：</dt>
+	            <dd>
+	            	<div class="upload-panel">
+	            		<a href="javascript:;" data-model="form-upload" data-type="csv" data-file="2" data-target="#images" data-txt="#cert_txt" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传文件</a>
+	            	</div>
+	            	<input type="hidden" name="file" value="" id="images">
+		            <div class="help-block">只支持<code>.csv</code></div>
+	                <div class="upload-txt" id="cert_txt"></div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	            <button class="btn btn-info">确认批量发货</button>
+	        </div>
+	    </form>
+	</div>
+</div>

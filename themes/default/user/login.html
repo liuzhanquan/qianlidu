@@ -1,0 +1,58 @@
+<!--{#include 'header.html'}-->
+<div class="loginBox">
+	<h3>代理账户登陆</h3>
+	<div class="loginFrom">
+		<form data-model="form-submit">
+			<dl class="clearfix">
+				<dt>手机号码</dt>
+				<dd><input type="text" name="phone" class="input" datatype="m" value="{$user['phone']}" placeholder="请输入注册时的手机号码">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>登录密码</dt>
+				<dd><input type="password" name="password" class="input" datatype="*" placeholder="请填写密码">
+					<div class="tip-alert"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>验证码</dt>
+				<dd><input type="text" name="captcha" class="input" datatype="n" placeholder="请输入右侧验证码">
+					{:captcha_img()}
+					<div class="tip-alert" style="right: 85px;"></div>
+				</dd>
+			</dl>
+			<p class="rega"><a href="{:url('register')}">注册新代理</a></p>
+			<div class="submit-btn">
+				<button class="btn btn-success">登录</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="login-footer">
+	<a href="{:url('forget')}">找回密码</a>
+</div>
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$jssdk['appId'];}', // 必填，公众号的唯一标识
+    timestamp: {$jssdk['timestamp'];}, // 必填，生成签名的时间戳
+    nonceStr: '{$jssdk['nonceStr'];}', // 必填，生成签名的随机串
+    signature: '{$jssdk['signature'];}',// 必填，签名
+    jsApiList: ['checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice'
+    ] // 必填，需要使用的JS接口列表
+});
+wx.ready(function(){
+	wx.hideAllNonBaseMenuItem();
+});
+</script>

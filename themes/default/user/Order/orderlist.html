@@ -1,0 +1,68 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #efefef;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agentlink-list" style="margin-top: 0;">
+	<ul class="title clearfix">
+		<li {if condition="$type eq 0"}class="active"{/if} style="width: 25%;"><a href="{:url('orderlist')}">全部</a></li>
+		<li {if condition="$type eq 1"}class="active"{/if} style="width: 25%;"><a href="{:url('orderlist',['type'=>'1'])}">待发货</a></li>
+		<li {if condition="$type eq 2"}class="active"{/if} style="width: 25%;"><a href="{:url('orderlist',['type'=>'2'])}">发货中</a></li>
+		<li {if condition="$type eq 3"}class="active"{/if} style="width: 25%;"><a href="{:url('orderlist',['type'=>'3'])}">已收货</a></li>
+	</ul>
+</div>
+{empty name="list"}
+<div class="empty-wallet">
+	<div class="icon"><i class="iconfont">&#xe611;</i></div>
+	<p>您还没有订单哦~</p>
+	<a href="{:url('orderin')}" class="btn">点我下单</a>
+</div>
+{else /}
+<div class="order_down-list">
+	<ul>
+		{foreach $list as $vo}
+		<li>
+			<h3>订单号：{$vo['order_id']} <span>
+				{if condition="$vo['status'] eq 0"}
+				<font color="red">待付款</font>
+				{elseif condition="$vo['status'] eq 1" /}
+				<font color="red">待发货</font>
+				{elseif condition="$vo['status'] eq 2" /}
+				<font color="green">已发货</font>
+				{elseif condition="$vo['status'] eq 3" /}
+				<font color="red">已收货</font>
+				{elseif condition="$vo['status'] eq 4" /}
+				<font color="red">已取消</font>
+				{/if}
+			</span></h3>
+			<div class="info">
+				{php} $address = unserialize($vo['address']);{/php}
+				<a href="{:url('order_down_info')}?id={$vo['order_id']}">
+					<p>订货人：{$address['name']}</p>
+					<p>手机号码：{$address['phone']}</p>
+					<p>下单时间：{$vo['timestamp']}</p>
+					<i class="iconfont">&#xe619;</i>
+				</a>
+			</div>
+			<div class="bottom clearfix">
+				<p>订单金额：<em>￥{$vo['price']}</em></p>
+				<div class="fr">
+					{if condition="$vo['status'] eq 0"}
+					<a href="{:url('pay')}?id={$vo['order_id']}">去付款</a>
+					{/if}
+					<!-- <a href="">取消订单</a> -->
+				</div>
+			</div>
+		</li>
+		{/foreach}
+	</ul>
+	<div class="page">{$page}</div>
+</div>
+{/empty}
+<script type="text/javascript">
+var title = '我的订单';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

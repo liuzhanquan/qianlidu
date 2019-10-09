@@ -1,0 +1,133 @@
+<!--右边的设置-->
+<div class="app-sidebar page-custom-sets turn_right" style="display: none; margin-top: 326px;">
+	<!--这边加上个样式 page-custom-sets-->
+	<div class="arrow">
+	</div>
+	<div class="app-sidebar-inner">
+		<div class="fangwei-query-sets">
+			<!--设置内容-->
+			<div>
+				<span class="line-20h w100 ml-20">标题内容： </span>
+				<input type="text" maxlength="20" style="width: 280px;" id="Num_input">
+				<em>(<span id="Num_text">0</span>/20)</em>
+			</div>
+			<!--设置内容end-->
+		</div>
+	</div>
+</div>
+<!--右边的设置end-->
+<!--顶部导航右侧-->
+{foreach $ontopNav as $vo}
+<div class="app-sidebar turn_right{$vo['id']} item-Hide " style=" margin-top: 259px;">
+	<div class="arrow">
+	</div>
+	<div class="app-sidebar-inner">
+		<div class="control-ground-title">
+			{$vo['name']}
+		</div>
+		<div class="page-customSet-activityNav">
+			<ul>
+				{foreach $vo['son'] as $k=>$v2}
+				{empty name="$vo['sonid']"}
+					{if condition="$k <= 2"}
+					<li>
+						<label>
+							<p>
+								<input type="checkBox" checked="checked" value="headmenu{$v2['id']}" class="va-m topMenu">
+								<span class="va-m">&nbsp;{$v2['name']}</span>
+							</p>
+						</label>
+					</li>
+					{else /}
+					<li>
+						<label>
+							<p>
+								<input type="checkBox" value="headmenu{$v2['id']}" class="va-m topMenu">
+								<span class="va-m">&nbsp;{$v2['name']}</span>
+							</p>
+						</label>
+					</li>
+					{/if}
+				{else /}
+				<li>
+					<label>
+						<p>
+							<input type="checkBox" 
+								{php}
+                                    if(in_array($v2['id'],$vo['sonid'])){
+                                    	echo 'checked="checked"';
+                                	}
+                                {/php} value="headmenu{$v2['id']}" class="va-m topMenu">
+							<span class="va-m">&nbsp;{$v2['name']}</span>
+						</p>
+					</label>
+				</li>
+				{/empty}
+				{/foreach}
+			</ul>
+		</div>
+		<div class="t-c mb-10 mt-30">
+			<input class="btn btn-primary btn-ok" value="确定" type="button">
+			<input class="btn btn-default btn-cancle" value="取消" type="button">
+		</div>
+	</div>
+</div>
+{/foreach}
+{foreach $nomalNav as $vo}
+<div class="app-sidebar turn_right{$vo['id']} item-Hide " style="margin-top: 326px;">
+	<div class="arrow">
+	</div>
+	<div class="app-sidebar-inner">
+		<div class="control-ground-title">
+			{$vo['name']}
+		</div>
+		<div class="page-customSet-activityNav">
+			<ul>
+				{empty name="$vo['sonid']"}
+				{foreach $vo['son'] as $v2}
+				<li>
+					<label>
+						{if condition="$v2['icon_type'] eq 0"}
+                        <s class="{$v2['icon']}"></s>
+                        {elseif condition="$v2['icon_type'] eq 1" /}
+                        <img src="{$v2['icon']}">
+                        {elseif condition="$v2['icon_type'] eq 2" /}
+                        -
+                        {/if}
+						<p>
+							<input type="checkBox" checked class="va-m" value="{$v2['icon']}"><span class="va-m">&nbsp;{$v2['name']}</span>
+						</p>
+					</label>
+				</li>
+				{/foreach}
+				{else /}
+				{foreach $vo['son'] as $v2}
+				<li>
+					<label>
+						{if condition="$v2['icon_type'] eq 0"}
+                        <s class="{$v2['icon']}"></s>
+                        {elseif condition="$v2['icon_type'] eq 1" /}
+                        <img src="{$v2['icon']}">
+                        {elseif condition="$v2['icon_type'] eq 2" /}
+                        -
+                        {/if}
+						<p>
+							<input type="checkBox" {php}
+                                    if(in_array($v2['id'],$vo['sonid'])){
+                                    	echo 'checked="checked"';
+                                	}
+                                {/php} class="va-m" value="{$v2['icon']}"><span class="va-m">&nbsp;{$v2['name']}</span>
+						</p>
+					</label>
+				</li>
+				{/foreach}
+				{/empty}
+			</ul>
+		</div>
+		<div class="t-c mb-10 mt-30">
+			<input class="btn btn-primary btn-ok" value="确定" type="button">
+			<input class="btn btn-default btn-cancle" value="取消" type="button">
+		</div>
+	</div>
+</div>
+{/foreach}

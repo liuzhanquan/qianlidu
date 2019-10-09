@@ -1,0 +1,40 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent-scanout">
+	<form>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">出货时间：</dt>
+			<dd class="flex-grow-1"><input type="text" name="" class="input"></dd>
+			<dd class="flex-grow-0" style="padding: 0 5px;">--</dd>
+			<dd class="flex-grow-0"><input type="text" name="" class="input"></dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牌：</dt>
+			<dd class="flex-grow-1">
+				<select class="input">
+					<option>全部</option>
+				</select>
+			</dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">单&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</dt>
+			<dd class="flex-grow-1"><input type="text" class="input" name=""></dd>
+		</dl>
+		<dl class="flex-row">
+			<dt class="flex-grow-0">关&nbsp;&nbsp;键&nbsp;&nbsp;词：</dt>
+			<dd class="flex-grow-1"><input type="text" class="input" name=""></dd>
+			<dd class="flex-grow-0"><button class="btn">搜索</button></dd>
+		</dl>
+	</form>
+	<div class="logNum">
+		总记录：<em>1</em>出货总数：<em>1</em>
+	</div>
+	<div class="line-bottom"></div>
+</div>
+<script type="text/javascript">
+var title = '出货记录';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

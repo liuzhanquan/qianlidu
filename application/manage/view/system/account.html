@@ -1,0 +1,86 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="tab-title">
+        <ul class="tab-title_con">
+            <li class="on"><a class="tab_2_ul_li_a">子账号管理 </a></li>
+            <li><a href="{:url('role')}" class="tab_2_ul_li_a">角色权限管理</a></li>
+            <li><a href="{:url('wechat_admin')}" class="tab_2_ul_li_a">微信管理员管理</a></li>
+        </ul>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('doaccount')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加子账号</a>
+			<!-- <span>子账号登录地址：{:urlDiy('/member/login')}</span>
+			<a href="javascript:;" data-model="form-copy" data-txt="{:urlDiy('/member/login')}">复制</a> -->
+		</div>
+		<div class="option-search clearfix">
+			<form method="get">
+				<div class="search-item">
+					<label>角色权限：</label>
+					<select class="form-control" name="level" data-model="form-select" style="width: 200px;">
+						<option value="">请选择</option>
+						{foreach $search as $vo}
+						<option value="{$vo['gid']}">{$vo['name']}</option>
+						{/foreach}
+					</select>
+				</div>
+				<div class="search-item">
+					<label>关键字：</label>
+					<input type="text" class="form-control" name="key" placeholder="登陆账号、姓名、手机">
+				</div>
+				<div class="search-item">
+					<button class="btn btn-info btn-ok">搜索</button>
+				</div>
+			</form>
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center">ID</th>
+					<th class="text-center">登录账号</th>
+					<th class="text-center">角色权限</th>
+					<th class="text-center">姓名</th>
+					<th class="text-center">手机</th>
+					<th class="text-center">备注</th>
+					<th class="text-center">最后登录</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="7">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td>{$vo['id']}</td>
+					<td>{$vo['username']}</td>
+					<td>{$vo['level_name']}</td>
+					<td>{$vo['name']}</td>
+					<td>{$vo['phone']}</td>
+					<td>{$vo['remark']}</td>
+					<td>{$vo['login_time']|date="Y-m-d H:i:s",###}</td>
+					<td>
+						<a href="{:url('doaccount',['id'=>$vo['id']])}">修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="admin">删除</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="page"></div>
+	</div>
+</div>

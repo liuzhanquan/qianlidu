@@ -1,0 +1,36 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #efefef;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="authorLog">
+	<ul>
+		{foreach $list as $vo}
+		<li>
+			<h3>
+				授权品牌：{$config['brand_name']}
+				{php}$endTime = strtotime($vo['end_time']);$time = time();{/php}
+				{if condition="$endTime gt $time"}
+				<em>正常</em>
+				{else /}
+				<span>已到期</span>
+				{/if}
+			</h3>
+			<div class="authorInfo">
+				<p>代理级别：{$vo['level_name']}</p>
+				<p>授权编号：{$config['brand_prefix']}{$vo['auth_number']}</p>
+				<p>上级代理：{:getUser($vo['parent_id'])}</p>
+				<p>授权期限：{:date('Y年m月d日',strtotime($vo['start_time']))} ~ {:date('Y年m月d日',strtotime($vo['end_time']))}</p>
+			</div>
+			<div class="bottom"><a href="{:url('certificate',['id'=>$vo['id']])}">查看授权证书</a></div>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+<script type="text/javascript">
+var title = '授权信息';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

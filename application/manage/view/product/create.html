@@ -1,0 +1,94 @@
+<div class="fixed-content" id="page">
+	<div class="panel-form" style="padding: 0;">
+		<form data-model="form-submit">
+			<div class="layout-panel">
+				<div class="panel-header-once">
+					<h3>基本信息</h3>
+				</div>
+				<div class="panel-form">
+					<div class="flex">
+						<div class="flex-item-1 form-item-line">
+							<label class="must">商品名：</label>
+							<div class="input-line input-xxlarge">
+								<input type="text" class="input" name="title" datatype="*2-100" placeholder="长度为1-100位" value="{$goods['title']}">
+								<div class="help-block">商品名称必须填写，最多100个字</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex">
+						<div class="flex-item-1 form-item-line">
+							<label>商品副标题：</label>
+							<div class="input-line input-xxlarge">
+								<textarea name="title_list" class="input" style="padding: 10px;height: 60px;" rows="3">{$goods['title_list']}</textarea>
+								<div class="help-block">副标题的长度请控制在100字以内</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex">
+						<div class="flex-item-1 form-item-line">
+							<label class="must">商品首图：</label>
+							<div class="input-line input-xxlarge">
+								<div class="upload-panel">
+				            		<a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="wbtn"><i class="iconfont">&#xe74a;</i> 上传图片</a>
+				            	</div>
+				            	<input type="hidden" name="photo" value="{$goods['photo']}" id="images" datatype="*">
+				            	<div class="upload-prview">
+				            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$goods['photo']}" id="uploadImage_2">
+				            	</div>
+
+					            <div class="help-block">(推荐尺寸为600px*600px，大小不超过200k，支持jpeg、jpg、png、gif、jpeg格式)</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex">
+						<div class="flex-item-1 form-item-line">
+							<label>商品图：</label>
+							<div class="input-line input-flex">
+								<div class="photo-group">
+									<ul class="clearfix" id="images-thumbnails">
+										{notempty name="photo"}
+										{foreach $photo as $vo}
+										<li><a href="{$vo}" target="_blank"><img src="{$vo}"></a><div class="info"><a class="del">x</a></div><input type="hidden" name="photo[]" value="{$vo}"></li>
+										{/foreach}
+										{/notempty}
+										<li>
+											<div class="rc-upload">
+											<a class="add-goods" href="javascript:;" data-model="upload-photo"
+						                        data-img-list='false'
+						                        data-img-name="photo"
+						                        data-img-warp="#images-thumbnails"
+						                        data-id="imageUpload">+ 添加图片</a>
+											</div>
+											<script type="text/plain" id="imageUpload" style="display:none;" ></script>
+										</li>
+									</ul>
+								</div>
+								<div class="help-block">建议尺寸：800*800像素，最多上传10张</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="flex">
+						{php}$state = isset($goods['status']) ? $goods['status'] : "1";{/php}
+						<div class="flex-item-3 form-item-line">
+							<label class="must">上架：</label>
+							<div class="input-line input-flex">
+								<label class="custom-checkbox"><input value="0" class="no-icon use-attr" type="radio" name="status" {if $state eq 0}checked{/if} />否</label>
+							</div>
+							<div class="input-line input-flex">
+								<label class="custom-checkbox"><input value="1" class="no-icon use-attr" type="radio" name="status" {if $state eq 1}checked{/if} />上架</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="navbtn">
+				<button class="wbtn">保存</button>
+				<input type="hidden" name="id" value="{$goods['id']}">
+				<button type="reset" class="wbtn wbtn-border-dislabel">重置</button>
+			</div>
+		</form>
+	</div>
+</div>

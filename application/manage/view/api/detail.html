@@ -1,0 +1,36 @@
+<style type="text/css">
+.sys-content{padding: 20px 20px 0px 20px;}
+.sys-content dl dt{min-width: auto;}
+.layout-ajax.sys-content .submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="layout-ajax sys-content">
+	<form data-model="form-submit">
+	    <dl class="add-block-li">
+	        <dt>金额：</dt>
+	        <dd>{$money}</dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>操作方式：</dt>
+	        <dd>
+	        	<label class="radio-inline"><input type="radio" name="do" value="1">增加</label>
+	        	<label class="radio-inline"><input type="radio" name="do" value="2" checked="">减少</label>
+	        	<i>*</i>
+	        </dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>操作金额：</dt>
+	        <dd>
+	        	<input type="text" name="money" datatype="*"><i>*</i>
+	        </dd>
+	    </dl>
+	    <dl class="add-block-li">
+	        <dt>操作备注：</dt>
+	        <dd><textarea class="form-control" name="remark" style="width: 300px;height: 80px;"></textarea></dd>
+	    </dl>
+        <div class="submit-btn">
+        	<input type="hidden" value="{$id}" name="id">
+        	<input type="hidden" value="{$type}" name="type">
+            <button class="btn btn-info">确定</button>
+        </div>
+	</form>
+</div>

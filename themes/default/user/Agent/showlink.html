@@ -1,0 +1,140 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+  <a href="{:url('/user/index')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="agent_link">
+	<div class="title">
+		<h3>邀请链接生成成功</h3>
+		<p>剩余有效期：<em id="lblCountdown"></em></p>
+	</div>
+	<div class="content">
+		<p>长按下面的二维码发送给朋友</p>
+		<p>还可以直接关注官方的公众号哦！</p>
+		<div class="img"><img src="{$info['qrCode']}"></div>
+		<p>或者直接</p>
+		<button class="btn" onclick="_system._guide(true)">分享代理授权申请页面</button>
+	</div>
+	<div class="bottom">
+		<h3>当前邀请的代理级别为：</h3>
+		<p>品牌：{$info['brand']}</p>
+	</div>
+</div>
+<div id="cover"></div>
+<div id="guide"><img src="/static/default/images/guide1.png"></div>
+
+<script type="text/javascript">
+var title = '新代理加盟';
+$("title").html(title);
+timer("{$info['time']}");
+var intervalCount = parseInt(0);//倒计时总秒数量
+var newInterval = parseInt(0);
+function timer(intDiff) {
+    intervalCount = 1;
+    newInterval = 0;
+    var interval = window.setInterval(function () {
+        if (newInterval == 1) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        var day = 0,
+            hour = 0,
+            hour2 = 0,
+            minute = 0,
+            second = 0;//时间默认值
+        if (intDiff > 0) {
+            day = Math.floor(intDiff / (60 * 60 * 24));
+            hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+            hour2 = Math.floor(intDiff / (60 * 60));
+            minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+            second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+        }
+        if (hour2 <= 9) hour2 = '0' + hour2;
+        if (minute <= 9) minute = '0' + minute;
+        if (second <= 9) second = '0' + second;
+
+        if (intDiff <= 0) {
+            intervalCount = 0;
+            clearInterval(interval);
+        }
+        $('#lblCountdown').html(hour2 + ':' + minute + ':' + second);
+
+        intDiff--;
+    }, 1000);
+}
+</script>
+<script type="text/javascript">
+wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '{$jssdk['appId'];}', // 必填，公众号的唯一标识
+    timestamp: {$jssdk['timestamp'];}, // 必填，生成签名的时间戳
+    nonceStr: '{$jssdk['nonceStr'];}', // 必填，生成签名的随机串
+    signature: '{$jssdk['signature'];}',// 必填，签名
+    jsApiList: ['checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice'
+    ] // 必填，需要使用的JS接口列表
+});
+// 微信分享
+{php}$imgUrl = request()->domain().str_replace("\\", '/', $info['logo']);{/php}
+wx.ready(function(){
+    wx.onMenuShareTimeline({
+        title: '{$user['nickname']}邀请您成为代理', // 分享标题
+        link: '{$info['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: '{$imgUrl}', // 分享图标
+        success: function () {
+        // 用户点击了分享后执行的回调函数
+        },
+    });
+    wx.onMenuShareAppMessage({
+        title: '{$user['nickname']}邀请您成为代理', // 分享标题
+        desc: '申请的代理级别为：{$info['brand']}', // 分享描述
+        link: '{$info['url']}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: '{$imgUrl}', // 分享图标
+        type: '', // 分享类型,music、video或link，不填默认为link
+        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        success: function () {
+        // 用户点击了分享后执行的回调函数
+        }
+    });
+});
+    var _system={
+        $:function(id){return document.getElementById(id);},
+   _client:function(){
+      return {w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight,bw:document.documentElement.clientWidth,bh:document.documentElement.clientHeight};
+   },
+   _scroll:function(){
+      return {x:document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft,y:document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop};
+   },
+   _cover:function(show){
+      if(show){
+     this.$("cover").style.display="block";
+     this.$("cover").style.width=(this._client().bw>this._client().w?this._client().bw:this._client().w)+"px";
+     this.$("cover").style.height=(this._client().bh>this._client().h?this._client().bh:this._client().h)+"px";
+  }else{
+     this.$("cover").style.display="none";
+  }
+   },
+   _guide:function(click){
+      this._cover(true);
+      this.$("guide").style.display="block";
+      this.$("guide").style.top=(_system._scroll().y+5)+"px";
+      window.onresize=function(){_system._cover(true);_system.$("guide").style.top=(_system._scroll().y+5)+"px";};
+  if(click){_system.$("cover").onclick=function(){
+         _system._cover();
+         _system.$("guide").style.display="none";
+ _system.$("cover").onclick=null;
+ window.onresize=null;
+  };}
+   },
+   _zero:function(n){
+      return n<0?0:n;
+   }
+}
+</script>

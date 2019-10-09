@@ -1,0 +1,39 @@
+<h2 class="inputTitle clearfix">会员信息<a class="change fr" href="{:url('/agents/douser',['uid'=>$info['uid'],'type'=>'edit'])}">修改<s></s></a></h2>
+<div class="applyInfo">
+	<div class="superior">
+		<p><em>头像：</em><img src="{$info['avatar']}" style="width: 50px;height: 50px;border-radius: 100%;"></p>
+		<p><em>授权名称：</em>{$info['auth_name']}</p>
+		<p><em>微信号：</em>{$info['wechat']}</p>
+		<p><em>微信昵称：</em>{$info['nickname']}</p>
+		<p><em>手机号：</em>{$info['phone']}</p>
+		<p><em>货款余额：</em>{$info['money']}</p>
+		<p><em>登录密码：</em>
+			{empty name="$info['password']"}
+        	未设置
+        	{else /}
+        	已设置
+        	{/empty}
+		</p>
+		<p><em>地区：</em>{:getCity($info['province'])} {:getCity($info['city'])} {:getCity($info['area'])}</p>
+		<p><em>收货地址：</em>{$info['address'] ? $info['address'] : '无'}</p>
+		<p><em>授权时间：</em>{$info['timestamp']}</p>
+		<p><em>资料状态：</em>
+			{if condition="$info['status'] eq 1"}
+			<span class="label label-success">正常</span>
+    		{elseif condition="$info['status'] eq 0" /}
+			<span class="label label-info">待审核</span>
+			{elseif condition="$info['status'] eq 2" /}
+			<span class="label label-danger">已冻结</span>
+			{/if}
+		</p>
+	</div>
+</div>
+<h2 class="inputTitle clearfix">授权信息</h2>
+<div class="applyInfo">
+	<div class="superior">
+		<p><em>代理级别：</em>{$info['level_name']}</p>
+		<p><em>授权编号：</em>{$config['brand_prefix']}{$info['auth_number']}</p>
+		<p><em>上级代理：</em>{:getUser($info['parent_id'])}</p>
+		<p><em>授权期限：</em>{:date('Y年m月d日',strtotime($info['start_time']))}~{:date('Y年m月d日',strtotime($info['end_time']))}</p>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<form data-model="form-submit" class="form form-horizontal form-diy">
+			<div class="form-group trow">
+				<div class="col-xs-2 tcol input-addon">权限组名称</div>
+				<div class="col-xs-10 tcol">
+					<input type="text" name="name" value="{$info['name']}" class="form-control" datatype="*">
+				</div>
+			</div>
+			<div class="form-group trow">
+				<div class="tcol input-addon" style="text-align: left;">权限选择 <span>( 勾选即代表赋予权限 )</span></div>
+			</div>
+			{foreach $topNav as $vo}
+			<table class="table table-diy table-rol">
+				<thead>
+					<tr>
+						<th>
+							<label class="checkbox-block" style="margin-left: 10px;">
+								<input type="checkbox" name="menu_power[]" value="{$vo['id']}" {php}if(in_array($vo['id'],$menu)){ echo 'checked';}{/php}> {$vo['name']}
+							</label>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{volist name="vo.children" id="sub"}
+					<tr>
+						<td width="120" class="text-left">
+							<div class="checkbox-inline">
+							<label><input class="rows" type="checkbox" name="menu_power[]" value="{$sub['id']}" {php}if(in_array($sub['id'],$menu)){ echo 'checked';}{/php}>{$sub['name']} </label></div>
+						</td>
+					</tr>
+					{/volist}
+				</tbody>
+			</table>
+			{/foreach}
+			<div class="submit-btn">
+	        	<input type="hidden" value="{$info['gid']}" name="gid">
+	        	<button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>

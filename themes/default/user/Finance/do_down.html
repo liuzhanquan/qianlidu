@@ -1,0 +1,95 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="{:url('recharge_down')}"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<form data-model="form-submit">
+	<div class="apply-form">
+		{if condition="$type eq 0"}
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>充值代理：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{:getUser($info['uid'])}-{:getUser($info['uid'],'phone')}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>充值额度：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>扣除金额：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['end_money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>利润额：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['money'] - $info['end_money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<textarea name="remark" class="input" placeholder="请填写拒绝原因" rows="5" style="height: 60px;padding: 5px 0;" datatype="*"></textarea>
+			<div class="tip-alert"></div>
+		</div>
+		{elseif condition="$type eq 1"}
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>充值代理：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{:getUser($info['uid'])}-{:getUser($info['uid'],'phone')}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>充值额度：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>扣除金额：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['end_money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>利润额：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" readonly="" value="{$info['money'] - $info['end_money']}">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		<div class="apply-item row-flex">
+			<div class="col-flex-25"><label>留言：</label></div>
+			<div class="col-flex-75">
+				<input type="text" class="input" name="remark" placeholder="请输入你的留言">
+				<div class="tip-alert"></div>
+			</div>
+		</div>
+		{/if}
+		<div class="submit-btn">
+			<input type="hidden" name="id" value="{$info['id']}">
+			<input type="hidden" name="type" value="{$type}">
+			<button class="btn" style="background: #4b8efd;">确定</button>
+		</div>
+		{if condition="$type eq 1"}
+		<p style="text-align: center;margin-top: 10px;">当前可转余额：{$user['money']}</p>
+		{/if}
+	</div>
+</form>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/index/";
+var webControl = "{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+</script>
+<!--{#include 'footer.html'}-->

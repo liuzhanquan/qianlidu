@@ -1,0 +1,27 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="choose-list AddressList">
+	<ul>
+		{foreach $list as $vo}
+		<li class="clearfix addressRow" objid="{$vo['id']}">
+			<div class="choose-radio"><em {if condition="$addressId eq $vo['id']"}class="active"{/if}></em></div>
+			<div class="choose-txt">
+				<a href="{:url('buy')}?id={$orderId}&aid={$vo['id']}">
+				<h3>{$vo['name']} <span>{$vo['phone']}</span></h3>
+				<p>{:getCity($vo['province'])},{:getCity($vo['city'])},{:getCity($vo['area'])}&nbsp;{$vo['address']}</p>
+				</a>
+			</div>
+			<div class="choose-edit editBtn"><a href="{:url('profile/doaddress',['id'=>$vo['id']])}?oid={$orderId}"><i class="iconfont">&#xe77d;</i></a></div>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+<div class="address-btn">
+	<a href="{:url('profile/doaddress')}?oid={$orderId}"><i class="iconfont">&#xe6c0;</i>新增地址</a>
+</div>
+<script type="text/javascript">
+var title = '选择收货地址';
+$("title").html(title);
+</script>

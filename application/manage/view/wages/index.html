@@ -1,0 +1,344 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="tab-title" style="margin-top: 28px;">
+        <ul class="tab-title_con">
+            <li {if condition="$id eq 1"}class="on"{/if}><a href="{:url('index')}">直推奖励</a></li>
+            <li {if condition="$id eq 2"}class="on"{/if}><a href="{:url('index',['id'=>'2'])}">升级设置</a></li>
+            <li {if condition="$id eq 3"}class="on"{/if}><a href="{:url('index',['id'=>'3'])}">平级奖励</a></li>
+            <li {if condition="$id eq 4"}class="on"{/if}><a href="{:url('index',['id'=>'4'])}">个人销售奖金</a></li>
+            <!-- <li {if condition="$id eq 5"}class="on"{/if}><a href="{:url('index',['id'=>'5'])}">平级推荐销售奖金</a></li> -->
+        </ul>
+    </div>
+	<div class="sys-content">
+		{if condition="$id eq 1"}
+        <div class="alert alert-default">
+            <p>不设定奖励或条件请填写 <code>0</code> 即可</p>
+        </div>
+		<form data-model="form-submit">
+            <dl>
+                <dd>
+                    <div class="team-reward" style="margin: 0 auto;">
+                        <ul>
+                            {foreach $levle as $vo}
+                            <li>【{$vo['name']}】推荐直属
+                                <select class="" data-model="form-select" name="recommend[{$vo['id']}][id]" style="width: 200px;">
+                                    <option value="0">不设置</option>
+                                    {foreach $levle as $vv}
+                                    <option value="{$vv['id']}" {if condition="$recommend[$vo['id']]['id'] eq $vv['id']"}selected{/if}>【{$vv['name']}】或以下级别</option>
+                                    {/foreach}
+                                </select> 由更高级别上级 发放 <input type="text" name="recommend[{$vo['id']}][money]" value="{:isset($recommend[$vo['id']]['money']) ? $recommend[$vo['id']]['money'] : '0'}"> % 奖金
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+	        <div class="submit-btn">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+        {elseif condition="$id eq 2" /}
+        <div class="alert alert-default">
+            <p>不设定奖励或条件请填写 <code>0</code> 即可，销售业绩达为个人充值业绩+平级推荐首单业绩</p>
+        </div>
+        <form data-model="form-submit">
+            <dl>
+                <dd>
+                    <div class="team-reward" style="margin: 0 auto;">
+                        <ul>
+                            {foreach $levle as $vo}
+                            <li>【{$vo['name']}】销售业绩达 <input type="text" name="upgrade[{$vo['id']}][num]" value="{:isset($upgrade[$vo['id']]['num']) ? $upgrade[$vo['id']]['num'] : '0'}"> 元后，自动升级至
+                                <select class="" data-model="form-select" name="upgrade[{$vo['id']}][level]" style="width: 200px;">
+                                    <option value="0">不设置</option>
+                                    {foreach $levle as $vv}
+                                    <option value="{$vv['id']}" {if condition="$upgrade[$vo['id']]['level'] eq $vv['id']"}selected{/if}>{$vv['name']}</option>
+                                    {/foreach}
+                                </select> 
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+            <div class="submit-btn">
+                <button class="btn btn-info">保存设置</button>
+            </div>
+        </form>
+        {elseif condition="$id eq 3" /}
+        <div class="alert alert-default">
+            <p>不设定奖励或条件请填写 <code>0</code> 即可</p>
+        </div>
+        <form data-model="form-submit">
+            <dl>
+                <dd>
+                    <div class="team-reward" style="margin: 0 auto;">
+                        <ul>
+                            {foreach $levle as $vo}
+                            <li>【{$vo['name']}】推荐
+                                <select class="" data-model="form-select" name="same[{$vo['id']}][level]" style="width: 200px;">
+                                    <option value="0">不设置</option>
+                                    {foreach $levle as $vv}
+                                    <option value="{$vv['id']}" {if condition="$same[$vo['id']]['level'] eq $vv['id']"}selected{/if}>{$vv['name']}</option>
+                                    {/foreach}
+                                </select> 由上级 发放【一代】 <input type="text" name="same[{$vo['id']}][one]" value="{:isset($same[$vo['id']]['one']) ? $same[$vo['id']]['one'] : '0'}"> %  【二代】 <input type="text" name="same[{$vo['id']}][two]" value="{:isset($same[$vo['id']]['two']) ? $same[$vo['id']]['two'] : '0'}"> % 奖金
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+            <div class="submit-btn">
+                <button class="btn btn-info">保存设置</button>
+            </div>
+        </form>
+        {elseif condition="$id eq 4" /}
+        <div class="alert alert-default">
+            <p><code>-1</code>代表不上限，销售奖金按照每笔业绩进行发放</p>
+        </div>
+        <form data-model="form-submit">
+            <dl>
+                <dt><i>*</i>针对对象：</dt>
+                <dd style="vertical-align: top;">
+                    {foreach $levle as $vo}
+                    <table class="table table-hover">
+                        <thead>
+                            <th>【{$vo['name']}】个人销售奖励设定</th>
+                            <th width="15%" class="text-center">
+                                <button class="btn btn-info del-btn first-btn" type="button" data-id="{$vo['id']}" data-num="{:isset($teamReward['reward'][$vo['id']]) ? count($teamReward['reward'][$vo['id']]) : '0'}">添加条件</button>
+                            </th>
+                        </thead>
+                        <tbody id="row_list_{$vo['id']}">
+                            {notempty name="$teamReward['reward']"}
+                            {php} if(isset($teamReward['reward'][$vo['id']])){ {/php}
+                            {foreach $teamReward['reward'][$vo['id']] as $k=>$v}
+                            <tr id="span_sum_{$vo['id']}{$k}">
+                                <td class="text-left">销售业绩 >  <input type="text" name="team[reward][{$vo['id']}][{$k}][start_money]" datatype="*" class="input" style="width: 120px;" value="{:isset($v['start_money']) ? $v['start_money'] : '0'}"> ≤ <input type="text" name="team[reward][{$vo['id']}][{$k}][end_money]" datatype="*" class="input" style="width: 120px;" value="{:isset($v['end_money']) ? $v['end_money'] : '0'}"> 元时，返点  <input type="text" class="input" name="team[reward][{$vo['id']}][{$k}][ratio]" datatype="*" value="{:isset($v['ratio']) ? $v['ratio'] : '0'}" style="width: 60px;"> % 奖金</td>
+                                <td class="text-center"><button class="btn btn-danger del-btn" type="button" onclick="yichu('{$vo['id']}{$k}')">删除</button></td>
+                            </tr>
+                            {/foreach}
+                            {php} } {/php}
+                            {/notempty}
+                        </tbody>
+                    </table>
+                    {/foreach}
+                </dd>
+            </dl>
+            <div class="submit-btn">
+                <button class="btn btn-info">保存设置</button>
+            </div>
+        </form>
+        {elseif condition="$id eq 5" /}
+        <div class="alert alert-default">
+            <p><code>-1</code>代表不上限，销售奖金按照每笔业绩进行发放</p>
+        </div>
+        <form data-model="form-submit">
+            <dl>
+                <dt><i>*</i>针对对象：</dt>
+                <dd style="vertical-align: top;">
+                    {foreach $levle as $vo}
+                    <table class="table table-hover">
+                        <thead>
+                            <th>【{$vo['name']}】月度销售奖励设定</th>
+                            <th width="15%" class="text-center">
+                                <button class="btn btn-info del-btn recommend-btn" type="button" data-id="{$vo['id']}" data-num="{:isset($teamRecommend['reward'][$vo['id']]) ? count($teamRecommend['reward'][$vo['id']]) : '0'}">添加条件</button>
+                            </th>
+                        </thead>
+                        <tbody id="row_list_{$vo['id']}">
+                            {notempty name="$teamRecommend['reward']"}
+                            {php} if(isset($teamRecommend['reward'][$vo['id']])){ {/php}
+                            {foreach $teamRecommend['reward'][$vo['id']] as $k=>$v}
+                            <tr id="span_sum_{$vo['id']}{$k}">
+                                <td class="text-left">平级推荐业绩 >  <input type="text" name="recommend_team[reward][{$vo['id']}][{$k}][start_money]" datatype="*" class="input" style="width: 120px;" value="{:isset($v['start_money']) ? $v['start_money'] : '0'}"> ≤ <input type="text" name="recommend_team[reward][{$vo['id']}][{$k}][end_money]" datatype="*" class="input" style="width: 120px;" value="{:isset($v['end_money']) ? $v['end_money'] : '0'}"> 元时，返点  <input type="text" class="input" name="recommend_team[reward][{$vo['id']}][{$k}][ratio]" datatype="*" value="{:isset($v['ratio']) ? $v['ratio'] : '0'}" style="width: 60px;"> % 奖金</td>
+                                <td class="text-center"><button class="btn btn-danger del-btn" type="button" onclick="recommend_yichu('{$vo['id']}{$k}')">删除</button></td>
+                            </tr>
+                            {/foreach}
+                            {php} } {/php}
+                            {/notempty}
+                        </tbody>
+                    </table>
+                    {/foreach}
+                </dd>
+            </dl>
+            <div class="submit-btn">
+                <button class="btn btn-info">保存设置</button>
+            </div>
+        </form>
+		{/if}
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+    $(document).off("click", '.first-btn').on("click", '.first-btn', function(){
+        var levelId = $(this).data('id');
+        var k = parseInt($(this).attr('data-num')) + 1;
+        var html = '<tr id="span_sum_'+k+'">';
+        html += '<td class="text-left">销售业绩 >  <input type="text" name="team[reward]['+levelId+']['+k+'][start_money]" datatype="*" class="input" style="width: 120px;"> ≤  <input type="text" name="team[reward]['+levelId+']['+k+'][end_money]" datatype="*" class="input" style="width: 120px;"> 元时，返点  <input type="text" class="input" name="team[reward]['+levelId+']['+k+'][ratio]" datatype="*" style="width: 60px;"> % 奖金</td>';
+        html += '<td class="text-center"><button class="btn btn-danger del-btn" type="button" onclick="yichu('+k+')">删除</button></td>';
+        html += '</tr>';
+        $('#row_list_'+levelId).append(html);
+        $(this).attr('data-num',k);
+    });
+    $(document).off("click", '.recommend-btn').on("click", '.recommend-btn', function(){
+        var levelId = $(this).data('id');
+        var k = parseInt($(this).attr('data-num')) + 1;
+        var html = '<tr id="span_sum_'+k+'">';
+        html += '<td class="text-left">平级推荐业绩 >  <input type="text" name="recommend_team[reward]['+levelId+']['+k+'][start_money]" datatype="*" class="input" style="width: 120px;"> ≤ <input type="text" name="recommend_team[reward]['+levelId+']['+k+'][end_money]" datatype="*" class="input" style="width: 120px;"> 元时，返点  <input type="text" class="input" name="recommend_team[reward]['+levelId+']['+k+'][ratio]" datatype="*" style="width: 60px;"> % 奖金</td>';
+        html += '<td class="text-center"><button class="btn btn-danger del-btn" type="button" onclick="recommend_yichu('+k+')">删除</button></td>';
+        html += '</tr>';
+        $('#row_list_'+levelId).append(html);
+        $(this).attr('data-num',k);
+    });
+});
+function recommend_yichu(sum){
+    $("#span_sum_"+sum).remove();
+}
+function yichu(sum){
+    $("#span_sum_"+sum).remove();
+}
+function fn_onblur(obj) {
+    //validationNumber(obj, 2);
+    $(obj).removeClass("warning");
+    $(obj).parent().find("p").first().html('');
+    var objVal = $(obj).val();
+    var arr = objVal.split('.');
+    if (arr.length > 1) {
+        if (arr[0].length > 8) {
+            $(obj).parent().find("p").first().html('最大支持8位数');
+            $(obj).addClass("warning");
+            return;
+        }
+        if (arr[1].length > 2) {
+            $(obj).parent().find("p").first().html('支持2位小数点');
+            $(obj).addClass("warning");
+            return;
+        }
+    }
+    else {
+        if (objVal.length > 8) {
+            $(obj).parent().find("p").first().html('最大支持8位数');
+            $(obj).addClass("warning");
+            return;
+        }
+    }
+    if (filterPrice(objVal) != objVal) {
+        $(obj).parent().find("p").first().html('请输入正确格式');
+        $(obj).addClass("warning");
+        return;
+    }
+    if (parseFloat(objVal) == 0) {
+        $(obj).parent().find("p").first().html('数值不能为0');
+        $(obj).addClass("warning");
+        return;
+    }
+    if (objVal + "" == "0") {
+        $(obj).parent().find("p").first().html('数值不能为0');
+        $(obj).addClass("warning");
+        //$(obj).focus();
+        return;
+    }
+    if (null == objVal || undefined == objVal || "" == objVal) {
+        $(obj).parent().find("p").first().html('请输入数值');
+        $(obj).addClass("warning");
+        //$(obj).focus();
+        return;
+    }
+    //判断业绩是否重复
+    var txtName = $(obj).attr('name');
+    if (txtName.indexOf("txtStandardPerformance_") > -1) {
+        var inputbox = $("#BrandPerformanceRebateData input[name='" + txtName + "']");
+        var repeat = 0;
+        for (var i = 0; i < inputbox.length; i++) {
+            if (parseFloat($(inputbox[i]).val() + "") == parseFloat(objVal + "")) {
+                repeat++;
+            }
+        }
+        if (repeat >= 2) {
+            $(obj).parent().find("p").first().html('业绩不能重复');
+            $(obj).addClass("warning");
+            //$(obj).focus();
+            return;
+        }
+    }
+    //判断返点是否大于100%
+    if (txtName.indexOf("txtRebateRate_") > -1) {
+        if (objVal > 100) {
+            $(obj).parent().find("p").first().html('返点不能超过100%');
+            $(obj).addClass("warning");
+            return;
+        }
+    }
+    var firstVal = $(obj).parent().find("input").first().val();
+    console.log(firstVal)
+    var lastVal = $(obj).parent().find("input").last().val();
+    if (null != firstVal && null != lastVal && undefined != firstVal && undefined != lastVal && "" != firstVal && "" != lastVal) {
+        $(obj).parent().find("em").first().html((parseFloat(firstVal) * parseFloat(lastVal) / 100) + "元");
+    }
+}
+//数字验证
+function validationNumber(e, num) {
+    var regu = /^[0-9]+\.?[0-9]*$/;
+    if (e.value != "") {
+        if (!regu.test(e.value)) {
+            e.value = e.value.substring(0, e.value.length - 1);
+            e.focus();
+            return false;
+        } else {
+            if (num == 0) {
+                if (e.value.indexOf('.') > -1) {
+                    e.value = e.value.substring(0, e.value.length - 1);
+                    e.focus();
+                }
+            }
+            if (e.value.indexOf('.') > -1) {
+                if (e.value.split('.')[1].length > num) {
+                    e.value = e.value.substring(0, e.value.length - 1);
+                    e.focus();
+                }
+            }
+            return true;
+        }
+    }
+}
+function filterPrice(obj) {
+    //先把非数字的都替换掉，除了数字和.
+    obj = obj.replace(/[^\d.]/g, "");
+    //保证只有出现一个.而没有多个.
+    obj = obj.replace(/\.{2}/g, ".");
+    //保证.只出现一次，而不能出现两次以上
+    obj = obj.replace(".", "$#$").replace(".", "$#$").replace(/\./g, "").replace("$#$", ".").replace("$#$", ".");
+    //必须保证第一个为数字而不是.
+    obj = obj.replace(/^\./g, "");
+
+    var arr = obj.split(".");
+    switch (arr.length) {
+        case 1:
+            obj = arr[0].substr(0, 8);
+            break;
+        case 2:
+            if (arr[0].length >= 8) {
+                obj = arr[0].substr(0, 8) + "." + arr[1].substr(0, 2);
+            } else {
+                obj = arr[0] + "." + arr[1].substr(0, 9 - arr[0].length);
+            }
+            break;
+        default:
+            break;
+    }
+
+    //限制最后只能输入两位小数
+    obj = obj.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'); //只能输入两个小数
+    return obj;
+}
+
+</script>

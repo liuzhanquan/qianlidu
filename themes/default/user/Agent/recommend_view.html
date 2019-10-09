@@ -1,0 +1,62 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+.apply-form{}
+.apply-form .apply-item p{line-height: 30px;font-size: 14px;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="apply-form">
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>头像照片：</label></div>
+		<div class="col-flex-75 clearfix">
+			<div class="apply-img fl"><img src="{$info['avatar']}" id="avatar_img"></div>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>授&nbsp;权&nbsp;名：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['auth_name']}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>微&nbsp;信&nbsp;号：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['wechat']}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>手机号码：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['phone']}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>所在地区：：</label></div>
+		<div class="col-flex-75">
+			<p>{:getCity($info['province'])},{:getCity($info['city'])},{:getCity($info['area'])}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>收货地址：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['address']}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>申请级别：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['level_name']}</p>
+		</div>
+	</div>
+	<div class="apply-item row-flex">
+		<div class="col-flex-25"><label>申请时间：</label></div>
+		<div class="col-flex-75">
+			<p>{$info['timestamp']}</p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var title = '代理信息';
+$("title").html(title);
+</script>

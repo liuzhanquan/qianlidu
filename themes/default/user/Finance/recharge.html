@@ -1,0 +1,72 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+.hepl-block{margin-top: 15px;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+	<span><a href="{:url('rechargelog')}">申请记录 <i class="iconfont">&#xe9c2;</i></a></span>
+</div>
+<form data-model="form-submit">
+<div class="user-to-parent flex-row">
+	<div class="flex-grow-1 imgs">
+		<img src="{$user['avatar']}">
+		<p>{$user['auth_name']}</p>
+	</div>
+	<div class="flex-grow-0 linkIcon"><i class="iconfont">&#xe674;</i></div>
+	<div class="flex-grow-1 imgs">
+		<img src="{:getUser($user['top_parent'],'avatar')}">
+		<p>{:getUser($user['top_parent'])}</p>
+	</div>
+</div>
+<div class="line-bottom"></div>
+<div class="agent-list-panel">
+	<div class="list-item clearfix">
+		<label>充值金额</label>
+		<div class="item-txt">
+			<input type="text" datatype="n" name="money" class="input" placeholder="请输入充值金额">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>支付凭证</label>
+		<div class="item-txt">
+			<div class="upload-panel">
+				<a href="javascript:;" data-model="form-upload" data-target="#image" data-preview="#image_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传凭证</a>
+				<input type="hidden" name="image" value="" id="image" datatype="*" nullmsg="请上传凭证">
+				<div class="tip-alert" style="top: 35px;"></div>
+			</div>
+			<div class="upload-prview">
+				<img style="width:expression(this.width > 105 ? 105px : this.width)" src="" id="image_2">
+			</div>
+		</div>
+	</div>
+	<div class="list-item clearfix">
+		<label>备注</label>
+		<div class="item-txt">
+			<input type="text" name="remark" class="input" placeholder="请输入您的备注">
+			<div class="tip-alert"></div>
+		</div>
+	</div>
+	<div class="hepl-block">
+		您当前级别享受折扣为：{$userLevel['rebate']}折，充值金额须为{$userLevel['rebate']}的倍数
+	</div>
+	<div class="panel-btn">
+		<input type="hidden" name="parent_id" value="{$user['top_parent']}">
+		<button class="submit-btn">提交</button>
+	</div>
+</div>
+</form>
+<script type="text/javascript">
+{if condition="$user['parent_id'] gt 0"}
+$(function(){
+	alert("您的充值申请将提交给您的上级【{:getUser($user['top_parent'])}】~");
+});
+{/if}
+var webRoot = "{$Request.root.true}/{$Request.module}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+var title = '我要充值';
+$("title").html(title);
+Do.ready('common',function(){ base.frame(); });
+</script>
+<!--{#include 'footer.html'}-->

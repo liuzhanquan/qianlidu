@@ -1,0 +1,31 @@
+<style type="text/css">
+.sys-content{padding: 20px 20px 0px 20px;}
+.sys-content dl dt{min-width: auto;}
+.layout-ajax.sys-content .submit-btn{position: fixed;bottom: 0;margin-left: 0;margin-top: 0;padding: 10px;border-top: 1px solid #efefef;width: 100%;left: 0;text-align: right;background: #fff;z-index: 99;}
+</style>
+<div class="layout-ajax sys-content">
+	<form data-model="form-submit">
+		<div class="re-title"><span>充值代理</span></div>
+		<div class="re-content">
+			<p>授权名称：<em>{$info['auth_name']}</em></p>
+			<p>账户余额：<em>{$info['user_money']}</em></p>
+			<p>申请额度：<em>{$info['money']}</em></p>
+		</div>
+		<div class="re-title"><span>余额充值</span></div>
+		<dl>
+			<dt><i>*</i>充值额度：</dt>
+			<dd><input type="text" class="form-controls" name="money" value="{$info['money']}" datatype="*"></dd>
+		</dl>
+		<dl>
+			<dt><i>*</i>商家留言：</dt>
+			<dd>
+				<textarea class="form-controls" rows="5" placeholder="必填，限50字内。可以备注充值原因，充值原因将以微信通知的方式发送给申请代理" datatype="*" name="remark"></textarea>
+			</dd>
+		</dl>
+        <div class="submit-btn">
+        	<input type="hidden" value="{$info['uid']}" name="uid">
+        	<input type="hidden" value="{$info['id']}" name="id">
+            <button class="btn btn-info">确定</button>
+        </div>
+	</form>
+</div>

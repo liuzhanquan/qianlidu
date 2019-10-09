@@ -1,0 +1,34 @@
+<div class="wxback"><a href="{:url('index')}"><i class="glyphicon glyphicon-chevron-left"></i> 充值申请管理</a></div>
+<div class="wxBox" data-model="table-bind">
+	<div class="container-fluid" data-table>
+		{empty name="list"}
+		<div class="empty">没有更多数据啦</div>
+		{else /}
+			{foreach $list as $vo}
+			<div class="c-pipeline__card">
+		        <div class="o-media">
+		          	<div class="o-media__img u-mr-small">
+		            	<div class="c-avatar c-avatar--small">
+		              		<img class="c-avatar__img" src="{:getUser($vo['uid'],'avatar')}" alt="{$vo['auth_name']}">
+		            	</div>
+		          	</div>
+		          	<div class="o-media__body">
+		            	<h5 class="c-pipeline__card-title">{$vo['auth_name']}</h5>
+		            	<p class="c-pipeline__card-subtitle">
+		            		<span>充值金额：{$vo['money']}</span>
+		            	</p>
+		            	<p class="c-pipeline__card-subtitle">
+		            		<span>申请时间：{$vo['timestamp']}</span>
+		            	</p>
+		          	</div>
+		        </div>
+		        <div class="c-pipeline__card-footer">
+		        	<a href="{$vo['image']}" class="c-badge c-badge--small c-badge--success">查看凭证</a>
+		        	<a href="{:url('resuccess',['id'=>$vo['id']])}" class="c-badge c-badge--small c-badge--info">充值</a>
+					<a href="{:url('reerr',['id'=>$vo['id']])}" class="c-badge c-badge--small c-badge--danger">拒绝</a>
+		        </div>
+	        </div>
+			{/foreach}
+		{/empty}
+	</div>
+</div>

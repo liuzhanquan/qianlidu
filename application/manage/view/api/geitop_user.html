@@ -1,0 +1,77 @@
+<div class="layout-ajax">
+	<div class="page-content-w1">
+		<div class="page-search" style="padding-top:28px;margin-bottom:10px !important;">
+			<form method="get">
+			<table style="text-align: left;width:100%;">
+			<tr>
+				<td width="550">
+	                <span>关键词：</span>
+	                <span><input type="text" id="txtKeyword" name="key" style="width:400px;" maxlength="50" placeholder="授权编号、授权名称、手机号" value="{$key}"></span>
+				</td>
+				<td>
+					<span class="btSearch ">
+						<button class="btn btn-info btn-ok">搜索</button>
+					</span>
+				</td>
+			</tr>
+			</table>
+			</form>
+		</div>
+		<div class="page-list2 mb-20 right-content">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th class="text-center">授权名称</th>
+						<th class="text-center">手机号</th>
+						<th class="text-center">授权级别</th>
+						<th class="text-center">身份证</th>
+						<th class="text-center">地区</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{foreach $list as $vo}
+					<tr>
+						<td>{$vo['auth_name']}</td>
+						<td>{$vo['phone']}</td>
+						<td>{$vo['level_name']}</td>
+						<td>{$vo['idcard']}</td>
+						<td>{:getCity($vo['province'])},{:getCity($vo['city'])},{:getCity($vo['area'])}</td>
+						<td>
+							{php} $area = db('agent_city')->where(['agent_id'=>$vo['uid'],'type'=>$type])->find();{/php}
+							{php} if(in_array($vo['uid'],$agent)){ {/php}
+							已添加
+							{php} }else if(!empty($area)){ {/php}
+							已设置 
+							{php} }else{ {/php}
+							<button type="button" onclick="choose('{$vo['uid']}', '{$type}')" class="btn btn-sm btn-info btn-ok">添加</button>
+							{php} } {/php}
+
+						</td>
+					</tr>
+					{/foreach}
+				</tbody>
+			</table>
+			<div class="pages-mun">
+				<div id="Pager">{$page}</div>
+				<!-- <div>共<label id="dataCount">8</label>条数据</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var areaId = {$id};
+function choose(id,type,s){
+	Do.ready('dialog',function(){
+		$.post('',{agent_id:id,type:type,area_id:areaId},function(res){
+			if(res.code == 1){
+				layer.msg(res.msg,{icon:1},function(){
+					parent.layer.closeAll('iframe'); // 关闭窗口
+				});
+			}else{
+				layer.alert('添加失败');
+			}
+		},"JSON");
+	});
+}
+</script>

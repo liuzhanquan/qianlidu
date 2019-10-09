@@ -1,0 +1,20 @@
+<div class="sys-content">
+	<form data-model="form-submit">
+        <dl>
+            <dt><i>*</i>所属上级：</dt>
+            <dd>
+	            <input type="text" class="form-controls" readonly="" value="{$info['name']}">
+	            <input type="hidden" name="parent_id" value="{$info['id']}">
+            </dd>
+        </dl>
+        <dl>
+            <dt><i>*</i>名称：</dt>
+            <dd>
+	            <textarea class="form-controls" rows="5" name="content"></textarea>
+            </dd>
+        </dl>
+		<div class="submit-btn">
+			<button class="btn btn-info">确定</button>
+		</div>
+    </form>
+</div>

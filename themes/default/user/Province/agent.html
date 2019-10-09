@@ -1,0 +1,50 @@
+<!--{#include 'header.html'}-->
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+{php} if(empty($userCity) && empty($userCity)){ {/php}
+<div class="empty-wallet">
+	<div class="icon"><i class="iconfont">&#xe611;</i></div>
+	<p>您不是市代或省代，无法查看区域数据~</p>
+</div>
+{php} }elseif(empty($userCity) && !empty($userCity)){ {/php}
+<!-- 市代 -->
+<div class="agent-parent">
+	{foreach $list as $vo}
+	<div class="son-item">
+		<a href="{:url('agent/view_user')}?id={$vo['agent_id']}" class="flex-row">
+			<div class="flex-grow-0 avatar"><img src="{:getUser($vo['agent_id'],'avatar')}"></div>
+			<div class="flex-grow-1 infos">
+				<h3>{:getUser($vo['agent_id'])}</h3>
+				<p>{:getUser($vo['agent_id'],'phone')}</p>
+				<p>申请时间：{:getUser($vo['agent_id'],'timestamp')}</p>
+			</div>
+			<i class="iconfont">&#xe619;</i>
+		</a>
+	</div>
+	{/foreach}
+	<div class="pages">{$page}</div>
+</div>
+{php} }elseif(!empty($userCity)){ {/php}
+<!-- 省代 -->
+<div class="agentlink-list" style="margin-top: 0;">
+	<div class="agent-panel">
+		<div class="agent-brand_list">
+			<div class="brand_list">
+				<ul>
+					{foreach $cityList as $vo}
+					{php}$num = db('agent_city')->where(['area_id'=>$vo['id']])->count();{/php}
+					{if condition="$num gt 0"}
+					<li>
+						<a href="{:url('level_user',['id'=>$vo['id']])}">{$vo['name']}<em>{$num}</em><i class="iconfont">&#xe619;</i></a>
+					</li>
+					{else /}
+					<li><a href="javascript:;">{$vo['name']}<em>0</em><i class="iconfont">&#xe619;</i></a></li>
+					{/if}
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{php} } {/php}

@@ -1,0 +1,171 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-search clearfix">
+			<form method="get">
+				<table>
+					<tr>
+						<td>
+							<div class="search-item">
+								<label>订单状态：</label>
+								{php}$state = isset($data['state']) ? $data['state'] : '-1';{/php}
+								<select class="form-control" name="state" data-model="form-select" style="width:200px;">
+									<option value="-1" {if condition="$state eq '-1'"}selected{/if}>全部</option>
+									<option value="1" {if condition="$state eq '1'"}selected{/if}>待付款</option>
+									<option value="2" {if condition="$state eq '2'"}selected{/if}>待发货</option>
+									<option value="5" {if condition="$state eq '5'"}selected{/if}>已关闭</option>
+									<option value="3" {if condition="$state eq '3'"}selected{/if}>已发货</option>
+									<option value="4" {if condition="$state eq '4'"}selected{/if}>已完成</option>
+								</select>
+							</div>
+						</td>
+						<td>
+							<div class="search-item">
+								<label>下单时间：</label>
+								<input type="text" class="form-control" name="start" style="width: 100px;" value="{$data['start'] ? $data['start'] : ''}" data-model="form-time" readonly=""><em>--</em>
+								<input type="text" class="form-control" name="end" style="width: 100px;" value="{$data['end'] ? $data['end'] : ''}" data-model="form-time" readonly="">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="search-item">
+								<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
+									<option value="1" {if condition="$data['selkey'] eq 1"}selected{/if}>订单编号</option>
+									<option value="2" {if condition="$data['selkey'] eq 2"}selected{/if}>授权名称</option>
+								</select>
+								<input type="text" class="form-control" name="key" value="{$data['key']}" style="width: 200px;">
+							</div>
+						</td>
+						<td>
+							<div class="search-item">
+								<button class="btn btn-info btn-ok">搜索</button>
+								<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="tab-title" style="margin-top: 28px;">
+	        <ul class="tab-title_con">
+	            <li {if condition="$type eq '-1'"}class="on"{/if}><a href="{:url('index')}">全部</a></li>
+	            <li {if condition="$type eq 1"}class="on"{/if}><a href="{:url('index',['type'=>'1'])}">待付款</a></li>
+	            <li {if condition="$type eq 2"}class="on"{/if}><a href="{:url('index',['type'=>'2'])}">待发货</a></li>
+	            <li {if condition="$type eq 3"}class="on"{/if}><a href="{:url('index',['type'=>'3'])}">已发货</a></li>
+	            <li {if condition="$type eq 4"}class="on"{/if}><a href="{:url('index',['type'=>'4'])}">已完成</a></li>
+	            <li {if condition="$type eq 5"}class="on"{/if}><a href="{:url('index',['type'=>'5'])}">已关闭</a></li>
+	        </ul>
+	    </div>
+	    <div class="goods_order-list">
+	    	<table class="table table-hover">
+	    		<thead>
+	    			<tr>
+	    				<th>
+		    				<div class="clearfix order-header">
+		    					<span class="order-h" style="width: 40%;">商品</span>
+			    				<span class="order-h text-right" style="width: 15%;">单价/数量</span>
+			    				<span class="order-h text-center" style="width: 15%;">下单代理</span>
+			    				<span class="order-h text-center" style="width: 10%;">下单时间</span>
+			    				<span class="order-h text-center" style="width: 10%;">订单状态</span>
+			    				<span class="order-h text-center" style="width: 10%;">订单总金额</span>
+		    				</div>
+	    				</th>
+	    			</tr>
+	    		</thead>
+	    	</table>
+	    	{empty name="list"}
+	    	<div class="empty-txt">
+				<i class="iconfont">&#xe60f;</i>
+				<p>没有相关记录订单~</p>
+			</div>
+	    	{else /}
+	    	{foreach $list as $vo}
+		    <table class="table table-hover" style="table-layout: inherit;" data-table>
+		    	<thead>
+		    		<tr>
+		    			<th colspan="6">
+		    				<div class="clearfix order-header">
+		    					<div class="fl">订单号：<a href="{:url('info',['id'=>$vo['order_id']])}">{$vo['order_id']}</a></div>
+		    					<div class="fr"><!-- <a href="javascript:;">查看详情</a><em>-</em> -->
+		    						{if condition="$vo['status'] eq 1" /}
+		    						<a href="{:url('sendorder',['id'=>$vo['id']])}">单独发货</a> <em>-</em>
+		    						{/if}
+		    						{if condition="$vo['status'] eq 2" /}
+		    						<a href="javascript:;" data-del data-id="{$vo['id']}" data-table="down" data-tips="确认代理已经收到货品了吗？" >确认收货</a> <em>-</em>
+		    						{/if}
+		    						<a href="javascript:;" data-del data-id="{$vo['id']}" data-table="order" data-tips="删除订单后，已付款订单将会自动退款并删除该订单">删除</a></div>
+		    				</div>
+		    			</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    		<tr>
+		    			<td width="55%" colspan="2" style="padding: 0;">
+			    			<table class="table table-hover" style="border:0;margin-bottom: 0;">
+			    				<tbody>
+			    					{foreach $vo['son'] as $k=>$son}
+			    					<tr>
+						    			{php} $goods = db('goods')->find($son['goods_id']);{/php}
+						    			<td style="vertical-align: top;border:0;{if condition="$k gt 0"}border-top: 1px solid #dfe2e5;{/if}">
+											<div class="page-wexin-info">
+					                            <div class="goods-list">
+					                                <img id="img_806" class="img_806" src="{$goods['photo']}" alt="头像" style="width:50px;height:50px;">
+					                                <p>{$goods['title']}</p>
+					                            </div>
+					                        </div>
+										</td>
+						    			<td class="text-right" style="vertical-align: top;border:0;{if condition="$k gt 0"}border-top: 1px solid #dfe2e5;{/if}">
+						    				{$son['price']}<br>
+						    				({$son['num']}件)
+						    			</td>
+			    					</tr>
+			    					{/foreach}
+			    				</tbody>
+			    			</table>
+		    			</td>
+		    			<td width="15%">
+		    				{php} $address = unserialize($vo['address']);{/php}
+		    				授权名称：{:getUser($vo['uid'])}<br>
+		    				{$address['name']}<br>
+		    				{$address['phone']}
+		    			</td>
+		    			<td width="10%">{$vo['timestamp']}</td>
+		    			<td width="10%">
+		    				{if condition="$vo['status'] eq 0"}
+							<font color="red">待付款</font>
+							{elseif condition="$vo['status'] eq 1" /}
+							待发货
+							{elseif condition="$vo['status'] eq 2" /}
+							已发货
+							{elseif condition="$vo['status'] eq 3" /}
+							已完成
+							{elseif condition="$vo['status'] eq 4" /}
+							已关闭
+							{/if}
+		    			</td>
+		    			<td width="10%">{$vo['price']}</td>
+		    		</tr>
+		    	</tbody>
+		    </table>
+		    {/foreach}
+		    {/empty}
+		    <div class=""></div>
+	    </div>
+	    <div class="option-bottom clearfix">
+			<div class="fl"></div>
+			<div class="pages fr">{$page}</div>
+		</div>
+	</div>
+</div>

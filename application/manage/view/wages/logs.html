@@ -1,0 +1,86 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+    <div class="right-content" data-model="table-bind">
+    	<!--  -->
+		<div class="option-search clearfix">
+			<form method="get">
+				<div class="search-item">
+					<label>结算月份：</label>
+					{php}$start = isset($data['start']) ? $data['start'] : '';{/php}
+					{php}$end = isset($data['end']) ? $data['end'] : '';{/php}
+					<input type="text" class="form-control" name="start" style="width: 200px;" value="{$start}" data-model="form-time" data-format="Y-m" data-timepicker="false" readonly="">
+				</div>
+				<div class="search-item">
+					<button class="btn btn-info btn-ok">搜索</button>
+					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+				</div>
+			</form>
+		</div>
+    	<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center" width="20%">代理信息</th>
+					<th class="text-center">结算月份</th>
+					<th class="text-center">直推奖励</th>
+					<th class="text-center">平级奖励</th>
+					<th class="text-center">销售奖励</th>
+					<th class="text-center">结算总额</th>
+					<th class="text-center">已结算金额</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			{empty name="$list"}
+				<tr>
+					<td colspan="8" class="text-center">没有更多数据啦</td>
+				</tr>
+			{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td style="vertical-align: top;">
+						<div class="page-wexin-info">
+                            <div class="goods-list" style="min-height: 0;">
+                                <p>{$vo['auth_name']}</p>
+                            </div>
+                            <div class="info f-c" style="display: none;">
+                                <div class="left f-c">
+                                    <img src="{$vo['avatar']}" class="user_img" alt="头像">
+                                </div>
+                                <div class="right f-c">
+                                	<p>{$vo['auth_name']}</p>
+                                	<p>{$vo['level_name']},{$config['brand_prefix']}{$vo['auth_number']}</p>
+                                	<!-- 查询授权品牌 -->
+                                </div>
+                            </div>
+                        </div>
+					</td>
+					<td class="text-center">{$vo['timecode']}</td>
+					<td class="text-center">{:getReward($vo['agent_id'],'1',$start,$start)}</td>
+					<td class="text-center">{:getReward($vo['agent_id'],'2',$start,$start)}</td>
+					<td class="text-center">{:getReward($vo['agent_id'],'3',$start,$start)}</td>
+					<td class="text-center">{$vo['money']}</td>
+					<td class="text-center">{$vo['end_money']}</td>
+					<td class="text-center">
+						{if $vo['money'] eq $vo['end_money']}
+						已结算
+						{else /}
+						<a href="javascript:;" data-model="dialogs-open" data-width="600px" data-height="700px" data-url="{:url('endmoney',['id'=>$vo['id']])}" data-title="结算">结算</a>
+						{/if}
+					</td>
+				</tr>
+				{/foreach}
+			{/empty}
+
+		</table>
+    </div>
+</div>

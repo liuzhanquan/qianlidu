@@ -1,0 +1,289 @@
+<script type="text/ecmascript" src="/static/js/jquery-ui-1.9.2.sortable.min.js?v=20180517"></script>
+<div class="app-design clearfix">
+	<div class="app-preview fangwei-query-preview">
+		<div class="app-header"></div>
+		<div class="app-entry" style="background-color: #f7f7f7;">
+			<div class="app-config ">
+                <!--1-->
+                <div class="app-field clearfix trun_on" elerelation=".turn_right">
+                    <h1><span id="fangwei-title">
+                        {php}if(isset($menu['title'])){ echo $menu['title'];}{/php}
+                    </span></h1>
+                    <div class="actions"></div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="control-group">
+                <div class="page_kongjia_wx_index">
+                    <div class="page-header" style="margin-bottom: 0;">
+                        <a class="header f-c">
+                            <div class="left">
+                                <img src="/static/admin/images/logo-2.png" alt="">
+                            </div>
+                            <div class="right">
+                                <p class="welcome">微商控价系统</p>
+                                <p class="name">授权名：广脉科技</p>
+                                <p class="user"> 微信号：guangmaikeji</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            {include file="system/diy-content" /}
+            <!--  -->
+		</div>
+		<div class="app-add-field">
+            <h4 class="clearfix">添加内容<span class="fr"><a href="{:url('menu')}">管理菜单</a></span></h4>
+            <ul class="clearfix">
+                {foreach $parentNav as $k=>$vo}
+                <li><a class="js-new-field show_item{$vo['id']}" data-field-type="" elerelation="trun_on{$vo['id']}">{$vo['name']}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+		<div class="app-preview-end"><i></i></div>
+	</div>
+    {include file="system/diy-right-content" /}
+</div>
+<div class="submit-btn">
+    <button class="btn btn-info" id="btnSave">保存设置</button>
+</div>
+<script type="text/javascript">
+$(".control-groups").sortable({
+    start: function () { $(".app-sidebar").hide() }
+});
+
+//绑定点击显示右边编辑框事件
+$(".app-entry").on("click", ".app-field", function () {
+    var app_top = $(this).offset().top;
+    $(".app-field").removeClass("editing");
+    $(this).addClass("editing");
+    $(".app-sidebar").css("marginTop", app_top - 220);
+    var $this = $(this);
+
+    $(".app-sidebar").hide();
+    $($this.attr("elerelation")).show()
+
+    if ($this.hasClass("trun_on")) {
+        $("#Num_input").val($("#fangwei-title").text());
+        $("#Num_input").keyup();
+    }
+});
+//标题内容
+$('.makesure').click(function () {
+    if ($.trim($('#Num_input').val()) == "") {
+        alert("标题不能为空");
+        return false;
+    }
+    $('#fangwei-title').html($.trim($('#Num_input').val()))
+    $('#Num_input').val('');
+    $('#Num_text').html(0);
+    $('.turn_right').hide();
+})
+//获取标识内容字段数量
+$("#Num_input").keyup(function () {
+    //这就是输入值的个数
+    var length = this.value.length;
+    $('#Num_text').html(length)
+    $('#fangwei-title').html($.trim($('#Num_input').val()))
+
+});
+
+//底部的添加模块
+$(".app-add-field").on("click", ".js-new-field", function () {
+    var c = $(this).attr("elerelation");
+    var $obj = $("." + c);
+    if ($obj.is(':visible')) {
+
+        //   alert("该模块只能添加一个！");
+        return false;
+    }
+    else {
+        $(this).addClass("ws-selected");
+        if ($obj.hasClass("trun_on1")) {
+            $obj.show();
+        }
+        else {
+            $("#location").before($obj);
+            $obj.show();
+        }
+    }
+
+})
+
+
+
+$("body").on("click", " .app-sidebar input:checkbox ", function () {
+    var $obj = $(this);
+    if ($obj.prop("checked")) {
+
+        if ($obj.hasClass("topMenu")) {
+
+            var i = 0;
+
+            $.each($(".app-field").find("." + $obj.val()).parents("li").siblings("li"), function (index, eleobj) {
+
+                if ($(eleobj).is(':visible')) {
+                    i += 1;
+                }
+            })
+
+            if (i < 2 || i == 3) {
+            	msgbox.error({ 
+            		content : "顶部导航只可选其中的两个或三个，或全都不勾选直接隐藏该模块1" 
+            	});
+                return false;
+            }
+        }
+
+
+        $(".app-field").find("." + $obj.val()).parents("li").show();
+    }
+    else {
+        var i = 0;
+
+        $.each($(".app-field").find("." + $obj.val()).parents("li").siblings("li"), function (index, eleobj) {
+
+            if ($(eleobj).is(':visible')) {
+                i += 1;
+            }
+        })
+        console.log(i)
+        if ($obj.hasClass("topMenu")) {
+            if (i < 2 || i == 3) {
+            	msgbox.error({ 
+            		content : "顶部导航只可选其中的两个或三个，或全都不勾选直接隐藏该模块2" 
+            	});
+                return false;
+            }
+        }
+        else {
+            if (i < 1) {
+            	msgbox.error({ 
+            		content : "必须显示一个信息，否则请直接隐藏该模块" 
+            	});
+                return false;
+            }
+        }
+        $(".app-field").find("." + $obj.val()).parents("li").hide();
+    }
+})
+
+
+//========================编辑和隐藏=======================
+$(function () {
+    $(".app-design ").on("click", ".del_action", function () {
+        var btn = $(this).parents(".app-field").attr("btn-elerelation");
+        $(".app-add-field").find(btn).removeClass("ws-selected");
+        $(this).parents(".app-field").hide();
+        $(".app-sidebar").hide();
+    })
+    $("body").on("click", " .btn-ok,.btn-cancle ", function () {
+        $(this).parents(".app-sidebar").hide();
+    })
+
+
+
+
+    //初始化按钮的颜色
+    if ($(".ontop").is(":visible")) {
+        var btn = $(".ontop").attr("btn-elerelation");
+        $(".app-add-field").find(btn).addClass("ws-selected");
+    }
+
+    var apps = $(" .app-fields .app-field");
+    $.each(apps, function (index, obj) {
+        if ($(obj).is(":visible")) {
+            var btn = $(obj).attr("btn-elerelation");
+            $(".app-add-field").find(btn).addClass("ws-selected");
+        }
+
+
+    })
+
+
+})
+
+
+var clicking = false;
+
+//保存数据
+$("#btnSave").click(function () {
+	    if (clicking) {
+	        return false;
+	    }
+	    clicking = true;
+	    var data = {};
+	    var title = $.trim($("#fangwei-title").text());
+
+	    if (title == "") {
+	        clicking = false;
+	        msgbox.error({
+                content : "标题不能为空！"
+            });
+	        return false;
+	    }
+	    if ($(" .app-fields .app-field:visible").length <= 0) {
+	        clicking = false;
+	        msgbox.error({
+                content : "请至少添加一个模块内容！"
+            });
+	        return false;
+	    }
+
+	    data.title = title;
+	    data.range = [];
+	    var rangeindex = 0;
+	    var itemindex = 0;
+	    if ($(".ontop").is(":visible")) {
+	        data.range[rangeindex] = {};
+	        data.range[rangeindex].pid = $(".ontop").attr("data-id");
+	        data.range[rangeindex].cid = [];
+
+	        $.each($(".ontop").find("li:visible"), function (index, obj) {
+	            data.range[rangeindex].cid[itemindex] = $(obj).attr("data-id");
+	            itemindex += 1;
+	        })
+	        rangeindex += 1;
+	    }
+	    var apps = $(".app-fields .app-field");
+	    $.each(apps, function (index, obj) {
+	        if ($(obj).is(":visible")) {
+	            data.range[rangeindex] = {};
+	            data.range[rangeindex].pid = $(obj).attr("data-id");
+	            data.range[rangeindex].cid = [];
+	            itemindex = 0;
+	            $.each($(obj).find("li:visible"), function (index, obj) {
+	                data.range[rangeindex].cid[itemindex] = $(obj).attr("data-id");
+	                itemindex += 1;
+	            })
+	            if (itemindex == 0) {
+	                clicking = false;
+			        msgbox.error({
+		                content : "必须显示一个信息，否则请直接隐藏该模块！"
+		            });
+	                return false;
+	            }
+	            rangeindex += 1;
+	        }
+	    });
+	    $.ajax({
+	        url: "",
+	        type: "post",
+	        data: { "jsondata": JSON.stringify(data) },
+	        dataType: "json",
+	        success: function (dt) {
+	            clicking = false;
+	            if (dt.code == "1") {
+	            	msgbox.success({
+                        content : "保存成功"
+                    });
+	            }else {
+	            	msgbox.error({
+                        content : dt.msg
+                    });
+	            }
+	        }
+	    });
+})
+</script>

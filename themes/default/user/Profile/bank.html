@@ -1,0 +1,47 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+</div>
+<div class="user_wallet">
+	{empty name="account"}
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe672;</i></div>
+		<p>添加收款账户，方便总部结算</p>
+		<a href="{:url('dobank')}"><i class="iconfont">&#xe695;</i>添加收款账号</a>
+	</div>
+	{else /}
+	<div class="wallet-item" data-model="table-bind">
+		{if condition="$account['type'] eq 1"}
+		<ul data-table>
+			<li><em>账号类型：</em>支付宝</li>
+			<li><em>收款账号：</em>{$account['account']}</li>
+			<li><em>姓名：</em>{$account['name']}</li>
+			<li><em>手机号码：</em>{$account['phone']}</li>
+			<li><em>备注：</em>{$account['mark']}</li>
+			<li class="last"><a href="{:url('dobank',['id'=>$account['id']])}">修改</a><a href="javascript:;" data-del data-id="{$account['id']}" data-table="wallet">删除</a></li>
+		</ul>
+		{elseif condition="$account['type'] eq 2" /}
+		<ul>
+			<li><em>账号类型：</em>银行卡</li>
+			<li><em>开户行：</em>{$account['bank_name']}</li>
+			<li><em>银行卡号：</em>{$account['bank_id']}</li>
+			<li><em>持卡人：</em>{$account['name']}</li>
+			<li><em>手机号码：</em>{$account['phone']}</li>
+			<li><em>备注：</em>{$account['mark']}</li>
+			<li class="last"><a href="{:url('dobank',['id'=>$account['id']])}">修改</a><a href="javascript:;" data-del data-id="{$account['id']}" data-table="wallet">删除</a></li>
+		</ul>
+		{/if}
+	</div>
+	{/empty}
+</div>
+<script type="text/javascript">
+var webRoot = "{$Request.root.true}/";
+var webControl = "{$Request.module}/{$Request.controller}";
+Do.ready('common',function(){ base.frame(); });
+var title = '收款账户';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

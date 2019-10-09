@@ -1,0 +1,82 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  <li><a href="javascript:;">系统设置</a></li>
+  		  <li><a href="{:url('account')}">子账号管理</a></li>
+  		  <li>{if condition="$id gt 0"}修改子账号{else /}添加子账号{/if}</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>登录账号：</dt>
+	            <dd>
+	            	{empty name="$info"}
+	            	<input type="text" style="width: 270px" name="username" class="form-controls" datatype="*" value="{$info['username']}">
+	            	<i>最多10个英文、数字字符</i>
+	            	{else /}
+	            	<input type="text" style="width: 270px;background: #efefef;" name="username" class="form-controls" value="{$info['username']}" readonly="">
+	            	{/empty}
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>角色权限：</dt>
+	            <dd>
+	            	<select name="role_id" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    {foreach $list as $vo}
+						<option value="{$vo['gid']}" {if condition="$info['role_id'] eq $vo['gid']"}selected{/if}>{$vo['name']}</option>
+						{/foreach}
+	                </select>
+	                <i>角色对应的权限请在【角色权限】中修改</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>姓名：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="{$info['name']}">
+	            	<i>最多10个字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>手机：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="phone" class="form-controls" datatype="m" value="{$info['phone']}">
+	            	<i>11位手机号码</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>设置密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" name="password" class="form-controls" datatype="*6-20">
+	            	<i>6-20位英文、数字或字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>确认密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" class="form-controls" datatype="*6-20" recheck="password">
+	            	<i>6-20位英文、数字或字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>备注：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="remark" class="form-controls" value="{$info['remark']}">
+	            	<i>最多10个字</i>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,85 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+{if condition="$userLevel['ddlSee'] eq 3"}
+<div class="empty-wallet">
+	<div class="icon"><i class="iconfont">&#xe611;</i></div>
+	<p>啊哦，你没有此功能权限~</p>
+</div>
+{elseif condition="$userLevel['ddlSee'] eq 1 || $userLevel['ddlSee'] eq 2" /}
+{if condition="$info['parent_id'] neq $user['uid']"}
+<div class="empty-wallet">
+	<div class="icon"><i class="iconfont">&#xe611;</i></div>
+	<p>啊哦，你没有此功能权限~</p>
+</div>
+{else /}
+<div class="sub-title">代理信息</div>
+<div class="agent-info">
+	<dl class="add-block-li">
+        <dt>头像：</dt>
+        <dd><div class="user_img " title="点击查看大图" style="cursor:pointer"><img src="{:getUser($info['uid'],'avatar')}"></div></dd>
+    </dl>
+    <form data-model="form-submit">
+    <dl class="add-block-li">
+        <dt>申请人：</dt>
+        <dd>{:getUser($info['uid'],'auth_name')}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>微信号：</dt>
+        <dd>{:getUser($info['uid'],'wechat')}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>手机号：</dt>
+        <dd>{:getUser($info['uid'],'phone')}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>地区：</dt>
+        <dd>{:getCity(getUser($info['uid'],'province'))} {:getCity(getUser($info['uid'],'city'))} {:getCity(getUser($info['uid'],'area'))}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>收货地址：</dt>
+        <dd>{:getUser($info['uid'],'address')}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>创建时间：</dt>
+        <dd>{$info['timestamp']}</dd>
+    </dl>
+</div>
+<div class="sub-title">申请代理级别</div>
+<div class="agent-info">
+	<dl class="add-block-li">
+        <dt>授权品牌：</dt>
+        <dd>{$config['brand_name']}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>授权级别：</dt>
+        <dd>{$info['level_name']}</dd>
+    </dl>
+    <dl class="add-block-li">
+        <dt>授权期限：</dt>
+        <dd>
+			<em>{:date('Y年m月d日',strtotime($info['start_time']))}</em> <em class="ml-10 mr-10">~</em>	 <em>{:date('Y年m月d日',strtotime($info['end_time']))}</em>
+        </dd>
+    </dl>
+</div>
+<div class="sub-title">直属下级数量</div>
+<div class="agent-info">
+	{foreach $list as $vo}
+	<dl class="add-block-li">
+        <dt>{$vo['name']}：</dt>
+        <dd>
+        	{php}$num = db('user')->where(['parent_id'=>$info['uid'],'level_id'=>$vo['id']])->count();{/php}
+			{$num}
+        </dd>
+    </dl>
+    {/foreach}
+</div>
+{/if}
+{/if}
+<script type="text/javascript">
+Do.ready('common',function(){ base.frame(); });
+var title = '下级代理详情';
+$("title").html(title);
+</script>
+<!--{#include 'footer.html'}-->

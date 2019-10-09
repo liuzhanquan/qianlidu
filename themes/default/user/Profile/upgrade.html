@@ -1,0 +1,50 @@
+<!--{#include 'header.html'}-->
+<style type="text/css">
+body{background: #fff;}
+</style>
+<div class="agent-menu">
+	<a href="javascript:history.back(-1)"><i class="iconfont">&#xe62d;</i></a>
+	<h3>我要升级</h3>
+</div>
+{if condition="$upgradeReward['num'] gt 0"}
+<div class="tips-updgrade">
+	{php}$levelName = db('agent_level')->where('id',$upgradeReward['level'])->find();{/php}
+	销售业绩达到 ￥{$upgradeReward['num']} 后，可升级为 【{$levelName['name']}】<br>
+	当前总销售业绩：￥ {$yeji}
+</div>
+	{if condition="$yeji gt $upgradeReward['num']"}
+	<div class="line-bottom"></div>
+	<div class="user-empty agent-list-panel">
+		<i class="iconfont">&#xe6c7;</i>
+		<h3>您的销售业绩已达标，可升级为【{$levelName['name']}】</h3>
+	</div>
+	<div class="address-btn"><a href="javascript:;" onclick="upgrade();">去升级</a></div>
+	<script type="text/javascript">
+	var url = "{:url('upgrade_info')}";
+	function upgrade(){
+		var msg = "升级后账户货款由原来的{:bqwhits($authUser['money'])}更变成{:bqwhits($authUser['money'] / $userLevel['rebate'] * $levelName['rebate'])}";
+		Do.ready('dialog',function(){
+			layer.confirm(msg, {icon: 3, title:'提示'}, function(index){
+				window.location.href = url;
+			});
+		});
+	}
+	</script>
+	{else /}
+	<div class="line-bottom"></div>
+	<div class="log-list">
+		<div class="empty-wallet">
+			<div class="icon"><i class="iconfont">&#xe611;</i></div>
+			<p>您还没达到可升级等级哈~</p>
+		</div>
+	</div>
+	{/if}
+{else /}
+<div class="line-bottom"></div>
+<div class="log-list">
+	<div class="empty-wallet">
+		<div class="icon"><i class="iconfont">&#xe611;</i></div>
+		<p>您还没达到可升级等级哈~</p>
+	</div>
+</div>
+{/if}

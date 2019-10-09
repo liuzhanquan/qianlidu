@@ -1,0 +1,118 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="tab-title" style="margin-top: 30px;">
+        <ul class="tab-title_con">
+            <li {if condition="$id eq 0"}class="on"{/if}><a href="{:url('recharge')}" class="tab_2_ul_li_a">货款申请管理</a></li>
+            <li {if condition="$id eq 1"}class="on"{/if}><a href="{:url('recharge',['id'=>'1'])}" class="tab_2_ul_li_a">货款申请记录</a></li>
+        </ul>
+	</div>
+	<div class="option-search clearfix">
+		<form method="get">
+			<table>
+				<tr>
+					<td>
+						<div class="search-item">
+							<label>申请时间：</label>
+							<input type="text" class="form-control" name="start" value="{:isset($data['start']) ? $data['start'] : ''}" data-model="form-time" readonly="" style="width: 120px;"><em>-</em>
+							<input type="text" class="form-control" name="end" value="{:isset($data['end']) ? $data['end'] : ''}" data-model="form-time" readonly="" style="width: 120px;">
+						</div>
+					</td>
+					<td>
+						<div class="search-item">
+							<label>申请代理：</label>
+							<input type="text" class="form-control" name="key" value="{:isset($data['key']) ? $data['key'] : ''}" placeholder="授权名、手机号" style="width: 270px;">
+						</div>
+					</td>
+					<td>
+						<div class="search-item">
+							<button class="btn btn-info btn-ok">搜索</button>
+							<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		{if condition="$id eq 1"}
+		<p style="margin-bottom: 10px;color: #555;">充值总额：<span class="color_red">￥{$totalMoney}</span></p>
+		{/if}
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center">授权名称</th>
+					<th class="text-center">手机号</th>
+					{if condition="$id eq 0"}
+					<th class="text-center">充值凭证</th>
+					<th class="text-center">账户余额</th>
+					<th class="text-center">申请时间</th>
+					<th class="text-center">申请额度</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">操作</th>
+					{elseif condition="$id eq 1" /}
+					<th class="text-center" width="15%">申请额度</th>
+					<th class="text-center">申请时间</th>
+					<th class="text-center">账户余额</th>
+					<th class="text-center">状态</th>
+					<th class="text-center">留言</th>
+					<th class="text-center">处理时间</th>
+					{/if}
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="8" class="text-center">
+						<span>没有更多数据啦</span>
+					</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td class="text-center">{$vo['auth_name']}</td>
+					<td class="text-center">{$vo['phone']}</td>
+					{if condition="$id eq 0"}
+					<td class="text-center"><a class="fc-cur hand ml-10" href="javascript:void(0)" data-model="form-showImg" data-val="{$vo['image']}" data-area="320px">查看凭证</a></td>
+					<td class="text-center">{$vo['user_money']}</td>
+					<td class="text-center">{$vo['timestamp']}</td>
+					<td class="text-center">{$vo['money']}</td>
+					<td class="text-center">待充值</td>
+					<td class="text-center">
+						<a href="javascript:;" data-model="dialogs-open" data-width="600px" data-height="540px" data-url="{:url('api/resuccess',['id'=>$vo['id']])}">充值</a><em>-</em>
+						<a href="javascript:;"  data-model="dialogs-open" data-width="600px" data-height="460px" data-url="{:url('api/reerr',['id'=>$vo['id']])}">拒绝</a>
+					</td>
+					{elseif condition="$id eq 1" /}
+					<td class="text-center">{$vo['money']}</td>
+					<td class="text-center">{$vo['timestamp']}</td>
+					<td class="text-center">{$vo['user_money']}</td>
+					<td class="text-center">
+						{if condition="$vo['status'] eq 1"}
+						已充值
+						{elseif condition="$vo['status'] eq 2"}
+						拒绝
+						{/if}
+					</td>
+					<td class="text-center">{$vo['remark']}</td>
+					<td class="text-center">{$vo['do_time']}</td>
+					{/if}
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="option-bottom clearfix">
+			<div class="pages fr">{$page}</div>
+		</div>
+	</div>
+</div>
