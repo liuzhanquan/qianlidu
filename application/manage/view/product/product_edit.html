@@ -96,8 +96,8 @@
 	            <dt><i>*</i>旅途时间：</dt>
 	            <dd style="">
 	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;" value="{if condition="$info['id'] neq 0"}{$info.start_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
-						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;" value="{if condition="$info['id'] neq 0"}{$info.stop_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.start_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.stop_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
 					</div>
 	            </dd>
 	        </dl>
@@ -113,8 +113,8 @@
 	            <dt><i>*</i>项目展示时间：</dt>
 	            <dd style="">
 	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;" value="{if condition="$info['id'] neq 0"}{$info.show_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
-						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;" value="{if condition="$info['id'] neq 0"}{$info.hide_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
+						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.show_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.hide_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
 					</div>
 	            </dd>
 	        </dl>

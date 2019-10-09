@@ -1,0 +1,33 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  <li><a href="javascript:;">会员卡管理</a></li>
+  		  <li><a href="{:url('cardtype')}">规格配置</a></li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>分类名称：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="{$info['name']}">
+	            	<i>最多10个英文、数字字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>备注：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="title" class="form-controls" datatype="*" value="{$info['title']}">
+	            	
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>

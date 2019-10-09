@@ -47,7 +47,8 @@ class Agents extends Admin{
             break;
             case '3': // 身份证
                 if(!empty($searchData['key'])){
-                    $where['idcard'] = array('like','%'.$searchData['key'].'%');
+                    $whereU['card_id'] = array('like','%'.$searchData['key'].'%');
+                    $where['uid'] = ['in',db('user')->where($whereU)->column('id')];
                 }
             break;
         }
@@ -64,293 +65,7 @@ class Agents extends Admin{
         $this->assign('page',$list->render());
         return $this->fetch();
     }
-    /**
-     * 代理续期
-    **/
-    public function aloneauth($id = 0){
-        $this->view->engine->layout('api_layout');
-        if($id <> 0){
-            if(!isPost()){
-                $authInfo = db('user_auth')->find($id);
-                $this->assign('info',$authInfo);
-                return $this->fetch();
-            }else{
-                $data = $_POST;
-                if($data['long'] < 1 || $data['long'] > 36){
-                    return $this->error('续期时间范围1-36');die;
-                }
-                $authInfo = db('user_auth')->find($data['id']);
-                $uData['end_time'] = date("Y-m-d H:i:s", strtotime("+".$data['long']." month", strtotime($authInfo['end_time'])));
-                $state = db('user_auth')->where('id',$data['id'])->update($uData);
-                if($state){
-                    return $this->success('操作成功','','1');
-                }else{
-                    return $this->error('操作失败','','1');
-                }
-            }
-        }else{
-            return json(['code'=>0]);
-        }
-    }
-    /**
-     * 审核代理商
-    **/
-    public function auditing($id = 0){
-        $this->view->engine->layout('api_layout');
-        if(!isPost()){
-            $info = db('user a')->join('user_auth b','a.id = b.uid')->where(['a.id'=>$id])->find();
-            $this->assign('info',$info);
-            return $this->fetch();
-        }else{
-            $data = $_POST;
-            $info = db('user a')->join('user_auth b','a.id = b.uid')->where(['a.id'=>$data['id']])->find();
-            if($info['status'] == '2'){
-                // 由上级审核后总部二次审核
-                if($data['status'] == '1'){
-                    // 审核通过
-                    $authData = [
-                        'status'=>1,
-                        'second'=>1
-                    ];
-                    $state = db('user_auth')->where('uid',$data['id'])->update($authData);
-                    db('user')->where('id',$data['id'])->update(['status'=>'1']);
-                    if($state){
-                        $authLink = '<a href="'.urlDiy('/user/index').'">前往代理后台</a>';
-                        $msgData = "亲，你的代理授权申请总部审核通过啦！\n审核时间：".date('Y-m-d H:i:s')."\n\n申请人：".getUser($info['uid'],'auth_name')."\n微信号：".getUser($info['uid'],'wechat')."\n手机号：".getUser($info['uid'],'phone')."\n\n申请级别：".$info['level_name']."\n\n".$authLink;
-                        
-                        $openId = getUser($info['uid'],'openid');
-                        SendWxMessage($msgData,$openId);
-                        return $this->success('操作成功','','1');
-                    }else{
-                        return $this->error('操作失败','','1');  
-                    }
-                }else if($data['status'] == '2'){
-                    // 拒绝审核
-                    if(empty($data['remark'])){
-                        return $this->error('请输入审核不通过原因/备注');die;
-                    }
-                    // 拒绝审核，并删除所有授权数据
-                    // 发送相关短信
-                    $msgData_1 = "亲，你的代理授权申请审核不通过！\n审核人：总部\n审核时间：".date('Y-m-d H:i:s')."\n原因：".$data['remark']."\n\n申请人：".$info['auth_name']."\n微信号：".$info['wechat']."\n手机号：".$info['phone']."\n申请级别：".$info['level_name'];
-                    SendWxMessage($msgData_1,$info['openid']);
-                    // 退还代理金额给上级
-                     return $this->success('操作成功','','1');
-                    $agent_profit = db('agent_profit')->where('form_id',$data['id'])->find();
-                    $agentLevel = db('agent_level')->find($info['level_id']);
-                    $endMoney = $agentLevel['money'] - $agent_profit['money'];
-                    $parentTop = db('user')->find($info['top_parent']);
-                    db('user')->where('id',$parentTop['id'])->setInc('money',$endMoney);
-
-
-                    $state = db('user_auth')->where('uid',$data['id'])->delete();
-                    db('user')->where('id',$data['id'])->delete();
-                    db('agent_profit')->where('id',$agent_profit['id'])->delete();
-                    db('user_link')->where('uid',$data['id'])->delete();
-                    db('user_order')->where('uid',$data['id'])->delete();
-                    db('user_address')->where('uid',$data['id'])->delete();
-                    db('user_cart')->where('uid',$data['id'])->delete();
-                    db('user_recharge')->where('uid',$data['id'])->delete();
-                    db('user_wallet')->where('uid',$data['id'])->delete();
-                    db('agent_log')->where('agent_id',$data['id'])->delete();
-                    db('performance')->where('form_id',$data['id'])->delete(); // 删除上级业绩
-                    db('agent_log')->where('form_id',$data['id'])->delete(); // 删除奖金记录
-
-                    // db('user')->where('id',$data['id'])->update(['status'=>'0','phone'=>'','password'=>'','level_id'=>'0','money'=>'0']);
-                    if($state){
-                        return $this->success('操作成功','','1');
-                    }else{
-                        return $this->error('操作失败','','1');
-                    }
-                }
-            }else{
-                if($data['status'] == '1'){
-                    // 审核通过
-                    // 获取级别信息
-                    $level = db('agent_level')->find($info['level_id']);
-                    $orderMoney = db('user_order')->where(['uid'=>$info['uid'],'is_reg'=>'1'])->find();
-                    $orderFirstMoney = $level['order_rebate'] * $orderMoney['original_price'] / 10;
-                    $auth_number = '';
-                    $numberLen = strlen($this->config['brand_number']);
-                    $maxNumber = db('user_auth')->max('auth_number');
-                    $auth_number = str_pad(($maxNumber+1),$numberLen,'0',STR_PAD_LEFT);
-                    // 发放奖励
-                    $authData = [
-                        'status'=>1,
-                        'auth_number'=>$auth_number,
-                        'start_time'=> date('Y-m-d H:i:s'),
-                        'end_time'=> date('Y-m-d H:i:s',strtotime("+".$level['txtMounth']." month")),
-                    ];
-                    $state = db('user_auth')->where('uid',$data['id'])->update($authData);
-                    db('user')->where('id',$data['id'])->update(['status'=>'1']);
-                    // 更新被审核人账户余额
-                    $infoUser = db('user')->where('id',$info['uid'])->find();
-                    // 计算发放佣金推荐
-                    $reward = new \lib\Reward;
-                    $reward->push($info['uid']);
-                    $userLevel = db('agent_level')->find($info['level_id']);
-                    $reward->same($info['uid'],$userLevel['money'],'1');
-                    // 业绩计算
-                    if($info['parent_id'] > 0){
-                        $parent = db('user')->find($info['parent_id']);
-                        $parentLevel = db('agent_level')->find($parent['level_id']);
-                        if($info['level_id'] == $parent['level_id']){
-                            // 首单推荐业绩
-                            db('performance')->insertGetId([
-                                'agent_id'=>$parent['id'],
-                                'form_id'=>$info['uid'],
-                                'type'=>'1',
-                                'money'=>$level['money'],
-                                'timestamp'=>date('Y-m-d H:i:s')
-                            ]);
-                             db("test")->insertGetId(['content'=>$level['money']]);
-                            $reward->teamreward($parent['id'],$level['money']);
-                        }
-                    }
-
-                    $infoUserMoney = $infoUser['money'] + ($level['money'] - $orderMoney['price']);
-                    db('user')->where('id',$infoUser['id'])->update(['money'=>$infoUserMoney]);
-
-                    db('agent_log')->insertGetId([
-                        'agent_id'=>$infoUser['id'],
-                        'money'=>$orderMoney['price'],
-                        'type'=>'5',
-                        'remark'=>'下单支出',
-                        'timestamp'=>date('Y-m-d H:i:s')
-                    ]);
-
-                    if($state){
-                        if($info['top_parent'] != $info['parent_id']){
-                            $parentId = $info['parent_id'];
-                        }else{
-                            $parentId = $info['top_parent'];
-                        }
-                        if($parentId > 0){
-                            $parentLink = '<a href="'.urlDiy('/user/agent/team').'">查看我的团队</a>';
-                            $parentMsg = "亲，你的下级代理授权申请审核通过啦！\n审核人：".getUser($info['top_parent'],'auth_name')."\n审核时间：".date('Y-m-d H:i:s')."\n\n申请人：".getUser($info['uid'],'auth_name')."\n微信号：".getUser($info['uid'],'wechat')."\n手机号：".getUser($info['uid'],'phone')."\n\n申请级别：".$info['level_name']."\n\n".$parentLink;
-                            $parentOpenId = getUser($parentId,'openid');
-                            SendWxMessage($parentMsg,$parentOpenId);
-                        }
-
-                        $authLink = '<a href="'.urlDiy('/user/index').'">前往代理后台</a>';
-                        $msgData = "亲，你的代理授权申请审核通过啦！\n审核人：".getUser($info['top_parent'],'auth_name')."\n审核时间：".date('Y-m-d H:i:s')."\n\n申请人：".getUser($info['uid'],'auth_name')."\n微信号：".getUser($info['uid'],'wechat')."\n手机号：".getUser($info['uid'],'phone')."\n\n申请级别：".$info['level_name']."\n\n".$authLink;
-                        
-                        $openId = getUser($info['uid'],'openid');
-                        SendWxMessage($msgData,$openId);
-                        return $this->success('操作成功','','1');
-                    }else{
-                        return $this->error('操作失败','','1');
-                    }
-
-                }else if($data['status'] == '2'){
-                    if(empty($data['remark'])){
-                        return $this->error('请输入审核不通过原因/备注');die;
-                    }
-                    $msgData = "亲，你的代理授权申请审核不通过！\n审核人：".getUser($info['top_parent'],'auth_name')."\n审核时间：".date('Y-m-d H:i:s')."\n原因：".$data['remark']."\n\n申请人：".getUser($info['uid'],'auth_name')."\n微信号：".getUser($info['uid'],'wechat')."\n手机号：".getUser($info['uid'],'phone')."\n申请级别：".$info['level_name'];
-                    // echo $msgData.$info['openid'];
-                    SendWxMessage($msgData,$info['openid']);
-                    // 拒绝审核，并删除所有授权数据
-                    // 发送相关短信
-                    $state = db('user_auth')->where('uid',$data['id'])->delete();
-                    db('user')->where('id',$data['id'])->delete();
-                    db('user_link')->where('uid',$data['id'])->delete();
-                    db('user_order')->where('uid',$data['id'])->delete();
-                    db('user_address')->where('uid',$data['id'])->delete();
-                    db('user_cart')->where('uid',$data['id'])->delete();
-                    db('user_recharge')->where('uid',$data['id'])->delete();
-                    db('user_wallet')->where('uid',$data['id'])->delete();
-                    // db('user')->where('id',$data['id'])->update(['status'=>'0','phone'=>'','password'=>'','level_id'=>'0','money'=>'0']);
-                    if($state){
-                        return $this->success('操作成功','','1');
-                    }else{
-                        return $this->error('操作失败','','1');
-                    }
-                }
-            }
-        }
-    }
-    /**
-     * 充值处理
-    **/
-    public function option($id = 0){
-        $this->view->engine->layout('api_layout');
-        if(!isPost()){
-            $info = db('user a')->join('user_auth b','a.id = b.uid')->field('a.*,b.auth_name')->where(['a.id'=>$id])->find();
-            $this->assign('info',$info);
-            return $this->fetch();
-        }else{
-            $data = $this->data;
-            $info = db('user')->find($data['id']);
-            if($data['type'] == '1'){
-                // 增加货款
-                $userMoney = $info['money'] + $data['money'];
-                $typeTxt = "货款余额";
-                $state = db('user')->where('id',$data['id'])->update(['money'=>$userMoney]);
-            }else if($data['type'] == '2'){
-                // 增加奖金池金额
-                $userMoney = $info['reward_money'] + $data['money'];
-                $typeTxt = "奖余额";
-                $state = db('user')->where('id',$data['id'])->update(['reward_money'=>$userMoney]);
-            }
-            if($state){
-                db('option_log')->insertGetId([
-                    'uid'=>$info['id'],
-                    'money'=>$data['money'],
-                    'user_money'=>$userMoney,
-                    'type'=>$data['type'],
-                    'remark'=>$data['remark'],
-                    'timestamp'=>date('Y-m-d H:i:s')
-                ]);
-
-                $msgData = "亲，你的账户".$typeTxt."发生变化\n处理人：总部\n备注：".$data['remark']."\n时间：".date('Y-m-d H:i:s');
-                SendWxMessage($msgData,$info['openid']);
-                return $this->success('处理成功','','1');
-            }else{
-                return $this->error('处理失败','','1');
-            }
-            
-        }
-    }
-    /**
-     * 扣款处理
-    **/
-    public function option_s($id = 0){
-        $this->view->engine->layout('api_layout');
-        if(!isPost()){
-            $info = db('user a')->join('user_auth b','a.id = b.uid')->field('a.*,b.auth_name')->where(['a.id'=>$id])->find();
-            $this->assign('info',$info);
-            return $this->fetch();
-        }else{
-            $data = $_POST;
-            $info = db('user')->find($data['id']);
-            if($data['type'] == '1'){
-                // 增加货款
-                $userMoney = $info['money'] - $data['money'];
-                $typeTxt = "货款余额";
-                $state = db('user')->where('id',$data['id'])->update(['money'=>$userMoney]);
-            }else if($data['type'] == '2'){
-                // 增加奖金池金额
-                $userMoney = $info['reward_money'] - $data['money'];
-                $typeTxt = "奖余额";
-                $state = db('user')->where('id',$data['id'])->update(['reward_money'=>$userMoney]);
-            }
-            if($state){
-                db('option_log')->insertGetId([
-                    'uid'=>$info['id'],
-                    'money'=>$data['money'],
-                    'user_money'=>$userMoney,
-                    'type'=>$data['type'],
-                    'remark'=>$data['remark'],
-                    'timestamp'=>date('Y-m-d H:i:s')
-                ]);
-
-                $msgData = "亲，你的账户".$typeTxt."发生变化\n处理人：总部\n备注：".$data['remark']."\n时间：".date('Y-m-d H:i:s');
-                SendWxMessage($msgData,$info['openid']);
-                return $this->success('处理成功','','1');
-            }else{
-                return $this->error('处理失败','','1');
-            }
-        }
-    }
+    
     public function status(){
         if(!isPost()){
 
@@ -402,6 +117,7 @@ class Agents extends Admin{
                 
                 db('user')->where(['id'=>$data['uid']])->update(['phone'=>$data['phone']]);
                 $ndata['name']      = $data['name'];
+                $ndata['level']  = $data['level'];
                 $ndata['business']  = $data['business'];
                 $ndata['update_time']   = time();
                 $ndata['start_time']    = strtotime($data['start_time']);
@@ -416,6 +132,77 @@ class Agents extends Admin{
             }
         }
     }
+
+
+    /**
+     * 代理商列表
+    **/
+    public function count($id = 1){
+        $search = $_GET;
+        $searchData['selkey'] = isset($_GET['selkey']) ? $_GET['selkey'] : '1';
+        $searchData['key'] = isset($_GET['key']) ? $_GET['key'] : '';
+        $searchData['level'] = isset($_GET['level']) ? $_GET['level'] : '-1';
+        $searchData['province'] = isset($_GET['province']) ? $_GET['province'] : '-1';
+        $searchData['city'] = isset($_GET['city']) ? $_GET['city'] : '-1';
+        $searchData['area'] = isset($_GET['area']) ? $_GET['area'] : '-1';
+        $where = array();
+        if($searchData['province'] !== '-1' && $searchData['city'] !== '-1' && $searchData['area'] !== '-1'){
+            $where['b.province'] = $searchData['province'];
+            $where['b.city'] = $searchData['city'];
+            $where['b.area'] = $searchData['area'];
+        }
+        if($searchData['level'] !== '-1'){
+            $where['b.level_id'] = $searchData['level'];
+        }
+        // $where['b.second'] = 2;
+        if($id == 2){
+            $where['status'] = 0;
+        }elseif($id == 3){
+            $where['status'] = 3;
+        }
+        // $where['b.second'] = '2';
+        switch ($searchData['selkey']) {
+            case '1': // 手机号
+                if(!empty($searchData['key'])){
+                    $whereU['phone'] = array('like','%'.$searchData['key'].'%');
+                    $where['uid'] = ['in',db('user')->where($whereU)->column('id')];
+                }
+
+            break;
+            case '2': // 授权名称
+                if(!empty($searchData['key'])){
+                    $where['name'] = array('like','%'.$searchData['key'].'%');
+                }
+            break;
+            case '3': // 身份证
+                if(!empty($searchData['key'])){
+                    $whereU['card_id'] = array('like','%'.$searchData['key'].'%');
+                    $where['uid'] = ['in',db('user')->where($whereU)->column('id')];
+                }
+            break;
+        }
+        // 
+        //$list = db('user a')->join('user_auth b','a.id = b.uid')->order('b.timestamp desc')->where($where)->paginate(20,false,['query'=>request()->param()]);
+        $list = Agent::with('User')->where($where)->paginate(20,false,['query'=>request()->param()]);
+        $cardType = db('cardType')->select();
+        foreach( $list as $key=>$item ){
+            foreach( $cardType as $k=>$i ){
+                $list[$key][$i['name'].'1'] = db('agentCard')->where(['gid'=>$item['id'],'card_style'=>$i['id'],'card_type'=>1])->count();
+                $list[$key][$i['name'].'2'] = db('agentCard')->where(['gid'=>$item['id'],'card_style'=>$i['id'],'card_type'=>2])->count();
+            }
+        }
+
+        // $region = db('region')->where('parent_id','0')->select();
+        // $this->assign('region',$region);
+        // $level = db('agent_level')->select();
+        // $this->assign('level',$level);
+        $this->assign('data',$searchData);
+        $this->assign('id',$id);
+        $this->assign('list',$list);
+        $this->assign('page',$list->render());
+        return $this->fetch();
+    }
+
 
     /**
 	 * 代理结构树

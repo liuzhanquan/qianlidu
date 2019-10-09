@@ -21,9 +21,6 @@
         </ul>
     </div>
     <div class="right-content" data-model="table-bind">
-		<div class="option-btn">
-			<a href="{:url('addagent')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加代理申请链接</a>
-		</div>
     	<div class="option-search clearfix">
     		<form method="get">
 				<div class="search-item">
@@ -44,13 +41,10 @@
     	<table class="table table-hover" data-table>
 			<thead>
 				<tr>
-					<th class="text-center" width="20%">授权名称</th>
-					<th class="text-center">授权编号</th>
-					<!-- <th class="text-center">代理级别</th> -->
-					<th class="text-center">手机号</th>
-					<th class="text-center">商家</th>
-					<th class="text-center"> 授权期限时间 </th>
-					<th class="text-center">状态</th>
+					<th class="text-center" width="20%">代理商</th>
+					<th class="text-center">虚拟卡数量</th>
+					<th class="text-center">实体卡数量</th>
+					
 					<th class="text-center">操作</th>
 				</tr>
 			</thead>
@@ -80,29 +74,32 @@
                             </div>
                         </div>
 					</td>
-					<td class="text-center">{$config['brand_prefix']}{$vo['user_all']['id']}</td>
-					<td class="text-center">{$vo['user_all']['phone'] ? $vo['user_all']['phone'] : '未设置'}</td>
-					<td class="text-center">{$vo['business'] ? '是' : '否'}</td>
-					<td class="text-center">{$vo['start_time'] ? date('Y-m-d H:i:s',$vo['start_time']):''}
-						<br>
-					{$vo['stop_time'] ? date('Y-m-d H:i:s',$vo['stop_time']) : '未设置'}</td>
-					<td class="text-center">{if condition="$vo['status'] eq 0"}待审核{elseif condition="$vo['status'] eq 1" /}正常{elseif condition="$vo['status'] eq 2" /}待二次审核{elseif condition="$vo['status'] eq 3" /}已冻结{/if}</td>
+					
 					<td class="text-center">
-						<a href="{:url('douser',['id'=>$vo['id'],'type'=>'view'])}">查看</a><em>-</em>
-						{if condition="$vo['status'] eq 0"}
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('auditing',['id'=>$vo['id']])}">审核</a><br>
-						{elseif condition="$vo['status'] eq 2" /}
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('auditing',['id'=>$vo['id']])}">审核</a><br>
-						{elseif condition="$vo['status'] eq 1" /}
-						<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该代理吗？" data-url="{:url('status')}" data-val="3" data-id="{$vo['id']}">冻结</a><br>
-						{elseif condition="$vo['status'] eq 3" /}
-						<a href="javascript:void(0)" data-confirm data-tips="您确认要启用吗？" data-url="{:url('status')}" data-val="1" data-id="{$vo['id']}">启用</a><br>
-						{/if}
-						<!-- <a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('option',['id'=>$vo['id']])}" data-title="增加代理款项">充值</a><em>-</em>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="{:url('option_s',['id'=>$vo['id']])}">扣款</a><br> -->
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=1">虚拟卡(A) {$vo.A1}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=2">虚拟卡(B) {$vo.B1}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=3">虚拟卡(C) {$vo.C1}
+						</a>
+						<br/>
+					</td>
+					<td class="text-center">
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=3">实体卡(A) {$vo.A2}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=3">实体卡(B) {$vo.B2}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=3">实体卡(C) {$vo.C2}
+						</a>
+						<br/>
+					</td>
+					<td class="text-center">
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}">查看</a>
 
-						<a href="{:url('douser',['id'=>$vo['id'],'type'=>'edit'])}">修改</a><em>-</em>
-						<a href="javascript:void(0)" data-del data-table="user" data-id="{$vo['id']}" >删除</a><br>
 					</td>
 				</tr>
 				{/foreach}

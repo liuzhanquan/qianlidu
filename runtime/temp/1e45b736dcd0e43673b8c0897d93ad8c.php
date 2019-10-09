@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\wechat\index.html";i:1557097930;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\card_view.html";i:1570612603;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,54 +65,95 @@
 		  <?php else: ?>
 		  <li><a href="<?php echo url($vo['model'].'/'.$vo['url']); ?>"><?php echo $vo['name']; ?></a></li>
 		  <?php endif; endforeach; ?>
+  		  <li>查看</li>
 		</ol>
 	</div>
-	<div class="sys-content">
-		<div class="page-bang">
-			<div class="add-content page-appID">
-				<form data-model="form-submit">
-				<dl class="add-block-li">
-                    <dt>微信账号类型：</dt>
-                    <dd>
-                        服务号
-                    </dd>
-                </dl>
-                <dl class="add-block-li">
-                    <dt>微信URL：</dt>
-                    <dd><?php echo urlDiy('/index/wechat/index'); ?>?token=<?php echo lock_url($config['brand_prefix']); ?></dd>
-                </dl>
-                <dl class="add-block-li">
-                    <dt>微信Token：</dt>
-                    <dd>weixintoken</dd>
-                </dl>
-                <dl class="add-block-li">
-                    <dt>微信AppID：</dt>
-                    <dd>
-                        <input type="text" name="wechat[appid]" value="<?php echo $wechat['appid']; ?>" datatype="*">
-                        <i class="shuoming">微信公众平台中获取</i>
-                    </dd>
-                </dl>
-                <dl class="add-block-li">
-                    <dt>微信AppSecret：</dt>
-                    <dd>
-                        <input type="password" name="wechat[appsecret]" value="<?php echo $wechat['appsecret']; ?>" datatype="*">
-                        <i class="shuoming">微信公众平台中获取</i>
-                    </dd>
-                </dl>
-                <dl class="add-block-li">
-                    <dt>EncodingKey：</dt>
-                    <dd>
-                        <input type="text" name="wechat[keycode]" value="<?php echo $wechat['keycode']; ?>" datatype="*">
-                        <i class="shuoming">微信公众平台中获取</i>
-                    </dd>
-                </dl>
-		        <div class="submit-btn">
-		            <button class="btn btn-info">保存设置</button>
-		        </div>
-		        </form>
-			</div>
-		</div>
-    </div>
+	<div class="agent-level"><h3>会员卡信息</h3></div>
+	<dl class="add-block-li">
+		<dt>卡号：</dt>
+		<dd><?php echo $info['card_num']; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>密码：</dt>
+		<dd><?php echo $info['password']; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>卡片类型：</dt>
+		<dd><?php echo $info['card_type']==1?'虚拟卡' : '实体卡'; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>是否使用：</dt>
+		<dd><?php echo !empty($info['card_state'])?'已使用':'未使用'; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>卡片样式：</dt>
+		<dd><?php if(is_array($cardType) || $cardType instanceof \think\Collection || $cardType instanceof \think\Paginator): if( count($cardType)==0 ) : echo "" ;else: foreach($cardType as $key=>$item): if($item['id'] == $info['card_style']): ?>
+				<?php echo $item['name']; endif; endforeach; endif; else: echo "" ;endif; ?>
+		</dd>
+	</dl>
+	<?php if($info['card_style'] == 2): ?>
+		<dl class="add-block-li">
+			<dt>是否印刷：</dt>
+			<dd><?php echo !empty($info['print_status'])?'已印刷':'未印刷'; ?></dd>
+		</dl>
+	<?php endif; ?>
+	<dl class="add-block-li">
+		<dt>当天试用密码次数：</dt>
+		<dd><?php echo $info['up_num']; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>使用开始时间：</dt>
+		<dd><?php echo date("Y-m-d H:i:s",$info['start_time']); ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>使用结束时间：</dt>
+		<dd><?php echo date("Y-m-d H:i:s",$info['stop_time']); ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>激活使用后增加会员时间：</dt>
+		<dd><?php echo charge_time(time()+$info['charge_time']); ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>当天试用密码次数：</dt>
+		<dd><?php echo $info['up_num']; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>最近修改时间：</dt>
+		<dd><?php echo $info['update_time']; ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>创建时间：</dt>
+		<dd><?php echo date("Y-m-d H:i:s",$info['add_time']); ?></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>是否冻结：</dt>
+		<dd>
+			<?php if($info['state'] == 1): ?>
+				已启用
+			<?php elseif($info['state'] == 3): ?>
+				已冻结
+			<?php endif; ?>
+		</dd>
+	</dl>
+	<?php if(!(empty($agent) || (($agent instanceof \think\Collection || $agent instanceof \think\Paginator ) && $agent->isEmpty()))): ?>
+	<div class="agent-level"><h3>代理商信息</h3></div>
+	<div class="agent-info nobor">
+		<dl class="add-block-li">
+			<dt>代理商名称：</dt>
+			<dd><?php echo $agent['name']; ?></dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>授权期限时间：</dt>
+			<dd>
+				<?php if($agent['level'] > 0): ?>
+					<em><?php echo date('Y年m月d日',$agent['start_time']); ?></em> <em class="ml-10 mr-10">~</em>	 <em><?php echo date('Y年m月d日',$agent['stop_time']); ?></em>
+				<?php else: ?>
+					<span class="color_red">尚未授权</span>
+				<?php endif; ?>
+			</dd>
+		</dl>
+	</div>
+	<?php endif; ?>
 </div>
 		</div>
 	</div>

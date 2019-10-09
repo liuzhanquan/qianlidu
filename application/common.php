@@ -1043,10 +1043,11 @@ if(!function_exists('makeAgentNum')){
      * @param $num          生成数量
      * @param $start_time   卡片有效时间  开始时间
      * @param $stop_time    卡片有效时间  结束时间
+     * @param $charge_time    卡片有效时间  结束时间
      * @param $gid          绑定代理商  默认不绑定
      * @return array
      */
-    function makeAgentNum($type,$class,$num,$start_time,$stop_time,$gid=0){
+    function makeAgentNum($type,$class,$num,$start_time,$stop_time,$charge_time,$gid=0){
                 
         for( $i = 0; $i < $num; $i++ ){
             $card[$i]['card_num'] = strval( substr(date('YmdHi'),2) . mt_rand(10001,99999));
@@ -1056,6 +1057,7 @@ if(!function_exists('makeAgentNum')){
             $card[$i]['gid'] = $gid;
             $card[$i]['start_time'] = $start_time;
             $card[$i]['stop_time'] = $stop_time;
+            $card[$i]['charge_time'] = $charge_time;
             $card[$i]['add_time'] = time();
             $card[$i]['update_time'] = time();
         }
@@ -1138,29 +1140,27 @@ if(!function_exists('charge_time')){
         if ($time >= 31104000) { // N年
             $num = (int)($time / 31104000);
 
-            $t_total =  $num . '年 '.$hours;
+            $t_total =  $num . '年 ';
         }
         else if ($time >= 2592000) { // N月
             $num = (int)($time / 2592000);
 
-            $t_total = $num . '月 '.$hours;
+            $t_total = $num . '月 ';
         }
         else if ($time >= 86400) { // N天
             $num = (int)($time / 86400);
 
-            $t_total = $num . '天 '.$hours;
+            $t_total = $num . '天 ';
         }
         else if ($time >= 3600) { // N小时
             $num = (int)($time / 3600);
 
             //return $num . '小时';
-            $t_total = '今天'.$hours;
         }
         else if ($time > 60) { // N分钟
             $num = (int)($time / 60);
 
-            // $t_total = $num . '分钟前';
-            $t_total = '今天1'.$hours;
+            $t_total = $num . '分钟前';
         }else{
             $t_total = date('Y-m-d H:i:s',$agoTime);
         }

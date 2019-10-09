@@ -1,0 +1,57 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('typeedit')}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加分类</a>
+			<!-- <span>子账号登录地址：{:urlDiy('/member/login')}</span>
+			<a href="javascript:;" data-model="form-copy" data-txt="{:urlDiy('/member/login')}">复制</a> -->
+		</div>
+		<div class="option-search clearfix">
+		</div>
+		<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center">ID</th>
+					<th class="text-center">分类名称</th>
+					<th class="text-center">分类备注</th>
+					<th class="text-center">添加时间</th>
+					<th class="text-center">更新时间</th>
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{empty name="list"}
+				<tr>
+					<td colspan="7">没有数据啦~~</td>
+				</tr>
+				{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td>{$vo['id']}</td>
+					<td>{$vo['name']}</td>
+					<td>{$vo['title']}</td>
+					<td>{$vo['add_time']|date="Y-m-d H:i:s",###}</td>
+					<td>{$vo['update_time']|date="Y-m-d H:i:s",###}</td>
+					<td>
+						<a href="{:url('typeedit',['id'=>$vo['id']])}">修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="admin">删除</a>
+					</td>
+				</tr>
+				{/foreach}
+				{/empty}
+			</tbody>
+		</table>
+		<div class="page"></div>
+	</div>
+</div>

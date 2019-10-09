@@ -106,10 +106,6 @@ class Product extends Admin{
 
 
             }else{
-                // $snExit = db('goods')->where('goods_sn',$data['goods_sn'])->find();
-                if(!empty($snExit)){
-                    return $this->error('该产品编号已存在，请更换');
-                } 
                 // 添加
                 $state = $id = db('goods')->insertGetId($ndata);
             }

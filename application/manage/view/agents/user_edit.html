@@ -28,6 +28,13 @@
 	            </dd>
 	        </dl>
 	        <dl>
+	            <dt>代理商等级：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="level" value="{$info['level']}">
+	            </dd>
+	            <i>（0 为未激活）</i>
+	        </dl>
+	        <dl>
 	            <dt>是否商家：</dt>
 	            <dd>
 	            	<label class="radio-inline"><input type="radio" name="business" {if condition="$info['business'] eq 1"}checked{/if} value="1">是</label>

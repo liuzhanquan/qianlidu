@@ -1,0 +1,132 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>修改</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt>创建数量：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="num"  value="">
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>卡片类型：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" class="card_type" name="card_type" checked value="1">虚拟卡</label>
+	            	<label class="radio-inline"><input type="radio" class="card_type" name="card_type" value="2">实体卡</label>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<!-- <dl class="print_box" style="display:none">
+	            <dt>是否印刷：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="print_status"  value="1">已印刷</label>
+	            	<label class="radio-inline"><input type="radio" name="print_status"  value="0">未印刷</label>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl> -->
+	       <dl>
+	            <dt>卡片样式：</dt>
+	            <dd>
+	            	
+					<select name="card_style" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="cardType" item="item"}
+   36                      <option value="{$item['id']}" >{$item['name']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			
+			<dl>
+	            <dt>代理商：</dt>
+	            <dd>
+	            	
+					<select name="gid" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="agent" item="item"}
+   36                      <option value="{$item['id']}" >{$item['name']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt><i>*</i>使用时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>激活使用后增加会员时间：</dt>
+	            <dd style="position:relative;">
+	            	<input type="text" class="form-controls" name="charge_time" value="">
+					<select name="charge_type" class="form-control" style="width: 150px;float:left;position:absolute;left:200px;height:33px;background-color:#fff;top:0px;" id="">
+						<option value="31104000" >年</option>
+						<option value="2592000" >月</option>
+						<option value="86400" >天</option>
+						<option value="3600" >小时</option>
+					</select>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>是否启用：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="state" checked value="1">启用</label>
+	            	<label class="radio-inline"><input type="radio" name="state"  value="0">冻结</label>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	            <button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<script type="text/javascript">
+function call_back(data){
+	console.log(data)
+}
+</script>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($info['city']) ? $info['city'] : '-1';{/php}
+	{php} $areaId = isset($info['area']) ? $info['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "加载中", "{$areaId}", "-1");
+    },1000);
+
+	$('.card_type').click(function(){
+		if( $(this).val() == 1 ){
+			$('.print_box').css('display','none');
+		}else if(  $(this).val() == 2 ){
+			$('.print_box').css('display','block');
+		}
+	
+	})
+
+
+});
+
+
+</script>

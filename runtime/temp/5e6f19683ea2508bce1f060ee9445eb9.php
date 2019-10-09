@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\index.html";i:1570532662;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\index.html";i:1570620163;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,21 +71,25 @@
 
     <div class="tab-title" style="margin-top: 28px;">
         <ul class="tab-title_con">
-            <li <?php if($id == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>">全部代理</a></li>
-            <li <?php if($id == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'2']); ?>">待审核</a></li>
-            <li <?php if($id == 3): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'3']); ?>">已冻结</a></li>
+            <li <?php if($id == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>">全部卡片</a></li>
+            <li <?php if($id == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'2']); ?>">已使用</a></li>
+            <li <?php if($id == 3): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'3']); ?>">未使用</a></li>
+            <li <?php if($id == 4): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'4']); ?>">实体卡</a></li>
+            <li <?php if($id == 5): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'5']); ?>">虚拟卡</a></li>
+            <li <?php if($id == 6): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'6']); ?>">已冻结</a></li>
+            <li <?php if($id == 7): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'7']); ?>">未冻结</a></li>
         </ul>
     </div>
     <div class="right-content" data-model="table-bind">
 		<div class="option-btn">
-			<a href="<?php echo url('addagent'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加代理申请链接</a>
+			<a href="<?php echo url('addagent'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>创建新卡片</a>
 		</div>
     	<div class="option-search clearfix">
     		<form method="get">
 				<div class="search-item">
 					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
 						<option value="1" <?php if($data['selkey'] == 1): ?>selected<?php endif; ?>>手机号</option>
-						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>授权名称</option>
+						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>会员卡号</option>
 						<option value="3" <?php if($data['selkey'] == 3): ?>selected<?php endif; ?>>身份证</option>
 					</select>
 					<input type="text" class="form-control" name="key" value="<?php echo $data['key']; ?>" style="width: 200px;">
@@ -96,16 +100,23 @@
 				</div>
     		</form>
     	</div>
+    	<div class="page">
+    		<ul class="pagination" style="float:right;">
+    			<li><a class="upAll" val="3" >批量冻结</a></li>
+    			<li><a class="upAll" val="1" >批量启用</a></li>
+    		</ul>
+    	</div>
     	<!--  -->
     	<table class="table table-hover" data-table>
 			<thead>
 				<tr>
+					<th class="text-center" id="selectAll" width="" status="0"><input type="checkbox"  /> 全选</th>
 					<th class="text-center" width="20%">卡号</th>
-					<th class="text-center">类型</th>
-					<!-- <th class="text-center">代理级别</th> -->
 					<th class="text-center">实体卡/虚拟卡</th>
+					<th class="text-center">类型</th>
 					<th class="text-center">是否绑定代理商</th>
-					<th class="text-center"> 期限时间 </th>
+					<th class="text-center">是否使用</th>
+					<th class="text-center">期限时间 </th>
 					<th class="text-center">状态</th>
 					<th class="text-center">操作</th>
 				</tr>
@@ -116,30 +127,30 @@
 				</tr>
 			<?php else: foreach($list as $vo): ?>
 				<tr>
-					<td class="text-center"><?php echo $vo['card_num']; ?></td>
-					<td class="text-center"><?php echo $vo['card_type']; ?></td>
-					<td class="text-center"><?php echo $vo['card_state']; ?></td>
-					<td class="text-center"><?php echo !empty($vo['user_all']['phone'])?$vo['user_all']['phone'] : '未设置'; ?></td>
-					<td class="text-center"><?php echo !empty($vo['business'])?'是' : '否'; ?></td>
-					<td class="text-center"><?php echo !empty($vo['start_time'])?date('Y-m-d H:i:s',$vo['start_time']):''; ?>
-						<br>
-					<?php echo !empty($vo['stop_time'])?date('Y-m-d H:i:s',$vo['stop_time']) : '未设置'; ?></td>
-					<td class="text-center"><?php if($vo['status'] == 0): ?>待审核<?php elseif($vo['status'] == 1): ?>正常<?php elseif($vo['status'] == 2): ?>待二次审核<?php elseif($vo['status'] == 3): ?>已冻结<?php endif; ?></td>
 					<td class="text-center">
-						<a href="<?php echo url('douser',['id'=>$vo['id'],'type'=>'view']); ?>">查看</a><em>-</em>
-						<?php if($vo['status'] == 0): ?>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('auditing',['id'=>$vo['id']]); ?>">审核</a><br>
-						<?php elseif($vo['status'] == 2): ?>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('auditing',['id'=>$vo['id']]); ?>">审核</a><br>
-						<?php elseif($vo['status'] == 1): ?>
-						<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该代理吗？" data-url="<?php echo url('status'); ?>" data-val="3" data-id="<?php echo $vo['id']; ?>">冻结</a><br>
-						<?php elseif($vo['status'] == 3): ?>
+						<input type="checkbox" name="goodsT[]" value="<?php echo $vo['id']; ?>" class="selectBox" />
+					</td>
+					<td class="text-center"><?php echo $vo['card_num']; ?></td>
+					<td class="text-center"><?php echo $vo['card_type']==1?'虚拟卡':'实体卡'; ?></td>
+					<td class="text-center">
+						<?php if(is_array($cardType) || $cardType instanceof \think\Collection || $cardType instanceof \think\Paginator): if( count($cardType)==0 ) : echo "" ;else: foreach($cardType as $key=>$item): if($item['id'] == $vo['card_style']): ?>
+							<?php echo $item['name']; endif; endforeach; endif; else: echo "" ;endif; ?>
+					</td>
+					<td class="text-center"><?php echo !empty($vo['gid'])?'是' : '否'; ?></td>
+					<td class="text-center"><?php echo !empty($vo['card_state'])?'是' : '否'; ?></td>
+					<td class="text-center"><?php echo !empty($vo['start_time'])?date('Y-m-d H:i:s',$vo['start_time']):''; ?>
+					<br>
+					<?php echo !empty($vo['stop_time'])?date('Y-m-d H:i:s',$vo['stop_time']) : '未设置'; ?></td>
+					<td class="text-center"><?php if($vo['state'] == 0): ?>待审核<?php elseif($vo['state'] == 1): ?>正常<?php elseif($vo['state'] == 2): ?>待二次审核<?php elseif($vo['state'] == 3): ?>已冻结<?php endif; ?></td>
+					<td class="text-center">
+						<a href="<?php echo url('list',['id'=>$vo['id'],'type'=>'view']); ?>">查看</a><em>-</em>
+						<?php if($vo['state'] == 1): ?>
+						<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该卡片吗？" data-url="<?php echo url('status'); ?>" data-val="3" data-id="<?php echo $vo['id']; ?>">冻结</a><br>
+						<?php elseif($vo['state'] == 3): ?>
 						<a href="javascript:void(0)" data-confirm data-tips="您确认要启用吗？" data-url="<?php echo url('status'); ?>" data-val="1" data-id="<?php echo $vo['id']; ?>">启用</a><br>
 						<?php endif; ?>
-						<!-- <a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('option',['id'=>$vo['id']]); ?>" data-title="增加代理款项">充值</a><em>-</em>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('option_s',['id'=>$vo['id']]); ?>">扣款</a><br> -->
 
-						<a href="<?php echo url('douser',['id'=>$vo['id'],'type'=>'edit']); ?>">修改</a><em>-</em>
+						<a href="<?php echo url('list',['id'=>$vo['id'],'type'=>'edit']); ?>">修改</a><em>-</em>
 						<a href="javascript:void(0)" data-del data-table="user" data-id="<?php echo $vo['id']; ?>" >删除</a><br>
 					</td>
 				</tr>
@@ -158,7 +169,75 @@ $(function () {
         GetComboboxTwo("ddlCity", "ddlArea", "<?php echo url('getregion'); ?>", "id", "name", { levelId: 0 }, "id", "-1", "区域", "<?php echo $areaId; ?>", "-1");
     },1000);
 	
+
+	$('#selectAll').click(function(){
+		if( $(this).attr('status') == 0 ){
+			sb(1);
+			$(this).attr('status',1);
+			$(this).children('input').eq(0).prop("checked",true);
+		}else{
+			sb(2);
+			$(this).attr('status',0);
+			$(this).children('input').eq(0).prop("checked",false);
+		}
+		
+	});
+
+	var sbState = 0;
+	var id = '';
+	function sb(type){
+		$('.selectBox').each(function(index){
+			if( type == 1 ){
+				$(this).prop('checked',true);
+			}else if( type == 2 ){
+				$(this).prop('checked',false);
+			}else if( type == 3 ){
+				if( $(this).prop('checked') == false ){
+					sbState = 1;
+					return false;
+				}
+			}else if( type == 4 ){
+				if( $(this).prop('checked') == true ){
+					id = id + ',' + $(this).val();
+					
+				}
+			}
+		})
+	}
+
+	$('.selectBox').click(function(){
+		sbState = 0;
+		sb(3);
+		if( sbState ){
+			$('#selectAll').attr('status',0);
+			$('#selectAll').children('input').eq(0).prop("checked",false);
+		}else{
+			$('#selectAll').attr('status',1);
+			$('#selectAll').children('input').eq(0).prop("checked",true);
+		}
+	})
+
+	$('.upAll').click(function(){
+		id = '';
+		sb(4);
+		id = id.substr(1);
+		var result = {};
+		result['id'] = id;
+		result['type'] = 1;
+		result['val']  = $(this).attr('val');
+		$.post('<?php echo url("status"); ?>',result,function(data){
+			alert(data.msg);
+			if( data.code == 1 ){
+				window.location.reload();
+			}
+		})
+	})
+
 });
+
+
+
+
 </script>
 		</div>
 	</div>

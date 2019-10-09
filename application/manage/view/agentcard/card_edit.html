@@ -1,0 +1,159 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>修改</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt>会员卡号：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="card_num"  value="{$info['card_num']}">
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>密码：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="password"  value="{$info['password']}">
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>卡片类型：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" class="card_type" name="card_type" {if condition="$info['card_type'] eq 1"}checked{/if} value="1">虚拟卡</label>
+	            	<label class="radio-inline"><input type="radio" class="card_type" name="card_type" {if condition="$info['card_type'] eq 2"}checked{/if} value="2">实体卡</label>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<dl class="print_box" {if condition="$info['card_type'] eq 1"}style="display:none"{/if}>
+	            <dt>是否印刷：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="print_status" {if condition="$info['print_status'] eq 1"}checked{/if} value="1">已印刷</label>
+	            	<label class="radio-inline"><input type="radio" name="print_status" {if condition="$info['print_status'] eq 0"}checked{/if} value="0">未印刷</label>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	       <dl>
+	            <dt>卡片样式：</dt>
+	            <dd>
+	            	
+					<select name="card_style" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="cardType" item="item"}
+   36                      <option value="{$item['id']}" {if condition="$item['id'] eq $info['card_style']"}selected="selected"{/if}>{$item['name']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        
+			<dl>
+	            <dt>是否使用（激活）：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="card_state" {if condition="$info['card_state'] eq 1"}checked{/if} value="1">已激活</label>
+	            	<label class="radio-inline"><input type="radio" name="card_state" {if condition="$info['card_state'] eq 0"}checked{/if} value="0">未激活</label>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			
+			<dl>
+	            <dt>当天试密码次数：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="up_num" value="{$info['up_num']}">
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>代理商：</dt>
+	            <dd>
+	            	
+					<select name="gid" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="agent" item="item"}
+   36                      <option value="{$item['id']}" {if condition="$item['id'] eq $info['gid']"}selected="selected"{/if}>{$item['name']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt><i>*</i>使用时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.start_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.stop_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>激活使用后增加会员时间：</dt>
+	            <dd style="position:relative;">
+	            	<input type="text" class="form-controls" name="charge_time" value="{$info['charge_time_num']}">
+					<select name="charge_type" class="form-control" style="width: 150px;float:left;position:absolute;left:200px;height:33px;background-color:#fff;top:0px;" id="ddlAgentLevel_{$vo['id']}">
+						<option value="31104000" {if condition=" $info['charge_time'] gt 31104000 "}selected="selected"{/if}>年</option>
+						<option value="2592000" {if condition=" $info['charge_time'] lt 31104000 "}selected="selected"{/if}>月</option>
+						<option value="86400" {if condition=" $info['charge_time'] lt 2592000 "}selected="selected"{/if}>天</option>
+						<option value="3600" {if condition=" $info['charge_time'] lt 86400 "}selected="selected"{/if}>小时</option>
+					</select>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>是否启用：</dt>
+	            <dd>
+	            	{php}$state = isset($info['state']) ? $info['state'] : '0';{/php}
+	            	<label class="radio-inline"><input type="radio" name="state" {if condition="$state eq 1"}checked{/if} value="1">启用</label>
+	            	<label class="radio-inline"><input type="radio" name="state" {if condition="$state eq 0"}checked{/if} value="0">冻结</label>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<script type="text/javascript">
+function call_back(data){
+	console.log(data)
+}
+</script>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($info['city']) ? $info['city'] : '-1';{/php}
+	{php} $areaId = isset($info['area']) ? $info['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "加载中", "{$areaId}", "-1");
+    },1000);
+
+	$('.card_type').click(function(){
+		if( $(this).val() == 1 ){
+			$('.print_box').css('display','none');
+		}else if(  $(this).val() == 2 ){
+			$('.print_box').css('display','block');
+		}
+	
+	})
+
+
+});
+
+
+</script>
