@@ -14,10 +14,10 @@ class Home extends Base{
     }
 
     protected function wechatAauth(){
-        $cookie_user = userdecode(input('userInfo'))['id'];
-        
+        //$cookie_user = userdecode(input('userInfo'))['id'];
+        $cookie_user = userdecode(cookie('userInfo'));
         $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        $user_data = db('user')->where('id',$cookie_user)->find();
+        $user_data = db('user')->where('id',$cookie_user['id'])->find();
 
         if( empty($user_data) ){
             return_ajax('请先登录',400);
@@ -44,7 +44,8 @@ class Home extends Base{
 
 
     public function userInfo(){
-        $userInfo = userdecode(input('userInfo'));
+        $userInfo = userdecode(cookie('userInfo'));
+        //$userInfo = userdecode(input('userInfo'));
 
         $userlevel = db('user')->where('id',$userInfo['id'])->field('level,charge_time')->find();
 

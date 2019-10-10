@@ -1,0 +1,209 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		  <li>{empty name="info"}添加产品{else /}编辑产品{/empty}</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>产品标题：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="title" class="form-controls" datatype="*1-10" value="{$info['title']}">
+	            	<i>（最多20个字符）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>产品副标题：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="title_list" class="form-controls" datatype="*1-40" value="{$info['title_list']}">
+	            	<i>（最多60个字符）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>代理商：</dt>
+	            <dd>
+	            	
+					<select name="agent" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="agent" item="item"}
+   36                      <option value="{$item['id']}" {if condition="$item['id'] eq $info['agent']"}selected="selected"{/if}>{$item['user']['nickname']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<i></i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>线路标签：</dt>
+	            <dd>
+	           	{foreach name="goodsTag" item="item"}
+					<label class="checkbox-inline"><input type="checkbox" name="goodsT[]" value="{$item['id']}" {foreach name="goodsT" item="i"}{if condition="$i['tid'] eq $item['id']"}checked="checked"{/if}{/foreach}>{$item.name}</label>
+				{/foreach}
+                <!-- <span class="layers_tips_blue" data-model="form-webtips" data-content="勾选之后新代理授权申请以及推荐的代理授权申请时需要上传相关图片资料" data-placement="right">
+                    <em class="newtips"></em>
+                </span> -->
+            </dd>
+	        </dl>
+	        <dl>
+	            <dt>推荐标签：</dt>
+	            <dd>
+	            	<select name="rid" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
+   34                      <option value="0">无</option>
+   35                      {foreach name="goodsRecommed" item="item"}
+   36                      <option value="{$item['id']}" {if condition="$item['id'] eq $info['rid']"}selected="selected"{/if}>{$item['name']}</option>
+   37                      {/foreach}
+   38:                 </select>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>产品封面图片：</dt>
+	            <dd>
+	            	<div class="upload-panel">
+	            		<a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传图片</a>
+	            	</div>
+	            	<input type="hidden" name="photo" value="{$info['photo']}" id="images">
+		            <div class="help-block">(推荐尺寸为600px*600px，大小不超过200k，支持jpeg、jpg、png、gif、jpeg格式)</div>
+	            	<div class="upload-prview">
+	            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="{$info['photo']}" id="uploadImage_2">
+	            	</div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>是否banner展示：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="show_banner" {if condition="$info['show_banner'] eq 1"}checked{/if} value="1">显示</label>
+	            	<label class="radio-inline"><input type="radio" name="show_banner" {if condition="$info['show_banner'] eq 0"}checked{/if} value="0">取消</label>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>旅途时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.start_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.stop_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>旅途时间长度：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="total_time" class="form-controls" datatype="*1-10" value="{$info['total_time']}">
+	            	<i>（最多20个字符）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>项目展示时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.show_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.hide_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+	        <dl>
+	        	<dt><i>*</i>商品图：</dt>
+	            <dd>
+					<div class="flex-item-1 form-item-line">
+						<div class="input-line input-flex">
+							<div class="photo-group">
+								<ul class="clearfix" id="images-thumbnails">
+									{notempty name="photo"}
+									{foreach $photo as $vo}
+									<li><a href="{$vo.photo}" target="_blank"><img src="{$vo.photo}"></a><div class="info"><a class="del">x</a></div><input type="hidden" name="photo_arr[]" value="{$vo.photo}"></li>
+									{/foreach}
+									{/notempty}
+									<li>
+										<div class="rc-upload">
+										<a class="add-goods" href="javascript:;" data-model="upload-photo"
+					                        data-img-list='false'
+					                        data-img-name="photo_arr"
+					                        data-img-warp="#images-thumbnails"
+					                        data-id="imageUpload">+ 添加图片</a>
+										</div>
+										<script type="text/plain" id="imageUpload" style="display:block;" ></script>
+									</li>
+								</ul>
+							</div>
+							<div class="help-block">建议尺寸：800*800像素，最多上传10张</div>
+						</div>
+					</div>
+				</dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>详细描述：</dt>
+	            <dd>
+	            	<textarea name="content" rows="5" id="content" data-model="form-ueditor">{$info['content']}</textarea>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>排序：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="rank_num" class="form-controls" datatype="*1-100" value="{$info['rank_num']?$info['rank_num']:0}">
+	            	<i>（必须数字，值越大 优先展示）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>是否展示：</dt>
+	            <dd>
+	            	{php}$state = isset($info['status']) ? $info['status'] : '0';{/php}
+	            	<label class="radio-inline"><input type="radio" name="status" {if condition="$state eq 1"}checked{/if} value="1">显示</label>
+	            	<label class="radio-inline"><input type="radio" name="status" {if condition="$state eq 0"}checked{/if} value="0">隐藏</label>
+	            </dd>
+	        </dl>
+			<div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	        	<button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#brandSel").change(function(){
+		var brandId = $(this).val();
+		$.post("{:url('api/getLevel')}",{brand:brandId},function(res){
+			if(res.code == '1'){
+				var list = res.data;
+				var html = '';
+				for(var i in list){
+					html +='<dl class="sub-price">';
+	            	html +='	<dt>'+list[i].name+'</dt>';
+	            	html +='	<dd>';
+	            	html +='		<input type="text" style="width: 120px" name="agent['+list[i].id+']" class="form-controls" datatype="*1-10" value="">';
+	            	html +='		<em>元</em>';
+	            	html +='		<i>（支持2位小数点）</i>';
+	            	html +='	</dd>';
+	            	html +='</dl>';          	
+				}
+				html +='<div class="tip-alert"></div>';
+				$("#levelPrice").html(html);
+			}else{
+				$("#levelPrice").html('该品牌当前还没添加任何代理级别，无法设置代理订货价，<a href="{:url('system/dolevel')}">立即添加</a>');
+			}
+		},'JSON');
+	});
+	{empty name="$level"}
+	$("#brandSel").change();
+	{/empty}
+})
+</script>

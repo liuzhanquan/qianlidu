@@ -32,9 +32,9 @@
     		<form method="get">
 				<div class="search-item">
 					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
-						<option value="1" {if condition="$data['selkey'] eq 1"}selected{/if}>手机号</option>
-						<option value="2" {if condition="$data['selkey'] eq 2"}selected{/if}>会员卡号</option>
-						<option value="3" {if condition="$data['selkey'] eq 3"}selected{/if}>身份证</option>
+						<option value="1" {if condition="$data['selkey'] eq 1"}selected{/if}>代理商手机号</option>
+						<option value="2" {if condition="$data['selkey'] eq 2"}selected{/if}>会员卡卡号</option>
+						<option value="3" {if condition="$data['selkey'] eq 3"}selected{/if}>代理商身份证</option>
 					</select>
 					<input type="text" class="form-control" name="key" value="{$data['key']}" style="width: 200px;">
 				</div>
@@ -45,9 +45,10 @@
     		</form>
     	</div>
     	<div class="page">
-    		<ul class="pagination" style="float:right;">
+    		<ul class="pagination" style="float:right;margin-top:0px;">
     			<li><a class="upAll" val="3" >批量冻结</a></li>
     			<li><a class="upAll" val="1" >批量启用</a></li>
+    			<li><a class="delAll" val="1" >批量删除</a></li>
     		</ul>
     	</div>
     	<!--  -->
@@ -176,6 +177,21 @@ $(function () {
 		result['type'] = 1;
 		result['val']  = $(this).attr('val');
 		$.post('{:url("status")}',result,function(data){
+			alert(data.msg);
+			if( data.code == 1 ){
+				window.location.reload();
+			}
+		})
+	})
+	$('.delAll').click(function(){
+		id = '';
+		sb(4);
+		id = id.substr(1);
+		var result = {};
+		result['id'] = id;
+		result['type'] = 1;
+		result['val']  = $(this).attr('val');
+		$.post('{:url("del")}',result,function(data){
 			alert(data.msg);
 			if( data.code == 1 ){
 				window.location.reload();

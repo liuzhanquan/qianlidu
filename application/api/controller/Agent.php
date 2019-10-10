@@ -21,13 +21,18 @@ class Agent extends Home{
         $id = $userInfo['id'];
         $agent['team'] = db('User')->where('parent_id = '.$id.' or top_parent ='.$id)->field('id,avatar')->limit($limit)->select();
         $agentId = db('agent')->where('uid',$id)->column('id')[0];
-        $agent['A1'] = $this->card_count($agentId,1,1);
-        $agent['A2'] = $this->card_count($agentId,2,1);
-        $agent['B1'] = $this->card_count($agentId,1,2);
-        $agent['B2'] = $this->card_count($agentId,2,2);
-        $agent['C1'] = $this->card_count($agentId,1,3);
-        $agent['C2'] = $this->card_count($agentId,2,3);
-
+		$cardType = db('cardType')->select();
+		
+		foreach( $cardType as $key=>$item ){
+			$agent[$item['name'].'1'] = $this->card_count($agentId,1,$item['id']);
+			$agent[$item['name'].'1']['name'] = $item['title'];
+			$agent[$item['name'].'1']['photo'] = $item['photo'];
+			$agent[$item['name'].'1']['style'] = $item['id'];
+			$agent[$item['name'].'2'] = $this->card_count($agentId,2,$item['id']);
+			$agent[$item['name'].'2']['name'] = $item['title'];
+			$agent[$item['name'].'2']['photo'] = $item['photo'];
+			$agent[$item['name'].'2']['style'] = $item['id'];
+		}
         return_ajax('成功',200,$agent);
     }
 
@@ -40,7 +45,6 @@ class Agent extends Home{
      */
     public function card_count($id,$type, $style){
         $card['card_type'] = $type;
-        $card['card_style'] = $style;
         $card['count'] = db('agentCard')->where(['gid'=>$id,'card_type'=>$type,'card_style'=>$style])->count();
         return $card;
     }
@@ -88,7 +92,7 @@ class Agent extends Home{
         $card = db('agentCard')->where($where)->limit(($page-1)*$limit,$limit)->order('stop_time')->field('id,card_num,card_state,password,start_time,stop_time')->select();
 
             foreach( $card as $key=>$item ){
-                if( $item['card_state'] === 0 && input('type') == 1 ){
+                if( $item['card_state'] === 0 && input('type') == 2 ){
                     $card[$key]['password'] = '********';
                 }
                 $card[$key]['start_time'] = time_date($item['start_time']);

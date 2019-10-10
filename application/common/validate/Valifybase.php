@@ -10,9 +10,9 @@ class Valifybase extends Validate{
         ['aduly',       'require|number','成人人数不能为空|成人人数必须为数字'],
         ['baby',        'number',         '订单号必须为数字'],
         ['addr_list',   'require','地址不能为空'],
-        ['phone',		'require|checkPhone','手机号不能为空|手机号错误'],
-        ['card_num',		'require|number','卡号不能为空|激活卡号必须为数字'],
-        ['code',		'require|number','验证码不能为空|验证码必须为数字'],
+        //['phone',		'require|checkPhone','手机号不能为空|手机号错误'],
+        //['card_num',		'require|number','卡号不能为空|激活卡号必须为数字'],
+        //['code',		'require|number','验证码不能为空|验证码必须为数字'],
     ];
     
     protected function checkPhone($value = '', $rule = '', $data, $field){

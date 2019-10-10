@@ -645,7 +645,7 @@
         Do.ready('ueditor', function () {
             UEDITOR_CONFIG.UEDITOR_HOME_URL = '/ueditor/';
             var editorConfig = {
-                serverUrl:'/Admin/Upload/index.html', //图片上传接口
+                serverUrl:'/admin/Upload/index.html', //图片上传接口
             };
             editorConfig = $.extend(editorConfig, config.option);
             var editor = UE.getEditor(idName, editorConfig);
@@ -692,7 +692,7 @@
             UEDITOR_CONFIG.UEDITOR_HOME_URL = '/ueditor/';
 
             var editorConfig = {
-                serverUrl:'/Admin/Upload/index.html', //图片上传接口
+                serverUrl:'/admin/Upload/index.html', //图片上传接口
             };
             editorConfig = $.extend(editorConfig, config.option);
             var editor = UE.getEditor(idName, editorConfig);

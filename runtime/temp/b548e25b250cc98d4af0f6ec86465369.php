@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\index.html";i:1570673444;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html";i:1570674186;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +56,7 @@
 			</ul>
 		</div>
 		<div class="rightContent flex-grow-1">
-			<script type="text/javascript" src="/static/admin/js/admin.js"></script>
-<div class="right-panel">
+			<div class="right-panel">
 	<div class="bar-title">
 		<ol class="breadcrumb">
 		  <li><a href="<?php echo url('/'); ?>">首页</a></li>
@@ -68,123 +67,91 @@
 		  <?php endif; endforeach; ?>
 		</ol>
 	</div>
-
-    <div class="tab-title" style="margin-top: 28px;">
-        <ul class="tab-title_con">
-            <li <?php if($id == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>">全部代理</a></li>
-            <!-- <li <?php if($id == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'2']); ?>">待审核</a></li> -->
-            <li <?php if($id == 3): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'3']); ?>">已冻结</a></li>
-        </ul>
-    </div>
-    <div class="right-content" data-model="table-bind">
+	<!-- <div class="alert alert-default">提示：为保证数据安全性，入库时间超过7天的记录不能删除，查看时间不限制，默认显示最近一个月的记录。</div> -->
+	<div class="right-content" data-model="table-bind">
 		<div class="option-btn">
-			<a href="<?php echo url('addagent'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加代理</a>
+			<a href="<?php echo url('ProductEdit'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加路线</a>
+			<a href="<?php echo url('recycle'); ?>" style="margin: 3px 20px 20px">回收站</a>
 		</div>
-    	<div class="option-search clearfix">
-    		<form method="get">
+		<div class="tab-title" style="margin-top: 28px;">
+	        <ul class="tab-title_con">
+	            <li <?php if($state == 0): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>" style="padding-left:50px; padding-right:50px;">全部</a></li>
+	            <li <?php if($state == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'1']); ?>" style="padding-left:50px; padding-right:50px;">已上架</a></li>
+	            <li <?php if($state == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'2']); ?>" style="padding-left:50px; padding-right:50px;">已下架</a></li>
+	        </ul>
+		</div>
+		<div class="option-search clearfix">
+			<form method="get">
 				<div class="search-item">
-					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
-						<option value="1" <?php if($data['selkey'] == 1): ?>selected<?php endif; ?>>手机号</option>
-						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>授权名称</option>
-						<option value="3" <?php if($data['selkey'] == 3): ?>selected<?php endif; ?>>身份证</option>
-					</select>
-					<input type="text" class="form-control" name="key" value="<?php echo $data['key']; ?>" style="width: 200px;">
+					<label>关键词：</label>
+					<input type="text" class="form-control" name="key" value="" placeholder="产品编号、产品名称">
 				</div>
 				<div class="search-item">
 					<button class="btn btn-info btn-ok">搜索</button>
 					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
 				</div>
-    		</form>
-    	</div>
-    	<div class="page">
+			</form>
+		</div>
+		<div class="page">
     		<ul class="pagination" style="float:right;margin-top:0px;">
-    			<li><a class="upAll" val="3" >批量冻结</a></li>
-    			<li><a class="upAll" val="1" >批量启用</a></li>
-    			<li><a class="delAll" val="1" >批量删除</a></li>
+    			<li><a class="upAll" val="0" >批量下架</a></li>
+    			<li><a class="upAll" val="1" >批量上架</a></li>
+    			<li><a class="upAll" val="-1" >批量删除</a></li>
     		</ul>
     	</div>
-    	<!--  -->
-    	<table class="table table-hover" data-table>
+		<table class="table table-hover" data-table>
 			<thead>
 				<tr>
 					<th class="text-center" id="selectAll" width="" status="0"><input type="checkbox"  /> 全选</th>
-					<th class="text-center" width="20%">授权名称</th>
-					<th class="text-center">授权编号</th>
-					<!-- <th class="text-center">代理级别</th> -->
-					<th class="text-center">手机号</th>
-					<th class="text-center">商家</th>
-					<th class="text-center"> 授权期限时间 </th>
-					<th class="text-center">状态</th>
+					<th class="text-center">产品标题</th>
+					<th class="text-center">产品名称</th>
+					<th class="text-center" width="130px">产品图片</th>
+					<th class="text-center">旅游时间</th>
+					<th class="text-center">活动推广时间</th>
+					<th class="text-center">产品状态</th>
 					<th class="text-center">操作</th>
 				</tr>
 			</thead>
-			<?php if(empty($list) || (($list instanceof \think\Collection || $list instanceof \think\Paginator ) && $list->isEmpty())): ?>
+			<tbody>
+				<?php if(empty($list) || (($list instanceof \think\Collection || $list instanceof \think\Paginator ) && $list->isEmpty())): ?>
 				<tr>
-					<td colspan="7" class="text-center">没有更多数据啦</td>
+					<td colspan="7">没有数据啦~~</td>
 				</tr>
-			<?php else: foreach($list as $vo): ?>
+				<?php else: foreach($list as $vo): ?>
 				<tr>
 					<td class="text-center">
 						<input type="checkbox" name="goodsT[]" value="<?php echo $vo['id']; ?>" class="selectBox" />
 					</td>
-					<td style="vertical-align: top;">
-						<div class="page-wexin-info">
-                            <div class="goods-list">
-                                <img id="img_806" class="img_806" src="<?php echo $vo['user_all']['avatar']; ?>" alt="头像" style="width:50px;height:50px;">
-                                <input class="imgurl" value="" type="hidden">
-                                <p><?php echo $vo['name']; ?></p>
-                            </div>
-                            <div class="info f-c" style="display: none;">
-                                <div class="left f-c">
-                                    <img src="<?php echo $vo['user_all']['avatar']; ?>" class="user_img" alt="头像">
-                                </div>
-                                <div class="right f-c">
-                                	<p><?php echo $vo['user_all']['nickname']; ?></p>
-                                	<p>身份证：<?php echo !empty($vo['user_all']['idcard'])?$vo['idcard'] : '未设置'; ?></p>
-                                	<!-- 查询授权品牌 -->
-                                </div>
-                            </div>
-                        </div>
-					</td>
-					<td class="text-center"><?php echo $config['brand_prefix']; ?><?php echo $vo['user_all']['id']; ?></td>
-					<td class="text-center"><?php echo !empty($vo['user_all']['phone'])?$vo['user_all']['phone'] : '未设置'; ?></td>
-					<td class="text-center"><?php echo !empty($vo['business'])?'是' : '否'; ?></td>
-					<td class="text-center"><?php echo !empty($vo['start_time'])?date('Y-m-d H:i:s',$vo['start_time']):''; ?>
-						<br>
-					<?php echo !empty($vo['stop_time'])?date('Y-m-d H:i:s',$vo['stop_time']) : '未设置'; ?></td>
-					<td class="text-center"><?php if($vo['status'] == 0): ?>待审核<?php elseif($vo['status'] == 1): ?>正常<?php elseif($vo['status'] == 2): ?>待二次审核<?php elseif($vo['status'] == 3): ?>已冻结<?php endif; ?></td>
-					<td class="text-center">
-						<a href="<?php echo url('douser',['id'=>$vo['id'],'type'=>'view']); ?>">查看</a><em>-</em>
+					<td><?php echo $vo['title']; ?></td>
+					<td><?php echo $vo['title_list']; ?></td>
+					<td><img src="<?php echo $vo['photo']; ?>" height="30"></td>
+					<td><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?> - <?php echo date('Y-m-d H:i:s',$vo['stop_time']); ?></td>
+					<td><?php echo date('Y-m-d H:i:s',$vo['show_time']); ?> - <?php echo date('Y-m-d H:i:s',$vo['hide_time']); ?></td>
+					<td>
 						<?php if($vo['status'] == 0): ?>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('auditing',['id'=>$vo['id']]); ?>">审核</a><br>
-						<?php elseif($vo['status'] == 2): ?>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('auditing',['id'=>$vo['id']]); ?>">审核</a><br>
-						<?php elseif($vo['status'] == 1): ?>
-						<a href="javascript:void(0)" data-confirm data-tips="您确认要冻结该代理吗？" data-url="<?php echo url('status'); ?>" data-val="3" data-id="<?php echo $vo['id']; ?>">冻结</a><br>
-						<?php elseif($vo['status'] == 3): ?>
-						<a href="javascript:void(0)" data-confirm data-tips="您确认要启用吗？" data-url="<?php echo url('status'); ?>" data-val="1" data-id="<?php echo $vo['id']; ?>">启用</a><br>
+						已下架
+						<?php else: ?>
+						已上架
 						<?php endif; ?>
-						<!-- <a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('option',['id'=>$vo['id']]); ?>" data-title="增加代理款项">充值</a><em>-</em>
-						<a href="javascript:void(0)" data-model="dialogs-open" data-width="600px" data-height="560px" data-url="<?php echo url('option_s',['id'=>$vo['id']]); ?>">扣款</a><br> -->
-
-						<a href="<?php echo url('douser',['id'=>$vo['id'],'type'=>'edit']); ?>">修改</a><em>-</em>
-						<a href="javascript:void(0)" data-del data-table="user" data-id="<?php echo $vo['id']; ?>" >删除</a><br>
+					</td>
+					<td>
+						<a href="<?php echo url('ProductEdit',['id'=>$vo['id']]); ?>">查看修改</a><em>-</em>
+						<?php if($vo['status'] == 0): ?>
+						<a href="javascript:void(0)" data-confirm data-tips="确定要上架吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="1">上架</a>
+						<a href="javascript:void(0)" data-del data-id="<?php echo $vo['id']; ?>" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a>
+						<?php else: ?>
+						<a href="javascript:void(0)" data-confirm data-tips="下架后代理将不能按该产品下单，确定要下架吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="0">下架</a>
+						<?php endif; ?>
 					</td>
 				</tr>
 				<?php endforeach; endif; ?>
-			<tbody>
-    	</table>
+			</tbody>
+		</table>
 		<div class="page"><?php echo $page; ?></div>
-    </div>
-    <!--  -->
+		<!--  -->
+	</div>
 </div>
-<script type="text/javascript">
-$(function () {
-	<?php  $cityId = isset($data['city']) ? $data['city'] : '-1';  $areaId = isset($data['area']) ? $data['area'] : '-1'; ?>
-	GetComboboxTwo("ddlProvince", "ddlCity", "<?php echo url('getregion'); ?>", "id", "name", { levelId: 0 }, "id", "-1", "城市", "<?php echo $cityId; ?>", "-1");
-	setTimeout(function () {
-        GetComboboxTwo("ddlCity", "ddlArea", "<?php echo url('getregion'); ?>", "id", "name", { levelId: 0 }, "id", "-1", "区域", "<?php echo $areaId; ?>", "-1");
-    },1000);
+<script>
 
 	$('#selectAll').click(function(){
 		if( $(this).attr('status') == 0 ){
@@ -263,10 +230,10 @@ $(function () {
 			}
 		})
 	})
-
-	
-});
 </script>
+
+
+
 		</div>
 	</div>
 </div>

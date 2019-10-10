@@ -10,7 +10,7 @@ class GoodsComment extends Base{
     protected $branchList = [];
     
     public function goodsComPhoto(){
-        return $this->hasMany('goodsComPhoto','gcid','id');
+        return $this->hasMany('goodsComPhoto','gcid','id')->where('status',1)->field('id,gcid,photo');
     }
 
     public function user(){

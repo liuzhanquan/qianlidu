@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\card_view.html";i:1570671040;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\typeedit.html";i:1570601344;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,100 +60,34 @@
 	<div class="bar-title">
 		<ol class="breadcrumb">
 		  <li><a href="<?php echo url('/'); ?>">首页</a></li>
-		  <?php foreach($url_path as $vo): if(empty($vo['url']) || (($vo['url'] instanceof \think\Collection || $vo['url'] instanceof \think\Paginator ) && $vo['url']->isEmpty())): ?>
-		  <li><a href="javascript:;"><?php echo $vo['name']; ?></a></li>
-		  <?php else: ?>
-		  <li><a href="<?php echo url($vo['model'].'/'.$vo['url']); ?>"><?php echo $vo['name']; ?></a></li>
-		  <?php endif; endforeach; ?>
-  		  <li>查看</li>
+		  <li><a href="javascript:;">会员卡管理</a></li>
+  		  <li><a href="<?php echo url('cardtype'); ?>">规格配置</a></li>
 		</ol>
 	</div>
-	<div class="agent-level"><h3>会员卡信息</h3></div>
-	<dl class="add-block-li">
-		<dt>卡号：</dt>
-		<dd><?php echo $info['card_num']; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>密码：</dt>
-		<dd><?php echo $info['password']; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>卡片类型：</dt>
-		<dd><?php echo $info['card_type']==1?'虚拟卡' : '实体卡'; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>是否使用：</dt>
-		<dd><?php echo !empty($info['card_state'])?'已使用':'未使用'; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>卡片样式：</dt>
-		<dd><?php if(is_array($cardType) || $cardType instanceof \think\Collection || $cardType instanceof \think\Paginator): if( count($cardType)==0 ) : echo "" ;else: foreach($cardType as $key=>$item): if($item['id'] == $info['card_style']): ?>
-				<?php echo $item['title']; endif; endforeach; endif; else: echo "" ;endif; ?>
-		</dd>
-	</dl>
-	<?php if($info['card_style'] == 2): ?>
-		<dl class="add-block-li">
-			<dt>是否印刷：</dt>
-			<dd><?php echo !empty($info['print_status'])?'已印刷':'未印刷'; ?></dd>
-		</dl>
-	<?php endif; ?>
-	<dl class="add-block-li">
-		<dt>当天试用密码次数：</dt>
-		<dd><?php echo $info['up_num']; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>使用开始时间：</dt>
-		<dd><?php echo date("Y-m-d H:i:s",$info['start_time']); ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>使用结束时间：</dt>
-		<dd><?php echo date("Y-m-d H:i:s",$info['stop_time']); ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>激活使用后增加会员时间：</dt>
-		<dd><?php echo charge_time(time()+$info['charge_time']); ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>当天试用密码次数：</dt>
-		<dd><?php echo $info['up_num']; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>最近修改时间：</dt>
-		<dd><?php echo $info['update_time']; ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>创建时间：</dt>
-		<dd><?php echo date("Y-m-d H:i:s",$info['add_time']); ?></dd>
-	</dl>
-	<dl class="add-block-li">
-		<dt>是否冻结：</dt>
-		<dd>
-			<?php if($info['state'] == 1): ?>
-				已启用
-			<?php elseif($info['state'] == 3): ?>
-				已冻结
-			<?php endif; ?>
-		</dd>
-	</dl>
-	<?php if(!(empty($agent) || (($agent instanceof \think\Collection || $agent instanceof \think\Paginator ) && $agent->isEmpty()))): ?>
-	<div class="agent-level"><h3>代理商信息</h3></div>
-	<div class="agent-info nobor">
-		<dl class="add-block-li">
-			<dt>代理商名称：</dt>
-			<dd><?php echo $agent['name']; ?></dd>
-		</dl>
-		<dl class="add-block-li">
-			<dt>授权期限时间：</dt>
-			<dd>
-				<?php if($agent['level'] > 0): ?>
-					<em><?php echo date('Y年m月d日',$agent['start_time']); ?></em> <em class="ml-10 mr-10">~</em>	 <em><?php echo date('Y年m月d日',$agent['stop_time']); ?></em>
-				<?php else: ?>
-					<span class="color_red">尚未授权</span>
-				<?php endif; ?>
-			</dd>
-		</dl>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>分类名称：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="<?php echo $info['name']; ?>">
+	            	<i>最多10个英文、数字字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>备注：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="title" class="form-controls" datatype="*" value="<?php echo $info['title']; ?>">
+	            	
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <div class="submit-btn">
+	        	<input type="hidden" value="<?php echo $info['id']; ?>" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
 	</div>
-	<?php endif; ?>
 </div>
 		</div>
 	</div>

@@ -230,9 +230,17 @@ class Agentcard extends Admin{
 
     public function del(){
         if( isPost() ){
-            $id = $_POST['id'];
-            if( empty($id) ) return_ajax('非法操作',400);
-            $state = db('cardType')->delete($id);
+            $data = $_POST;
+            if( empty($data['id']) ) return_ajax('非法操作',400);
+            if( empty($data['type']) ){
+                $where['id'] = $data['id'];
+            }else{
+                if( $data['type'] == 1 ){
+                    $data['id'] = explode(',',$data['id']);
+                    $where['id'] = ['in',$data['id']];
+                }
+            }
+            $state = db('agentCard')->where($where)->delete();
             if($state){
                 return $this->success('删除成功');
             }else{

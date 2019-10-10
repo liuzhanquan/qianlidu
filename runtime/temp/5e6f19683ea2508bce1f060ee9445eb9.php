@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\index.html";i:1570620163;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\agentcard\index.html";i:1570672229;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,9 +88,9 @@
     		<form method="get">
 				<div class="search-item">
 					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
-						<option value="1" <?php if($data['selkey'] == 1): ?>selected<?php endif; ?>>手机号</option>
-						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>会员卡号</option>
-						<option value="3" <?php if($data['selkey'] == 3): ?>selected<?php endif; ?>>身份证</option>
+						<option value="1" <?php if($data['selkey'] == 1): ?>selected<?php endif; ?>>代理商手机号</option>
+						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>会员卡卡号</option>
+						<option value="3" <?php if($data['selkey'] == 3): ?>selected<?php endif; ?>>代理商身份证</option>
 					</select>
 					<input type="text" class="form-control" name="key" value="<?php echo $data['key']; ?>" style="width: 200px;">
 				</div>
@@ -101,9 +101,10 @@
     		</form>
     	</div>
     	<div class="page">
-    		<ul class="pagination" style="float:right;">
+    		<ul class="pagination" style="float:right;margin-top:0px;">
     			<li><a class="upAll" val="3" >批量冻结</a></li>
     			<li><a class="upAll" val="1" >批量启用</a></li>
+    			<li><a class="delAll" val="1" >批量删除</a></li>
     		</ul>
     	</div>
     	<!--  -->
@@ -226,6 +227,21 @@ $(function () {
 		result['type'] = 1;
 		result['val']  = $(this).attr('val');
 		$.post('<?php echo url("status"); ?>',result,function(data){
+			alert(data.msg);
+			if( data.code == 1 ){
+				window.location.reload();
+			}
+		})
+	})
+	$('.delAll').click(function(){
+		id = '';
+		sb(4);
+		id = id.substr(1);
+		var result = {};
+		result['id'] = id;
+		result['type'] = 1;
+		result['val']  = $(this).attr('val');
+		$.post('<?php echo url("del"); ?>',result,function(data){
 			alert(data.msg);
 			if( data.code == 1 ){
 				window.location.reload();

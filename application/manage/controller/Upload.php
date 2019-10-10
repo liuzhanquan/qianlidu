@@ -174,14 +174,16 @@ class Upload extends Base{
             $this->redirect('/');
             exit;
         }
-        $return = array('status' => 1, 'info' => '上传成功', 'data' => '');
+        $return = array('status' => 1, 'info' => '上传成功', 'data' => []);
         $cookie_id = cookie('seller_id');
         if(!empty($cookie_id)){
             $info = model('common/Upload')->uploadData($cookie_id);
         }else{
             $info = model('common/Upload')->uploadData('0');
         }
+		
         if ($info) {
+			
             $return['data']['url'] = $info;
         } else {
             $return['status'] = 0;

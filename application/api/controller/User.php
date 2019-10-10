@@ -20,7 +20,7 @@ class User extends Home{
 
     public function Index(){
 
-        $userInfo = userdecode(input('userInfo'));
+        $userInfo = userdecode(cookie('userInfo'));
         $data['user'] =  db('user')->where(['id'=>$userInfo['id']])->field('avatar,id,level,phone,charge_time')->find();
         //确定会员到期时间，  到期提醒 未到期显示时间
         if( $data['user']['charge_time'] > time() ){
@@ -28,7 +28,7 @@ class User extends Home{
         }else{
             $data['user']['charge_time'] = "会员已到期";
         }
-
+		
         if( $data['user']['level'] > 0 ){
             $agent = db('agent')->where('uid',$userInfo['id'])->field('id,start_time,stop_time,business')->find();
             if( !empty($agent) ){
@@ -72,7 +72,7 @@ class User extends Home{
         if( empty(input('card_num')) ) return_ajax('卡号不能为空',400);
         if( empty(input('card_pass')) ) return_ajax('卡密不能为空',400);
 
-        $userInfo = userdecode(input('userInfo'));
+        $userInfo = userdecode(cookie('userInfo'));
         $res = db('user')
                ->where(['id'=>$userInfo['id']])
                // ->where('level','neq',0)

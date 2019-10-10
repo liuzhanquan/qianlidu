@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\count.html";i:1570621631;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\count.html";i:1570671294;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,10 +142,10 @@
 						<br/>
 					</td>
 					<td class="text-center">
-						<a href="<?php echo url('agentcard/index'); ?>?selkey=1&key=<?php echo $vo['user_all']['phone']; ?>&type=2&style=3">实体卡(A) <?php echo $vo['A2']; ?>
+						<a href="<?php echo url('agentcard/index'); ?>?selkey=1&key=<?php echo $vo['user_all']['phone']; ?>&type=2&style=1">实体卡(A) <?php echo $vo['A2']; ?>
 						</a>
 						<br/>
-						<a href="<?php echo url('agentcard/index'); ?>?selkey=1&key=<?php echo $vo['user_all']['phone']; ?>&type=2&style=3">实体卡(B) <?php echo $vo['B2']; ?>
+						<a href="<?php echo url('agentcard/index'); ?>?selkey=1&key=<?php echo $vo['user_all']['phone']; ?>&type=2&style=2">实体卡(B) <?php echo $vo['B2']; ?>
 						</a>
 						<br/>
 						<a href="<?php echo url('agentcard/index'); ?>?selkey=1&key=<?php echo $vo['user_all']['phone']; ?>&type=2&style=3">实体卡(C) <?php echo $vo['C2']; ?>

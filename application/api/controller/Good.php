@@ -16,16 +16,16 @@ class Good extends Home{
     }
 
     public function good(){
-        empty(input('page')) ? $page = 1 : $page = input('page');
+		empty(input('page')) ? $page = 1 : $page = input('page');
         empty(input('limit')) ?  $limit = 5 : $limit = input('limit');
-
+	
         $where['status'] = 1;
         $where['show_banner'] = 1;
         $where['show_time'] = array('<',time());
         $where['hide_time'] = array('>',time());
         if( $page == 1 ){
             //获取首页banner
-            $goods['banner'] = Goods::with('goodsRecommed,goodsCollect')->where($where)->field('id,title,title_list,photo,rid')->select();
+            $goods['banner'] = Goods::with('goodsRecommed,goodsCollect')->where($where)->field('id,title,title_list,photo,rid,collect_num')->select();
             $goods = obj_arr($goods);
             foreach( $goods['banner'] as $key=>$item ){
                 if( $item['goods_collect'] ){
@@ -40,7 +40,7 @@ class Good extends Home{
         }
         $where['show_banner'] = 0;
         //获取旅游路线列表
-        $goods['list'] = Goods::with('goodsRecommed,goodsT')->where($where)->limit(($page-1)*$limit,$limit)->field('id,title,title_list,photo,rid')->order('rid desc,rank_num desc')->select();
+        $goods['list'] = Goods::with('goodsRecommed,goodsT')->where($where)->limit(($page-1)*$limit,$limit)->field('id,title,title_list,photo,rid,collect_num')->order('rid desc,rank_num desc')->select();
         //获取所有标签
         $goodsTag = db('goods_tag')->select();
         //对象转数组
@@ -92,6 +92,8 @@ class Good extends Home{
                 }
             }
         }
+		$goods['info']['start_time'] = date('Y-m-d H:i:s',$goods['info']['start_time']);
+		$goods['info']['stop_time'] = date('Y-m-d H:i:s',$goods['info']['stop_time']);
         $goods['comment'] = GoodsComment::with('goodsComPhoto,user')->where(['gid'=>$id,'status'=>1])->find();
 
         return_ajax('成功',200,$goods);
