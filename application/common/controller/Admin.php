@@ -132,7 +132,6 @@ class Admin extends Base{
 
         $li = new \lib\PHPTree(['id', 'parent']);
         $list = $li->makeTree($menu,array('parent_key'=>'parent','expanded'=>true));
-        //dump($list);exit();
         $this->assign('topNav', $list);
     }
     /**

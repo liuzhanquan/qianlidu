@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1570609284;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1570778299;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,10 +166,10 @@
 	            </dd>
 	        </dl>
 	        <dl>
-	            <dt><i>*</i>项目展示时间：</dt>
+	            <dt><i>*</i>路线展示时间：</dt>
 	            <dd style="">
 	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['show_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['show_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
 						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['hide_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly="">
 					</div>
 	            </dd>
@@ -213,6 +213,14 @@
 	            <dd>
 	            	<input type="text" style="width: 260px" name="rank_num" class="form-controls" datatype="*1-100" value="<?php echo !empty($info['rank_num'])?$info['rank_num']:0; ?>">
 	            	<i>（必须数字，值越大 优先展示）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>收藏次数：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="collect_num" class="form-controls" value="<?php echo !empty($info['collect_num'])?$info['collect_num']:0; ?>">
+	            	<i></i>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>

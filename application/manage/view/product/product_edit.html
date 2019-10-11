@@ -59,11 +59,11 @@
 	            <dt>推荐标签：</dt>
 	            <dd>
 	            	<select name="rid" class="form-control" style="width: 200px;" id="ddlAgentLevel_{$vo['id']}">
-   34                      <option value="0">无</option>
-   35                      {foreach name="goodsRecommed" item="item"}
-   36                      <option value="{$item['id']}" {if condition="$item['id'] eq $info['rid']"}selected="selected"{/if}>{$item['name']}</option>
-   37                      {/foreach}
-   38:                 </select>
+                         <option value="0">无</option>
+                         {foreach name="goodsRecommed" item="item"}
+                         <option value="{$item['id']}" {if condition="$item['id'] eq $info['rid']"}selected="selected"{/if}>{$item['name']}</option>
+                         {/foreach}
+                   </select>
 	            	<!-- <em>元</em>
 	            	<i>（支持2位小数点）</i> -->
 	            	<div class="tip-alert"></div>
@@ -110,10 +110,10 @@
 	            </dd>
 	        </dl>
 	        <dl>
-	            <dt><i>*</i>项目展示时间：</dt>
+	            <dt><i>*</i>路线展示时间：</dt>
 	            <dd style="">
 	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.show_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.show_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
 						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="{if condition="$info['id'] neq 0"}{$info.hide_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}"" data-model="form-time" readonly="">
 					</div>
 	            </dd>
@@ -159,6 +159,14 @@
 	            <dd>
 	            	<input type="text" style="width: 260px" name="rank_num" class="form-controls" datatype="*1-100" value="{$info['rank_num']?$info['rank_num']:0}">
 	            	<i>（必须数字，值越大 优先展示）</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>收藏次数：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="collect_num" class="form-controls" value="{$info['collect_num']?$info['collect_num']:0}">
+	            	<i></i>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>

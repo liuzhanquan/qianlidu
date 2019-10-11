@@ -1,0 +1,65 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>查看</li>
+		</ol>
+	</div>
+	<div class="agent-level"><h3>用户信息</h3></div>
+	<dl class="add-block-li">
+		<dt>头像：</dt>
+		<dd><div class="user_img " title="点击查看大图" style="cursor:pointer"><img src="{$info['avatar']}"></div></dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>用户名称：</dt>
+		<dd>{$info['nickname']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>openID：</dt>
+		<dd>{$info['openid']}</dd>
+	</dl>
+	
+	<dl class="add-block-li">
+		<dt>注册时间：</dt>
+		<dd>{$info['reg_time']|date="Y-m-d H:i:s",###}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>是否启用：</dt>
+		<dd>{if condition="$info['status'] eq 0"}待审核{elseif condition="$info['status'] eq 1" /}正常{elseif condition="$info['status'] eq 2" /}待二次审核{elseif condition="$info['status'] eq 3" /}已冻结{/if}</dd>
+	</dl>
+	<div class="agent-level"><h3>会员基本信息</h3></div>
+	<div class="agent-info nobor">
+		<dl class="add-block-li">
+			<dt>手机号：</dt>
+			<dd>{$info['phone']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>身份证号：</dt>
+			<dd>{$info['card_id']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>会员到期时间：</dt>
+			<dd>
+				{if condition="$info['charge_time'] gt time()" }
+				<em>{:date('Y-m-d H:i:s',$info['charge_time'])}</em>
+				{else /}
+				<span class="color_red">尚未激活</span>
+				{/if}
+			</dd>
+		</dl>
+		{notempty name="info['agent']"}
+		<dl class="add-block-li">
+			<dt>代理商时间：</dt>
+			<dd>{$info['agent']['start_time']|date="Y-m-d H:i:s",###} - {$info['agent']['stop_time']|date="Y-m-d H:i:s",###}</dd>
+		</dl>
+		{/notempty}
+	</div>
+	
+</div>

@@ -1,0 +1,123 @@
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+
+    <div class="tab-title" style="margin-top: 28px;">
+        <ul class="tab-title_con">
+            <li {if condition="$id eq 1"}class="on"{/if}><a href="{:url('index')}">全部代理</a></li>
+            <!-- <li {if condition="$id eq 2"}class="on"{/if}><a href="{:url('index',['id'=>'2'])}">待审核</a></li> -->
+            <li {if condition="$id eq 3"}class="on"{/if}><a href="{:url('index',['id'=>'3'])}">已冻结</a></li>
+        </ul>
+    </div>
+    <div class="right-content" data-model="table-bind">
+    	<div class="option-search clearfix">
+    		<form method="get">
+				<div class="search-item">
+					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
+						<option value="1" {if condition="$data['selkey'] eq 1"}selected{/if}>手机号</option>
+						<option value="2" {if condition="$data['selkey'] eq 2"}selected{/if}>授权名称</option>
+						<option value="3" {if condition="$data['selkey'] eq 3"}selected{/if}>身份证</option>
+					</select>
+					<input type="text" class="form-control" name="key" value="{$data['key']}" style="width: 200px;">
+				</div>
+				<div class="search-item">
+					<button class="btn btn-info btn-ok">搜索</button>
+					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
+				</div>
+    		</form>
+    	</div>
+    	<!--  -->
+    	<table class="table table-hover" data-table>
+			<thead>
+				<tr>
+					<th class="text-center" width="20%">代理商</th>
+					<th class="text-center">虚拟卡数量</th>
+					<th class="text-center">实体卡数量</th>
+					
+					<th class="text-center">操作</th>
+				</tr>
+			</thead>
+			{empty name="$list"}
+				<tr>
+					<td colspan="7" class="text-center">没有更多数据啦</td>
+				</tr>
+			{else /}
+				{foreach $list as $vo}
+				<tr>
+					<td style="vertical-align: top;">
+						<div class="page-wexin-info">
+                            <div class="goods-list">
+                                <img id="img_806" class="img_806" src="{$vo['user_all']['avatar']}" alt="头像" style="width:50px;height:50px;">
+                                <input class="imgurl" value="" type="hidden">
+                                <p>{$vo['name']}</p>
+                            </div>
+                            <div class="info f-c" style="display: none;">
+                                <div class="left f-c">
+                                    <img src="{$vo['user_all']['avatar']}" class="user_img" alt="头像">
+                                </div>
+                                <div class="right f-c">
+                                	<p>{$vo['user_all']['nickname']}</p>
+                                	<p>身份证：{$vo['user_all']['idcard'] ? $vo['idcard'] : '未设置'}</p>
+                                	<!-- 查询授权品牌 -->
+                                </div>
+                            </div>
+                        </div>
+					</td>
+					
+					<td class="text-center">
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=1">虚拟卡(A) {$vo.A1}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=2">虚拟卡(B) {$vo.B1}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=1&style=3">虚拟卡(C) {$vo.C1}
+						</a>
+						<br/>
+					</td>
+					<td class="text-center">
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=1">实体卡(A) {$vo.A2}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=2">实体卡(B) {$vo.B2}
+						</a>
+						<br/>
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}&type=2&style=3">实体卡(C) {$vo.C2}
+						</a>
+						<br/>
+					</td>
+					<td class="text-center">
+						<a href="{:url('agentcard/index')}?selkey=1&key={$vo['user_all']['phone']}">查看</a>
+
+					</td>
+				</tr>
+				{/foreach}
+			{/empty}
+			<tbody>
+    	</table>
+		<div class="page">{$page}</div>
+    </div>
+    <!--  -->
+</div>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($data['city']) ? $data['city'] : '-1';{/php}
+	{php} $areaId = isset($data['area']) ? $data['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "区域", "{$areaId}", "-1");
+    },1000);
+	
+});
+</script>

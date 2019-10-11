@@ -47,8 +47,9 @@
 			<thead>
 				<tr>
 					<th class="text-center" id="selectAll" width="" status="0"><input type="checkbox"  /> 全选</th>
-					<th class="text-center">产品标题</th>
-					<th class="text-center">产品名称</th>
+					<th class="text-center">旅游路线ID</th>
+					<th class="text-center">路线标题</th>
+					<th class="text-center">路线副标题</th>
 					<th class="text-center" width="130px">产品图片</th>
 					<th class="text-center">旅游时间</th>
 					<th class="text-center">活动推广时间</th>
@@ -67,6 +68,7 @@
 					<td class="text-center">
 						<input type="checkbox" name="goodsT[]" value="{$vo['id']}" class="selectBox" />
 					</td>
+					<td>{$vo['id']}</td>
 					<td>{$vo['title']}</td>
 					<td>{$vo['title_list']}</td>
 					<td><img src="{$vo['photo']}" height="30"></td>
@@ -80,13 +82,15 @@
 						{/if}
 					</td>
 					<td>
-						<a href="{:url('ProductEdit',['id'=>$vo['id']])}">查看修改</a><em>-</em>
+						<a href="{:url('ProductEdit',['id'=>$vo['id']])}">修改</a><em>-</em>
 						{if condition="$vo['status'] eq 0"}
 						<a href="javascript:void(0)" data-confirm data-tips="确定要上架吗？" data-id="{$vo['id']}" data-url="{:url('status')}" data-val="1">上架</a>
 						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a>
 						{else /}
 						<a href="javascript:void(0)" data-confirm data-tips="下架后代理将不能按该产品下单，确定要下架吗？" data-id="{$vo['id']}" data-url="{:url('status')}" data-val="0">下架</a>
 						{/if}
+						<br/>
+						<a href="{:url('comment')}?selkey=3&key={$vo['id']}">查看评论</a>
 					</td>
 				</tr>
 				{/foreach}

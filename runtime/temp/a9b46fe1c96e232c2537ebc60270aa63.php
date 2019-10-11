@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment.html";i:1570676250;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment.html";i:1570761144;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,17 +81,21 @@
 	        </ul>
 		</div>
 		<div class="option-search clearfix">
-			<form method="get">
+    		<form method="get">
 				<div class="search-item">
-					<label>关键词：</label>
-					<input type="text" class="form-control" name="key" value="" placeholder="产品编号、产品名称">
+					<select class="form-control" name="selkey" data-model="form-select" style="width: 150px;">
+						<option value="1" <?php if($data['selkey'] == 1): ?>selected<?php endif; ?>>评论关键词</option>
+						<option value="2" <?php if($data['selkey'] == 2): ?>selected<?php endif; ?>>用户ID</option>
+						<option value="3" <?php if($data['selkey'] == 3): ?>selected<?php endif; ?>>旅游路线ID</option>
+					</select>
+					<input type="text" class="form-control" name="key" value="<?php echo $data['key']; ?>" style="width: 200px;">
 				</div>
 				<div class="search-item">
 					<button class="btn btn-info btn-ok">搜索</button>
 					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
 				</div>
-			</form>
-		</div>
+    		</form>
+    	</div>
 		<div class="page">
     		<ul class="pagination" style="float:right;margin-top:0px;">
     			<li><a class="upAll" val="0" >批量显示</a></li>
@@ -103,6 +107,7 @@
 			<thead>
 				<tr>
 					<th class="text-center" id="selectAll" width="" status="0"><input type="checkbox"  /> 全选</th>
+					<th class="text-center">评论id</th>
 					<th class="text-center">路线标题</th>
 					<th class="text-center">用户名称</th>
 					<th class="text-center" width="130px">是否一级评论</th>
@@ -121,6 +126,7 @@
 					<td class="text-center">
 						<input type="checkbox" name="goodsT[]" value="<?php echo $vo['id']; ?>" class="selectBox" />
 					</td>
+					<td><?php echo $vo['id']; ?></td>
 					<td><?php echo $vo['goods']['title']; ?></td>
 					<td><?php echo $vo['user']['nickname']; ?></td>
 					<td><?php echo $vo['pid']==0?'是':'否'; ?></td>

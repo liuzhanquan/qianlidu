@@ -1,0 +1,120 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>修改</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>订单编号：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="order_num" disabled="disabled" value="{$info['order_num']}">
+	            	<i>最多8个汉字或16个英文字符</i>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt><i>*</i>成人人数：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="aduly" value="{$info['aduly']}">
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>小孩人数：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="baby" value="{$info['baby']}">
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>详细地址：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="addr_list" value="{$info['addr_list']}">
+	            </dd>
+	        </dl>
+			<dl>
+				<dt>机票：</dt>
+				<dd>
+					<input type="text" class="form-controls" name="plane"  value="{$info['plane']}">
+				</dd>
+			</dl>
+			<dl>
+				<dt>接机：</dt>
+				<dd>
+					<input type="text" class="form-controls" name="car" value="{$info['car']}">
+				</dd>
+			</dl>
+			<dl>
+				<dt>管家：</dt>
+				<dd>
+					<input type="text" class="form-controls" name="butlers" value="{$info['butlers']}">
+				</dd>
+			</dl>
+	        <dl>
+	            <dt><i>*</i>出行时间：</dt>
+				
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="{if condition="$info['id'] neq 0"}{$info.start_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+			
+			<dl>
+	            <dt><i>*</i>下单时间：</dt>
+				
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="add_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="{if condition="$info['id'] neq 0"}{$info.add_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>订单状态：</dt>
+	            <dd>
+	            	<select name="status" class="form-control" style="width: 200px;" >
+						<option value="0" {if condition="$info['status'] eq 0"}selected="selected"{/if}>未审核</option>
+						<option value="1" {if condition="$info['status'] eq 1"}selected="selected"{/if}>待出行</option>
+						<option value="2" {if condition="$info['status'] eq 2"}selected="selected"{/if}>已出行</option>
+						<option value="3" {if condition="$info['status'] eq 3"}selected="selected"{/if}>已完成</option>
+						<option value="4" {if condition="$info['status'] eq 4"}selected="selected"{/if}>未评价</option>
+						<option value="5" {if condition="$info['status'] eq 5"}selected="selected"{/if}>已评价</option>
+						<option value="100" {if condition="$info['status'] eq 100"}selected="selected"{/if}>取消</option>
+					</select>
+	            	<!-- <em>元</em>
+	            	<i>（支持2位小数点）</i> -->
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	        	<input type="hidden" value="{$info['uid']}" name="uid">
+	            <button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<script type="text/javascript">
+function call_back(data){
+	console.log(data)
+}
+</script>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($info['city']) ? $info['city'] : '-1';{/php}
+	{php} $areaId = isset($info['area']) ? $info['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "加载中", "{$areaId}", "-1");
+    },1000);
+});
+</script>

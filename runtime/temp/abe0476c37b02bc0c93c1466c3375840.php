@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html";i:1570762056;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html";i:1570789821;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,49 +67,49 @@
 		  <?php endif; endforeach; ?>
 		</ol>
 	</div>
-	<!-- <div class="alert alert-default">提示：为保证数据安全性，入库时间超过7天的记录不能删除，查看时间不限制，默认显示最近一个月的记录。</div> -->
+	<div class="tab-title">
+        <ul class="tab-title_con">
+            <li class="on"><a class="tab_2_ul_li_a">子账号管理 </a></li>
+            <li><a href="<?php echo url('role'); ?>" class="tab_2_ul_li_a">角色权限管理</a></li>
+            <!-- <li><a href="<?php echo url('wechat_admin'); ?>" class="tab_2_ul_li_a">微信管理员管理</a></li> -->
+        </ul>
+	</div>
 	<div class="right-content" data-model="table-bind">
 		<div class="option-btn">
-			<a href="<?php echo url('ProductEdit'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加路线</a>
-			<a href="<?php echo url('recycle'); ?>" style="margin: 3px 20px 20px">回收站</a>
-		</div>
-		<div class="tab-title" style="margin-top: 28px;">
-	        <ul class="tab-title_con">
-	            <li <?php if($state == 0): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>" style="padding-left:50px; padding-right:50px;">全部</a></li>
-	            <li <?php if($state == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'1']); ?>" style="padding-left:50px; padding-right:50px;">已上架</a></li>
-	            <li <?php if($state == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'2']); ?>" style="padding-left:50px; padding-right:50px;">已下架</a></li>
-	        </ul>
+			<a href="<?php echo url('doaccount'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加子账号</a>
+			<!-- <span>子账号登录地址：<?php echo urlDiy('/member/login'); ?></span>
+			<a href="javascript:;" data-model="form-copy" data-txt="<?php echo urlDiy('/member/login'); ?>">复制</a> -->
 		</div>
 		<div class="option-search clearfix">
 			<form method="get">
 				<div class="search-item">
-					<label>关键词：</label>
-					<input type="text" class="form-control" name="key" value="" placeholder="产品编号、产品名称">
+					<label>角色权限：</label>
+					<select class="form-control" name="level" data-model="form-select" style="width: 200px;">
+						<option value="">请选择</option>
+						<?php foreach($search as $vo): ?>
+						<option value="<?php echo $vo['gid']; ?>"><?php echo $vo['name']; ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<div class="search-item">
+					<label>关键字：</label>
+					<input type="text" class="form-control" name="key" placeholder="登陆账号、姓名、手机">
 				</div>
 				<div class="search-item">
 					<button class="btn btn-info btn-ok">搜索</button>
-					<button class="btn btn-default btn-cancle" name="exp" value="1">导出</button>
 				</div>
 			</form>
 		</div>
-		<div class="page">
-    		<ul class="pagination" style="float:right;margin-top:0px;">
-    			<li><a class="upAll" val="0" >批量下架</a></li>
-    			<li><a class="upAll" val="1" >批量上架</a></li>
-    			<li><a class="upAll" val="-1" >批量删除</a></li>
-    		</ul>
-    	</div>
 		<table class="table table-hover" data-table>
 			<thead>
 				<tr>
-					<th class="text-center" id="selectAll" width="" status="0"><input type="checkbox"  /> 全选</th>
-					<th class="text-center">旅游路线ID</th>
-					<th class="text-center">路线标题</th>
-					<th class="text-center">路线副标题</th>
-					<th class="text-center" width="130px">产品图片</th>
-					<th class="text-center">旅游时间</th>
-					<th class="text-center">活动推广时间</th>
-					<th class="text-center">产品状态</th>
+					<th class="text-center">ID</th>
+					<th class="text-center">登录账号</th>
+					<th class="text-center">角色权限</th>
+					<th class="text-center">姓名</th>
+					<th class="text-center">手机</th>
+					<th class="text-center">备注</th>
+					<th class="text-center">最后登录</th>
 					<th class="text-center">操作</th>
 				</tr>
 			</thead>
@@ -120,124 +120,24 @@
 				</tr>
 				<?php else: foreach($list as $vo): ?>
 				<tr>
-					<td class="text-center">
-						<input type="checkbox" name="goodsT[]" value="<?php echo $vo['id']; ?>" class="selectBox" />
-					</td>
 					<td><?php echo $vo['id']; ?></td>
-					<td><?php echo $vo['title']; ?></td>
-					<td><?php echo $vo['title_list']; ?></td>
-					<td><img src="<?php echo $vo['photo']; ?>" height="30"></td>
-					<td><?php echo date('Y-m-d H:i:s',$vo['start_time']); ?> - <?php echo date('Y-m-d H:i:s',$vo['stop_time']); ?></td>
-					<td><?php echo date('Y-m-d H:i:s',$vo['show_time']); ?> - <?php echo date('Y-m-d H:i:s',$vo['hide_time']); ?></td>
+					<td><?php echo $vo['username']; ?></td>
+					<td><?php echo $vo['level_name']; ?></td>
+					<td><?php echo $vo['name']; ?></td>
+					<td><?php echo $vo['phone']; ?></td>
+					<td><?php echo $vo['remark']; ?></td>
+					<td><?php echo date("Y-m-d H:i:s",$vo['login_time']); ?></td>
 					<td>
-						<?php if($vo['status'] == 0): ?>
-						已下架
-						<?php else: ?>
-						已上架
-						<?php endif; ?>
-					</td>
-					<td>
-						<a href="<?php echo url('ProductEdit',['id'=>$vo['id']]); ?>">修改</a><em>-</em>
-						<?php if($vo['status'] == 0): ?>
-						<a href="javascript:void(0)" data-confirm data-tips="确定要上架吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="1">上架</a>
-						<a href="javascript:void(0)" data-del data-id="<?php echo $vo['id']; ?>" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a>
-						<?php else: ?>
-						<a href="javascript:void(0)" data-confirm data-tips="下架后代理将不能按该产品下单，确定要下架吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="0">下架</a>
-						<?php endif; ?>
-						<br/>
-						<a href="<?php echo url('comment'); ?>?selkey=3&key=<?php echo $vo['id']; ?>">查看评论</a>
+						<a href="<?php echo url('doaccount',['id'=>$vo['id']]); ?>">修改</a><em>-</em>
+						<a href="javascript:void(0)" data-del data-id="<?php echo $vo['id']; ?>" data-table="admin">删除</a>
 					</td>
 				</tr>
 				<?php endforeach; endif; ?>
 			</tbody>
 		</table>
-		<div class="page"><?php echo $page; ?></div>
-		<!--  -->
+		<div class="page"></div>
 	</div>
 </div>
-<script>
-
-	$('#selectAll').click(function(){
-		if( $(this).attr('status') == 0 ){
-			sb(1);
-			$(this).attr('status',1);
-			$(this).children('input').eq(0).prop("checked",true);
-		}else{
-			sb(2);
-			$(this).attr('status',0);
-			$(this).children('input').eq(0).prop("checked",false);
-		}
-		
-	});
-
-	var sbState = 0;
-	var id = '';
-	function sb(type){
-		$('.selectBox').each(function(index){
-			if( type == 1 ){
-				$(this).prop('checked',true);
-			}else if( type == 2 ){
-				$(this).prop('checked',false);
-			}else if( type == 3 ){
-				if( $(this).prop('checked') == false ){
-					sbState = 1;
-					return false;
-				}
-			}else if( type == 4 ){
-				if( $(this).prop('checked') == true ){
-					id = id + ',' + $(this).val();
-					
-				}
-			}
-		})
-	}
-
-	$('.selectBox').click(function(){
-		sbState = 0;
-		sb(3);
-		if( sbState ){
-			$('#selectAll').attr('status',0);
-			$('#selectAll').children('input').eq(0).prop("checked",false);
-		}else{
-			$('#selectAll').attr('status',1);
-			$('#selectAll').children('input').eq(0).prop("checked",true);
-		}
-	})
-
-	$('.upAll').click(function(){
-		id = '';
-		sb(4);
-		id = id.substr(1);
-		var result = {};
-		result['id'] = id;
-		result['type'] = 1;
-		result['val']  = $(this).attr('val');
-		$.post('<?php echo url("status"); ?>',result,function(data){
-			alert(data.msg);
-			if( data.code == 1 ){
-				window.location.reload();
-			}
-		})
-	})
-	$('.delAll').click(function(){
-		id = '';
-		sb(4);
-		id = id.substr(1);
-		var result = {};
-		result['id'] = id;
-		result['type'] = 1;
-		result['val']  = $(this).attr('val');
-		$.post('<?php echo url("del"); ?>',result,function(data){
-			alert(data.msg);
-			if( data.code == 1 ){
-				window.location.reload();
-			}
-		})
-	})
-</script>
-
-
-
 		</div>
 	</div>
 </div>

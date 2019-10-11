@@ -5,6 +5,7 @@ use \think\Model;
 use app\manage\model\Goods;
 use app\manage\model\Agent;
 use app\manage\model\GoodsPhoto;
+use app\manage\model\GoodsComPhoto;
 use app\manage\model\GoodsComment;
 use app\manage\model\GoodsT;
 
@@ -94,6 +95,7 @@ class Product extends Admin{
             $ndata['total_time']    = $data['total_time'];
             $ndata['content']       = $data['content'];
             $ndata['rank_num']      = $data['rank_num'];
+            $ndata['collect_num']   = $data['collect_num'];
             $ndata['update_time']   = time();
             $ndata['status']        = $data['status'];
 
@@ -246,7 +248,8 @@ class Product extends Admin{
 	**/
     public function comment($state = 0){
     	// 搜索
-        $data['key'] = isset($_GET['key']) ? $_GET['key'] : '';
+        $searchData['selkey'] = isset($_GET['selkey']) ? $_GET['selkey'] : '1';
+        $searchData['key'] = isset($_GET['key']) ? $_GET['key'] : '';
         $where = array();
         if($state == '0'){
             $where['status'] = array('in','0,1,2');
@@ -255,13 +258,28 @@ class Product extends Admin{
         }else if($state == '2'){
             $where['status'] = '0';
         }
-        if(!empty($data['key'])){
-            $where['title|title_list'] = array('like','%'.$data['key'].'%');
+        switch ($searchData['selkey']) {
+            case '1': // 评论内容
+                if(!empty($searchData['key'])){
+                    $whereU['content'] = array('like','%'.$searchData['key'].'%');
+                }
+
+            break;
+            case '2': //用户ID
+                if(!empty($searchData['key'])){
+                    $where['uid'] = $searchData['key'];
+                }
+            break;
+            case '3': // 旅游路线ID
+                if(!empty($searchData['key'])){
+                    $where['gid'] = $searchData['key'];
+                }
+            break;
         }
         
 
-        $list = GoodsComment::where($where)->order('rank_num desc')->paginate(15,false,['query'=>request()->param()]);
-        $this->assign('data',$data);
+        $list = GoodsComment::where($where)->order('rank_num desc')->paginate(5,false,['query'=>request()->param()]);
+        $this->assign('data',$searchData);
         $this->assign('list',$list);
         $this->assign('page',$list->render());
     	$this->assign('state',$state);
@@ -270,37 +288,27 @@ class Product extends Admin{
 	
 	
 	/**
-	 * 添加、编辑产品
+	 * 添加、编辑评论
 	**/
 	public function commentEdit($id = '0'){
     	if(!isPost()){
             $info = GoodsComment::find($id);
             $photo = db('goodsComPhoto')->where('gcid',$id)->select();
-			dump($info);exit();
-            // 获取代理级别
-            //$level = db('agent_level')->select();
-            //$this->assign('level',$level);
-            //$this->assign('agent',$agent);
+            $goods = db('goods')->where('status',1)->field('id,title')->select();
+            // dump($info);exit();
             $this->assign('info',$info);
             $this->assign('photo',$photo);
+            $this->assign('goods',$goods);
 	        return $this->fetch();
     	}else{
     		$data = $_POST;
             
-            $ndata['title']         = $data['title'];
-            $ndata['title_list']    = $data['title_list'];
-            $ndata['photo']         = $data['photo'];
-            $ndata['agent']         = $data['agent'];
-            $ndata['show_banner']   = $data['show_banner'];
-            $ndata['rid']           = $data['rid'];
-            $ndata['start_time']    = strtotime($data['start_time']);
-            $ndata['stop_time']     = strtotime($data['stop_time']);
-            $ndata['show_time']     = strtotime($data['show_time']);
-            $ndata['hide_time']     = strtotime($data['hide_time']);
-            $ndata['total_time']    = $data['total_time'];
+            $ndata['pid']           = $data['pid'];
+            $ndata['score']         = $data['score'];
             $ndata['content']       = $data['content'];
             $ndata['rank_num']      = $data['rank_num'];
             $ndata['update_time']   = time();
+            $ndata['add_time']   = strtotime($data['add_time']);
             $ndata['status']        = $data['status'];
 
             if($data['id']){
@@ -308,24 +316,24 @@ class Product extends Admin{
                 // 编辑
                 
                 
-                $state = db('goods')->where('id',$id)->update($ndata);
+                $state = db('goodsComment')->where('id',$id)->update($ndata);
 
 
 
             }else{
                 // 添加
-                $state = $id = db('goods')->insertGetId($ndata);
+                $state = $id = db('goodsComment')->insertGetId($ndata);
             }
             //图片更新
-            db('goodsPhoto')->where('gid',$id)->delete();
+            db('goodsComPhoto')->where('gcid',$id)->delete();
 
             if( !empty($data['photo_arr']) ){
                 foreach( $data['photo_arr'] as $key=>$item ){
-                    $GP_data[$key]['gid'] = $id;
+                    $GP_data[$key]['gcid'] = $id;
                     $GP_data[$key]['photo'] = $item;
                     $GP_data[$key]['status'] = 1;
                 }
-                $gp = new GoodsPhoto;
+                $gp = new GoodsComPhoto;
                 $gp->saveAll($GP_data);
             }
             
@@ -343,7 +351,7 @@ class Product extends Admin{
 
 
             if($state){
-                return $this->success('保存成功',url('index'));
+                return $this->success('保存成功',url('comment'));
             }else{
                 return $this->error('添加失败');
             }

@@ -1,0 +1,120 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>查看</li>
+		</ol>
+	</div>
+	<div class="agent-level"><h3>订单信息</h3></div>
+	<dl class="add-block-li">
+		<dt>订单号：</dt>
+		<dd>{$info['order_num']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>成人人数：</dt>
+		<dd>{$info['aduly']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>小孩人数：</dt>
+		<dd>{$info['baby']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>详细地址：</dt>
+		<dd>{$info['addr_list']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>机票：</dt>
+		<dd>{$info['plane']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>接机：</dt>
+		<dd>{$info['car']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>管家：</dt>
+		<dd>{$info['butlers']}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>出行时间：</dt>
+		<dd>{$info['start_time']|date="Y-m-d H:i:s",###}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>下单时间：</dt>
+		<dd>{$info['add_time']|date="Y-m-d H:i:s",###}</dd>
+	</dl>
+	<dl class="add-block-li">
+		<dt>订单状态：</dt>
+		<dd>{if condition="$info['status'] eq 0"}
+			<font color="blue">未审核</font>
+			{elseif condition="$info['status'] eq 1" /}
+			待出行
+			{elseif condition="$info['status'] eq 2" /}
+			已出行
+			{elseif condition="$info['status'] eq 3" /}
+			已完成
+			{elseif condition="$info['status'] eq 4" /}
+			未评论
+			{elseif condition="$info['status'] eq 5" /}
+			已评论
+			{elseif condition="$info['status'] eq 100" /}
+			<font color="red">取消</font>
+			{/if}
+		</dd>
+		</dl>
+		<div class="agent-level"><h3>用户信息</h3></div>
+		<dl class="add-block-li">
+			<dt>头像：</dt>
+			<dd><div class="user_img " title="点击查看大图" style="cursor:pointer"><img src="{$info['user']['avatar']}"></div></dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>微信名称：</dt>
+			<dd>{$info['user']['nickname']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>手机号：</dt>
+			<dd>{$info['user']['phone']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>身份证号：</dt>
+			<dd>{$info['user']['card_id']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>上级代理：</dt>
+			<dd>{:get_user_parent($info['user']['parent_id'])['nickname']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>会员到期时间：</dt>
+			<dd>{$info['user']['charge_time']|date="Y-m-d H:i:s",###}</dd>
+		</dl>
+	<div class="agent-level"><h3>旅游路线信息</h3></div>
+	<div class="agent-info nobor">
+		
+		<dl class="add-block-li">
+			<dt>标题：</dt>
+			<dd>{$info['goods']['title']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>副标题：</dt>
+			<dd>{$info['goods']['title_list']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>出行时间区间：</dt>
+			<dd>{$info['goods']['start_time']|date="Y-m-d H:i:s",###} - {$info['goods']['stop_time']|date="Y-m-d H:i:s",###}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>路线总花费时间：</dt>
+			<dd>{$info['goods']['total_time']}</dd>
+		</dl>
+		<dl class="add-block-li">
+			<dt>代理商：</dt>
+			<dd>{:get_agent($info['goods']['agent'])['name']}</dd>
+		</dl>
+	</div>
+</div>

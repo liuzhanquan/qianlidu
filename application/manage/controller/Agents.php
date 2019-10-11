@@ -91,6 +91,8 @@ class Agents extends Admin{
             }
         }
     }
+
+    
     public function douser($id = '0',$type = 'view'){
         if($type == 'view'){
             $info = Agent::with('UserAll')->where('id',$id)->find();

@@ -221,12 +221,13 @@ class System extends Admin{
             if(!empty($info)){
                 $menu = explode(',', $info['menu_power']);
             }
+			//dump($info);exit();
             $this->assign('menu', $menu);
             $this->assign('info', $info);
             return $this->fetch();
         }else{
             $data = $_POST;
-            dump($data);exit();
+            
             if(isset($data['menu_power'])){
                 $data['menu_power'] = implode(',', $data['menu_power']);
             }

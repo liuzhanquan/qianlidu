@@ -1,0 +1,74 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+  		  <li>修改</li>
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>用户名称：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="nickname" datatype="*1-16" value="{$info['nickname']}">
+	            	<i>最多8个汉字或16个英文字符</i>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>手机号：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="phone" datatype="m" value="{$info['phone']}">
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>会员等级：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="level" value="{$info['level']}">
+	            </dd>
+	            <i>（0 为未激活）</i>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>会员期限时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="charge_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="{if condition="$info['id'] neq 0"}{$info.charge_time|date="Y-m-d H:i:s",###}{else/}{:date('Y-m-d H:i:s',time())}{/if}" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>身份证号码：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="card_id" value="{$info['card_id']}">
+	            </dd>
+	        </dl>
+	        
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="/static/admin/js/admin.js"></script>
+<script type="text/javascript">
+function call_back(data){
+	console.log(data)
+}
+</script>
+<script type="text/javascript">
+$(function () {
+	{php} $cityId = isset($info['city']) ? $info['city'] : '-1';{/php}
+	{php} $areaId = isset($info['area']) ? $info['area'] : '-1';{/php}
+	GetComboboxTwo("ddlProvince", "ddlCity", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "城市", "{$cityId}", "-1");
+	setTimeout(function () {
+        GetComboboxTwo("ddlCity", "ddlArea", "{:url('getregion')}", "id", "name", { levelId: 0 }, "id", "-1", "加载中", "{$areaId}", "-1");
+    },1000);
+});
+</script>

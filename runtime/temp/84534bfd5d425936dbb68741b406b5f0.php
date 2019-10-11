@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment_edit.html";i:1570609284;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment_edit.html";i:1570760231;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,111 +71,37 @@
 	<div class="sys-content">
 		<form data-model="form-submit">
 	        <dl>
-	            <dt><i>*</i>产品标题：</dt>
+	            <dt><i>*</i>路线标题：</dt>
 	            <dd>
-	            	<input type="text" style="width: 260px" name="title" class="form-controls" datatype="*1-10" value="<?php echo $info['title']; ?>">
+	            	<dd>
+						<select name="gid" class="form-control" style="width: 200px;" id="goods_<?php echo $info['gid']; ?>">
+	   34                      <option value="0">无</option>
+	   35                      <?php if(is_array($goods) || $goods instanceof \think\Collection || $goods instanceof \think\Paginator): if( count($goods)==0 ) : echo "" ;else: foreach($goods as $key=>$item): ?>
+	   36                      <option value="<?php echo $item['id']; ?>" <?php if($item['id'] == $info['gid']): ?>selected="selected"<?php endif; ?>><?php echo $item['title']; ?></option>
+	   37                      <?php endforeach; endif; else: echo "" ;endif; ?>
+	   38:                 </select>
+						<i></i>
+						<div class="tip-alert"></div>
+					</dd>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>用户名称：</dt>
+				<input type="hidden" style="width: 260px" name="uid" class="form-controls" datatype="*1-40" value="<?php echo $info['id']; ?>">
+	            <dd><?php echo $info['user']['nickname']; ?></dd>
+	        </dl>
+	        
+	        <dl>
+	            <dt><i>*</i>父评论id：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="pid" class="form-controls" datatype="*1-10" value="<?php echo $info['pid']; ?>">
 	            	<i>（最多20个字符）</i>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>
 	        <dl>
-	            <dt><i>*</i>产品副标题：</dt>
-	            <dd>
-	            	<input type="text" style="width: 260px" name="title_list" class="form-controls" datatype="*1-40" value="<?php echo $info['title_list']; ?>">
-	            	<i>（最多60个字符）</i>
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt>代理商：</dt>
-	            <dd>
-	            	
-					<select name="agent" class="form-control" style="width: 200px;" id="ddlAgentLevel_<?php echo $vo['id']; ?>">
-   34                      <option value="0">无</option>
-   35                      <?php if(is_array($agent) || $agent instanceof \think\Collection || $agent instanceof \think\Paginator): if( count($agent)==0 ) : echo "" ;else: foreach($agent as $key=>$item): ?>
-   36                      <option value="<?php echo $item['id']; ?>" <?php if($item['id'] == $info['agent']): ?>selected="selected"<?php endif; ?>><?php echo $item['user']['nickname']; ?></option>
-   37                      <?php endforeach; endif; else: echo "" ;endif; ?>
-   38:                 </select>
-	            	<i></i>
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt>线路标签：</dt>
-	            <dd>
-	           	<?php if(is_array($goodsTag) || $goodsTag instanceof \think\Collection || $goodsTag instanceof \think\Paginator): if( count($goodsTag)==0 ) : echo "" ;else: foreach($goodsTag as $key=>$item): ?>
-					<label class="checkbox-inline"><input type="checkbox" name="goodsT[]" value="<?php echo $item['id']; ?>" <?php if(is_array($goodsT) || $goodsT instanceof \think\Collection || $goodsT instanceof \think\Paginator): if( count($goodsT)==0 ) : echo "" ;else: foreach($goodsT as $key=>$i): if($i['tid'] == $item['id']): ?>checked="checked"<?php endif; endforeach; endif; else: echo "" ;endif; ?>><?php echo $item['name']; ?></label>
-				<?php endforeach; endif; else: echo "" ;endif; ?>
-                <!-- <span class="layers_tips_blue" data-model="form-webtips" data-content="勾选之后新代理授权申请以及推荐的代理授权申请时需要上传相关图片资料" data-placement="right">
-                    <em class="newtips"></em>
-                </span> -->
-            </dd>
-	        </dl>
-	        <dl>
-	            <dt>推荐标签：</dt>
-	            <dd>
-	            	<select name="rid" class="form-control" style="width: 200px;" id="ddlAgentLevel_<?php echo $vo['id']; ?>">
-   34                      <option value="0">无</option>
-   35                      <?php if(is_array($goodsRecommed) || $goodsRecommed instanceof \think\Collection || $goodsRecommed instanceof \think\Paginator): if( count($goodsRecommed)==0 ) : echo "" ;else: foreach($goodsRecommed as $key=>$item): ?>
-   36                      <option value="<?php echo $item['id']; ?>" <?php if($item['id'] == $info['rid']): ?>selected="selected"<?php endif; ?>><?php echo $item['name']; ?></option>
-   37                      <?php endforeach; endif; else: echo "" ;endif; ?>
-   38:                 </select>
-	            	<!-- <em>元</em>
-	            	<i>（支持2位小数点）</i> -->
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>产品封面图片：</dt>
-	            <dd>
-	            	<div class="upload-panel">
-	            		<a href="javascript:;" data-model="form-upload" data-target="#images" data-preview="#uploadImage_2" class="btn btn-ok"><i class="iconfont">&#xe74a;</i> 上传图片</a>
-	            	</div>
-	            	<input type="hidden" name="photo" value="<?php echo $info['photo']; ?>" id="images">
-		            <div class="help-block">(推荐尺寸为600px*600px，大小不超过200k，支持jpeg、jpg、png、gif、jpeg格式)</div>
-	            	<div class="upload-prview">
-	            		<img style="width:expression(this.width > 105 ? 105px : this.width)" src="<?php echo $info['photo']; ?>" id="uploadImage_2">
-	            	</div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt>是否banner展示：</dt>
-	            <dd>
-	            	<label class="radio-inline"><input type="radio" name="show_banner" <?php if($info['show_banner'] == 1): ?>checked<?php endif; ?> value="1">显示</label>
-	            	<label class="radio-inline"><input type="radio" name="show_banner" <?php if($info['show_banner'] == 0): ?>checked<?php endif; ?> value="0">取消</label>
-	            	<!-- <em>元</em>
-	            	<i>（支持2位小数点）</i> -->
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>旅途时间：</dt>
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['start_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
-						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['stop_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>旅途时间长度：</dt>
-	            <dd>
-	            	<input type="text" style="width: 260px" name="total_time" class="form-controls" datatype="*1-10" value="<?php echo $info['total_time']; ?>">
-	            	<i>（最多20个字符）</i>
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>项目展示时间：</dt>
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="show_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['show_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
-						<input type="text" class="form-control" name="hide_time" style="width: 150px;float:left;position:absolute;left:190px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['hide_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-	        <dl>
-	        	<dt><i>*</i>商品图：</dt>
+	        	<dt><i>*</i>评论图片：</dt>
 	            <dd>
 					<div class="flex-item-1 form-item-line">
 						<div class="input-line input-flex">
@@ -201,10 +127,25 @@
 					</div>
 				</dd>
 	        </dl>
+			<dl>
+	            <dt><i>*</i>评论发表时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="add_time" style="width: 150px;float:left;position:absolute;left:0px;background-color:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['add_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>"" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
 	        <dl>
 	            <dt><i>*</i>详细描述：</dt>
 	            <dd>
 	            	<textarea name="content" rows="5" id="content" data-model="form-ueditor"><?php echo $info['content']; ?></textarea>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>评分：</dt>
+	            <dd>
+	            	<input type="text" style="width: 260px" name="score" class="form-controls" value="<?php echo !empty($info['score'])?$info['score']:0; ?>">
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>

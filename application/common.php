@@ -1166,6 +1166,34 @@ if(!function_exists('charge_time')){
         }
         return $t_total;
     }
+
+
+if(!function_exists('get_agent')){
+    /**
+     * 获取代理商信息
+     * @param $id
+     * @return array
+     */
+    function get_agent($id){
+        return db('agent')->where('id',$id)->find();
+    }
+}
+if(!function_exists('get_user_parent')){
+    /**
+     * 获取上级代理信息
+     * @param $id
+     * @return array
+     */
+    function get_user_parent($id){
+        return db('user')->where('id',$id)->find();
+    }
+}
+
+
+
+
+
+
 }
 
 
