@@ -227,7 +227,39 @@ class System extends Admin{
             return $this->fetch();
         }else{
             $data = $_POST;
-            
+            dump($data);exit();
+            if(isset($data['menu_power'])){
+                $data['menu_power'] = implode(',', $data['menu_power']);
+            }
+            if(isset($data['power'])){
+                $data['power'] = implode(',', $data['power']);
+            }
+            if($data['gid']){
+                $state = db('admin_group')->where('gid',$data['gid'])->update($data);
+            }else{
+                $state = db('admin_group')->insertGetId($data);
+            }
+            if($state){
+                return $this->success('操作成功',url('role'));
+            }else{
+                return $this->error('操作失败');
+            }
+        }
+    }
+	public function sysmenu($id = '0'){
+        if(!isPost()){
+            $info = db('admin_group')->where('gid',$id)->find();
+            $menu = array();
+            if(!empty($info)){
+                $menu = explode(',', $info['menu_power']);
+            }
+			//dump($info);exit();
+            $this->assign('menu', $menu);
+            $this->assign('info', $info);
+            return $this->fetch();
+        }else{
+            $data = $_POST;
+            dump($data);exit();
             if(isset($data['menu_power'])){
                 $data['menu_power'] = implode(',', $data['menu_power']);
             }

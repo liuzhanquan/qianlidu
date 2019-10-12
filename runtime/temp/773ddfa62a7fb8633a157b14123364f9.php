@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html";i:1570794178;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html";i:1557097926;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,16 +90,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					
-					<?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?>
+					<?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;$oneRole = getRole($sub['id'],$admin['role_id']); ?>
 					<tr>
 						<td width="120" class="text-left">
 							<div class="checkbox-inline">
 							<label><input class="rows" type="checkbox" name="menu_power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> </label></div>
-							<?php if(is_array($sub['extend']) || $sub['extend'] instanceof \think\Collection || $sub['extend'] instanceof \think\Paginator): $i = 0; $__LIST__ = $sub['extend'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ext): $mod = ($i % 2 );++$i;?>
-								<div class="checkbox-inline">
-								<label><input class="rows" type="checkbox" name="power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> </label></div>
-							<?php endforeach; endif; else: echo "" ;endif; ?>
 						</td>
 					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>

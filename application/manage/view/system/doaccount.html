@@ -73,6 +73,13 @@
 	            	<i>最多10个字</i>
 	            </dd>
 	        </dl>
+			<dl>
+	            <dt>是否启用：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="status" {if condition="$info['status'] eq 1"}checked{/if} value="1">显示</label>
+	            	<label class="radio-inline"><input type="radio" name="status" {if condition="$info['status'] eq 0"}checked{/if} value="0">隐藏</label>
+	            </dd>
+	        </dl>
 	        <div class="submit-btn">
 	        	<input type="hidden" value="{$info['id']}" name="id">
 	            <button class="btn btn-info">保存设置</button>

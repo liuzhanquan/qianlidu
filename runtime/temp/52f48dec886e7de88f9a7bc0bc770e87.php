@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:52:"D:\phpstudy\WWW\lanHu\themes\default\user\index.html";i:1570679571;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:52:"D:\phpstudy\WWW\lanHu\themes\default\user\index.html";i:1570686618;}*/ ?>
 <!--{#include 'header.html'}-->
 <script type="text/javascript" src="/static/js/package.js" data-path="/static/js/" data-root="/<?php echo \think\Request::instance()->controller(); ?>/"  data-src="/static/admin/js/common"></script>
 <style type="text/css">
@@ -125,8 +125,8 @@ var Script = function () {
 <script type="text/javascript">
     var result = {};
     var num = 1;
-    // var http = "http://ceshi.pm.gzwehe.cn";
-    var http = "http://www.lh1.com";
+    var http = "http://ceshi.pm.gzwehe.cn";
+    //var http = "http://www.lh1.com";
     var orderId = 1;
     result['userInfo'] =  $.cookie('userInfo');
     /**

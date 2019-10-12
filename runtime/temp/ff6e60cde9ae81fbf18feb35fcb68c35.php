@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html";i:1557097924;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html";i:1570792720;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,6 +129,13 @@
 	            <dd>
 	            	<input type="text" style="width: 270px" name="remark" class="form-controls" value="<?php echo $info['remark']; ?>">
 	            	<i>最多10个字</i>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>是否启用：</dt>
+	            <dd>
+	            	<label class="radio-inline"><input type="radio" name="status" <?php if($info['status'] == 1): ?>checked<?php endif; ?> value="1">显示</label>
+	            	<label class="radio-inline"><input type="radio" name="status" <?php if($info['status'] == 0): ?>checked<?php endif; ?> value="0">隐藏</label>
 	            </dd>
 	        </dl>
 	        <div class="submit-btn">

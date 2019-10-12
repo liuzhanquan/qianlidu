@@ -9640,3 +9640,3542 @@
 [ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
 [ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`username` = 'a1' LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:15:46+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.124023s][吞吐率：8.06req/s] [内存消耗：2,701.02kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.019531s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:18:45+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.112305s][吞吐率：8.90req/s] [内存消耗：2,899.91kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011718s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:19:48+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.114258s][吞吐率：8.75req/s] [内存消耗：2,701.45kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013672s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:19:53+08:00 ] 127.0.0.1 POST /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：2,786.41kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '89',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'a1',
+  'role_id' => '1',
+  'name' => 'dddd',
+  'phone' => '15118922211',
+  'password' => '123456',
+  'remark' => 'cs',
+  'status' => '1',
+  'id' => '4',
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`username` = 'a1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] UPDATE `cm_admin`  SET `username`='a1',`role_id`=1,`name`='dddd',`phone`='15118922211',`password`='###d11e8f2f44c9512290f778da2df1c60b',`remark`='cs',`status`=1  WHERE  `id` = 4 [ RunTime:0.001954s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:19:57+08:00 ] 127.0.0.1 GET /admin/system/account.html
+[ info ] www.lh1.com/admin/system/account.html [运行时间：0.095703s][吞吐率：10.45req/s] [内存消耗：2,846.09kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'account',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->account[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+  7 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'account' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' ORDER BY `a`.`id` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:27+08:00 ] 127.0.0.1 GET /admin/system/account.html
+[ info ] www.lh1.com/admin/system/account.html [运行时间：0.137695s][吞吐率：7.26req/s] [内存消耗：2,846.15kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'account',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->account[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+  7 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'account' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' ORDER BY `a`.`id` DESC LIMIT 0,15 [ RunTime:0.006836s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:30+08:00 ] 127.0.0.1 POST /admin/login/index.html
+[ info ] www.lh1.com/admin/login/index.html [运行时间：0.071289s][吞吐率：14.03req/s] [内存消耗：2,572.19kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496',
+  'cache-control' => 'no-cache',
+  'connection' => 'close',
+  'content-length' => '35',
+  'host' => 'www.lh1.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/login.html',
+  'x-requested-with' => 'XMLHttpRequest',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'a1',
+  'password' => '123456',
+  'a' => 'login',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Login->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`username` = 'a1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] UPDATE `cm_admin`  SET `id`=4,`login_time`=1570792890  WHERE  `id` = 4 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:30+08:00 ] 127.0.0.1 GET /admin/index.html
+[ info ] www.lh1.com/admin/index.html [运行时间：0.176757s][吞吐率：5.66req/s] [内存消耗：2,694.91kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570792890',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/login.html',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\index\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'money',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.014649s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.025390s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Index'  AND `url` = 'index' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 0 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_user` LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_order` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_order` LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:39+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.196289s][吞吐率：5.09req/s] [内存消耗：2,871.47kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570792890',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/index.html',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008789s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.061524s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:39+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.026368s][吞吐率：37.92req/s] [内存消耗：1,344.25kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:21:40+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.029296s][吞吐率：34.13req/s] [内存消耗：1,344.25kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:21:42+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.212890s][吞吐率：4.70req/s] [内存消耗：3,035.08kb] [文件加载：71]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012696s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90) [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.020507s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.018555s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:44+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1570792904824
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1570792904824 [运行时间：0.073242s][吞吐率：13.65req/s] [内存消耗：2,468.70kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept-language' => 'zh-CN',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1570792904824',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:45+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1570792904850
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1570792904850 [运行时间：0.044922s][吞吐率：22.26req/s] [内存消耗：2,468.70kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept-language' => 'zh-CN',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1570792904850',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:47+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.113281s][吞吐率：8.83req/s] [内存消耗：2,871.16kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:47+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.030274s][吞吐率：33.03req/s] [内存消耗：1,344.25kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:21:48+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.023437s][吞吐率：42.67req/s] [内存消耗：1,344.25kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:21:54+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.096680s][吞吐率：10.34req/s] [内存消耗：2,701.38kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:21:59+08:00 ] 127.0.0.1 GET /admin/system/account.html
+[ info ] www.lh1.com/admin/system/account.html [运行时间：0.087891s][吞吐率：11.38req/s] [内存消耗：2,846.09kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'account',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->account[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+  7 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'account' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' ORDER BY `a`.`id` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:01+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.107422s][吞吐率：9.31req/s] [内存消耗：2,701.38kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012696s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:02+08:00 ] 127.0.0.1 GET /admin/system/account.html
+[ info ] www.lh1.com/admin/system/account.html [运行时间：0.083007s][吞吐率：12.05req/s] [内存消耗：2,846.09kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'account',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->account[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+  7 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'account' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' ORDER BY `a`.`id` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:05+08:00 ] 127.0.0.1 GET /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.110352s][吞吐率：9.06req/s] [内存消耗：2,701.38kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\doaccount.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'info',
+  7 => 'id',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:13+08:00 ] 127.0.0.1 POST /admin/system/doaccount/4.html
+[ info ] www.lh1.com/admin/system/doaccount/4.html [运行时间：0.120118s][吞吐率：8.33req/s] [内存消耗：2,786.41kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'doaccount',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '89',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'a1',
+  'role_id' => '3',
+  'name' => 'dddd',
+  'phone' => '15118922211',
+  'password' => '123456',
+  'remark' => 'cs',
+  'status' => '1',
+  'id' => '4',
+  0 => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->doaccount[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.020508s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'doaccount' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%doaccount%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`username` = 'a1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] UPDATE `cm_admin`  SET `username`='a1',`role_id`=3,`name`='dddd',`phone`='15118922211',`password`='###d11e8f2f44c9512290f778da2df1c60b',`remark`='cs',`status`=1  WHERE  `id` = 4 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:16+08:00 ] 127.0.0.1 GET /admin/system/account.html
+[ info ] www.lh1.com/admin/system/account.html [运行时间：0.104492s][吞吐率：9.57req/s] [内存消耗：2,846.08kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'account',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/doaccount/4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->account[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\account.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+  7 => 'search',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014649s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'account' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`is_sys` = '0' ORDER BY `a`.`id` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:17+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.204102s][吞吐率：4.90req/s] [内存消耗：2,702.79kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:21+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1570792941561
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1570792941561 [运行时间：0.064454s][吞吐率：15.51req/s] [内存消耗：2,468.70kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept-language' => 'zh-CN',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1570792941561',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:22+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1570792941565
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1570792941565 [运行时间：0.061523s][吞吐率：16.25req/s] [内存消耗：2,468.70kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept-language' => 'zh-CN',
+  'accept' => '*/*',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1570792941565',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010742s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:25+08:00 ] 127.0.0.1 GET /admin/
+[ info ] www.lh1.com/admin/ [运行时间：0.161133s][吞吐率：6.21req/s] [内存消耗：2,655.30kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\index\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'money',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.033203s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Index'  AND `url` = 'index' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_user` LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_order` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_order` LIMIT 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:27+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.096679s][吞吐率：10.34req/s] [内存消耗：2,589.38kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:33+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.101563s][吞吐率：9.85req/s] [内存消耗：2,589.38kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.012696s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:22:48+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.097656s][吞吐率：10.24req/s] [内存消耗：2,589.38kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+  'accept-language' => 'zh-CN',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html, application/xhtml+xml, */*',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:23:08+08:00 ] 127.0.0.1 GET /admin/
+[ info ] www.lh1.com/admin/ [运行时间：0.099609s][吞吐率：10.04req/s] [内存消耗：2,655.66kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\index\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'money',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Index'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_user` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_order` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_order` LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:23:09+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.091797s][吞吐率：10.89req/s] [内存消耗：2,589.91kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:23:24+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.106445s][吞吐率：9.39req/s] [内存消耗：2,589.91kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=3',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004883s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.012696s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:09+08:00 ] 127.0.0.1 GET /admin/
+[ info ] www.lh1.com/admin/ [运行时间：0.148438s][吞吐率：6.74req/s] [内存消耗：2,655.95kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=5',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\index\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'money',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Index'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_user` LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_order` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_order` LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:11+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.199218s][吞吐率：5.02req/s] [内存消耗：2,835.02kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006836s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:11+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.054688s][吞吐率：18.29req/s] [内存消耗：1,344.40kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:24:11+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.055664s][吞吐率：17.96req/s] [内存消耗：1,344.40kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:24:18+08:00 ] 127.0.0.1 GET /admin/product/.html
+[ info ] www.lh1.com/admin/product/.html [运行时间：0.157226s][吞吐率：6.36req/s] [内存消耗：2,835.02kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.011718s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:18+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.061524s][吞吐率：16.25req/s] [内存消耗：1,344.40kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=7',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:24:18+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.054688s][吞吐率：18.29req/s] [内存消耗：1,344.40kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=8',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-11T19:24:19+08:00 ] 127.0.0.1 GET /admin/system/.html
+[ info ] www.lh1.com/admin/system/.html [运行时间：0.156250s][吞吐率：6.40req/s] [内存消耗：2,599.89kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=8',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\framework\tpl\dispatch_jump.tpl [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'data',
+  5 => 'url',
+  6 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021484s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:47+08:00 ] 127.0.0.1 POST /admin/product/status.html
+[ info ] www.lh1.com/admin/product/status.html [运行时间：0.116211s][吞吐率：8.61req/s] [内存消耗：2,589.45kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'status',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=10',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '10',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+  'val' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:24:55+08:00 ] 127.0.0.1 POST /admin/product/status.html
+[ info ] www.lh1.com/admin/product/status.html [运行时间：0.118164s][吞吐率：8.46req/s] [内存消耗：2,589.45kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'status',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '__guid=32682040.3271426927280463400.1570619513997.0496; admin_cookie=4; login_time=1570796490; monitor_count=10',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '10',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+  'val' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '4' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `id` IN (2,14,3) ORDER BY `sort` ASC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:26:09+08:00 ] 127.0.0.1 GET /admin/system/role.html
+[ info ] www.lh1.com/admin/system/role.html [运行时间：0.099609s][吞吐率：10.04req/s] [内存消耗：2,843.00kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570793168',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/account.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->role[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\role.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'list',
+  6 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'role' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%role%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_admin_group` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` ORDER BY `gid` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin` WHERE  `role_id` = 3 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin` WHERE  `role_id` = 2 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin` WHERE  `role_id` = 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:26:11+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.114258s][吞吐率：8.75req/s] [内存消耗：2,684.40kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013672s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:27:30+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.081055s][吞吐率：12.34req/s] [内存消耗：2,636.92kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:27:41+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.089844s][吞吐率：11.13req/s] [内存消耗：2,636.92kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:28:45+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.094726s][吞吐率：10.56req/s] [内存消耗：2,822.65kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:29:10+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.118164s][吞吐率：8.46req/s] [内存消耗：2,822.71kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:29:16+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.113282s][吞吐率：8.83req/s] [内存消耗：2,822.57kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:33:07+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.125977s][吞吐率：7.94req/s] [内存消耗：2,684.52kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:33:12+08:00 ] 127.0.0.1 POST /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.128906s][吞吐率：7.76req/s] [内存消耗：2,716.33kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '88',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'name' => '测试2',
+  'menu_power' => 
+  array (
+    0 => '2',
+    1 => '14',
+    2 => '3',
+  ),
+  'gid' => '3',
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013671s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [2]Missing argument 1 for dump(), called in D:\phpstudy\WWW\lanHu\application\manage\controller\System.php on line 230 and defined[D:\phpstudy\WWW\lanHu\framework\helper.php:265]
+---------------------------------------------------------------
+[ 2019-10-11T19:33:25+08:00 ] 127.0.0.1 POST /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.146484s][吞吐率：6.83req/s] [内存消耗：2,623.86kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '88',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'name' => '测试2',
+  'menu_power' => 
+  array (
+    0 => '2',
+    1 => '14',
+    2 => '3',
+  ),
+  'gid' => '3',
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006836s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.011718s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.014649s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:39:54+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.100586s][吞吐率：9.94req/s] [内存消耗：2,684.52kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017578s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:39:59+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.093750s][吞吐率：10.67req/s] [内存消耗：2,636.97kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:41:31+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.082031s][吞吐率：12.19req/s] [内存消耗：2,842.85kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:43:26+08:00 ] 127.0.0.1 POST /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.102540s][吞吐率：9.75req/s] [内存消耗：2,623.97kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '145',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'name' => '测试2',
+  'menu_power' => 
+  array (
+    0 => '2',
+    1 => '14',
+    2 => '3',
+    3 => '4',
+    4 => '4',
+    5 => '4',
+  ),
+  'gid' => '3',
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:43:43+08:00 ] 127.0.0.1 GET /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.097656s][吞吐率：10.24req/s] [内存消耗：2,842.91kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/role.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 3 LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:43:47+08:00 ] 127.0.0.1 POST /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：2,623.86kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '88',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'name' => '测试2',
+  'menu_power' => 
+  array (
+    0 => '2',
+    1 => '14',
+    2 => '3',
+  ),
+  'gid' => '3',
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.004882s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:44:38+08:00 ] 127.0.0.1 POST /admin/system/dorole/3.html
+[ info ] www.lh1.com/admin/system/dorole/3.html [运行时间：0.093750s][吞吐率：10.67req/s] [内存消耗：2,624.23kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'dorole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '130',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'name' => '测试2',
+  'menu_power' => 
+  array (
+    0 => '2',
+    1 => '14',
+    2 => '3',
+  ),
+  'power' => 
+  array (
+    0 => '4',
+    1 => '4',
+    2 => '4',
+  ),
+  'gid' => '3',
+  0 => '3',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->dorole[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011718s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'dorole' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `extend` LIKE '%dorole%' LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-11T19:46:31+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.123046s][吞吐率：8.13req/s] [内存消耗：2,723.95kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012696s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:14+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.120117s][吞吐率：8.33req/s] [内存消耗：2,724.01kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000976s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:16+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.115235s][吞吐率：8.68req/s] [内存消耗：2,724.01kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:17+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.106445s][吞吐率：9.39req/s] [内存消耗：2,724.06kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:17+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.121093s][吞吐率：8.26req/s] [内存消耗：2,724.06kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:17+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.130859s][吞吐率：7.64req/s] [内存消耗：2,724.06kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\common\controller\Base->_empty[ D:\phpstudy\WWW\lanHu\application\common\controller\Base.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\default\404.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:47:44+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.155273s][吞吐率：6.44req/s] [内存消耗：2,727.58kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:21+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.099609s][吞吐率：10.04req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014648s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:21+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.092774s][吞吐率：10.78req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001954s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:21+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.093750s][吞吐率：10.67req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000976s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:21+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.087891s][吞吐率：11.38req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:21+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.092773s][吞吐率：10.78req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004882s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:22+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.099610s][吞吐率：10.04req/s] [内存消耗：2,727.63kb] [文件加载：66]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ error ] [0]模板文件不存在:D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html[D:\phpstudy\WWW\lanHu\framework\library\think\view\driver\Think.php:82]
+---------------------------------------------------------------
+[ 2019-10-11T19:48:41+08:00 ] 127.0.0.1 GET /admin/system/sysmenu.html
+[ info ] www.lh1.com/admin/system/sysmenu.html [运行时间：0.120117s][吞吐率：8.33req/s] [内存消耗：2,927.56kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'system',
+    2 => 'sysmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; userInfo=eyJpZCI6ODUsImxvZ190aW1lIjoxNTcwNjc4MjA1fQ%3D%3D; login_time=1570796768',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/system/dorole/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\System->sysmenu[ D:\phpstudy\WWW\lanHu\application\manage\controller\System.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'menu',
+  6 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` ASC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'System'  AND `url` = 'sysmenu' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [0]致命错误: Call to undefined function getRole()[D:\phpstudy\WWW\lanHu\runtime\temp\773ddfa62a7fb8633a157b14123364f9.php:93]

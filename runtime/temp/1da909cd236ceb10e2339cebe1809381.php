@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1570778299;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1570780042;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,11 +115,11 @@
 	            <dt>推荐标签：</dt>
 	            <dd>
 	            	<select name="rid" class="form-control" style="width: 200px;" id="ddlAgentLevel_<?php echo $vo['id']; ?>">
-   34                      <option value="0">无</option>
-   35                      <?php if(is_array($goodsRecommed) || $goodsRecommed instanceof \think\Collection || $goodsRecommed instanceof \think\Paginator): if( count($goodsRecommed)==0 ) : echo "" ;else: foreach($goodsRecommed as $key=>$item): ?>
-   36                      <option value="<?php echo $item['id']; ?>" <?php if($item['id'] == $info['rid']): ?>selected="selected"<?php endif; ?>><?php echo $item['name']; ?></option>
-   37                      <?php endforeach; endif; else: echo "" ;endif; ?>
-   38:                 </select>
+                         <option value="0">无</option>
+                         <?php if(is_array($goodsRecommed) || $goodsRecommed instanceof \think\Collection || $goodsRecommed instanceof \think\Paginator): if( count($goodsRecommed)==0 ) : echo "" ;else: foreach($goodsRecommed as $key=>$item): ?>
+                         <option value="<?php echo $item['id']; ?>" <?php if($item['id'] == $info['rid']): ?>selected="selected"<?php endif; ?>><?php echo $item['name']; ?></option>
+                         <?php endforeach; endif; else: echo "" ;endif; ?>
+                   </select>
 	            	<!-- <em>元</em>
 	            	<i>（支持2位小数点）</i> -->
 	            	<div class="tip-alert"></div>
