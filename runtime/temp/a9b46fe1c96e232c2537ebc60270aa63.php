@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment.html";i:1570761144;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570500128;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\product\comment.html";i:1570868047;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,15 +69,15 @@
 	</div>
 	<!-- <div class="alert alert-default">提示：为保证数据安全性，入库时间超过7天的记录不能删除，查看时间不限制，默认显示最近一个月的记录。</div> -->
 	<div class="right-content" data-model="table-bind">
-		<div class="option-btn">
+		<!-- <div class="option-btn">
 			<a href="<?php echo url('ProductEdit'); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加路线</a>
 			<a href="<?php echo url('recycle'); ?>" style="margin: 3px 20px 20px">回收站</a>
-		</div>
+		</div> -->
 		<div class="tab-title" style="margin-top: 28px;">
 	        <ul class="tab-title_con">
-	            <li <?php if($state == 0): ?>class="on"<?php endif; ?>><a href="<?php echo url('index'); ?>" style="padding-left:50px; padding-right:50px;">全部</a></li>
-	            <li <?php if($state == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'1']); ?>" style="padding-left:50px; padding-right:50px;">已上架</a></li>
-	            <li <?php if($state == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['status'=>'2']); ?>" style="padding-left:50px; padding-right:50px;">已下架</a></li>
+	            <li <?php if($state == 0): ?>class="on"<?php endif; ?>><a href="<?php echo url('comment'); ?>" style="padding-left:50px; padding-right:50px;">全部</a></li>
+	            <li <?php if($state == 1): ?>class="on"<?php endif; ?>><a href="<?php echo url('comment',['status'=>'1']); ?>" style="padding-left:50px; padding-right:50px;">显示</a></li>
+	            <li <?php if($state == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('comment',['status'=>'2']); ?>" style="padding-left:50px; padding-right:50px;">隐藏</a></li>
 	        </ul>
 		</div>
 		<div class="option-search clearfix">
@@ -141,10 +141,10 @@
 					<td>
 						<a href="<?php echo url('commentEdit',['id'=>$vo['id']]); ?>">查看修改</a><em>-</em>
 						<?php if($vo['status'] == 0): ?>
-						<a href="javascript:void(0)" data-confirm data-tips="确定要显示吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="1">显示</a>
-						<a href="javascript:void(0)" data-del data-id="<?php echo $vo['id']; ?>" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a>
+						<a href="javascript:void(0)" data-confirm data-tips="确定要显示吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('commentstatus'); ?>" data-val="1">显示</a>
+						<!-- <a href="javascript:void(0)" data-del data-id="<?php echo $vo['id']; ?>" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a> -->
 						<?php else: ?>
-						<a href="javascript:void(0)" data-confirm data-tips="隐藏后将用户不会该评论，确定要隐藏吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('status'); ?>" data-val="0">隐藏</a>
+						<a href="javascript:void(0)" data-confirm data-tips="隐藏后将用户不会该评论，确定要隐藏吗？" data-id="<?php echo $vo['id']; ?>" data-url="<?php echo url('commentstatus'); ?>" data-val="0">隐藏</a>
 						<?php endif; ?>
 					</td>
 				</tr>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html";i:1570794178;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\system\dorole.html";i:1570847979;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,12 +94,17 @@
 					<?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?>
 					<tr>
 						<td width="120" class="text-left">
-							<div class="checkbox-inline">
-							<label><input class="rows" type="checkbox" name="menu_power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> </label></div>
-							<?php if(is_array($sub['extend']) || $sub['extend'] instanceof \think\Collection || $sub['extend'] instanceof \think\Paginator): $i = 0; $__LIST__ = $sub['extend'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ext): $mod = ($i % 2 );++$i;?>
-								<div class="checkbox-inline">
-								<label><input class="rows" type="checkbox" name="power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> </label></div>
-							<?php endforeach; endif; else: echo "" ;endif; ?>
+							<div class="checkbox-inline selectHeadBox" style="width:20%;">
+							<label>
+								<input class="rows" type="checkbox" name="menu_power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> 
+								
+								<input class="rows" type="checkbox" style="display:none;" name="power[]" value="<?php echo $sub['model']; ?>/<?php echo $sub['extend']['0']; ?>" <?php if(in_array($sub['model'].'/'.$sub['extend'][0],$extend)){ echo 'checked';} ?>> 
+							</label>
+							</div>
+							<?php if(is_array($sub['extend']) || $sub['extend'] instanceof \think\Collection || $sub['extend'] instanceof \think\Paginator): $key = 0; $__LIST__ = $sub['extend'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ext): $mod = ($key % 2 );++$key;if($key > 1): ?>
+								<div class="checkbox-inline" style="color:#666;">
+								<label><input class="rows" type="checkbox" name="power[]" value="<?php echo $sub['model']; ?>/<?php echo $ext; ?>" <?php if(in_array($sub['model'].'/'.$ext,$extend)){ echo 'checked';} ?>><?php echo get_power_parent($sub['id'],$sub['model'],$ext); ?> </label></div>
+								<?php endif; endforeach; endif; else: echo "" ;endif; ?>
 						</td>
 					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
@@ -113,6 +118,19 @@
 		</form>
 	</div>
 </div>
+
+<script>
+	$('.selectHeadBox').each(function(index){
+		$(this).click(function(){
+			//var a = $(this).children('input').eq(0).prop('checked');
+			var a = $(this).find('input').eq(0).prop('checked');
+			$(this).find('input').eq(1).prop('checked',a);
+		
+		});
+	
+	});
+
+</script>
 		</div>
 	</div>
 </div>

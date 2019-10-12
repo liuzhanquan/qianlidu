@@ -36,7 +36,7 @@
 	        <dl>
 	            <dt>手机号：</dt>
 	            <dd>
-	            	<input type="text" style="width: 270px;background: #efefef;" readonly="" class="form-controls" datatype="m" value="{$info['phone']}">
+	            	<input type="text" name="phone" style="width: 270px;"  class="form-controls"  value="{$info['phone']}">
 	            	<i>11位手机号码</i>
 	            	<div class="tip-alert"></div>
 	            </dd>
@@ -54,14 +54,6 @@
 	            <dd>
 	            	<input type="password" style="width: 270px" class="form-controls" datatype="*6-20" recheck="password">
 	            	<i>6-20位英文、数字或字符</i>
-	            	<div class="tip-alert"></div>
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>绑定微信登陆账户：</dt>
-	            <dd>
-	            	<img src="{$qrcode}" width="120">
-	            	<i>请使用微信扫一扫进行相关联绑定微信</i>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\system\index.html";i:1557097926;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\system\index.html";i:1570869985;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +74,7 @@
             <!-- <li <?php if($id == 2): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'2']); ?>">代理设置</a></li> -->
             <!-- <li <?php if($id == 3): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'3']); ?>">订单设置</a></li> -->
             <!-- <li <?php if($id == 4): ?>class="on"<?php endif; ?>><a href="<?php echo url('index',['id'=>'4']); ?>">收款账号</a></li> -->
-            <li><a href="<?php echo url('sethome'); ?>">代理后台首页设置</a></li>
+            <!-- <li><a href="<?php echo url('sethome'); ?>">代理后台首页设置</a></li> -->
         </ul>
     </div>
 	<div class="sys-content">

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpstudy\WWW\lanHu\application/manage\view\order\order_edit.html";i:1570783483;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:64:"D:\phpstudy\WWW\lanHu\application/manage\view\system\passwd.html";i:1570870740;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,114 +65,61 @@
 		  <?php else: ?>
 		  <li><a href="<?php echo url($vo['model'].'/'.$vo['url']); ?>"><?php echo $vo['name']; ?></a></li>
 		  <?php endif; endforeach; ?>
-  		  <li>修改</li>
 		</ol>
 	</div>
 	<div class="sys-content">
 		<form data-model="form-submit">
 	        <dl>
-	            <dt><i>*</i>订单编号：</dt>
+	            <dt><i>*</i>登录账号：</dt>
 	            <dd>
-	            	<input type="text" class="form-controls" name="order_num" disabled="disabled" value="<?php echo $info['order_num']; ?>">
-	            	<i>最多8个汉字或16个英文字符</i>
-	            </dd>
-	        </dl>
-			<dl>
-	            <dt><i>*</i>成人人数：</dt>
-	            <dd>
-	            	<input type="text" class="form-controls" name="aduly" value="<?php echo $info['aduly']; ?>">
-	            </dd>
-	        </dl>
-			<dl>
-	            <dt>小孩人数：</dt>
-	            <dd>
-	            	<input type="text" class="form-controls" name="baby" value="<?php echo $info['baby']; ?>">
-	            </dd>
-	        </dl>
-	        <dl>
-	            <dt><i>*</i>详细地址：</dt>
-	            <dd>
-	            	<input type="text" class="form-controls" name="addr_list" value="<?php echo $info['addr_list']; ?>">
-	            </dd>
-	        </dl>
-			<dl>
-				<dt>机票：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="plane"  value="<?php echo $info['plane']; ?>">
-				</dd>
-			</dl>
-			<dl>
-				<dt>接机：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="car" value="<?php echo $info['car']; ?>">
-				</dd>
-			</dl>
-			<dl>
-				<dt>管家：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="butlers" value="<?php echo $info['butlers']; ?>">
-				</dd>
-			</dl>
-	        <dl>
-	            <dt><i>*</i>出行时间：</dt>
-				
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['start_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-			
-			<dl>
-	            <dt><i>*</i>下单时间：</dt>
-				
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="add_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['add_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-			<dl>
-	            <dt>订单状态：</dt>
-	            <dd>
-	            	<select name="status" class="form-control" style="width: 200px;" >
-						<option value="0" <?php if($info['status'] == 0): ?>selected="selected"<?php endif; ?>>未审核</option>
-						<option value="1" <?php if($info['status'] == 1): ?>selected="selected"<?php endif; ?>>待出行</option>
-						<option value="2" <?php if($info['status'] == 2): ?>selected="selected"<?php endif; ?>>已出行</option>
-						<option value="3" <?php if($info['status'] == 3): ?>selected="selected"<?php endif; ?>>已完成</option>
-						<option value="4" <?php if($info['status'] == 4): ?>selected="selected"<?php endif; ?>>未评价</option>
-						<option value="5" <?php if($info['status'] == 5): ?>selected="selected"<?php endif; ?>>已评价</option>
-						<option value="100" <?php if($info['status'] == 100): ?>selected="selected"<?php endif; ?>>取消</option>
-					</select>
-	            	<!-- <em>元</em>
-	            	<i>（支持2位小数点）</i> -->
+	            	<?php if(empty($info) || (($info instanceof \think\Collection || $info instanceof \think\Paginator ) && $info->isEmpty())): ?>
+	            	<input type="text" style="width: 270px" name="username" class="form-controls" datatype="*" value="<?php echo $info['username']; ?>">
+	            	<i>最多10个英文、数字字符</i>
+	            	<?php else: ?>
+	            	<input type="text" style="width: 270px;background: #efefef;" name="username" class="form-controls" value="<?php echo $info['username']; ?>" readonly="">
+	            	<?php endif; ?>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>
-			
+	        <dl>
+	            <dt><i>*</i>姓名：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="<?php echo $info['name']; ?>">
+	            	<i>最多10个字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>手机号：</dt>
+	            <dd>
+	            	<input type="text" name="phone" style="width: 270px;"  class="form-controls"  value="<?php echo $info['phone']; ?>">
+	            	<i>11位手机号码</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>设置密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" name="password" class="form-controls" datatype="*6-20">
+	            	<i>6-20位英文、数字或字符,不修改请留空</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>确认密码：</dt>
+	            <dd>
+	            	<input type="password" style="width: 270px" class="form-controls" datatype="*6-20" recheck="password">
+	            	<i>6-20位英文、数字或字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
 	        <div class="submit-btn">
 	        	<input type="hidden" value="<?php echo $info['id']; ?>" name="id">
-	        	<input type="hidden" value="<?php echo $info['uid']; ?>" name="uid">
-	            <button class="btn btn-info">保存</button>
+	            <button class="btn btn-info">保存设置</button>
 	        </div>
 		</form>
 	</div>
 </div>
-<script type="text/javascript" src="/static/admin/js/admin.js"></script>
-<script type="text/javascript">
-function call_back(data){
-	console.log(data)
-}
-</script>
-<script type="text/javascript">
-$(function () {
-	<?php  $cityId = isset($info['city']) ? $info['city'] : '-1';  $areaId = isset($info['area']) ? $info['area'] : '-1'; ?>
-	GetComboboxTwo("ddlProvince", "ddlCity", "<?php echo url('getregion'); ?>", "id", "name", { levelId: 0 }, "id", "-1", "城市", "<?php echo $cityId; ?>", "-1");
-	setTimeout(function () {
-        GetComboboxTwo("ddlCity", "ddlArea", "<?php echo url('getregion'); ?>", "id", "name", { levelId: 0 }, "id", "-1", "加载中", "<?php echo $areaId; ?>", "-1");
-    },1000);
-});
-</script>
 		</div>
 	</div>
 </div>

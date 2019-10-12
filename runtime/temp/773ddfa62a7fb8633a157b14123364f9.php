@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html";i:1557097926;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\phpstudy\WWW\lanHu\application/manage\view\system\sysmenu.html";i:1570872076;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,33 +68,52 @@
 		</ol>
 	</div>
 	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="<?php echo url('sysmenuedit',[0]); ?>" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加主栏目</a>
+		</div>
+		<br/>
 		<form data-model="form-submit" class="form form-horizontal form-diy">
-			<div class="form-group trow">
-				<div class="col-xs-2 tcol input-addon">权限组名称</div>
-				<div class="col-xs-10 tcol">
-					<input type="text" name="name" value="<?php echo $info['name']; ?>" class="form-control" datatype="*">
-				</div>
-			</div>
-			<div class="form-group trow">
-				<div class="tcol input-addon" style="text-align: left;">权限选择 <span>( 勾选即代表赋予权限 )</span></div>
-			</div>
+			
 			<?php foreach($topNav as $vo): ?>
 			<table class="table table-diy table-rol">
 				<thead>
 					<tr>
 						<th>
-							<label class="checkbox-block" style="margin-left: 10px;">
-								<input type="checkbox" name="menu_power[]" value="<?php echo $vo['id']; ?>" <?php if(in_array($vo['id'],$menu)){ echo 'checked';} ?>> <?php echo $vo['name']; ?>
+							<label class="checkbox-block" style="margin-left: 10px;"><?php echo $vo['name']; ?>
 							</label>
+							<a href="<?php echo url('sysmenuedit',[$vo['id']]); ?>" class="btn" style="padding:3px 6px;">[修改]</a>
+							<a href="<?php echo url('sysmenuedit',[0,0,$vo['id']]); ?>" class="btn" style="padding:3px 6px;">[添加模块]</a>
+							<a href="javascript:void(0)" onclick="sysmenudel(<?php echo $vo['id']; ?>,1)" class="btn" style="padding:3px 6px;">[删除]</a>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;$oneRole = getRole($sub['id'],$admin['role_id']); ?>
+					
+					<?php if(is_array($vo['children']) || $vo['children'] instanceof \think\Collection || $vo['children'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vo['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sub): $mod = ($i % 2 );++$i;?>
 					<tr>
 						<td width="120" class="text-left">
-							<div class="checkbox-inline">
-							<label><input class="rows" type="checkbox" name="menu_power[]" value="<?php echo $sub['id']; ?>" <?php if(in_array($sub['id'],$menu)){ echo 'checked';} ?>><?php echo $sub['name']; ?> </label></div>
+							<div class="checkbox-inline selectHeadBox" style="width:30%;">
+							<label>
+								<?php echo $sub['name']; ?> 
+								
+							</label>
+							<a href="<?php echo url('sysmenuedit',[$sub['id'],0,$vo['id']]); ?>" class="btn" style="padding:3px 6px;">[修改]</a>
+							<a href="<?php echo url('sysmenuedit',[0,3,$sub['id']]); ?>" class="btn" style="padding:3px 6px;">[添加模块]</a>
+							<a href="javascript:void(0)" onclick="sysmenudel(<?php echo $sub['id']; ?>,2)" class="btn" style="padding:3px 6px;">[删除]</a>
+							</div>
+							<div class="checkbox-inline selectHeadBox" style="width:60%;">
+							<?php if(is_array($sub['extend']) || $sub['extend'] instanceof \think\Collection || $sub['extend'] instanceof \think\Paginator): $key = 0; $__LIST__ = $sub['extend'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ext): $mod = ($key % 2 );++$key;if($key > 1): ?>
+								<div class="checkbox-inline" style="color:#666;">
+									<label><?php echo get_power_parent($sub['id'],$sub['model'],$ext); ?> </label>
+									<?php  $subId = get_power_parent($sub['id'],$sub['model'],$ext,'id');  ?>
+									<a href="<?php echo url('sysmenuedit',[$subId,3,$sub['id']]); ?>" class="btn" style="padding:3px 3px;">[修改]</a>
+									<a href="javascript:void(0)" onclick="sysmenudel(<?php echo $subId; ?>,3)" class="btn" style="padding:3px 3px;">[删除]</a>
+								</div>
+								
+								
+								
+								<?php endif; endforeach; endif; else: echo "" ;endif; ?>
+							</div>
 						</td>
 					</tr>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
@@ -108,6 +127,34 @@
 		</form>
 	</div>
 </div>
+
+<script>
+	$('.selectHeadBox').each(function(index){
+		$(this).click(function(){
+			//var a = $(this).children('input').eq(0).prop('checked');
+			var a = $(this).find('input').eq(0).prop('checked');
+			$(this).find('input').eq(1).prop('checked',a);
+		
+		});
+	
+	});
+	
+	function sysmenudel(id,type){
+		var status = confirm('确定要删除吗');
+		if( status ){
+			var result = {};
+			result['id'] = id;
+			result['type'] = type;
+			$.post('<?php echo url("sysmenuedel"); ?>',result,function(data){
+				alert(data.msg);
+				if(data.code == 1){
+					window.location.reload();
+				}
+			},'json');
+		}
+	}
+	
+</script>
 		</div>
 	</div>
 </div>

@@ -171,6 +171,32 @@ class Product extends Admin{
         }
     }
     /**
+     * 评论隐藏/显示
+    **/
+    public function commentstatus(){
+        if(!isPost()){
+
+            return json(['code'=>0]);
+        }else{
+            $data = $_POST;
+            if( empty($data['type']) ){
+                $where['id'] = $data['id'];
+            }else{
+                if( $data['type'] == 1 ){
+                    $data['id'] = explode(',',$data['id']);
+                    $where['id'] = ['in',$data['id']];
+                }
+            }
+            $state = db('goodsComment')->where($where)->update(['status'=>$data['val']]);
+            if($state){
+                return $this->success('操作成功',url('comment'));
+            }else{
+                return $this->error('操作失败');
+            }
+        }
+    }
+
+    /**
      * 删除操作
     **/
     public function del(){
@@ -278,7 +304,7 @@ class Product extends Admin{
         }
         
 
-        $list = GoodsComment::where($where)->order('rank_num desc')->paginate(5,false,['query'=>request()->param()]);
+        $list = GoodsComment::where($where)->order('rank_num desc')->paginate(15,false,['query'=>request()->param()]);
         $this->assign('data',$searchData);
         $this->assign('list',$list);
         $this->assign('page',$list->render());

@@ -12,34 +12,54 @@
 		</ol>
 	</div>
 	<div class="right-content" data-model="table-bind">
+		<div class="option-btn">
+			<a href="{:url('sysmenuedit',[0])}" class="btn btn-success btn-green"><i class="iconfont">&#xe6c0;</i>添加主栏目</a>
+		</div>
+		<br/>
 		<form data-model="form-submit" class="form form-horizontal form-diy">
-			<div class="form-group trow">
-				<div class="col-xs-2 tcol input-addon">权限组名称</div>
-				<div class="col-xs-10 tcol">
-					<input type="text" name="name" value="{$info['name']}" class="form-control" datatype="*">
-				</div>
-			</div>
-			<div class="form-group trow">
-				<div class="tcol input-addon" style="text-align: left;">权限选择 <span>( 勾选即代表赋予权限 )</span></div>
-			</div>
+			
 			{foreach $topNav as $vo}
 			<table class="table table-diy table-rol">
 				<thead>
 					<tr>
 						<th>
-							<label class="checkbox-block" style="margin-left: 10px;">
-								<input type="checkbox" name="menu_power[]" value="{$vo['id']}" {php}if(in_array($vo['id'],$menu)){ echo 'checked';}{/php}> {$vo['name']}
+							<label class="checkbox-block" style="margin-left: 10px;">{$vo['name']}
 							</label>
+							<a href="{:url('sysmenuedit',[$vo['id']])}" class="btn" style="padding:3px 6px;">[修改]</a>
+							<a href="{:url('sysmenuedit',[0,0,$vo['id']])}" class="btn" style="padding:3px 6px;">[添加模块]</a>
+							<a href="javascript:void(0)" onclick="sysmenudel({$vo['id']},1)" class="btn" style="padding:3px 6px;">[删除]</a>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
+					
 					{volist name="vo.children" id="sub"}
-					{php}$oneRole = getRole($sub['id'],$admin['role_id']);{/php}
 					<tr>
 						<td width="120" class="text-left">
-							<div class="checkbox-inline">
-							<label><input class="rows" type="checkbox" name="menu_power[]" value="{$sub['id']}" {php}if(in_array($sub['id'],$menu)){ echo 'checked';}{/php}>{$sub['name']} </label></div>
+							<div class="checkbox-inline selectHeadBox" style="width:30%;">
+							<label>
+								{$sub['name']} 
+								
+							</label>
+							<a href="{:url('sysmenuedit',[$sub['id'],0,$vo['id']])}" class="btn" style="padding:3px 6px;">[修改]</a>
+							<a href="{:url('sysmenuedit',[0,3,$sub['id']])}" class="btn" style="padding:3px 6px;">[添加模块]</a>
+							<a href="javascript:void(0)" onclick="sysmenudel({$sub['id']},2)" class="btn" style="padding:3px 6px;">[删除]</a>
+							</div>
+							<div class="checkbox-inline selectHeadBox" style="width:60%;">
+							{volist name="sub.extend" id="ext" key="key"}
+								{if condition="$key gt 1"}
+								<div class="checkbox-inline" style="color:#666;">
+									<label>{:get_power_parent($sub['id'],$sub['model'],$ext)} </label>
+									{php} $subId = get_power_parent($sub['id'],$sub['model'],$ext,'id'); {/php}
+									<a href="{:url('sysmenuedit',[$subId,3,$sub['id']])}" class="btn" style="padding:3px 3px;">[修改]</a>
+									<a href="javascript:void(0)" onclick="sysmenudel({$subId},3)" class="btn" style="padding:3px 3px;">[删除]</a>
+								</div>
+								
+								
+								
+								{/if}
+							{/volist}
+							</div>
 						</td>
 					</tr>
 					{/volist}
@@ -53,3 +73,31 @@
 		</form>
 	</div>
 </div>
+
+<script>
+	$('.selectHeadBox').each(function(index){
+		$(this).click(function(){
+			//var a = $(this).children('input').eq(0).prop('checked');
+			var a = $(this).find('input').eq(0).prop('checked');
+			$(this).find('input').eq(1).prop('checked',a);
+		
+		});
+	
+	});
+	
+	function sysmenudel(id,type){
+		var status = confirm('确定要删除吗');
+		if( status ){
+			var result = {};
+			result['id'] = id;
+			result['type'] = type;
+			$.post('{:url("sysmenuedel")}',result,function(data){
+				alert(data.msg);
+				if(data.code == 1){
+					window.location.reload();
+				}
+			},'json');
+		}
+	}
+	
+</script>

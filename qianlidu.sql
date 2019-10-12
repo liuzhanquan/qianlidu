@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2019 �?10 �?10 �?04:19
+-- 生成日期: 2019 �?10 �?12 �?10:33
 -- 服务器版本: 5.5.53
 -- PHP 版本: 7.0.12
 
@@ -40,16 +40,17 @@ CREATE TABLE IF NOT EXISTS `cm_admin` (
   `role_id` int(11) DEFAULT NULL,
   `is_sys` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `cm_admin`
 --
 
 INSERT INTO `cm_admin` (`id`, `username`, `password`, `name`, `phone`, `remark`, `login_time`, `reg_time`, `loginnum`, `status`, `role_id`, `is_sys`) VALUES
-(1, 'admin', '###d11e8f2f44c9512290f778da2df1c60b', '超级管理员', '15817090127', '超级管理员', 1570670768, 1489201095, 71, 1, 1, 1),
+(1, 'admin', '123456', '超级管理员', '15817090127', '超级管理员', 1570843255, 1489201095, 71, 1, 1, 1),
 (2, 'admins', '###d11e8f2f44c9512290f778da2df1c60b', '测试', '15817090127', '测试', 1570519272, 1520943366, NULL, 1, 2, 0),
-(3, 'adminsss', '###bd031957887b1a5a33768341342b9f98', '测试2', '13265964401', '333333', 1529574236, 1529574236, NULL, 1, 2, 0);
+(3, 'adminsss', '###bd031957887b1a5a33768341342b9f98', '测试2', '13265964401', '333333', 1529574236, 1529574236, NULL, 1, 2, 0),
+(4, 'a1', '###d11e8f2f44c9512290f778da2df1c60b', 'dddd', '15118922217', 'cs', 1570871088, 1570792270, NULL, 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `cm_admin_group` (
   `power` text,
   `is_sys` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`gid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `cm_admin_group`
@@ -73,7 +74,8 @@ CREATE TABLE IF NOT EXISTS `cm_admin_group` (
 
 INSERT INTO `cm_admin_group` (`gid`, `name`, `menu_power`, `status`, `power`, `is_sys`) VALUES
 (1, '超级管理员', NULL, 1, NULL, 1),
-(2, '测试级别', '2,14,18,43,44,45,3,4,46,11,12', 1, 'Index/home,System/index,System/upload,System/banner,System/sms,System/sms_log,Goods/index,Goods/search_goods,Order/index,User/index,User/douser,User/level,User/dolevel,User/up,User/doup,News/index,News/category,News/docategory,News/single,Finance/setting', 0);
+(2, '测试级别', '2,14,18,53,3,4,46,11,12', 1, 'Index/home,System/index,System/upload,System/banner,System/sms,System/sms_log,Goods/index,Goods/search_goods,Order/index,User/index,User/douser,User/level,User/dolevel,User/up,User/doup,News/index,News/category,News/docategory,News/single,Finance/setting', 0),
+(3, '测试2', '2,14,18,53,43,44,15,41,19,51,52,47,50,49,48,3,4,46,12,11', 1, 'Product/index,Product/del/recycle,Product/recycle,Product/status,Product/productedit,Product/comment,Product/commentedit,Product/commentstatus,Order/index,Order/douser,Order/status,Agents/count,Agents/douser,Agents/index,Agents/douser,Agents/status,Agents/del,User/index,User/douser,User/status,User/del,Agentcard/cardtype,Agentcard/typeedit,Agentcard/del,Agentcard/index,Agentcard/list,Agentcard/status,Agentcard/del,Agentcard/add,System/index,System/sysmenu,System/sysmenuedit,System/sysmenuedel,System/account,System/doaccount,System/del,System/role,System/passwd', 0);
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `cm_admin_power` (
   `control` char(100) DEFAULT NULL,
   `action` char(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
 -- 转存表中的数据 `cm_admin_power`
@@ -124,7 +126,7 @@ INSERT INTO `cm_admin_power` (`id`, `parent`, `name`, `control`, `action`) VALUE
 (27, 68, '添加/编辑', 'User', 'dolevel'),
 (28, 67, '删除', 'User', 'del/user'),
 (29, 68, '删除', 'User', 'del/level'),
-(30, 77, '浏览', 'User', 'up'),
+(30, 18, '删除/恢复', 'Product', 'del/recycle'),
 (31, 77, '处理申请', 'User', 'doup'),
 (32, 77, '删除', 'User', 'del/user_up'),
 (33, 55, '浏览', 'News', 'index'),
@@ -134,14 +136,35 @@ INSERT INTO `cm_admin_power` (`id`, `parent`, `name`, `control`, `action`) VALUE
 (37, 56, '浏览', 'News', 'category'),
 (38, 56, '添加/编辑', 'News', 'docategory'),
 (39, 56, '删除', 'News', 'del/category'),
-(40, 57, '浏览', 'News', 'single'),
-(41, 57, '添加/编辑', 'News', 'dosingle'),
-(42, 57, '删除', 'News', 'del/category'),
+(67, 44, '查看/修改', 'Order', 'douser'),
+(63, 18, '回收站', 'Product', 'recycle'),
+(62, 18, '上架/下架', 'Product', 'status'),
 (43, 71, '浏览', 'Finance', 'index'),
 (44, 71, '审核', 'Finance', 'option'),
 (45, 71, '删除', 'Finance', 'del/cash'),
 (46, 72, '浏览/编辑', 'Finance', 'setting'),
-(47, 18, '浏览', 'User', 'up');
+(47, 18, '浏览/编辑', 'Product', 'productedit'),
+(65, 53, '修改', 'Product', 'commentedit'),
+(66, 53, '显示/隐藏', 'Product', 'commentstatus'),
+(68, 44, '订单状态修改', 'Order', 'status'),
+(70, 19, '查看/修改', 'Agents', 'douser'),
+(71, 19, '冻结/启用', 'Agents', 'status'),
+(72, 19, '删除', 'Agents', 'del'),
+(73, 52, '查看/修改', 'User', 'douser'),
+(74, 52, '冻结/启用', 'User', 'status'),
+(75, 52, '删除', 'User', 'del'),
+(76, 50, '添加/修改', 'Agentcard', 'typeedit'),
+(77, 50, '删除', 'Agentcard', 'del'),
+(78, 49, '查看/修改', 'Agentcard', 'list'),
+(79, 49, '冻结', 'Agentcard', 'status'),
+(80, 49, '删除', 'Agentcard', 'del'),
+(82, 46, '添加/修改', 'System', 'sysmenuedit'),
+(83, 46, '删除', 'System', 'sysmenuedel'),
+(84, 12, '子账号查看/修改', 'System', 'doaccount'),
+(85, 12, '删除', 'System', 'del'),
+(86, 12, '角色权限管理', 'System', 'role'),
+(87, 12, '角色权限查看/修改', 'System', 'dorole'),
+(88, 12, '角色删除', 'System', 'del');
 
 -- --------------------------------------------------------
 
@@ -169,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `cm_agent` (
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `status` tinyint(11) DEFAULT '1' COMMENT '是否启用',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='代理商、商家表' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='代理商、商家表' AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `cm_agent`
@@ -177,7 +200,8 @@ CREATE TABLE IF NOT EXISTS `cm_agent` (
 
 INSERT INTO `cm_agent` (`id`, `uid`, `name`, `level`, `business`, `card_img`, `money_img`, `card_num`, `province`, `city`, `area`, `address`, `start_time`, `stop_time`, `content`, `add_time`, `update_time`, `status`) VALUES
 (00000000001, 85, 'cddd', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1569736845, 1579642165, NULL, 0, 1570674848, 1),
-(00000000002, 90, '广州小代', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1569430845, 1579651225, NULL, 0, 1570673037, 1);
+(00000000002, 90, '广州小代', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1569430845, 1579651225, NULL, 0, 1570869374, 1),
+(00000000006, 92, '12321', 1, 0, NULL, NULL, '', NULL, NULL, NULL, NULL, 1570616450, 1569838853, NULL, 0, 1570875923, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `cm_agent_card` (
   `add_time` int(11) NOT NULL COMMENT '创建时间',
   `state` tinyint(4) DEFAULT '1' COMMENT '是否显示',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='代理商卡片' AUTO_INCREMENT=92 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='代理商卡片' AUTO_INCREMENT=102 ;
 
 --
 -- 转存表中的数据 `cm_agent_card`
@@ -210,6 +234,16 @@ CREATE TABLE IF NOT EXISTS `cm_agent_card` (
 
 INSERT INTO `cm_agent_card` (`id`, `card_num`, `password`, `card_type`, `card_state`, `card_style`, `print_status`, `up_num`, `charge_time`, `gid`, `start_time`, `stop_time`, `update_time`, `add_time`, `state`) VALUES
 (0000000001, 190928114251075, '20708586', 2, 0, 2, 1, 0, 259200, 2, 1569600000, 1572451200, 1570609723, 1569642165, 1),
+(0000000101, 191012162423390, '90525767', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000100, 191012162462015, '27292732', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000099, 191012162461519, '40321496', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000097, 191012162449713, '79520061', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000094, 191012162493244, '53405843', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000095, 191012162459951, '54077598', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000096, 191012162478410, '87397745', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000098, 191012162417371, '67231603', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000093, 191012162431026, '84967065', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
+(0000000092, 191012162486825, '81155860', 1, 0, 3, 0, 0, 31104000, 2, 1570609465, 1576830267, 1570868676, 1570868676, 1),
 (0000000015, 190928114285482, '72143821', 1, 0, 1, 0, 0, 86400, 1, 1569600000, 1572451200, 1569642165, 1569642165, 1),
 (0000000016, 190928114282065, '96373639', 1, 0, 1, 0, 0, 86400, 1, 1569600000, 1572451200, 1569642165, 1569642165, 1),
 (0000000017, 190928114285534, '15077705', 1, 0, 1, 0, 0, 86400, 1, 1569600000, 1572451200, 1569642165, 1569642165, 1),
@@ -297,6 +331,7 @@ INSERT INTO `cm_agent_card` (`id`, `card_num`, `password`, `card_type`, `card_st
 CREATE TABLE IF NOT EXISTS `cm_card_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL COMMENT '卡类名称',
+  `photo` varchar(100) DEFAULT NULL COMMENT '图标',
   `title` varchar(100) DEFAULT NULL COMMENT '备注',
   `add_time` int(11) NOT NULL COMMENT '创建时间',
   `update_time` int(11) NOT NULL COMMENT '修改时间',
@@ -307,10 +342,10 @@ CREATE TABLE IF NOT EXISTS `cm_card_type` (
 -- 转存表中的数据 `cm_card_type`
 --
 
-INSERT INTO `cm_card_type` (`id`, `name`, `title`, `add_time`, `update_time`) VALUES
-(1, 'A', '花椒旅行A类卡', 1570602100, 1570670883),
-(3, 'C', '花椒旅行C类卡', 1570602100, 1570670883),
-(2, 'B', '花椒旅行B类卡', 1570602100, 1570670883);
+INSERT INTO `cm_card_type` (`id`, `name`, `photo`, `title`, `add_time`, `update_time`) VALUES
+(1, 'A', NULL, '花椒旅行A类卡', 1570602100, 1570670883),
+(3, 'C', NULL, '花椒旅行C类卡', 1570602100, 1570670883),
+(2, 'B', NULL, '花椒旅行B类卡', 1570602100, 1570670883);
 
 -- --------------------------------------------------------
 
@@ -383,7 +418,7 @@ INSERT INTO `cm_config` (`id`, `name`, `value`) VALUES
 (26, 'brand_prefix', 'QLD'),
 (27, 'bank', NULL),
 (28, 'brand_long', '12'),
-(29, 'brand_logo', '/uploads/20180927\\d84bcc78fcc5a45a20d328dd431add89.jpg'),
+(29, 'brand_logo', '/uploads/20191012\\d7b7ab58415cbaa41489085d66bfd59b.jpg'),
 (30, 'team', 'a:1:{s:6:"reward";a:2:{i:6;a:3:{i:1;a:3:{s:11:"start_money";s:1:"1";s:9:"end_money";s:5:"60000";s:5:"ratio";s:1:"5";}i:2;a:3:{s:11:"start_money";s:5:"60000";s:9:"end_money";s:6:"120000";s:5:"ratio";s:1:"7";}i:3;a:3:{s:11:"start_money";s:6:"120000";s:9:"end_money";s:2:"-1";s:5:"ratio";s:1:"9";}}i:7;a:3:{i:1;a:3:{s:11:"start_money";s:1:"0";s:9:"end_money";s:5:"30000";s:5:"ratio";s:1:"5";}i:2;a:3:{s:11:"start_money";s:5:"30000";s:9:"end_money";s:5:"60000";s:5:"ratio";s:1:"7";}i:3;a:3:{s:11:"start_money";s:5:"60000";s:9:"end_money";s:2:"-1";s:5:"ratio";s:1:"9";}}}}'),
 (38, 'same', 'a:4:{i:6;a:3:{s:5:"level";s:1:"6";s:3:"one";s:1:"6";s:3:"two";s:1:"4";}i:7;a:3:{s:5:"level";s:1:"7";s:3:"one";s:1:"6";s:3:"two";s:1:"4";}i:8;a:3:{s:5:"level";s:1:"8";s:3:"one";s:2:"15";s:3:"two";s:1:"0";}i:9;a:3:{s:5:"level";s:1:"0";s:3:"one";s:1:"0";s:3:"two";s:1:"0";}}'),
 (36, 'upgrade', 'a:4:{i:6;a:2:{s:3:"num";s:1:"0";s:5:"level";s:1:"0";}i:7;a:2:{s:3:"num";s:6:"240000";s:5:"level";s:1:"6";}i:8;a:2:{s:3:"num";s:5:"46800";s:5:"level";s:1:"7";}i:9;a:2:{s:3:"num";s:5:"15232";s:5:"level";s:1:"8";}}'),
@@ -429,12 +464,12 @@ CREATE TABLE IF NOT EXISTS `cm_goods` (
 --
 
 INSERT INTO `cm_goods` (`id`, `title`, `title_list`, `agent`, `photo`, `goods_tag`, `rid`, `content`, `tips`, `show_banner`, `start_time`, `stop_time`, `total_time`, `show_time`, `hide_time`, `add_time`, `update_time`, `timestamp`, `rank_num`, `collect_num`, `status`) VALUES
-(0000000001, '泰山2', '登顶2', 1, '/uploads/20191008\\1136a13f91e1c2499d52b5b2bf59f323.jpg', '3', 3, '<p>旅游大巴<img src="/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg" alt="5a6ea1025d5c2bd8102498e424e44a88.jpg"/></p><p>2312313123</p>', '天气寒冷；注意防寒', 1, 1558474304, 1578474304, '6天6夜', 1558464304, 1578464304, 0, 1570517884, NULL, 2, 0, 1),
-(0000000002, '黄山', '下棋', 0, '/uploads/20180927\\286131d54b259796358953c602dd22c0.jpg', NULL, 1, '飞机', '天气炎热，注意防晒', 1, 0, 0, '5天4夜', 1558474304, 1578474304, 0, 0, NULL, 0, 0, 1),
-(0000000004, '庐山', '云雾', 0, '/uploads/20180910\\0ca66a23643bc82030b386c135b03c40.jpg', NULL, 2, '火车', '高山带上爬山装备', 0, 0, 0, '3天两夜', 1558474304, 1578474304, 0, 0, NULL, 0, 0, 1),
-(0000000005, '珠海', '水族馆', 1, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', '3', 1, '<p>火车</p>', '高原', 0, 0, 0, '1星期', 1558474304, 1578474304, 0, 1570518024, NULL, 3, 0, 1),
-(0000000006, '西藏神山', '西藏神山圣湖一日游', 0, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', NULL, 0, '<p>天天天天团</p>', '高原缺氧', 1, 0, 0, '2星期', 1558474304, 1578474304, 0, 1570518294, NULL, 0, 0, 1),
-(0000000007, '西藏神山圣湖', '西藏神山圣湖一日游', 0, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', NULL, 2, '飞机', '高原缺氧', 0, 0, 0, '2星期', 1558474304, 1578474304, 0, 0, NULL, 2, 0, 1),
+(0000000001, '泰山2', '登顶2', 1, '/uploads/20191008\\1136a13f91e1c2499d52b5b2bf59f323.jpg', '3', 3, '<p>旅游大巴<img src="/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg" alt="5a6ea1025d5c2bd8102498e424e44a88.jpg"/></p><p>2312313123</p>', '天气寒冷；注意防寒', 1, 1558474304, 1578474304, '6天6夜', 1558291504, 1579069104, 0, 1570778350, NULL, 2, 31051, 1),
+(0000000002, '黄山', '下棋', 0, '/uploads/20180927\\286131d54b259796358953c602dd22c0.jpg', NULL, 1, '飞机', '天气炎热，注意防晒', 1, 0, 0, '5天4夜', 1558474304, 1578474304, 0, 0, NULL, 0, 6485, 1),
+(0000000004, '庐山', '云雾', 0, '/uploads/20180910\\0ca66a23643bc82030b386c135b03c40.jpg', NULL, 2, '火车', '高山带上爬山装备', 0, 0, 0, '3天两夜', 1558474304, 1578474304, 0, 0, NULL, 0, 12345, 0),
+(0000000005, '珠海', '水族馆', 1, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', '3', 1, '<p>火车</p>', '高原', 0, 0, 0, '1星期', 1558474304, 1578474304, 0, 1570759679, NULL, 3, 4696, 0),
+(0000000006, '西藏神山', '西藏神山圣湖一日游', 0, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', NULL, 0, '<p>天天天天团</p>', '高原缺氧', 1, 0, 0, '2星期', 1558474304, 1578474304, 0, 1570518294, NULL, 0, 78952, 1),
+(0000000007, '西藏神山圣湖', '西藏神山圣湖一日游', 0, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', NULL, 2, '飞机', '高原缺氧', 0, 0, 0, '2星期', 1558474304, 1578474304, 0, 0, NULL, 2, 0, 0),
 (0000000008, '西藏神山圣湖', '西藏神山圣湖一日游', 0, '/uploads/20190926\\7402d39586c3ff7172b7122ec5e4647e.jpg', NULL, 3, '天天天天团', '高原缺氧', 0, 0, 0, '1个月', 1558474304, 1578474304, 0, 0, NULL, 0, 0, 1),
 (0000000010, 'fdsa', '1321', 1, '/uploads/20191008\\56ed07ac5aaed742675a2c5fb9baae72.jpg', NULL, 2, '<p>agffdsgfdsfdsafa</p>', NULL, 1, 1184817600, 1743469200, '6天6夜', 1376611200, 1672534800, 0, 1570522791, NULL, 2, 0, 1);
 
@@ -474,6 +509,7 @@ CREATE TABLE IF NOT EXISTS `cm_goods_comment` (
   `gid` int(11) NOT NULL COMMENT '商品ID',
   `uid` int(11) NOT NULL COMMENT '用户ID',
   `pid` int(11) NOT NULL DEFAULT '0' COMMENT '评论父id',
+  `oid` int(11) NOT NULL COMMENT '订单ID',
   `content` text NOT NULL COMMENT '品论主要内容',
   `score` int(11) NOT NULL DEFAULT '0',
   `rank_num` int(11) DEFAULT '0' COMMENT '排序',
@@ -487,15 +523,15 @@ CREATE TABLE IF NOT EXISTS `cm_goods_comment` (
 -- 转存表中的数据 `cm_goods_comment`
 --
 
-INSERT INTO `cm_goods_comment` (`id`, `gid`, `uid`, `pid`, `content`, `score`, `rank_num`, `update_time`, `add_time`, `status`) VALUES
-(0000000001, 1, 85, 0, '阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水', 0, 0, 0, 0, 1),
-(0000000002, 1, 85, 1, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 1),
-(0000000003, 2, 90, 2, '阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水', 0, 0, 0, 0, 1),
-(0000000004, 2, 85, 0, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 1),
-(0000000005, 2, 85, 0, '1阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水', 0, 0, 0, 0, 1),
-(0000000006, 1, 85, 0, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 1),
-(0000000007, 1, 85, 0, 'fdsafdsa', 0, 3, 1570679861, 1570679861, 1),
-(0000000016, 1, 85, 0, 'fdsafdsa', 0, 0, 1570680272, 1570680272, 1);
+INSERT INTO `cm_goods_comment` (`id`, `gid`, `uid`, `pid`, `oid`, `content`, `score`, `rank_num`, `update_time`, `add_time`, `status`) VALUES
+(0000000001, 1, 85, 0, 1, '<p>阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水</p>', 5, 1, 1570759661, 0, 0),
+(0000000002, 1, 85, 1, 2, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 0),
+(0000000003, 2, 90, 2, 3, '阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水', 0, 0, 0, 0, 1),
+(0000000004, 2, 85, 0, 4, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 1),
+(0000000005, 2, 85, 0, 5, '1阿凡达发大厦双方都阿凡达洒答复发送发发呆发大水', 0, 0, 0, 0, 1),
+(0000000006, 1, 85, 0, 6, '范德萨范德萨发呆洒发大水啊', 0, 0, 0, 0, 1),
+(0000000007, 1, 85, 0, 7, '<p>fdsafdsagfsdgfdsgfdsg</p>', 5, 3, 1570867665, 1570593461, 1),
+(0000000016, 1, 85, 0, 8, 'fdsafdsa', 0, 0, 1570680272, 1570680272, 1);
 
 -- --------------------------------------------------------
 
@@ -509,17 +545,19 @@ CREATE TABLE IF NOT EXISTS `cm_goods_com_photo` (
   `photo` varchar(100) NOT NULL COMMENT '图片路径',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否显示',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='评论图片上传' AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='评论图片上传' AUTO_INCREMENT=17 ;
 
 --
 -- 转存表中的数据 `cm_goods_com_photo`
 --
 
 INSERT INTO `cm_goods_com_photo` (`id`, `gcid`, `photo`, `status`) VALUES
-(0000000001, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
-(0000000002, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
+(0000000006, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
+(0000000005, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
 (0000000003, 16, '/uploads//20180908/760f7564ffa712942ff2e1ab273d95c9.jpg', 1),
-(0000000004, 16, '/uploads//20180908/3fa9fac5082d1825859d9c34edc4b7af.jpg', 1);
+(0000000004, 16, '/uploads//20180908/3fa9fac5082d1825859d9c34edc4b7af.jpg', 1),
+(0000000016, 7, '/uploads//20180908/cf67d2b859005647f94835379f2eec2d.jpg', 1),
+(0000000015, 7, '/uploads//20180907/afebbd7b50a98d26c7f866079a03368f.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -533,22 +571,24 @@ CREATE TABLE IF NOT EXISTS `cm_goods_photo` (
   `photo` varchar(100) NOT NULL COMMENT '图片路径',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否展示',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='商品多图列表' AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='商品多图列表' AUTO_INCREMENT=73 ;
 
 --
 -- 转存表中的数据 `cm_goods_photo`
 --
 
 INSERT INTO `cm_goods_photo` (`id`, `gid`, `photo`, `status`) VALUES
-(59, 1, '/uploads//20190926/59e29e9cd1c9f03997247fe2f5690af8.jpg', 1),
-(58, 1, '/uploads//20190930/4b8ec1d1b976b89fcbb791c8ce6e5b02.jpg', 1),
-(57, 1, '/uploads//20190930/59ed474275f5033088d7b5248b1551da.jpg', 1),
-(56, 1, '/uploads//20190930/62e94281cb64669bfdaa51a021ae19f4.jpg', 1),
-(54, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
-(55, 1, '/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg', 1),
-(53, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
+(72, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
+(71, 1, '/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg', 1),
+(70, 1, '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg', 1),
+(67, 1, '/uploads//20190930/4b8ec1d1b976b89fcbb791c8ce6e5b02.jpg', 1),
+(69, 1, '/uploads//20190930/62e94281cb64669bfdaa51a021ae19f4.jpg', 1),
+(68, 1, '/uploads//20190930/59ed474275f5033088d7b5248b1551da.jpg', 1),
+(66, 1, '/uploads//20190926/59e29e9cd1c9f03997247fe2f5690af8.jpg', 1),
 (63, 10, '/uploads//20180909/5f4c83389553100dea37df737963d49f.jpg', 1),
-(62, 10, '/uploads//20180909/66e14b143b2bf5cce9fd82a193a3c2f5.jpg', 1);
+(62, 10, '/uploads//20180909/66e14b143b2bf5cce9fd82a193a3c2f5.jpg', 1),
+(64, 5, '/uploads//20180908/3fa9fac5082d1825859d9c34edc4b7af.jpg', 1),
+(65, 5, '/uploads//20180907/afebbd7b50a98d26c7f866079a03368f.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -584,7 +624,7 @@ CREATE TABLE IF NOT EXISTS `cm_goods_t` (
   `tid` int(11) NOT NULL COMMENT '标签id',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='商品与标签关系表' AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='商品与标签关系表' AUTO_INCREMENT=29 ;
 
 --
 -- 转存表中的数据 `cm_goods_t`
@@ -596,10 +636,8 @@ INSERT INTO `cm_goods_t` (`id`, `gid`, `tid`, `add_time`) VALUES
 (00000000003, 2, 1, 0),
 (00000000004, 2, 3, 0),
 (00000000023, 10, 2, 1570522791),
-(00000000017, 5, 4, 1570518024),
-(00000000016, 5, 3, 1570518024),
-(00000000013, 1, 3, 1570517884),
-(00000000012, 1, 1, 1570517884),
+(00000000028, 5, 4, 1570759679),
+(00000000027, 5, 3, 1570759679),
 (00000000022, 10, 1, 1570522791),
 (00000000024, 10, 4, 1570522791);
 
@@ -625,6 +663,37 @@ INSERT INTO `cm_goods_tag` (`id`, `name`, `add_time`) VALUES
 (0000000002, '稻城亚丁', 0),
 (0000000003, '世外桃源', 0),
 (0000000004, '人间仙境', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cm_icon`
+--
+
+CREATE TABLE IF NOT EXISTS `cm_icon` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `title` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='图标' AUTO_INCREMENT=14 ;
+
+--
+-- 转存表中的数据 `cm_icon`
+--
+
+INSERT INTO `cm_icon` (`id`, `name`, `title`) VALUES
+(1, 'gakuang', NULL),
+(2, 'chanpin', NULL),
+(3, 'huiyuan', NULL),
+(4, 'huopin', NULL),
+(5, 'cpma', NULL),
+(6, 'fanli', NULL),
+(7, 'threeFx', NULL),
+(8, 'caiwu', NULL),
+(9, 'sz', NULL),
+(10, 'xinxi', NULL),
+(11, 'dingdan', NULL),
+(13, 'shuju', NULL);
 
 -- --------------------------------------------------------
 
@@ -661,10 +730,10 @@ CREATE TABLE IF NOT EXISTS `cm_order` (
 --
 
 INSERT INTO `cm_order` (`id`, `order_num`, `uid`, `gid`, `aduly`, `baby`, `phone`, `addr_p`, `addr_c`, `addr_a`, `addr_list`, `plane`, `car`, `butlers`, `add_time`, `start_time`, `update_time`, `verify`, `status`, `show`) VALUES
-(0000000001, 1909271637445655, 85, 1, 2, 2, NULL, '0', '0', '0', '白云区天河村天河镇', NULL, NULL, NULL, 1569573464, 1571713600, 1569573464, 0, 1, 1),
+(0000000001, 1909271637445655, 85, 1, 2, 2, NULL, '0', '0', '0', '白云区天河村天河镇1', 0, 0, 0, 1569573464, 1571713600, 1570868345, 0, 3, 1),
 (0000000002, 1909271637565210, 85, 1, 2, 2, NULL, '0', '0', '0', '天河区3天河村天河镇', NULL, NULL, NULL, 1569573476, 1571813600, 1569573476, 0, 0, 1),
-(0000000003, 1909271930094953, 85, 1, 2, 2, NULL, '0', '0', '0', '天河区1天河村天河镇', NULL, NULL, NULL, 1569583809, 1579613600, 1569583809, 0, 1, 1),
-(0000000004, 1909271934541014, 85, 1, 2, 2, NULL, '0', '0', '0', '天河区2天河村天河镇', NULL, NULL, NULL, 1569584094, 1579813600, 1569584094, 0, 0, 1);
+(0000000003, 1909271930094953, 85, 1, 2, 2, NULL, '0', '0', '0', '天河区1天河村天河镇', NULL, NULL, NULL, 1569583809, 1579613600, 1569583809, 0, 0, 1),
+(0000000004, 1909271934541014, 85, 1, 2, 2, NULL, '0', '0', '0', '天河区2天河村天河镇', NULL, NULL, NULL, 1569584094, 1579813600, 1569584094, 0, 100, 1);
 
 -- --------------------------------------------------------
 
@@ -701,37 +770,36 @@ CREATE TABLE IF NOT EXISTS `cm_sys_menu` (
   `extend` text,
   `sort` tinyint(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
 -- 转存表中的数据 `cm_sys_menu`
 --
 
 INSERT INTO `cm_sys_menu` (`id`, `parent`, `name`, `model`, `url`, `icon`, `extend`, `sort`) VALUES
-(2, 0, '概况', 'Index', 'index', 'gakuang', NULL, 1),
-(3, 0, '系统设置', 'System', '', 'sz', NULL, 7),
-(4, 3, '基础设置', 'System', 'index', 'sz', 'sethome,menu,domenu', 1),
-(6, 4, '基础设置', 'System', 'index', NULL, NULL, 1),
+(2, 0, '概况', 'Index', 'index', 'chanpin', NULL, 100),
+(3, 0, '系统设置', 'System', '', 'sz', NULL, 30),
+(4, 3, '基础设置', 'System', 'index', 'sz', '', 20),
 (7, 4, '用户管理', 'System', 'users', NULL, NULL, 2),
 (8, 4, '角色管理', 'System', 'roles', NULL, NULL, 3),
-(52, 51, '会员列表', 'User', 'index', 'fanli', NULL, 5),
-(51, 0, '会员管理', 'User', '', 'fanli', NULL, 5),
+(52, 51, '会员列表', 'User', 'index', 'fanli', 'douser,status,del', 5),
+(51, 0, '会员管理', 'User', '', 'fanli', '', 50),
 (11, 3, '修改资料', 'System', 'passwd', NULL, NULL, 2),
-(12, 3, '子账号管理', 'System', 'account', NULL, 'doaccount,role', 3),
-(14, 0, '路线管理', 'Product', '', 'chanpin', '', 2),
-(15, 0, '代理管理', 'Agents', '', 'huiyuan', NULL, 3),
-(18, 14, '路线管理', 'Product', 'index', 'index', 'index,recycle,productedit', 0),
-(19, 15, '身份管理', 'Agents', 'index', NULL, 'douser', 1),
-(44, 43, '预约列表', 'Order', 'index', NULL, NULL, 1),
-(53, 14, '评论管理', 'Product', 'comment', 'index', 'commentedit,commentadd', 0),
-(43, 0, '预约管理', 'Order', '', 'dingdan', NULL, 4),
-(50, 47, '规格配置', 'Agentcard', 'cardtype', '', 'typeedit', 7),
-(41, 15, '会员卡统计', 'Agents', 'count', NULL, 'city,agent_list', 7),
+(12, 3, '子账号管理', 'System', 'account', NULL, 'doaccount,del,role,dorole,del', 3),
+(14, 0, '路线管理', 'Product', '', 'chanpin', '', 80),
+(15, 0, '代理管理', 'Agents', '', 'threeFx', '', 60),
+(18, 14, '路线管理', 'Product', 'index', 'index', 'del/recycle,recycle,status,productedit', 0),
+(19, 15, '身份管理', 'Agents', 'index', NULL, 'douser,status,del', 15),
+(44, 43, '预约列表', 'Order', 'index', NULL, 'douser,status', 1),
+(53, 14, '评论管理', 'Product', 'comment', 'index', 'commentedit,commentstatus', 0),
+(43, 0, '预约管理', 'Order', '', 'dingdan', NULL, 71),
+(50, 47, '规格配置', 'Agentcard', 'cardtype', '', 'typeedit,del', 7),
+(41, 15, '会员卡统计', 'Agents', 'count', NULL, '', 5),
 (48, 47, '会员卡创建', 'Agentcard', 'add', '', NULL, 6),
-(49, 47, '会员卡列表', 'Agentcard', 'index', '', 'list', 7),
-(47, 0, '会员卡管理', 'Agentcard', '', 'fanli', NULL, 6),
+(49, 47, '会员卡列表', 'Agentcard', 'index', '', 'list,status,del', 7),
+(47, 0, '会员卡管理', 'Agentcard', '', 'fanli', NULL, 40),
 (37, 17, '充值申请管理', 'Wages', 'recharge', NULL, NULL, 5),
-(46, 3, '后台菜单设置', 'System', 'sysmenu', NULL, NULL, 1);
+(46, 3, '后台菜单设置', 'System', 'sysmenu', NULL, 'sysmenuedit,sysmenuedel', 10);
 
 -- --------------------------------------------------------
 
@@ -759,24 +827,25 @@ CREATE TABLE IF NOT EXISTS `cm_user` (
   `status` tinyint(1) DEFAULT '0',
   `code` char(20) DEFAULT NULL,
   `charge_time` int(11) DEFAULT NULL COMMENT '会员到期时间',
-  `reg_time` datetime DEFAULT NULL,
-  `login_time` datetime DEFAULT NULL,
+  `reg_time` int(11) DEFAULT NULL,
+  `login_time` int(11) DEFAULT NULL,
+  `update_time` int(11) NOT NULL COMMENT '更新时间',
   `only_code` char(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
 
 --
 -- 转存表中的数据 `cm_user`
 --
 
-INSERT INTO `cm_user` (`id`, `parent_id`, `top_parent`, `parent_path`, `is_area`, `level`, `nickname`, `sex`, `avatar`, `openid`, `wxinfo`, `money`, `reward_money`, `phone`, `password`, `card_id`, `status`, `code`, `charge_time`, `reg_time`, `login_time`, `only_code`) VALUES
-(85, 0, 0, '0_99', 0, 1, '连长', NULL, 'http://thirdwx.qlogo.cn/mmopen/QqibNTticr6tVh8ltgQ5syQTVgZlvNZYNWRs2S5HtkWbV5M43GmAh41Srn3iaXcxsLofLWp9nYQqMHEGezTNjaXDky4bMQyzKCT/132', 'otKSH1D8jjZEzVNveDrlYfFo45PI', NULL, '289920.00', '0.00', '13859815201', NULL, '441324199909090909', 1, '72A963B1', 1570689248, '2018-09-30 06:05:12', '2018-09-30 06:05:12', 'BE46'),
-(90, 85, 0, '0_99', 0, 1, 'Azaz', NULL, 'http://thirdwx.qlogo.cn/mmopen/5WQJs7LcPT2b9xKAWmiaCJPvLqlAdIGFCsXOanPxyX5EAvkYJUbrpb7VB3SHyVWMvxK3AezKQzU39dsexiaib0OgKXhUObtw9h1/132', 'otKSH1Ng76Sym2DCjsrZK9ezlJz4', NULL, '133120.00', '0.00', '13265985660', NULL, NULL, 1, 'C6037121', NULL, '2018-09-30 07:10:27', '2018-09-30 07:10:27', '1352'),
-(91, 90, 85, '1352_1,0_99', 0, 0, 'つError', NULL, 'http://thirdwx.qlogo.cn/mmopen/ajNVdqHZLLC9QQiaus5PGCm3CD9jgwYVkblRmwEXI86FhBy0oSj0ascp9U0afiaAyun88WsbR29Ciak4AEUWGYZfA/132', 'otKSH1ImluBdFK35ABETLilw93zY', NULL, '42400.00', '2880.00', '13256448468', NULL, NULL, 1, '298E37DC', NULL, '2018-09-30 07:08:58', '2018-09-30 07:08:58', '2D0C'),
-(92, 90, 85, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI', NULL, '42400.00', '0.00', '13562355586', NULL, NULL, 1, 'EFACDC26', NULL, '2018-09-30 07:10:16', '2018-09-30 07:10:16', '4CD6'),
-(93, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI1', NULL, '42400.00', '0.00', '13562355586', NULL, NULL, 1, 'EFACDC26', NULL, '2018-09-30 07:10:16', '2018-09-30 07:10:16', '4CD6'),
-(94, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI2', NULL, '42400.00', '0.00', '13562355586', NULL, NULL, 1, 'EFACDC26', NULL, '2018-09-30 07:10:16', '2018-09-30 07:10:16', '4CD6'),
-(95, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI3', NULL, '42400.00', '0.00', '13562355586', NULL, NULL, 1, 'EFACDC26', NULL, '2018-09-30 07:10:16', '2018-09-30 07:10:16', '4CD6');
+INSERT INTO `cm_user` (`id`, `parent_id`, `top_parent`, `parent_path`, `is_area`, `level`, `nickname`, `sex`, `avatar`, `openid`, `wxinfo`, `money`, `reward_money`, `phone`, `password`, `card_id`, `status`, `code`, `charge_time`, `reg_time`, `login_time`, `update_time`, `only_code`) VALUES
+(85, 0, 0, '0_99', 0, 1, '连长', NULL, 'http://thirdwx.qlogo.cn/mmopen/QqibNTticr6tVh8ltgQ5syQTVgZlvNZYNWRs2S5HtkWbV5M43GmAh41Srn3iaXcxsLofLWp9nYQqMHEGezTNjaXDky4bMQyzKCT/132', 'otKSH1D8jjZEzVNveDrlYfFo45PI', NULL, '289920.00', '0.00', '13859815201', NULL, '513436200010111343', 1, '72A963B1', 1573689248, 1570689248, 1570689248, 1570875437, 'BE46'),
+(90, 85, 0, '0_99', 0, 1, 'Azaz', NULL, 'http://thirdwx.qlogo.cn/mmopen/5WQJs7LcPT2b9xKAWmiaCJPvLqlAdIGFCsXOanPxyX5EAvkYJUbrpb7VB3SHyVWMvxK3AezKQzU39dsexiaib0OgKXhUObtw9h1/132', 'otKSH1Ng76Sym2DCjsrZK9ezlJz4', NULL, '133120.00', '0.00', '13265985660', NULL, '513436200010112581', 1, 'C6037121', 0, 1570689248, 1570689248, 1570788555, '1352'),
+(91, 90, 85, '1352_1,0_99', 0, 0, 'つError', NULL, 'http://thirdwx.qlogo.cn/mmopen/ajNVdqHZLLC9QQiaus5PGCm3CD9jgwYVkblRmwEXI86FhBy0oSj0ascp9U0afiaAyun88WsbR29Ciak4AEUWGYZfA/132', 'otKSH1ImluBdFK35ABETLilw93zY', NULL, '42400.00', '2880.00', '13256448468', NULL, NULL, 1, '298E37DC', NULL, 1570689248, 2018, 1570785544, '2D0C'),
+(92, 90, 85, '2D0C_2,1352_1,0_99', 0, 1, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI', NULL, '42400.00', '0.00', '13562355586', NULL, NULL, 1, 'EFACDC26', 1569838853, 2018, 2018, 1570875923, '4CD6'),
+(93, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI1', NULL, '42400.00', '0.00', '13562355587', NULL, NULL, 1, 'EFACDC26', NULL, 2018, 2018, 0, '4CD6'),
+(94, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI2', NULL, '42400.00', '0.00', '13562355588', NULL, NULL, 1, 'EFACDC26', NULL, 2018, 2018, 0, '4CD6'),
+(95, 85, 0, '2D0C_2,1352_1,0_99', 0, 0, 'ょAzaz.L', NULL, 'http://thirdwx.qlogo.cn/mmopen/nXpsNZlupjvWgC7kYicjoKkecqIcSC0IKOBTOQM3icUzL9cwnZz3UXST5lVO1zD47doxB2QCln0PgY5XoHzOa6zeOQgLmzfUzT/132', 'otKSH1ElKakHWDgZrQek44XlzqlI3', NULL, '42400.00', '0.00', '13562355589', NULL, NULL, 1, 'EFACDC26', NULL, 2018, 2018, 0, '4CD6');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

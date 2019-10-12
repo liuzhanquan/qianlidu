@@ -17,6 +17,7 @@ class Base extends Controller{
 		$this->request = \think\Request::instance();
 		$this->data = $this->request->param();
 		$this->setConfig();
+		
 	}
 
 	/**

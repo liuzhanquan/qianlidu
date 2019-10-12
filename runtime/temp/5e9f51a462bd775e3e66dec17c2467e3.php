@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpstudy\WWW\lanHu\application/manage\view\order\order_edit.html";i:1570783483;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\addagent.html";i:1570876158;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,89 +70,61 @@
 	</div>
 	<div class="sys-content">
 		<form data-model="form-submit">
-	        <dl>
-	            <dt><i>*</i>订单编号：</dt>
+			<dl>
+	            <dt><i>*</i>用户手机号：</dt>
 	            <dd>
-	            	<input type="text" class="form-controls" name="order_num" disabled="disabled" value="<?php echo $info['order_num']; ?>">
+	            	<input type="text" class="form-controls" name="userphone" datatype="m" value="">
+					<i>根据用户手机号升级代理商，代理商必须是用户</i>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt><i>*</i>授权名称：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="name" datatype="*1-16" value="">
 	            	<i>最多8个汉字或16个英文字符</i>
 	            </dd>
 	        </dl>
-			<dl>
-	            <dt><i>*</i>成人人数：</dt>
+	        <!-- <dl>
+	            <dt>代理商手机号：</dt>
 	            <dd>
-	            	<input type="text" class="form-controls" name="aduly" value="<?php echo $info['aduly']; ?>">
+	            	<input type="text" class="form-controls" name="phone" value="">
 	            </dd>
-	        </dl>
-			<dl>
-	            <dt>小孩人数：</dt>
+	        </dl> -->
+	        <dl>
+	            <dt>代理商等级：</dt>
 	            <dd>
-	            	<input type="text" class="form-controls" name="baby" value="<?php echo $info['baby']; ?>">
+	            	<input type="text" class="form-controls" name="level" value="1">
 	            </dd>
+	            <i>（0 为未激活）</i>
 	        </dl>
 	        <dl>
-	            <dt><i>*</i>详细地址：</dt>
+	            <dt>是否商家：</dt>
 	            <dd>
-	            	<input type="text" class="form-controls" name="addr_list" value="<?php echo $info['addr_list']; ?>">
-	            </dd>
-	        </dl>
-			<dl>
-				<dt>机票：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="plane"  value="<?php echo $info['plane']; ?>">
-				</dd>
-			</dl>
-			<dl>
-				<dt>接机：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="car" value="<?php echo $info['car']; ?>">
-				</dd>
-			</dl>
-			<dl>
-				<dt>管家：</dt>
-				<dd>
-					<input type="text" class="form-controls" name="butlers" value="<?php echo $info['butlers']; ?>">
-				</dd>
-			</dl>
-	        <dl>
-	            <dt><i>*</i>出行时间：</dt>
-				
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['start_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-			
-			<dl>
-	            <dt><i>*</i>下单时间：</dt>
-				
-	            <dd style="">
-	            	<div class="search-item" style="position:relative;height:20px;">
-						<input type="text" class="form-control" name="add_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="<?php if($info['id'] != 0): ?><?php echo date("Y-m-d H:i:s",$info['add_time']); else: ?><?php echo date('Y-m-d H:i:s',time()); endif; ?>" data-model="form-time" readonly="">
-					</div>
-	            </dd>
-	        </dl>
-			<dl>
-	            <dt>订单状态：</dt>
-	            <dd>
-	            	<select name="status" class="form-control" style="width: 200px;" >
-						<option value="0" <?php if($info['status'] == 0): ?>selected="selected"<?php endif; ?>>未审核</option>
-						<option value="1" <?php if($info['status'] == 1): ?>selected="selected"<?php endif; ?>>待出行</option>
-						<option value="2" <?php if($info['status'] == 2): ?>selected="selected"<?php endif; ?>>已出行</option>
-						<option value="3" <?php if($info['status'] == 3): ?>selected="selected"<?php endif; ?>>已完成</option>
-						<option value="4" <?php if($info['status'] == 4): ?>selected="selected"<?php endif; ?>>未评价</option>
-						<option value="5" <?php if($info['status'] == 5): ?>selected="selected"<?php endif; ?>>已评价</option>
-						<option value="100" <?php if($info['status'] == 100): ?>selected="selected"<?php endif; ?>>取消</option>
-					</select>
+	            	<label class="radio-inline"><input type="radio" name="business" value="1">是</label>
+	            	<label class="radio-inline"><input type="radio" name="business" checked value="0">否</label>
 	            	<!-- <em>元</em>
 	            	<i>（支持2位小数点）</i> -->
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>
-			
+	        <dl>
+	            <dt><i>*</i>代理期限时间：</dt>
+	            <dd style="">
+	            	<div class="search-item" style="position:relative;height:20px;">
+						<input type="text" class="form-control" name="start_time" style="width: 150px;float:left;position:absolute;left:0px;background:#fff;" value="" data-model="form-time" readonly=""><em style="float:left;margin-top:5px;position:absolute;left:160px;width:10px;">--</em>
+						<input type="text" class="form-control" name="stop_time" style="width: 150px;float:left;position:absolute;left:190px;background:#fff;" value=""" data-model="form-time" readonly="">
+					</div>
+	            </dd>
+	        </dl>
+	        <dl>
+	            <dt>代理商身份证号码：</dt>
+	            <dd>
+	            	<input type="text" class="form-controls" name="card_num" value="">
+	            </dd>
+	        </dl>
+	        
 	        <div class="submit-btn">
-	        	<input type="hidden" value="<?php echo $info['id']; ?>" name="id">
-	        	<input type="hidden" value="<?php echo $info['uid']; ?>" name="uid">
+	        	<input type="hidden" value="" name="id">
 	            <button class="btn btn-info">保存</button>
 	        </div>
 		</form>

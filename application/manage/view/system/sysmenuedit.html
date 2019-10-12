@@ -1,0 +1,116 @@
+<div class="right-panel">
+	<div class="bar-title">
+		<ol class="breadcrumb">
+		  <li><a href="{:url('/')}">首页</a></li>
+		  {foreach $url_path as $vo}
+		  {empty name="$vo['url']"}
+		  <li><a href="javascript:;">{$vo['name']}</a></li>
+		  {else /}
+		  <li><a href="{:url($vo['model'].'/'.$vo['url'])}">{$vo['name']}</a></li>
+		  {/empty}
+		  {/foreach}
+		</ol>
+	</div>
+	<div class="sys-content">
+		<form data-model="form-submit">
+	        <dl>
+	            <dt><i>*</i>菜单名称：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="name" class="form-controls" datatype="*" value="{$info['name']}">
+	            	<i>最多10个中英文、数字字符</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			{if condition="$data['type'] eq 3 || $id neq 0"}
+			<dl>
+	            <dt>上级菜单：</dt>
+	            <dd>
+	            	
+	                {foreach $list as $vo}
+						{if condition="$info['parent'] eq $vo['id'] || $data['pid'] eq $vo['id']"}
+							{$vo['name']}
+							<input type="hidden" name="parent" class="form-controls" datatype="*" value="{$data['pid']}">
+						{/if}
+					{/foreach}
+	                
+	            </dd>
+	        </dl>
+			{/if}
+			{if condition="$data['type'] egt 0 && $id eq 0 && $data['type'] neq  3"}
+	        <dl>
+	            <dt><i>*</i>上级菜单：</dt>
+	            <dd>
+	            	<select name="parent" class="select" data-model="form-select" style="width: 262px!important" datatype="*">
+	                    <option value="">请选择</option>
+	                    {foreach $list as $vo}
+						<option value="{$vo['id']}" {if condition="$info['parent'] eq $vo['id'] || $data['pid'] eq $vo['id']"}selected{/if}>{$vo['name']}</option>
+						{/foreach}
+	                </select>
+	                <i>角色对应的权限请在【角色权限】中修改</i>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			
+			{/if}
+			{if condition="$data['type'] eq -1"}
+	        <dl>
+	            <dt>图标：</dt>
+	            <dd>
+					<ul id="sidebar-menu" class="sidebar-menu">
+					{foreach name="icon" item="item"}
+					<li style="display:inline;" class="iconbox {if condition="$item['name'] eq $info['icon']"}on{/if}">
+						<label class="radio-inline">
+							<a href="javascript:void(0);" class="">
+							<input type="radio" name="icon" {if condition="$item['name'] eq $info['icon']"}checked{/if} value="{$item['name']}">
+								<i class="icon-{$item['name']}"></i>
+							</a>
+						</label>
+					</li>
+					{/foreach}
+					
+					</ul>
+	            </dd>
+	        </dl>
+			
+			{/if}
+	        <dl>
+	            <dt>模块：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="model" class="form-controls" value="{$info['model']}">
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt>方法：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="action" class="form-controls" value="{$info['url']}">
+	            </dd>
+	        </dl>
+			{if condition="$data['type'] neq 3"}
+			<dl>
+	            <dt>排序：</dt>
+	            <dd>
+	            	<input type="text" style="width: 270px" name="sort" class="form-controls" value="{$info['sort']}">
+	            </dd>
+	        </dl>
+			{/if}
+	        <div class="submit-btn">
+	        	<input type="hidden" value="{$info['id']}" name="id">
+	            <button class="btn btn-info">保存设置</button>
+	        </div>
+		</form>
+	</div>
+</div>
+<script>
+	$('.iconbox').each(function(index){
+			
+		$(this).click(function(){
+			$('.iconbox').attr('class','iconbox');
+			$(this).attr('class','iconbox on');
+			$(this).find('input').prop('checked',true);
+		});
+		
+	});
+</script>
+
+
+

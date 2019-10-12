@@ -1188,8 +1188,36 @@ if(!function_exists('get_user_parent')){
         return db('user')->where('id',$id)->find();
     }
 }
-
-
+if(!function_exists('get_power_parent')){
+    /**
+     * 获取菜单扩展方法名
+     * @param $id
+     * @return array
+     */
+    function get_power_parent($id,$control,$action,$status = 'name'){
+        $res =  db('admin_power')->where(['parent'=>$id,'control'=>$control,'action'=>$action])->find();
+        return $res ? $res[$status] : $action;
+    }
+}
+if(!function_exists('get_isagent')){
+    /**
+     * 获取菜单扩展方法名
+     * @param $phone
+     * @return array
+     */
+    function get_isagent($phone){
+        $res =  db('user')->where(['phone'=>$phone])->column('id');
+        if( !$res ) return exit(json_encode(['code'=>0,'msg'=>'没有该用户！']));
+        $agent = db('agent')->where(['uid'=>$res[0]])->column('id');
+        if( !$agent ){
+            $result['status'] = true;
+            $result['uid']   = $res[0];
+        }else{
+            $result['status'] = false;
+        }
+        return $result;
+    }
+}
 
 
 

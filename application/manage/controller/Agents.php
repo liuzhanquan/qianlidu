@@ -145,6 +145,62 @@ class Agents extends Admin{
         }
     }
 
+    public function addagent($id = '0'){
+        if(isPost()){
+            $data = $_POST;
+            // 修改会员等级
+            //$level = db('agent_level')->find($data['level_id']);
+            
+            // if( !empty($data['card_num'])  ){
+            //     if(!idCard($data['card_num'])){
+            //      return_ajax("请输入正确的身份证号码",400);
+            //     }else{
+            //         $ndata['card_num'] = $data['card_num'];
+            //     }
+            // }
+            
+            if( empty($data['start_time']) ) return $this->error('代理商时间不能为空!');
+            if( empty($data['stop_time']) ) return $this->error('代理商时间不能为空！');
+            if( $data['start_time'] > $data['stop_time'] ) return $this->error('代理商开始时间不能大于结束时间！');
+
+            if(!phoneNum($data['userphone'])) return_ajax("请输入正确的手机号码",400);
+            $res = get_isagent($data['userphone']);
+            if( $res['status'] === false ) return $this->error('该用户已是代理商，无需重复添加！');
+            $uid = $res['uid'];
+            
+            $ndata['name']      = $data['name'];
+            $ndata['level']     = $data['level'];
+            $ndata['business']  = $data['business'];
+            $ndata['card_num']  = $data['card_num'];
+            $ndata['uid']       = $uid;
+            $ndata['update_time']   = time();
+            $ndata['start_time']    = strtotime($data['start_time']);
+            $ndata['stop_time']     = strtotime($data['stop_time']);
+
+            
+
+            $state = db('agent')->insert($ndata);
+            if($state){
+                $user = db('user')->where('id',$uid)->field('level,charge_time')->find();
+                if( $user['charge_time'] < $ndata['stop_time'] ){
+                    $user['charge_time'] = $ndata['stop_time'];
+                }
+                $user['level'] = 1;
+                $user['update_time'] = time();
+                db('user')->where('id',$uid)->update($user);
+            }
+            
+
+            if($state){
+                return $this->success('操作成功',url('index'));
+            }else{
+                return $this->error('操作失败！');
+            }
+            
+        }
+
+        return $this->fetch();
+    }
 
     /**
      * 代理商列表

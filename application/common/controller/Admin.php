@@ -84,13 +84,14 @@ class Admin extends Base{
      * @return bool
      */
     private function checkPurview() {
+		
         $topKey = $this->request->controller(); // 控制器
         $action = $this->request->action(); // 操作方法
         $userRoleId = $this->admin_data['role_id'];
         $roleGroup = db('admin_group')->where('gid',$userRoleId)->find();
         if($roleGroup['is_sys'] <> 1){
             // 栏目权限
-            $menu = db('sys_menu')->where('id','in',$roleGroup['menu_power'])->order('sort asc')->select();
+            $menu = db('sys_menu')->where('id','in',$roleGroup['menu_power'])->order('sort desc')->select();
             $powerArr = explode(',', $roleGroup['power']);
             $powerArr[] = 'Index/index';
             $delArr = array();
@@ -100,15 +101,19 @@ class Admin extends Base{
                     $delArr[] = $powarr[2];
                 }
             }
+			
             $menuPower = $topKey.'/'.$action;
             if($action == 'del'){
                 // 判断删除权限
                 $table = $this->data['table'];
-                if(!in_array($table,$delArr)){
+                //if(!in_array($table,$delArr)){
+                //    return $this->error('您没有删除权限！');
+                //}
+				if(!in_array($menuPower,$powerArr)){
                     return $this->error('您没有删除权限！');
                 }
             }else{
-
+				
                 if(!in_array($menuPower,$powerArr)){
                     return $this->error('您没有权限！');
                 }
@@ -116,7 +121,7 @@ class Admin extends Base{
 
         }else{
             // 超级管理员
-            $menu = db('sys_menu')->order('sort asc')->select();
+            $menu = db('sys_menu')->order('sort desc')->select();
         }
         foreach($menu as $k=>$vo){
             $menu[$k] = $vo;
@@ -135,6 +140,9 @@ class Admin extends Base{
         //dump($list);exit();
         $this->assign('topNav', $list);
     }
+	
+	
+
     /**
      * 超时自动退出登录
      * @access protected

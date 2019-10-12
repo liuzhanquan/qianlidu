@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\index.html";i:1570773384;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570776449;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\phpstudy\WWW\lanHu\application/manage\view\agents\index.html";i:1570773384;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

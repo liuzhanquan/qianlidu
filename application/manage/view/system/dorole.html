@@ -38,11 +38,18 @@
 					{volist name="vo.children" id="sub"}
 					<tr>
 						<td width="120" class="text-left">
-							<div class="checkbox-inline">
-							<label><input class="rows" type="checkbox" name="menu_power[]" value="{$sub['id']}" {php}if(in_array($sub['id'],$menu)){ echo 'checked';}{/php}>{$sub['name']} </label></div>
-							{volist name="sub.extend" id="ext"}
-								<div class="checkbox-inline">
-								<label><input class="rows" type="checkbox" name="power[]" value="{$sub['id']}" {php}if(in_array($sub['id'],$menu)){ echo 'checked';}{/php}>{$sub['name']} </label></div>
+							<div class="checkbox-inline selectHeadBox" style="width:20%;">
+							<label>
+								<input class="rows" type="checkbox" name="menu_power[]" value="{$sub['id']}" {php}if(in_array($sub['id'],$menu)){ echo 'checked';}{/php}>{$sub['name']} 
+								
+								<input class="rows" type="checkbox" style="display:none;" name="power[]" value="{$sub.model}/{$sub.extend.0}" {php}if(in_array($sub['model'].'/'.$sub['extend'][0],$extend)){ echo 'checked';}{/php}> 
+							</label>
+							</div>
+							{volist name="sub.extend" id="ext" key="key"}
+								{if condition="$key gt 1"}
+								<div class="checkbox-inline" style="color:#666;">
+								<label><input class="rows" type="checkbox" name="power[]" value="{$sub['model']}/{$ext}" {php}if(in_array($sub['model'].'/'.$ext,$extend)){ echo 'checked';}{/php}>{:get_power_parent($sub['id'],$sub['model'],$ext)} </label></div>
+								{/if}
 							{/volist}
 						</td>
 					</tr>
@@ -57,3 +64,16 @@
 		</form>
 	</div>
 </div>
+
+<script>
+	$('.selectHeadBox').each(function(index){
+		$(this).click(function(){
+			//var a = $(this).children('input').eq(0).prop('checked');
+			var a = $(this).find('input').eq(0).prop('checked');
+			$(this).find('input').eq(1).prop('checked',a);
+		
+		});
+	
+	});
+
+</script>
