@@ -25,6 +25,7 @@ class GoodsComment extends Home{
 	public function add(){
 		$data = input();
 		empty($data['goods_id']) ? return_ajax('路线iD不能为空',400) : $ndata['gid']=$data['goods_id'];
+		empty($data['orderId']) ? return_ajax('路线iD不能为空',400) : $ndata['oid']=$data['orderId'];
 		empty($data['content']) ? return_ajax('评论内容不能为空',400) : $ndata['content']=$data['content'];
 		empty($data['score']) ? $ndata['score']=0 : $ndata['score']=$data['score'];
 		$userInfo = $this->userInfo();

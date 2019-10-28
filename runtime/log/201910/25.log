@@ -1,0 +1,2690 @@
+---------------------------------------------------------------
+[ 2019-10-25T14:40:28+08:00 ] 127.0.0.1 GET /
+[ info ] www.lh1.com/ [运行时间：1.041015s][吞吐率：0.96req/s] [内存消耗：2,687.16kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\user\index.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\header.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\footer.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013672s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.049805s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.007812s ]
+---------------------------------------------------------------
+[ 2019-10-25T14:40:29+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1571985629752
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1571985629752 [运行时间：0.099609s][吞吐率：10.04req/s] [内存消耗：2,482.96kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1571985629752',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:02+08:00 ] 127.0.0.1 GET /
+[ info ] www.lh1.com/ [运行时间：0.060547s][吞吐率：16.52req/s] [内存消耗：2,540.11kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\user\index.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\header.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\themes\default\footer.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:02+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572002342567
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572002342567 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,482.96kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572002342567',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012696s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:11+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572002351724
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572002351724 [运行时间：0.060547s][吞吐率：16.52req/s] [内存消耗：2,482.96kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572002351724',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:14+08:00 ] 127.0.0.1 GET /admin/
+[ info ] www.lh1.com/admin/ [运行时间：0.128907s][吞吐率：7.76req/s] [内存消耗：2,541.86kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'purpose' => 'prefetch',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004883s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:14+08:00 ] 127.0.0.1 GET /admin/login.html
+[ info ] www.lh1.com/admin/login.html [运行时间：0.101562s][吞吐率：9.85req/s] [内存消耗：2,538.89kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'login',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'purpose' => 'prefetch',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Login->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\login\index.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:25+08:00 ] 127.0.0.1 POST /admin/login/index.html
+[ info ] www.lh1.com/admin/login/index.html [运行时间：0.550782s][吞吐率：1.82req/s] [内存消耗：2,586.65kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/login.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => '123456',
+  'a' => 'login',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Login->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Login.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.066406s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`username` = 'admin' LIMIT 1 [ RunTime:0.055664s ]
+[ sql ] [ SQL ] UPDATE `cm_admin`  SET `id`=1,`login_time`=1572002364  WHERE  `id` = 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:25+08:00 ] 127.0.0.1 GET /admin/index.html
+[ info ] www.lh1.com/admin/index.html [运行时间：0.468750s][吞吐率：2.13req/s] [内存消耗：2,709.59kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572002364',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/login.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Index->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\index\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'money',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.087890s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.041992s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Index'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.076171s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 0 LIMIT 1 [ RunTime:0.012695s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_agent` WHERE  `business` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.048828s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_user` LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_order` [ RunTime:0.036132s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_order` LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:32+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.225586s][吞吐率：4.43req/s] [内存消耗：2,888.92kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.041015s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.029297s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:32+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.104492s][吞吐率：9.57req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:19:33+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.020507s][吞吐率：48.76req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:19:36+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.449219s][吞吐率：2.23req/s] [内存消耗：2,909.74kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.011718s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.014648s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.033203s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.047852s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.056641s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.044922s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:37+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572002376882
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572002376882 [运行时间：0.046875s][吞吐率：21.33req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572002376882',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:19:37+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572002376948
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572002376948 [运行时间：0.055664s][吞吐率：17.96req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572002376948',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004883s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:23:27+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.146484s][吞吐率：6.83req/s] [内存消耗：2,888.93kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018554s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:23:27+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.024414s][吞吐率：40.96req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:23:27+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.024414s][吞吐率：40.96req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:25:11+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.092774s][吞吐率：10.78req/s] [内存消耗：2,888.98kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:25:11+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.021484s][吞吐率：46.55req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:25:12+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.019531s][吞吐率：51.20req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:33:25+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.110351s][吞吐率：9.06req/s] [内存消耗：2,900.53kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014648s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:33:25+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.026367s][吞吐率：37.93req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:33:26+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.018554s][吞吐率：53.90req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:34:15+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.101563s][吞吐率：9.85req/s] [内存消耗：3,043.18kb] [文件加载：70]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:34:15+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.024414s][吞吐率：40.96req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:34:16+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.019532s][吞吐率：51.20req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:34:56+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.137696s][吞吐率：7.26req/s] [内存消耗：2,921.29kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:34:56+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003295073
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003295073 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003295073',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:34:56+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003295300
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003295300 [运行时间：0.059571s][吞吐率：16.79req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003295300',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:35:52+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.160156s][吞吐率：6.24req/s] [内存消耗：3,068.29kb] [文件加载：71]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:35:53+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003353065
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003353065 [运行时间：0.057618s][吞吐率：17.36req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003353065',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:35:53+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003353353
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003353353 [运行时间：0.060547s][吞吐率：16.52req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003353353',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:35:54+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003353077
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003353077 [运行时间：0.039062s][吞吐率：25.60req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003353077',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007813s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:09+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.135742s][吞吐率：7.37req/s] [内存消耗：3,068.31kb] [文件加载：71]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:10+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003369397
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003369397 [运行时间：0.050781s][吞吐率：19.69req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003369397',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:10+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003369626
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003369626 [运行时间：0.049805s][吞吐率：20.08req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003369626',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:11+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003369396
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003369396 [运行时间：0.041992s][吞吐率：23.81req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003369396',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:39+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.146484s][吞吐率：6.83req/s] [内存消耗：3,068.31kb] [文件加载：71]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:40+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003397922
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003397922 [运行时间：0.049804s][吞吐率：20.08req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003397922',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:40+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003398196
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003398196 [运行时间：0.063477s][吞吐率：15.75req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003398196',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005860s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.011719s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:36:41+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003397924
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003397924 [运行时间：0.051758s][吞吐率：19.32req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003397924',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:06+08:00 ] 127.0.0.1 GET /admin/product/productedit/5.html
+[ info ] www.lh1.com/admin/product/productedit/5.html [运行时间：0.148437s][吞吐率：6.74req/s] [内存消耗：2,910.14kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '5',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011719s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 5 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 5 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:06+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003426261
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003426261 [运行时间：0.053711s][吞吐率：18.62req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003426261',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:06+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003426529
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003426529 [运行时间：0.066406s][吞吐率：15.06req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003426529',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004882s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.013672s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:07+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003426262
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003426262 [运行时间：0.042969s][吞吐率：23.27req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/5.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003426262',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:10+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.025390s][吞吐率：39.39req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:37:13+08:00 ] 127.0.0.1 GET /admin/product/productedit/1.html
+[ info ] www.lh1.com/admin/product/productedit/1.html [运行时间：0.130860s][吞吐率：7.64req/s] [内存消耗：2,911.00kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001954s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:13+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003433670
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003433670 [运行时间：0.049805s][吞吐率：20.08req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003433670',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:14+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003433945
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003433945 [运行时间：0.071289s][吞吐率：14.03req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003433945',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002929s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:14+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003433671
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003433671 [运行时间：0.043945s][吞吐率：22.76req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003433671',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007813s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:19+08:00 ] 127.0.0.1 POST /admin/product/productedit/1.html
+[ info ] www.lh1.com/admin/product/productedit/1.html [运行时间：0.109375s][吞吐率：9.14req/s] [内存消耗：2,817.02kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.lh1.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '1569',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'title' => '泰山2',
+  'title_list' => '登顶2',
+  'agent' => '1',
+  'rid' => '3',
+  'photo' => '/uploads/20191008\\1136a13f91e1c2499d52b5b2bf59f323.jpg',
+  'show_banner' => '1',
+  'start_time' => '2019-05-22 05:31:44',
+  'stop_time' => '2020-01-08 17:05:04',
+  'total_time' => '6天6夜',
+  'show_time' => '2019-05-20 02:45:04',
+  'hide_time' => '2020-01-15 14:18:24',
+  'photo_arr' => 
+  array (
+    0 => '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg',
+    1 => '/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg',
+    2 => '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg',
+    3 => '/uploads//20190930/4b8ec1d1b976b89fcbb791c8ce6e5b02.jpg',
+    4 => '/uploads//20190930/62e94281cb64669bfdaa51a021ae19f4.jpg',
+    5 => '/uploads//20190930/59ed474275f5033088d7b5248b1551da.jpg',
+    6 => '/uploads//20190926/59e29e9cd1c9f03997247fe2f5690af8.jpg',
+  ),
+  'content' => '<p>旅游大巴<img src="/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg" alt="5a6ea1025d5c2bd8102498e424e44a88.jpg"/></p><p>2312313123</p>',
+  'tips' => '<p>天气寒冷；注意防寒fdasfdsaf</p>',
+  'rank_num' => '2',
+  'collect_num' => '31051',
+  'status' => '1',
+  'id' => '1',
+  0 => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.007812s ]
+[ sql ] [ SQL ] UPDATE `cm_goods`  SET `title`='泰山2',`title_list`='登顶2',`photo`='/uploads/20191008\\1136a13f91e1c2499d52b5b2bf59f323.jpg',`agent`=1,`show_banner`=1,`rid`=3,`start_time`=1558474304,`stop_time`=1578474304,`show_time`=1558291504,`hide_time`=1579069104,`total_time`='6天6夜',`content`='<p>旅游大巴<img src=\"/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg\" alt=\"5a6ea1025d5c2bd8102498e424e44a88.jpg\"/></p><p>2312313123</p>',`tips`='<p>天气寒冷；注意防寒fdasfdsaf</p>',`rank_num`=2,`collect_num`=31051,`update_time`=1572003439,`status`=1  WHERE  `id` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] DELETE FROM `cm_goods_photo`    WHERE  `gid` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg' , 1) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads//20180906/5a6ea1025d5c2bd8102498e424e44a88.jpg' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads/20180906/81fb4f2e274b093ef3df2e579da93958.jpg' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads//20190930/4b8ec1d1b976b89fcbb791c8ce6e5b02.jpg' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads//20190930/62e94281cb64669bfdaa51a021ae19f4.jpg' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads//20190930/59ed474275f5033088d7b5248b1551da.jpg' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `cm_goods_photo` (`gid` , `photo` , `status`) VALUES (1 , '/uploads//20190926/59e29e9cd1c9f03997247fe2f5690af8.jpg' , 1) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] DELETE FROM `cm_goods_t`    WHERE  `gid` = 1 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:23+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.081054s][吞吐率：12.34req/s] [内存消耗：2,888.98kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.005860s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:23+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.033203s][吞吐率：30.12req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:37:24+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.019531s][吞吐率：51.20req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:37:25+08:00 ] 127.0.0.1 GET /admin/product/productedit/1.html
+[ info ] www.lh1.com/admin/product/productedit/1.html [运行时间：0.128906s][吞吐率：7.76req/s] [内存消耗：2,911.02kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  0 => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.006835s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:26+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003445673
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003445673 [运行时间：0.054687s][吞吐率：18.29req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003445673',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003906s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:26+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003445673
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003445673 [运行时间：0.062500s][吞吐率：16.00req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003445673',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:26+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003445983
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003445983 [运行时间：0.058594s][吞吐率：17.07req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003445983',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:33+08:00 ] 127.0.0.1 GET /admin/product/index.html
+[ info ] www.lh1.com/admin/product/index.html [运行时间：0.089844s][吞吐率：11.13req/s] [内存消耗：2,888.98kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit/1.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\index.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'data',
+  6 => 'list',
+  7 => 'page',
+  8 => 'state',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001954s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `cm_goods` WHERE  `status` IN (0,1,2) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `status` IN (0,1,2) ORDER BY `rank_num` DESC LIMIT 0,15 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:33+08:00 ] 127.0.0.1 GET /uploads/20180927/286131d54b259796358953c602dd22c0.jpg
+[ info ] www.lh1.com/uploads/20180927/286131d54b259796358953c602dd22c0.jpg [运行时间：0.026367s][吞吐率：37.93req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180927',
+    2 => '286131d54b259796358953c602dd22c0.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:37:34+08:00 ] 127.0.0.1 GET /uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg
+[ info ] www.lh1.com/uploads/20180910/0ca66a23643bc82030b386c135b03c40.jpg [运行时间：0.030274s][吞吐率：33.03req/s] [内存消耗：1,358.78kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'uploads',
+    1 => '20180910',
+    2 => '0ca66a23643bc82030b386c135b03c40.jpg',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-10-25T19:37:34+08:00 ] 127.0.0.1 GET /admin/product/productedit.html
+[ info ] www.lh1.com/admin/product/productedit.html [运行时间：0.166016s][吞吐率：6.02req/s] [内存消耗：2,889.85kb] [文件加载：69]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'product',
+    2 => 'productedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Product->ProductEdit[ D:\phpstudy\WWW\lanHu\application\manage\controller\Product.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html [ array (
+  0 => 'config',
+  1 => 'admin',
+  2 => 'topNav',
+  3 => 'url_path',
+  4 => 'sysLink',
+  5 => 'info',
+  6 => 'agent',
+  7 => 'goodsRecommed',
+  8 => 'photo',
+  9 => 'goodsTag',
+  10 => 'goodsT',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006836s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as level_name FROM `cm_admin` `a` INNER JOIN `cm_admin_group` `b` ON `a`.`role_id`=`b`.`gid` WHERE  `a`.`id` = '1' LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_admin_group` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_admin_group` WHERE  `gid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_sys_menu` [ RunTime:0.006836s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` ORDER BY `sort` DESC [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `url` = 'productedit' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_sys_menu` WHERE  `model` = 'Product'  AND `extend` LIKE '%productedit%' LIMIT 1 [ RunTime:0.004883s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_agent` [ RunTime:0.008789s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_agent` WHERE  `status` = 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_user` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT `id`,`nickname` FROM `cm_user` WHERE  `id` IN (85,90,92) [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_recommed` [ RunTime:0.008790s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_recommed` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_photo` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_photo` WHERE  `gid` = 0 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_tag` [ RunTime:0.005859s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_tag` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_goods_t` [ RunTime:0.009765s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_goods_t` WHERE  `gid` = 0 [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:34+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003454060
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003454060 [运行时间：0.059571s][吞吐率：16.79req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003454060',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.007813s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:34+08:00 ] 127.0.0.1 GET /admin/upload/index.html?action=config&&noCache=1572003454061
+[ info ] www.lh1.com/admin/upload/index.html?action=config&&noCache=1572003454061 [运行时间：0.082032s][吞吐率：12.19req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003454061',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.022461s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.010742s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.000977s ]
+---------------------------------------------------------------
+[ 2019-10-25T19:37:34+08:00 ] 127.0.0.1 GET /admin/Upload/index.html?action=config&&noCache=1572003454339
+[ info ] www.lh1.com/admin/Upload/index.html?action=config&&noCache=1572003454339 [运行时间：0.064453s][吞吐率：15.52req/s] [内存消耗：2,483.20kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy\WWW\lanHu\framework\lang\zh-cn.php
+[ info ] [ BIND ] 'manage'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'manage',
+    1 => 'Upload',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'admin_cookie=1; login_time=1572005964',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.lh1.com/admin/product/productedit.html',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.lh1.com',
+)
+[ info ] [ PARAM ] array (
+  'action' => 'config',
+  'noCache' => '1572003454339',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\manage\controller\Upload->index[ D:\phpstudy\WWW\lanHu\application\manage\controller\Upload.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;dbname=qianlidu;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cm_config` [ RunTime:0.009766s ]
+[ sql ] [ SQL ] SELECT * FROM `cm_config` ORDER BY `id` DESC [ RunTime:0.001953s ]

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1570780042;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy\WWW\lanHu\application/manage\view\product\product_edit.html";i:1572003397;s:57:"D:\phpstudy\WWW\lanHu\application\manage\view\layout.html";i:1570862656;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -205,6 +205,13 @@
 	            <dt><i>*</i>详细描述：</dt>
 	            <dd>
 	            	<textarea name="content" rows="5" id="content" data-model="form-ueditor"><?php echo $info['content']; ?></textarea>
+	            	<div class="tip-alert"></div>
+	            </dd>
+	        </dl>
+			<dl>
+	            <dt><i>*</i>提示（tips）：</dt>
+	            <dd>
+	            	<textarea name="tips" rows="5" id="tips" data-model="form-ueditor"><?php echo $info['tips']; ?></textarea>
 	            	<div class="tip-alert"></div>
 	            </dd>
 	        </dl>

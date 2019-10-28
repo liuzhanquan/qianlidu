@@ -94,6 +94,7 @@ class Product extends Admin{
             $ndata['hide_time']     = strtotime($data['hide_time']);
             $ndata['total_time']    = $data['total_time'];
             $ndata['content']       = $data['content'];
+            $ndata['tips']       = $data['tips'];
             $ndata['rank_num']      = $data['rank_num'];
             $ndata['collect_num']   = $data['collect_num'];
             $ndata['update_time']   = time();
@@ -145,6 +146,8 @@ class Product extends Admin{
             }
     	}
 	}
+	
+	
     /**
      * 处理上下架
     **/

@@ -73,17 +73,34 @@ class User extends Home{
         if( empty(input('card_pass')) ) return_ajax('卡密不能为空',400);
 
         $userInfo = userdecode(cookie('userInfo'));
+		
+		//查看手机号是否已经绑定别的用户
+		$res1 = db('user')
+				->where('id','neq',$userInfo['id'])
+				->where('phone','eq',input('phone'))
+				->count();
+		if( $res1 ) return_ajax('该手机号已经绑定别的用户，无法重复绑定',400);
+		
         $res = db('user')
                ->where(['id'=>$userInfo['id']])
                // ->where('level','neq',0)
                ->find();
-
+			   
+		//判断用户是否绑定手机号
+		$phone = 0;
+		if( empty($res['phone']) ){
+			$phone = input('phone');
+		}else{
+			if( $res['phone'] <> input('phone') ) return_ajax('您的手机号码与绑定手机号码不一致',400);
+		}
+		
+		
         // if(!empty($res)) return_ajax('用户已激活，无需再次激活',400);
 
         $this->checkPhoneCms(input('phone'),input('code'));
         $chagetime = $this->cardActivate(input('card_num'),input('card_pass'),$userInfo['id']);
-        
-        $this->chargeUserTime($userInfo['id'],$res['charge_time'],$chagetime);
+        $chagetime = 100;
+        $this->chargeUserTime($userInfo['id'],$res['charge_time'],$chagetime,$phone);
         
         
         return_ajax('激活成功',200);
@@ -98,9 +115,9 @@ class User extends Home{
      * @param  card_charge  续期时间
      * @return array
      */
-    public function chargeUserTime($id, $user_charge, $card_charge){
+    public function chargeUserTime($id, $user_charge, $card_charge,$phone = 0){
         $date['level'] = 1;
-
+		
         if( $user_charge < time() ){
             $date['charge_time'] = time() + $card_charge;
             $str = '激活成功';
@@ -108,7 +125,11 @@ class User extends Home{
             $date['charge_time'] = $user_charge + $card_charge;
             $str = '会员续期成功';
         }
-
+		
+		if( !empty( $phone ) ){
+			$date['phone'] = $phone;
+		}
+		
         $info = db('user')->where('id',$id)->update($date);
 
         if( $info ){
@@ -222,15 +243,16 @@ class User extends Home{
         $data['phone'] = input('phone');
         $data['code']  = $code;
         $data['add_time'] = time();
-        $info = db('sms')->where('phone',input('phone'))->column('add_time')[0];
-        //判断时间是否大于60秒
-        if( (time() - (int)$info) < 60 ){
-            return_ajax('一分钟内只能发送一次哦',400);
-        }
+        $info = db('sms')->where('phone',input('phone'))->column('add_time');
+        
 
-        if( empty($info) ){
+        if( empty($info[0]) ){
             $res = db('sms')->insert($data);
         }else{
+			//判断时间是否大于60秒
+			if( (time() - (int)$info[0]) < 60 ){
+				return_ajax('一分钟内只能发送一次哦',400);
+			}
             $res = db('sms')->where('phone',input('phone'))->update($data);
         }
         if( $res ){

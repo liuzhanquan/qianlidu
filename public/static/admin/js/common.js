@@ -549,7 +549,8 @@
      */
     owner.upload = function ($el, config) {
         var defaultConfig = {
-            url: webRoot + 'upload/alone.html',
+            //url: webRoot + 'upload/alone.html',
+            url: 'http://jmwapi.osd-asia.com/api/upload/userimg',
             type: '*',
             size: 0,
             multi: true,

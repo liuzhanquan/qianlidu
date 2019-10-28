@@ -85,6 +85,7 @@
 						<a href="{:url('ProductEdit',['id'=>$vo['id']])}">修改</a><em>-</em>
 						{if condition="$vo['status'] eq 0"}
 						<a href="javascript:void(0)" data-confirm data-tips="确定要上架吗？" data-id="{$vo['id']}" data-url="{:url('status')}" data-val="1">上架</a>
+						<br/>
 						<a href="javascript:void(0)" data-del data-id="{$vo['id']}" data-table="recycle" data-tips="产品删除之后将进入回收站，确定要删除吗？">删除</a>
 						{else /}
 						<a href="javascript:void(0)" data-confirm data-tips="下架后代理将不能按该产品下单，确定要下架吗？" data-id="{$vo['id']}" data-url="{:url('status')}" data-val="0">下架</a>
