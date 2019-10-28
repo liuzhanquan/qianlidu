@@ -37,6 +37,7 @@ class Product extends Admin{
     	$this->assign('state',$state);
         return $this->fetch();
     }
+
 	/**
 	 * 产品回收站
 	**/
@@ -173,6 +174,7 @@ class Product extends Admin{
             }
         }
     }
+    
     /**
      * 评论隐藏/显示
     **/
